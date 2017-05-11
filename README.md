@@ -4,7 +4,7 @@
 
 ### 예시 UI
 
-[![UI](Image/KakaoTalk_Photo_2017-05-11-16-57-58.png)]
+<p align="center"><img src="https://github.com/ProjectInTheClass/HyuJokbo/blob/master/Image/KakaoTalk_Photo_2017-05-11-16-57-58.png" width="300px"/></p>
 
 ### 핵심 기능
 
@@ -14,8 +14,8 @@
 
 ### 팀원
 
-신지원
+신지원 (sarah95071626@gmail.com)
 
-박병욱
+박병욱 (qkrquddnr99@gmail.com)
 
-박한솔
+박한솔 (dosuri12345@naver.com)
