@@ -4,7 +4,7 @@
 
 ### 예시 UI
 
-<p align="center"><img src="https://github.com/ProjectInTheClass/HyuJokbo/blob/master/Image/KakaoTalk_Photo_2017-05-11-16-57-58.png" width="300px"/></p>
+<p align="center"><img src="https://github.com/ProjectInTheClass/HyuJokbo/blob/master/Image/KakaoTalk_Photo_2017-05-11-17-15-57.png" width="300px"/></p>
 
 ### 핵심 기능
 
