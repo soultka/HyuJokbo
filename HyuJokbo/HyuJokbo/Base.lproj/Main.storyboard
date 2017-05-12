@@ -92,6 +92,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="MEu-ZV-3dn">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <connections>
                         <segue destination="FrT-W1-vDW" kind="relationship" relationship="rootViewController" id="0cQ-eg-iYQ"/>
@@ -105,7 +106,7 @@
         <scene sceneID="ty7-IW-5QN">
             <objects>
                 <tableViewController id="a0h-eQ-Vbs" customClass="JokboTableViewController" customModule="HyuJokbo" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="59" sectionHeaderHeight="28" sectionFooterHeight="28" id="p1S-tZ-crF" customClass="JokboTableView" customModule="HyuJokbo" customModuleProvider="target">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="59" sectionHeaderHeight="28" sectionFooterHeight="28" id="p1S-tZ-crF">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -165,26 +166,6 @@
                                 <segue destination="BnO-Lb-HuT" kind="presentation" id="CWf-bG-mua"/>
                             </connections>
                         </barButtonItem>
-                        <view key="titleView" contentMode="scaleToFill" id="Qp6-NV-sbg">
-                            <rect key="frame" x="58" y="5.5" width="204" height="33"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="족 보" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dtn-Rg-8ID">
-                                    <rect key="frame" x="81" y="4" width="34" height="21"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                    <nil key="textColor"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
-                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KcJ-2F-DUy">
-                                    <rect key="frame" x="-8" y="0.0" width="220" height="30"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <nil key="textColor"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                    <textInputTraits key="textInputTraits"/>
-                                </textField>
-                            </subviews>
-                        </view>
                         <barButtonItem key="rightBarButtonItem" image="icon-search" id="dcm-zt-cmH">
                             <connections>
                                 <action selector="SearchBarButtonPressed:" destination="a0h-eQ-Vbs" id="9PG-jr-oSd"/>
@@ -192,14 +173,10 @@
                         </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
-                    <connections>
-                        <outlet property="JokboLabel" destination="Dtn-Rg-8ID" id="rXp-8S-ed6"/>
-                        <outlet property="SearchTextLabel" destination="KcJ-2F-DUy" id="c2y-gW-3zQ"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b23-k6-IbW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="309.375" y="-1465.1408450704225"/>
+            <point key="canvasLocation" x="337.5" y="-1465.1408450704225"/>
         </scene>
         <!--족보-->
         <scene sceneID="BOz-2B-Qpg">
@@ -209,6 +186,12 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="FWb-ZZ-ukd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="barTintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
+                            <offsetWrapper key="textShadowOffset" horizontal="0.0" vertical="0.0"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="a0h-eQ-Vbs" kind="relationship" relationship="rootViewController" id="wEE-DI-hWT"/>

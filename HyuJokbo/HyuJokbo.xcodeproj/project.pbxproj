@@ -18,7 +18,8 @@
 		774A93BF1EC4BB7B00B96A56 /* MydataTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774A93BE1EC4BB7B00B96A56 /* MydataTableViewController.swift */; };
 		774A93C11EC4BCEC00B96A56 /* DataCenter.plist in Resources */ = {isa = PBXBuildFile; fileRef = 774A93C01EC4BCEC00B96A56 /* DataCenter.plist */; };
 		774A93C31EC4C2EA00B96A56 /* JokboTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774A93C21EC4C2EA00B96A56 /* JokboTableViewCell.swift */; };
-		77A84EE61EC4DC0C00EB7984 /* JokboTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A84EE51EC4DC0C00EB7984 /* JokboTableView.swift */; };
+		776C381B1EC591CF00201853 /* SearchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 776C381A1EC591CF00201853 /* SearchView.xib */; };
+		776C381D1EC5926700201853 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776C381C1EC5926700201853 /* SearchView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,7 +36,8 @@
 		774A93BE1EC4BB7B00B96A56 /* MydataTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MydataTableViewController.swift; sourceTree = "<group>"; };
 		774A93C01EC4BCEC00B96A56 /* DataCenter.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = DataCenter.plist; sourceTree = "<group>"; };
 		774A93C21EC4C2EA00B96A56 /* JokboTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JokboTableViewCell.swift; sourceTree = "<group>"; };
-		77A84EE51EC4DC0C00EB7984 /* JokboTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JokboTableView.swift; sourceTree = "<group>"; };
+		776C381A1EC591CF00201853 /* SearchView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SearchView.xib; path = ../SearchView.xib; sourceTree = "<group>"; };
+		776C381C1EC5926700201853 /* SearchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchView.swift; path = ../SearchView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,7 +74,6 @@
 				23EA299E1EBB226A009F40F8 /* ViewController.swift */,
 				23EA29A01EBB226A009F40F8 /* Main.storyboard */,
 				774A93C21EC4C2EA00B96A56 /* JokboTableViewCell.swift */,
-				77A84EE51EC4DC0C00EB7984 /* JokboTableView.swift */,
 				774A93B81EC4BB6000B96A56 /* JokboTableViewController.swift */,
 				774A93BA1EC4BB6B00B96A56 /* GoohaeTableViewController.swift */,
 				774A93BC1EC4BB7300B96A56 /* HonorTableViewController.swift */,
@@ -81,6 +82,8 @@
 				23EA29A51EBB226A009F40F8 /* LaunchScreen.storyboard */,
 				23EA29A81EBB226A009F40F8 /* Info.plist */,
 				774A93C01EC4BCEC00B96A56 /* DataCenter.plist */,
+				776C381A1EC591CF00201853 /* SearchView.xib */,
+				776C381C1EC5926700201853 /* SearchView.swift */,
 			);
 			path = HyuJokbo;
 			sourceTree = "<group>";
@@ -146,6 +149,7 @@
 			files = (
 				23EA29A71EBB226A009F40F8 /* LaunchScreen.storyboard in Resources */,
 				774A93C11EC4BCEC00B96A56 /* DataCenter.plist in Resources */,
+				776C381B1EC591CF00201853 /* SearchView.xib in Resources */,
 				23EA29A41EBB226A009F40F8 /* Assets.xcassets in Resources */,
 				23EA29A21EBB226A009F40F8 /* Main.storyboard in Resources */,
 			);
@@ -158,6 +162,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				776C381D1EC5926700201853 /* SearchView.swift in Sources */,
 				774A93BB1EC4BB6B00B96A56 /* GoohaeTableViewController.swift in Sources */,
 				774A93C31EC4C2EA00B96A56 /* JokboTableViewCell.swift in Sources */,
 				774A93B91EC4BB6000B96A56 /* JokboTableViewController.swift in Sources */,
@@ -165,7 +170,6 @@
 				774A93BF1EC4BB7B00B96A56 /* MydataTableViewController.swift in Sources */,
 				774A93BD1EC4BB7300B96A56 /* HonorTableViewController.swift in Sources */,
 				23EA299D1EBB226A009F40F8 /* AppDelegate.swift in Sources */,
-				77A84EE61EC4DC0C00EB7984 /* JokboTableView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

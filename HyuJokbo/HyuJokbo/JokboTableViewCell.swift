@@ -16,7 +16,6 @@ class JokboTableViewCell: UITableViewCell {
 
     @IBOutlet weak var SubjectLabel: UILabel!
     @IBOutlet weak var ProfessorLabel: UILabel!
-
     @IBOutlet weak var DownloadButtonImage: UIButton!
 
     var downloadDelegate : JokboDownload?
@@ -38,8 +37,6 @@ class JokboTableViewCell: UITableViewCell {
         //icon-download(b)로 버튼을 바꿈
         let blueDownButton = UIImage(named: "icon-download(b)")
 
-        //DownloadButtonImage.setImage(blueDownButton, for: UIControlState.normal)
-
         DownloadButtonImage.imageView?.animationImages = [blueDownButton!]
         DownloadButtonImage.imageView?.animationDuration = 0.0
         DownloadButtonImage.imageView?.animationRepeatCount = 0
@@ -54,10 +51,7 @@ class JokboTableViewCell: UITableViewCell {
         let blueDownButton = UIImage(named: "icon-download(b)")
         let grayDownButton = UIImage(named: "icon-download")
 
-        downloadDelegate?.download()
-        
-        //DownloadButtonImage.setImage(blueDownButton, for: UIControlState.normal)
-
+        downloadDelegate?.download()    //다운로드 함수 호출
 
         DownloadButtonImage.imageView?.animationImages = [blueDownButton!,grayDownButton!]
         DownloadButtonImage.imageView?.animationDuration = 0.2
