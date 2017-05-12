@@ -85,10 +85,10 @@
             </objects>
             <point key="canvasLocation" x="1522.5" y="-2143.3098591549297"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--족보업로드navi-->
         <scene sceneID="UL6-h1-ec5">
             <objects>
-                <navigationController id="BnO-Lb-HuT" sceneMemberID="viewController">
+                <navigationController id="BnO-Lb-HuT" userLabel="족보업로드navi" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="MEu-ZV-3dn">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -106,13 +106,8 @@
         <scene sceneID="ty7-IW-5QN">
             <objects>
                 <tableViewController id="a0h-eQ-Vbs" customClass="JokboTableViewController" customModule="HyuJokbo" customModuleProvider="target" sceneMemberID="viewController">
-<<<<<<< HEAD
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="59" sectionHeaderHeight="28" sectionFooterHeight="28" id="p1S-tZ-crF">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-=======
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="59" sectionHeaderHeight="28" sectionFooterHeight="28" id="p1S-tZ-crF" customClass="JokboTableView" customModule="HyuJokbo" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
->>>>>>> 17cbbe6b7521a2678fe7ff3a411f25af1b630ffd
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -181,30 +176,22 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b23-k6-IbW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-<<<<<<< HEAD
             <point key="canvasLocation" x="337.5" y="-1465.1408450704225"/>
-=======
-            <point key="canvasLocation" x="339" y="-1465"/>
->>>>>>> 17cbbe6b7521a2678fe7ff3a411f25af1b630ffd
         </scene>
-        <!--족보-->
+        <!--족보navi-->
         <scene sceneID="BOz-2B-Qpg">
             <objects>
-                <navigationController id="WgL-RS-YJ1" sceneMemberID="viewController">
+                <navigationController id="WgL-RS-YJ1" userLabel="족보navi" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="족보" image="icon-jokbo(g)" selectedImage="icon-jokbo(b)" id="3tg-a8-p0p"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="FWb-ZZ-ukd">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="FWb-ZZ-ukd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-<<<<<<< HEAD
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="barTintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
-                            <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
+                            <fontDescription key="fontDescription" style="UICTFontTextStyleCallout"/>
                             <offsetWrapper key="textShadowOffset" horizontal="0.0" vertical="0.0"/>
                         </textAttributes>
-=======
-                        <color key="barTintColor" red="0.26507940888404846" green="0.44743871688842773" blue="0.7628854513168335" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
->>>>>>> 17cbbe6b7521a2678fe7ff3a411f25af1b630ffd
                     </navigationBar>
                     <connections>
                         <segue destination="a0h-eQ-Vbs" kind="relationship" relationship="rootViewController" id="wEE-DI-hWT"/>
@@ -219,7 +206,7 @@
             <objects>
                 <tableViewController id="vio-zj-cWC" userLabel="구해요" customClass="GoohaeTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="FVr-b3-KVa">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -267,15 +254,16 @@
             </objects>
             <point key="canvasLocation" x="311" y="-812"/>
         </scene>
-        <!--구해요-->
+        <!--구해요navi-->
         <scene sceneID="dOX-dw-AzD">
             <objects>
-                <navigationController id="TnH-eV-BB5" sceneMemberID="viewController">
+                <navigationController id="TnH-eV-BB5" userLabel="구해요navi" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="구해요" image="icon-goohae(g)" selectedImage="icon-goohae(b)" id="1Mt-Ii-0hA"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="2TN-lg-tGg">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="2TN-lg-tGg">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.26507940888404846" green="0.44743871688842773" blue="0.7628854513168335" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="barTintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <connections>
                         <segue destination="vio-zj-cWC" kind="relationship" relationship="rootViewController" id="yr7-WJ-Cru"/>
@@ -290,7 +278,7 @@
             <objects>
                 <tableViewController id="4ZY-xv-V2L" userLabel="명예의 전당" customClass="HonorTableViewController" customModule="HyuJokbo" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="ti0-pk-MpO">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -338,15 +326,16 @@
             </objects>
             <point key="canvasLocation" x="383" y="-131"/>
         </scene>
-        <!--명예의 전당-->
+        <!--명예의 전당navi-->
         <scene sceneID="pQP-hc-hMg">
             <objects>
-                <navigationController id="0ZY-Ir-khy" sceneMemberID="viewController">
+                <navigationController id="0ZY-Ir-khy" userLabel="명예의 전당navi" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="명예의 전당" image="icon-honor(g)" selectedImage="icon-honor(b)" id="RCo-vS-UvS"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="9QD-ni-zZu">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="9QD-ni-zZu">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.26507940889999998" green="0.44743871689999998" blue="0.76470588240000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="barTintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <connections>
                         <segue destination="4ZY-xv-V2L" kind="relationship" relationship="rootViewController" id="6Vc-BK-r7t"/>
@@ -361,7 +350,7 @@
             <objects>
                 <tableViewController id="iB0-5y-ZVk" userLabel="내 정보" customClass="MydataTableViewController" customModule="HyuJokbo" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="3CP-JC-aDy">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -409,15 +398,16 @@
             </objects>
             <point key="canvasLocation" x="384" y="638"/>
         </scene>
-        <!--내 정보-->
+        <!--내 정보navi-->
         <scene sceneID="pHw-Bg-bOu">
             <objects>
-                <navigationController id="jJ3-5d-jFO" sceneMemberID="viewController">
+                <navigationController id="jJ3-5d-jFO" userLabel="내 정보navi" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="내 정보" image="icon-mydata(g)" selectedImage="icon-mydata(b)" id="EHF-Tp-o3K"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="w1r-5k-y1k">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="w1r-5k-y1k">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.26507940889999998" green="0.44743871689999998" blue="0.76470588240000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="barTintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <connections>
                         <segue destination="iB0-5y-ZVk" kind="relationship" relationship="rootViewController" id="Vo1-OC-AjL"/>

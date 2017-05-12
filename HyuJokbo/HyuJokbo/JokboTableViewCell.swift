@@ -51,14 +51,13 @@ class JokboTableViewCell: UITableViewCell {
         let blueDownButton = UIImage(named: "icon-download(b)")
         let grayDownButton = UIImage(named: "icon-download")
 
-<<<<<<< HEAD
+
         downloadDelegate?.download()    //다운로드 함수 호출
-=======
+
         downloadDelegate?.download()
 
         //DownloadButtonImage.setImage(blueDownButton, for: UIControlState.normal)
 
->>>>>>> 17cbbe6b7521a2678fe7ff3a411f25af1b630ffd
 
         DownloadButtonImage.imageView?.animationImages = [blueDownButton!,grayDownButton!]
         DownloadButtonImage.imageView?.animationDuration = 0.2
