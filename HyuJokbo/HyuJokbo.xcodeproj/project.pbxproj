@@ -18,6 +18,11 @@
 		774A93BF1EC4BB7B00B96A56 /* MydataTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774A93BE1EC4BB7B00B96A56 /* MydataTableViewController.swift */; };
 		774A93C11EC4BCEC00B96A56 /* DataCenter.plist in Resources */ = {isa = PBXBuildFile; fileRef = 774A93C01EC4BCEC00B96A56 /* DataCenter.plist */; };
 		774A93C31EC4C2EA00B96A56 /* JokboTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774A93C21EC4C2EA00B96A56 /* JokboTableViewCell.swift */; };
+		77662A9B1EC5EEC70059B630 /* JokboTabStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77662A9A1EC5EEC70059B630 /* JokboTabStoryboard.storyboard */; };
+		77662A9D1EC5EEF00059B630 /* GoohaeTabStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77662A9C1EC5EEF00059B630 /* GoohaeTabStoryboard.storyboard */; };
+		77662A9F1EC5EF080059B630 /* HonorTabStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77662A9E1EC5EF080059B630 /* HonorTabStoryboard.storyboard */; };
+		77662AA11EC5EF170059B630 /* MydataTabStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77662AA01EC5EF170059B630 /* MydataTabStoryboard.storyboard */; };
+		77662AA31EC5F2020059B630 /* JokboTabWriteStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77662AA21EC5F2020059B630 /* JokboTabWriteStoryboard.storyboard */; };
 		776C381B1EC591CF00201853 /* SearchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 776C381A1EC591CF00201853 /* SearchView.xib */; };
 		776C381D1EC5926700201853 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776C381C1EC5926700201853 /* SearchView.swift */; };
 /* End PBXBuildFile section */
@@ -36,6 +41,11 @@
 		774A93BE1EC4BB7B00B96A56 /* MydataTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MydataTableViewController.swift; sourceTree = "<group>"; };
 		774A93C01EC4BCEC00B96A56 /* DataCenter.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = DataCenter.plist; sourceTree = "<group>"; };
 		774A93C21EC4C2EA00B96A56 /* JokboTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JokboTableViewCell.swift; sourceTree = "<group>"; };
+		77662A9A1EC5EEC70059B630 /* JokboTabStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = JokboTabStoryboard.storyboard; path = ../JokboTabStoryboard.storyboard; sourceTree = "<group>"; };
+		77662A9C1EC5EEF00059B630 /* GoohaeTabStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = GoohaeTabStoryboard.storyboard; path = ../GoohaeTabStoryboard.storyboard; sourceTree = "<group>"; };
+		77662A9E1EC5EF080059B630 /* HonorTabStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = HonorTabStoryboard.storyboard; path = ../HonorTabStoryboard.storyboard; sourceTree = "<group>"; };
+		77662AA01EC5EF170059B630 /* MydataTabStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = MydataTabStoryboard.storyboard; path = ../MydataTabStoryboard.storyboard; sourceTree = "<group>"; };
+		77662AA21EC5F2020059B630 /* JokboTabWriteStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = JokboTabWriteStoryboard.storyboard; sourceTree = "<group>"; };
 		776C381A1EC591CF00201853 /* SearchView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SearchView.xib; path = ../SearchView.xib; sourceTree = "<group>"; };
 		776C381C1EC5926700201853 /* SearchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchView.swift; path = ../SearchView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -70,16 +80,21 @@
 		23EA299B1EBB226A009F40F8 /* HyuJokbo */ = {
 			isa = PBXGroup;
 			children = (
+				23EA29A51EBB226A009F40F8 /* LaunchScreen.storyboard */,
+				23EA29A01EBB226A009F40F8 /* Main.storyboard */,
+				77662A9A1EC5EEC70059B630 /* JokboTabStoryboard.storyboard */,
+				77662AA21EC5F2020059B630 /* JokboTabWriteStoryboard.storyboard */,
+				77662A9C1EC5EEF00059B630 /* GoohaeTabStoryboard.storyboard */,
+				77662A9E1EC5EF080059B630 /* HonorTabStoryboard.storyboard */,
+				77662AA01EC5EF170059B630 /* MydataTabStoryboard.storyboard */,
 				23EA299C1EBB226A009F40F8 /* AppDelegate.swift */,
 				23EA299E1EBB226A009F40F8 /* ViewController.swift */,
-				23EA29A01EBB226A009F40F8 /* Main.storyboard */,
 				774A93C21EC4C2EA00B96A56 /* JokboTableViewCell.swift */,
 				774A93B81EC4BB6000B96A56 /* JokboTableViewController.swift */,
 				774A93BA1EC4BB6B00B96A56 /* GoohaeTableViewController.swift */,
 				774A93BC1EC4BB7300B96A56 /* HonorTableViewController.swift */,
 				774A93BE1EC4BB7B00B96A56 /* MydataTableViewController.swift */,
 				23EA29A31EBB226A009F40F8 /* Assets.xcassets */,
-				23EA29A51EBB226A009F40F8 /* LaunchScreen.storyboard */,
 				23EA29A81EBB226A009F40F8 /* Info.plist */,
 				774A93C01EC4BCEC00B96A56 /* DataCenter.plist */,
 				776C381A1EC591CF00201853 /* SearchView.xib */,
@@ -148,10 +163,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				23EA29A71EBB226A009F40F8 /* LaunchScreen.storyboard in Resources */,
+				77662A9D1EC5EEF00059B630 /* GoohaeTabStoryboard.storyboard in Resources */,
+				77662A9F1EC5EF080059B630 /* HonorTabStoryboard.storyboard in Resources */,
+				77662AA11EC5EF170059B630 /* MydataTabStoryboard.storyboard in Resources */,
 				774A93C11EC4BCEC00B96A56 /* DataCenter.plist in Resources */,
 				776C381B1EC591CF00201853 /* SearchView.xib in Resources */,
 				23EA29A41EBB226A009F40F8 /* Assets.xcassets in Resources */,
 				23EA29A21EBB226A009F40F8 /* Main.storyboard in Resources */,
+				77662A9B1EC5EEC70059B630 /* JokboTabStoryboard.storyboard in Resources */,
+				77662AA31EC5F2020059B630 /* JokboTabWriteStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

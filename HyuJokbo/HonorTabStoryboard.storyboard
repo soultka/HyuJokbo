@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="E0u-4w-CPu">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--명예의 전당-->
+        <scene sceneID="lKm-Oh-5zd">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Nwy-Sw-aB3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="6KH-ip-Ozo" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="MXd-Nw-R80"/>
+                        <viewControllerLayoutGuide type="bottom" id="yc3-zv-pfF"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="fd5-G8-uyM">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="4" translatesAutoresizingMaskIntoConstraints="NO" id="P0l-Ab-2L4">
+                                <rect key="frame" x="16" y="195" width="288" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="pageIndicatorTintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </pageControl>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="X5Y-WE-X8S">
+                                <rect key="frame" x="40" y="72" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                    </view>
+                    <navigationItem key="navigationItem" title="명예의 전당" id="IQu-zY-NfW"/>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="307.5" y="-132.04225352112675"/>
+        </scene>
+        <!--명예의 전당navi-->
+        <scene sceneID="uqf-bh-Nge">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7SN-vE-WVI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <navigationController id="E0u-4w-CPu" userLabel="명예의 전당navi" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="명예의 전당" image="icon-honor(g)" selectedImage="icon-honor(b)" id="gJK-4b-rl7"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="c19-re-4va">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="barTintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="6KH-ip-Ozo" kind="relationship" relationship="rootViewController" id="5Gy-Tf-OzO"/>
+                    </connections>
+                </navigationController>
+            </objects>
+            <point key="canvasLocation" x="-705" y="-132"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="icon-honor(b)" width="25" height="25"/>
+        <image name="icon-honor(g)" width="25" height="25"/>
+    </resources>
+</document>

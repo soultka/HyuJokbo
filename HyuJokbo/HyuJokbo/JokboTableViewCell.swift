@@ -54,7 +54,6 @@ class JokboTableViewCell: UITableViewCell {
 
         downloadDelegate?.download()    //다운로드 함수 호출
 
-        downloadDelegate?.download()
 
         //DownloadButtonImage.setImage(blueDownButton, for: UIControlState.normal)
 
