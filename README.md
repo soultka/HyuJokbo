@@ -4,7 +4,35 @@
 
 ### 예시 UI
 
-<p align="center"><img src="https://github.com/ProjectInTheClass/HyuJokbo/blob/master/Image/KakaoTalk_Photo_2017-05-11-16-57-58.png" width="300px"/></p>
+* 족보 Tab
+
+<img src="https://github.com/ProjectInTheClass/HyuJokbo/blob/master/img/족보메인.png" width="250px"/>
+
+<img src="https://github.com/ProjectInTheClass/HyuJokbo/blob/master/img/족보검색.png" width="250px"/>
+
+<img src="https://github.com/ProjectInTheClass/HyuJokbo/blob/master/img/족보업로드.png" width="250px"/>
+
+<img src="https://github.com/ProjectInTheClass/HyuJokbo/blob/master/img/족보보기.png" width="250px"/>
+
+* 구해요 Tab
+
+<img src="https://github.com/ProjectInTheClass/HyuJokbo/blob/master/img/구해요메인.png" width="250px"/>
+
+<img src="https://github.com/ProjectInTheClass/HyuJokbo/blob/master/img/구해요검색.png" width="250px"/>
+
+<img src="https://github.com/ProjectInTheClass/HyuJokbo/blob/master/img/구해요요청.png" width="250px"/>
+
+<img src="https://github.com/ProjectInTheClass/HyuJokbo/blob/master/img/구해요보기.png" width="250px"/>
+
+* 명예의 전당 Tab
+
+<img src="https://github.com/ProjectInTheClass/HyuJokbo/blob/master/img/명예의전당.png" width="250px"/>
+
+* 내 정보 Tab
+
+<img src="https://github.com/ProjectInTheClass/HyuJokbo/blob/master/img/내정보.png" width="250px"/>
+
+
 
 ### 핵심 기능
 
