@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>subject</key>
+		<string>객체지향</string>
+		<key>professor</key>
+		<string>유인경 교수님</string>
+		<key>like</key>
+		<integer>0</integer>
+		<key>reply</key>
+		<data></data>
+		<key>uploadDate</key>
+		<date>2017-05-11T16:12:02Z</date>
+	</dict>
+	<dict>
+		<key>subject</key>
+		<string>소프트웨어 스튜디오</string>
+		<key>professor</key>
+		<string>유민수 교수님</string>
+		<key>like</key>
+		<integer>0</integer>
+		<key>reply</key>
+		<data></data>
+		<key>uploadDate</key>
+		<date>2017-05-11T16:12:02Z</date>
+	</dict>
+	<dict>
+		<key>subject</key>
+		<string>오토마타</string>
+		<key>professor</key>
+		<string>박희진 교수님</string>
+		<key>like</key>
+		<integer>0</integer>
+		<key>reply</key>
+		<data></data>
+		<key>uploadDate</key>
+		<date>2017-05-11T16:12:02Z</date>
+	</dict>
+</array>
+</plist>
