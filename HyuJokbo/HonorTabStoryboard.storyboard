@@ -6,13 +6,13 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--명예의 전당-->
         <scene sceneID="lKm-Oh-5zd">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Nwy-Sw-aB3" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="6KH-ip-Ozo" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="MXd-Nw-R80"/>
@@ -22,27 +22,52 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="4" translatesAutoresizingMaskIntoConstraints="NO" id="P0l-Ab-2L4">
-                                <rect key="frame" x="16" y="195" width="288" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="pageIndicatorTintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </pageControl>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="X5Y-WE-X8S">
-                                <rect key="frame" x="40" y="72" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7vj-wC-xdT">
+                                <rect key="frame" x="40" y="174" width="30" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="O4h-Wz-ywX"/>
+                                    <constraint firstAttribute="width" constant="30" id="lkE-6a-YNh"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="&lt;"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T1Z-mr-Pv0">
+                                <rect key="frame" x="249" y="174" width="30" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="oFa-tP-oxN"/>
+                                    <constraint firstAttribute="width" constant="30" id="ovB-3d-3GB"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="&gt;"/>
+                            </button>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LnR-SF-Lu6">
+                                <rect key="frame" x="40" y="148" width="239" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="1HN-Eh-8lA"/>
+                                    <constraint firstAttribute="width" constant="239" id="AHw-th-hNy"/>
+                                </constraints>
+                            </scrollView>
                         </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="7vj-wC-xdT" firstAttribute="centerY" secondItem="LnR-SF-Lu6" secondAttribute="centerY" id="0Nr-p3-vh2"/>
+                            <constraint firstItem="yc3-zv-pfF" firstAttribute="top" secondItem="LnR-SF-Lu6" secondAttribute="bottom" constant="300" id="KQA-pg-7wF"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="T1Z-mr-Pv0" secondAttribute="trailing" constant="25" id="MjR-86-Ohk"/>
+                            <constraint firstItem="LnR-SF-Lu6" firstAttribute="centerX" secondItem="fd5-G8-uyM" secondAttribute="centerX" id="Ucg-u2-XZu"/>
+                            <constraint firstItem="LnR-SF-Lu6" firstAttribute="top" secondItem="MXd-Nw-R80" secondAttribute="bottom" constant="76" id="eci-t7-bz7"/>
+                            <constraint firstItem="T1Z-mr-Pv0" firstAttribute="centerY" secondItem="LnR-SF-Lu6" secondAttribute="centerY" id="g1k-tY-KC2"/>
+                            <constraint firstItem="7vj-wC-xdT" firstAttribute="leading" secondItem="fd5-G8-uyM" secondAttribute="leadingMargin" constant="25" id="lFv-hb-Tyv"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="명예의 전당" id="IQu-zY-NfW"/>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Nwy-Sw-aB3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="307.5" y="-132.04225352112675"/>
         </scene>
         <!--명예의 전당navi-->
         <scene sceneID="uqf-bh-Nge">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="7SN-vE-WVI" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController id="E0u-4w-CPu" userLabel="명예의 전당navi" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="명예의 전당" image="icon-honor(g)" selectedImage="icon-honor(b)" id="gJK-4b-rl7"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="c19-re-4va">
@@ -59,6 +84,7 @@
                         <segue destination="6KH-ip-Ozo" kind="relationship" relationship="rootViewController" id="5Gy-Tf-OzO"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7SN-vE-WVI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-705" y="-132"/>
         </scene>

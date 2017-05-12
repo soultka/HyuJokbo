@@ -53,10 +53,7 @@
                             <outlet property="delegate" destination="fwU-NF-nhi" id="iDc-qD-fzw"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="내 정보" id="oUS-2v-HCq" userLabel="내 정보">
-                        <barButtonItem key="leftBarButtonItem" title="Item" id="s4w-29-cPV"/>
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="zuj-WX-0NT"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="내 정보" id="oUS-2v-HCq" userLabel="내 정보"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H4p-gm-5d9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
