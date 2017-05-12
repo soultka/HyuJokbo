@@ -4,7 +4,21 @@
 
 ### 예시 UI
 
-<p align="center"><img src="https://github.com/ProjectInTheClass/HyuJokbo/blob/master/Image/KakaoTalk_Photo_2017-05-11-17-15-57.png" width="300px"/></p>
+* 족보 Tab
+
+<img src="https://github.com/ProjectInTheClass/HyuJokbo/blob/master/img/족보.png" width="1000px"/>
+
+* 구해요 Tab
+
+<img src="https://github.com/ProjectInTheClass/HyuJokbo/blob/master/img/구해요.png" width="1000px"/>
+
+* 명예의 전당 Tab
+
+<img src="https://github.com/ProjectInTheClass/HyuJokbo/blob/master/img/명예의전당.png" width="210px"/>
+
+* 내 정보 Tab
+
+<img src="https://github.com/ProjectInTheClass/HyuJokbo/blob/master/img/내정보.png" width="210px"/>
 
 ### 핵심 기능
 
