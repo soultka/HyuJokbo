@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="2KD-Pj-9Dn">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="mO4-Ve-nnN">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -9,78 +9,105 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--게시글 작성-->
-        <scene sceneID="LGB-I5-re9">
+        <!--Navigation Controller-->
+        <scene sceneID="Jkn-Gh-WHA">
             <objects>
-                <tableViewController id="hKN-Hw-eXh" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="h0P-FY-h9w">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <sections>
-                            <tableViewSection id="DDm-ui-hi3">
-                                <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="504" id="81z-l3-B2H">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="81z-l3-B2H" id="Z1a-n1-6fr">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="503.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="이 글을 지우고 입력하세요" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="tVv-Sd-Vv5">
-                                                    <rect key="frame" x="30" y="39" width="261" height="404"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                </textView>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S6N-Xo-Sm2">
-                                                    <rect key="frame" x="145" y="451" width="30" height="30"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" title="제출"/>
-                                                </button>
-                                            </subviews>
-                                            <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
-                        </sections>
-                        <connections>
-                            <outlet property="dataSource" destination="hKN-Hw-eXh" id="9gk-cx-io1"/>
-                            <outlet property="delegate" destination="hKN-Hw-eXh" id="esT-pr-lNO"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="게시글 작성" id="2TX-DY-Rb1">
-                        <barButtonItem key="leftBarButtonItem" image="icon-cancel" id="y1k-sx-f1P">
-                            <connections>
-                                <segue destination="qCP-Wj-T8d" kind="unwind" unwindAction="handleModalCloseWithSegue:" id="wrk-lL-nxA"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="fSV-X4-oyl" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="qCP-Wj-T8d" userLabel="Exit" sceneMemberID="exit"/>
-            </objects>
-            <point key="canvasLocation" x="1522.5" y="-2143.3098591549297"/>
-        </scene>
-        <!--족보업로드navi-->
-        <scene sceneID="Jaj-f0-xef">
-            <objects>
-                <navigationController id="2KD-Pj-9Dn" userLabel="족보업로드navi" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Kml-z2-MgQ">
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HEc-96-tCc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <navigationController id="mO4-Ve-nnN" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="AQY-pt-3Z8">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="barTintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" red="0.20000000000000001" green="0.40000000000000002" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
-                        <segue destination="hKN-Hw-eXh" kind="relationship" relationship="rootViewController" id="wMa-ZC-n8f"/>
+                        <segue destination="7Lb-LJ-hsM" kind="relationship" relationship="rootViewController" id="jhr-XG-Bva"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="fbk-uN-JTb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="767" y="-2143"/>
+            <point key="canvasLocation" x="1114" y="-1773"/>
+        </scene>
+        <!--족보 업로드-->
+        <scene sceneID="JM9-rE-6LX">
+            <objects>
+                <exit id="9i1-PD-EKh" userLabel="Exit" sceneMemberID="exit"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ssT-N4-TJU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="7Lb-LJ-hsM" customClass="JokboUploadViewController" customModule="HyuJokbo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="3Pn-aw-3Ll"/>
+                        <viewControllerLayoutGuide type="bottom" id="9hB-Au-oZe"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="rXs-HP-0JQ">
+                        <rect key="frame" x="0.0" y="64" width="320" height="460"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Uiz-DN-T3G">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="40"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="dPh-jd-2DK"/>
+                                    <constraint firstAttribute="width" constant="320" id="eSM-ha-hYx"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" spellCheckingType="no"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Hs1-z7-Zvi">
+                                <rect key="frame" x="0.0" y="40" width="320" height="40"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="eWR-7K-rZX"/>
+                                    <constraint firstAttribute="width" constant="320" id="xQt-Ud-qv8"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" spellCheckingType="no"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Q5C-BP-usA">
+                                <rect key="frame" x="0.0" y="80" width="320" height="366"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="366" id="20V-CB-xeo"/>
+                                    <constraint firstAttribute="width" constant="320" id="sBc-5D-HtD"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" spellCheckingType="no"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Uiz-DN-T3G" firstAttribute="centerX" secondItem="rXs-HP-0JQ" secondAttribute="centerX" id="EgJ-PQ-iRs"/>
+                            <constraint firstItem="Q5C-BP-usA" firstAttribute="centerX" secondItem="rXs-HP-0JQ" secondAttribute="centerX" id="Eqp-a3-NWr"/>
+                            <constraint firstItem="Q5C-BP-usA" firstAttribute="top" secondItem="Hs1-z7-Zvi" secondAttribute="bottom" id="K6Y-be-GKp"/>
+                            <constraint firstItem="Uiz-DN-T3G" firstAttribute="top" secondItem="3Pn-aw-3Ll" secondAttribute="bottom" id="g7C-b6-Gdp"/>
+                            <constraint firstItem="Hs1-z7-Zvi" firstAttribute="centerX" secondItem="rXs-HP-0JQ" secondAttribute="centerX" id="lIj-6p-x2p"/>
+                            <constraint firstItem="Hs1-z7-Zvi" firstAttribute="top" secondItem="Uiz-DN-T3G" secondAttribute="bottom" id="uji-oV-ScB"/>
+                        </constraints>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="족보 업로드" id="RXW-Zg-JSl">
+                        <barButtonItem key="leftBarButtonItem" image="icon-cancel" id="DCM-yO-HIw">
+                            <connections>
+                                <segue destination="9i1-PD-EKh" kind="unwind" unwindAction="handleModalCloseWithSegue:" id="EQT-8N-pji"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="완료" id="HOZ-Vg-2XI">
+                            <connections>
+                                <segue destination="9i1-PD-EKh" kind="unwind" unwindAction="handleModalCloseWithSegue:" id="v7i-fr-SzY"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="ContentTextView" destination="Q5C-BP-usA" id="mfv-4N-bCk"/>
+                        <outlet property="ProfessorTextView" destination="Hs1-z7-Zvi" id="7hX-Fw-Mme"/>
+                        <outlet property="TitleTextView" destination="Uiz-DN-T3G" id="aQE-rG-3AY"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="1899" y="-1832"/>
         </scene>
     </scenes>
     <resources>

@@ -12,6 +12,7 @@
 		23EA29A21EBB226A009F40F8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23EA29A01EBB226A009F40F8 /* Main.storyboard */; };
 		23EA29A41EBB226A009F40F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23EA29A31EBB226A009F40F8 /* Assets.xcassets */; };
 		23EA29A71EBB226A009F40F8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23EA29A51EBB226A009F40F8 /* LaunchScreen.storyboard */; };
+		7700FDE21EC5FD1000D133C5 /* JokboUploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7700FDE11EC5FD1000D133C5 /* JokboUploadViewController.swift */; };
 		774A93B91EC4BB6000B96A56 /* JokboTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774A93B81EC4BB6000B96A56 /* JokboTableViewController.swift */; };
 		774A93BB1EC4BB6B00B96A56 /* GoohaeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774A93BA1EC4BB6B00B96A56 /* GoohaeTableViewController.swift */; };
 		774A93BD1EC4BB7300B96A56 /* HonorTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774A93BC1EC4BB7300B96A56 /* HonorTableViewController.swift */; };
@@ -35,6 +36,7 @@
 		23EA29A31EBB226A009F40F8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		23EA29A61EBB226A009F40F8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		23EA29A81EBB226A009F40F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7700FDE11EC5FD1000D133C5 /* JokboUploadViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JokboUploadViewController.swift; path = ../../../modal/HyuJokbo/HyuJokbo/HyuJokbo/JokboUploadViewController.swift; sourceTree = "<group>"; };
 		774A93B81EC4BB6000B96A56 /* JokboTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JokboTableViewController.swift; sourceTree = "<group>"; };
 		774A93BA1EC4BB6B00B96A56 /* GoohaeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoohaeTableViewController.swift; sourceTree = "<group>"; };
 		774A93BC1EC4BB7300B96A56 /* HonorTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HonorTableViewController.swift; sourceTree = "<group>"; };
@@ -91,6 +93,7 @@
 				23EA299E1EBB226A009F40F8 /* ViewController.swift */,
 				774A93C21EC4C2EA00B96A56 /* JokboTableViewCell.swift */,
 				774A93B81EC4BB6000B96A56 /* JokboTableViewController.swift */,
+				7700FDE11EC5FD1000D133C5 /* JokboUploadViewController.swift */,
 				774A93BA1EC4BB6B00B96A56 /* GoohaeTableViewController.swift */,
 				774A93BC1EC4BB7300B96A56 /* HonorTableViewController.swift */,
 				774A93BE1EC4BB7B00B96A56 /* MydataTableViewController.swift */,
@@ -189,6 +192,7 @@
 				23EA299F1EBB226A009F40F8 /* ViewController.swift in Sources */,
 				774A93BF1EC4BB7B00B96A56 /* MydataTableViewController.swift in Sources */,
 				774A93BD1EC4BB7300B96A56 /* HonorTableViewController.swift in Sources */,
+				7700FDE21EC5FD1000D133C5 /* JokboUploadViewController.swift in Sources */,
 				23EA299D1EBB226A009F40F8 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
