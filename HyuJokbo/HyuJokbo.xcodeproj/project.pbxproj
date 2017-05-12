@@ -8,10 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		23EA299D1EBB226A009F40F8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EA299C1EBB226A009F40F8 /* AppDelegate.swift */; };
-		23EA299F1EBB226A009F40F8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EA299E1EBB226A009F40F8 /* ViewController.swift */; };
 		23EA29A21EBB226A009F40F8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23EA29A01EBB226A009F40F8 /* Main.storyboard */; };
 		23EA29A41EBB226A009F40F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23EA29A31EBB226A009F40F8 /* Assets.xcassets */; };
 		23EA29A71EBB226A009F40F8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23EA29A51EBB226A009F40F8 /* LaunchScreen.storyboard */; };
+		2FFDB4411EC5B21F003965A2 /* JokboUploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFDB4401EC5B21F003965A2 /* JokboUploadViewController.swift */; };
 		774A93B91EC4BB6000B96A56 /* JokboTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774A93B81EC4BB6000B96A56 /* JokboTableViewController.swift */; };
 		774A93BB1EC4BB6B00B96A56 /* GoohaeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774A93BA1EC4BB6B00B96A56 /* GoohaeTableViewController.swift */; };
 		774A93BD1EC4BB7300B96A56 /* HonorTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774A93BC1EC4BB7300B96A56 /* HonorTableViewController.swift */; };
@@ -24,11 +24,11 @@
 /* Begin PBXFileReference section */
 		23EA29991EBB226A009F40F8 /* HyuJokbo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HyuJokbo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		23EA299C1EBB226A009F40F8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		23EA299E1EBB226A009F40F8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		23EA29A11EBB226A009F40F8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		23EA29A31EBB226A009F40F8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		23EA29A61EBB226A009F40F8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		23EA29A81EBB226A009F40F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2FFDB4401EC5B21F003965A2 /* JokboUploadViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JokboUploadViewController.swift; sourceTree = "<group>"; };
 		774A93B81EC4BB6000B96A56 /* JokboTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JokboTableViewController.swift; sourceTree = "<group>"; };
 		774A93BA1EC4BB6B00B96A56 /* GoohaeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoohaeTableViewController.swift; sourceTree = "<group>"; };
 		774A93BC1EC4BB7300B96A56 /* HonorTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HonorTableViewController.swift; sourceTree = "<group>"; };
@@ -69,9 +69,9 @@
 			isa = PBXGroup;
 			children = (
 				23EA299C1EBB226A009F40F8 /* AppDelegate.swift */,
-				23EA299E1EBB226A009F40F8 /* ViewController.swift */,
 				23EA29A01EBB226A009F40F8 /* Main.storyboard */,
 				774A93C21EC4C2EA00B96A56 /* JokboTableViewCell.swift */,
+				2FFDB4401EC5B21F003965A2 /* JokboUploadViewController.swift */,
 				77A84EE51EC4DC0C00EB7984 /* JokboTableView.swift */,
 				774A93B81EC4BB6000B96A56 /* JokboTableViewController.swift */,
 				774A93BA1EC4BB6B00B96A56 /* GoohaeTableViewController.swift */,
@@ -159,9 +159,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				774A93BB1EC4BB6B00B96A56 /* GoohaeTableViewController.swift in Sources */,
+				2FFDB4411EC5B21F003965A2 /* JokboUploadViewController.swift in Sources */,
 				774A93C31EC4C2EA00B96A56 /* JokboTableViewCell.swift in Sources */,
 				774A93B91EC4BB6000B96A56 /* JokboTableViewController.swift in Sources */,
-				23EA299F1EBB226A009F40F8 /* ViewController.swift in Sources */,
 				774A93BF1EC4BB7B00B96A56 /* MydataTableViewController.swift in Sources */,
 				774A93BD1EC4BB7300B96A56 /* HonorTableViewController.swift in Sources */,
 				23EA299D1EBB226A009F40F8 /* AppDelegate.swift in Sources */,
@@ -291,6 +291,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = HyuJokbo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = hanyang.HyuJokbo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -303,6 +304,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = HyuJokbo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = hanyang.HyuJokbo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
