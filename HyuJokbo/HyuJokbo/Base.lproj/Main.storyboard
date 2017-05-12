@@ -34,9 +34,14 @@
         <scene sceneID="UL6-h1-ec5">
             <objects>
                 <navigationController id="BnO-Lb-HuT" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="MEu-ZV-3dn">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="MEu-ZV-3dn">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="barTintColor" red="0.20000000000000001" green="0.40000000000000002" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="Lgs-zi-Oi4" kind="relationship" relationship="rootViewController" id="Oos-YU-S7h"/>
@@ -44,7 +49,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v0d-Sw-yea" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="999" y="-1914"/>
+            <point key="canvasLocation" x="1114" y="-1773"/>
         </scene>
         <!--족보 업로드-->
         <scene sceneID="DVo-5z-Nmp">
@@ -58,7 +63,7 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" text=" 수업명" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="qlT-gt-s3e">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="qlT-gt-s3e">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="40"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -66,9 +71,9 @@
                                     <constraint firstAttribute="height" constant="40" id="lUG-EO-MAK"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" spellCheckingType="no"/>
                             </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" text=" 교수님" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="DQG-x4-wB6">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="DQG-x4-wB6">
                                 <rect key="frame" x="0.0" y="40" width="320" height="40"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -76,9 +81,9 @@
                                     <constraint firstAttribute="width" constant="320" id="nkg-4S-Yhu"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" spellCheckingType="no"/>
                             </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" text=" 여기를 눌러서 글을 작성할 수 있습니다." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="hmI-gr-4zu">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="hmI-gr-4zu">
                                 <rect key="frame" x="0.0" y="80" width="320" height="366"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -86,7 +91,7 @@
                                     <constraint firstAttribute="width" constant="320" id="q5W-mG-kdu"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" spellCheckingType="no"/>
                             </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -102,22 +107,15 @@
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="족보 업로드" id="URy-R5-OS5">
-                        <barButtonItem key="leftBarButtonItem" style="plain" id="BnK-Er-fii">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ik4-nr-pv2">
-                                <rect key="frame" x="16" y="9" width="79" height="25"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="icon-cancel"/>
-                                <connections>
-                                    <segue destination="Dgf-TK-Eec" kind="unwind" unwindAction="handleModalCloseWithSegue:" id="P0l-mL-YEB"/>
-                                </connections>
-                            </button>
+                        <barButtonItem key="leftBarButtonItem" image="icon-cancel" id="bNM-e9-3gt">
+                            <connections>
+                                <segue destination="Dgf-TK-Eec" kind="unwind" unwindAction="handleModalCloseWithSegue:" id="PpS-kK-8OR"/>
+                            </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="Qsq-pB-fWE">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="mPT-tH-XZm">
-                                <rect key="frame" x="233" y="7" width="71" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="완료"/>
-                            </button>
+                        <barButtonItem key="rightBarButtonItem" title="완료" id="U9f-fN-Tkc">
+                            <connections>
+                                <segue destination="Dgf-TK-Eec" kind="unwind" unwindAction="handleModalCloseWithSegue:" id="Oa8-lE-jqh"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
@@ -130,14 +128,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Swa-0J-SaY" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="Dgf-TK-Eec" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1807.5" y="-1914.0845070422536"/>
+            <point key="canvasLocation" x="1899" y="-1832"/>
         </scene>
         <!--족 보-->
         <scene sceneID="ty7-IW-5QN">
             <objects>
                 <tableViewController id="a0h-eQ-Vbs" customClass="JokboTableViewController" customModule="HyuJokbo" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="59" sectionHeaderHeight="28" sectionFooterHeight="28" id="p1S-tZ-crF" customClass="JokboTableView" customModule="HyuJokbo" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -237,9 +235,13 @@
             <objects>
                 <navigationController id="WgL-RS-YJ1" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="족보" image="icon-jokbo(g)" selectedImage="icon-jokbo(b)" id="3tg-a8-p0p"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="FWb-ZZ-ukd">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="FWb-ZZ-ukd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.20000000000000001" green="0.40000000000000002" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="a0h-eQ-Vbs" kind="relationship" relationship="rootViewController" id="wEE-DI-hWT"/>
@@ -254,7 +256,7 @@
             <objects>
                 <tableViewController id="vio-zj-cWC" userLabel="구해요" customClass="GoohaeTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="FVr-b3-KVa">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -307,9 +309,13 @@
             <objects>
                 <navigationController id="TnH-eV-BB5" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="구해요" image="icon-goohae(g)" selectedImage="icon-goohae(b)" id="1Mt-Ii-0hA"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="2TN-lg-tGg">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="2TN-lg-tGg">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.20000000000000001" green="0.40000000000000002" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="vio-zj-cWC" kind="relationship" relationship="rootViewController" id="yr7-WJ-Cru"/>
@@ -324,7 +330,7 @@
             <objects>
                 <tableViewController id="4ZY-xv-V2L" userLabel="명예의 전당" customClass="HonorTableViewController" customModule="HyuJokbo" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="ti0-pk-MpO">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -377,9 +383,13 @@
             <objects>
                 <navigationController id="0ZY-Ir-khy" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="명예의 전당" image="icon-honor(g)" selectedImage="icon-honor(b)" id="RCo-vS-UvS"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="9QD-ni-zZu">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="9QD-ni-zZu">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.20000000000000001" green="0.40000000000000002" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="4ZY-xv-V2L" kind="relationship" relationship="rootViewController" id="6Vc-BK-r7t"/>
@@ -394,7 +404,7 @@
             <objects>
                 <tableViewController id="iB0-5y-ZVk" userLabel="내 정보" customClass="MydataTableViewController" customModule="HyuJokbo" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="3CP-JC-aDy">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -447,9 +457,13 @@
             <objects>
                 <navigationController id="jJ3-5d-jFO" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="내 정보" image="icon-mydata(g)" selectedImage="icon-mydata(b)" id="EHF-Tp-o3K"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="w1r-5k-y1k">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="w1r-5k-y1k">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.20000000000000001" green="0.40000000000000002" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="iB0-5y-ZVk" kind="relationship" relationship="rootViewController" id="Vo1-OC-AjL"/>
