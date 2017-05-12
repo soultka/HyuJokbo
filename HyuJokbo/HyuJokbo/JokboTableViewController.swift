@@ -8,14 +8,41 @@
 
 import UIKit
 
-class JokboTableViewController: UITableViewController {
+//plist에서 데이터를 불러오기위한 변수들
+let JokboFileName = "DataCenter"
+ var jokbos : Array<AnyObject> = []
+
+class JokboTableViewController: UITableViewController,JokboDownload {
+
+    @IBOutlet weak var JokboLabel: UILabel!
+    @IBOutlet weak var SearchTextLabel: UITextField!
+
+    static var searchPressedFlag = 0
+
 
 
     @IBAction func handleModalClose(segue: UIStoryboardSegue){
     }
 
+
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        self.SearchTextLabel.isHidden = true
+
+        //DataCenter.plist주소를 jokboURL로 얻어옴
+        guard let jokboURL = Bundle.main.url(forResource: JokboFileName, withExtension: "plist") else{
+            print("No file")
+            return
+        }
+
+        //jokboURL로 부터 자료를 Array로 캐스팅 후 jokboArray로 받아옴, 이를 jokbos에 저장
+        if let jokboArray = NSArray(contentsOf : jokboURL)
+        {
+            print(jokboArray)
+            jokbos += jokboArray as Array
+        }
+
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -38,19 +65,54 @@ class JokboTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 1
+        return jokbos.count
     }
 
-    /*
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
 
-        // Configure the cell...
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "JokboCell", for: indexPath) as! JokboTableViewCell
+
+        //jokbos로 부터 jokbo를 받아옴
+        guard let jokbo = jokbos[indexPath.row] as? [String:AnyObject] else {
+            return cell
+        }
+
+        if let subject = jokbo["subject"] as? String{
+            cell.SubjectLabel?.text = subject
+        }
+
+        if let professor = jokbo["professor"] as? String{
+            cell.ProfessorLabel?.text = professor
+        }
+        cell.downloadDelegate = self
+
 
         return cell
     }
-    */
 
+    func download() {
+        print("Downloading...")
+    }
+
+    @IBAction func SearchBarButtonPressed(_ sender: Any) {
+
+
+
+        if(JokboTableViewController.searchPressedFlag == 0){
+            self.navigationItem.title = ""
+            self.SearchTextLabel.isHidden = false
+            self.JokboLabel.isHidden = true
+            JokboTableViewController.searchPressedFlag = 1;
+        }else{
+            self.navigationItem.title = ""
+            self.SearchTextLabel.isHidden = true
+            self.JokboLabel.isHidden = false
+            JokboTableViewController.searchPressedFlag = 0;
+        }
+
+
+
+    }
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
