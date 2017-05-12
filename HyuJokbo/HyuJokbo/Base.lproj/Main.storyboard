@@ -221,7 +221,7 @@
         <!--구해요-->
         <scene sceneID="UA7-bW-EaQ">
             <objects>
-                <tableViewController id="vio-zj-cWC" userLabel="구해요" customClass="GohaeTableViewController" customModule="HyuJokbo" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="vio-zj-cWC" userLabel="구해요" customClass="GoohaeTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="FVr-b3-KVa">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -275,7 +275,7 @@
         <scene sceneID="dOX-dw-AzD">
             <objects>
                 <navigationController id="TnH-eV-BB5" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="구해요" image="icon-gohae(g)" selectedImage="icon-gohae(b)" id="1Mt-Ii-0hA"/>
+                    <tabBarItem key="tabBarItem" title="구해요" image="icon-goohae(g)" selectedImage="icon-goohae(b)" id="1Mt-Ii-0hA"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="2TN-lg-tGg">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -433,8 +433,8 @@
         <image name="icon-cancel" width="25" height="25"/>
         <image name="icon-download" width="25" height="25"/>
         <image name="icon-edit" width="25" height="25"/>
-        <image name="icon-gohae(b)" width="25" height="25"/>
-        <image name="icon-gohae(g)" width="25" height="25"/>
+        <image name="icon-goohae(b)" width="25" height="25"/>
+        <image name="icon-goohae(g)" width="25" height="25"/>
         <image name="icon-honor(b)" width="25" height="25"/>
         <image name="icon-honor(g)" width="25" height="25"/>
         <image name="icon-jokbo(b)" width="25" height="25"/>
