@@ -55,7 +55,7 @@ class JokboTableViewCell: UITableViewCell {
         let grayDownButton = UIImage(named: "icon-download")
 
         downloadDelegate?.download()
-        
+
         //DownloadButtonImage.setImage(blueDownButton, for: UIControlState.normal)
 
 
