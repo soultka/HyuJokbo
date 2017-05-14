@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseDatabase
 
 //plist에서 데이터를 불러오기위한 변수들
 let JokboFileName = "DataCenter"
@@ -18,6 +19,8 @@ class JokboTableViewController: UITableViewController,JokboDownload {
     @IBOutlet weak var SearchTextLabel: UITextField!
     static var searchPressedFlag = 0
 
+    var ref: FIRDatabaseReference?
+    
     @IBAction func handleModalClose(segue: UIStoryboardSegue){
     }
 
