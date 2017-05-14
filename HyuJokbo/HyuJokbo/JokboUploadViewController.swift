@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseDatabase
 
 class JokboUploadViewController: UIViewController, UITextViewDelegate {
 
@@ -14,12 +15,16 @@ class JokboUploadViewController: UIViewController, UITextViewDelegate {
     @IBOutlet weak var ProfessorTextView: UITextView!
     @IBOutlet weak var ContentTextView: UITextView!
     
+    var ref: FIRDatabaseReference?
+    
     var TitlePlaceholderLabel: UILabel!
     var ProfessorPlaceholderLabel: UILabel!
     var ContentPlaceholderLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        ref = FIRDatabase.database().reference()
         
         self.TitleTextView.delegate = self
         self.ProfessorTextView.delegate = self
@@ -29,27 +34,6 @@ class JokboUploadViewController: UIViewController, UITextViewDelegate {
         self.ProfessorTextView.tag = 1
         self.ContentTextView.tag = 2
         
-        /*TitlePlaceholderLabel = UILabel()
-        TitlePlaceholderLabel.text = "수업명"
-        TitlePlaceholderLabel.textColor = UIColor.lightGray
-        TitlePlaceholderLabel.font = UIFont.italicSystemFont(ofSize: (TitleTextView.font?.pointSize)!)
-        TitlePlaceholderLabel.sizeToFit()
-        self.TitleTextView?.addSubview(TitlePlaceholderLabel)
-        TitlePlaceholderLabel.frame.origin = CGPoint(x: 5, y: (TitleTextView.font?.pointSize)! / 2)
-        TitlePlaceholderLabel.textColor = UIColor.lightGray
-        TitlePlaceholderLabel.isHidden = !TitleTextView.text.isEmpty
-        
-        
-        ProfessorPlaceholderLabel = UILabel()
-        ProfessorPlaceholderLabel.text = "수업명"
-        ProfessorPlaceholderLabel.textColor = UIColor.lightGray
-        ProfessorPlaceholderLabel.font = UIFont.italicSystemFont(ofSize: (ProfessorTextView.font?.pointSize)!)
-        ProfessorPlaceholderLabel.sizeToFit()
-        self.ProfessorTextView?.addSubview(ProfessorPlaceholderLabel)
-        ProfessorPlaceholderLabel.frame.origin = CGPoint(x: 5, y: (TitleTextView.font?.pointSize)! / 2)
-        ProfessorPlaceholderLabel.textColor = UIColor.lightGray
-        ProfessorPlaceholderLabel.isHidden = !ProfessorTextView.text.isEmpty*/
-        
         self.TitleTextView?.text = " 수업명"
         self.TitleTextView?.textColor = UIColor.lightGray
         self.ProfessorTextView?.text = " 교수님"
@@ -57,14 +41,19 @@ class JokboUploadViewController: UIViewController, UITextViewDelegate {
         self.ContentTextView?.text = " 여기를 눌러서 글을 작성할 수 있습니다."
         self.ContentTextView?.textColor = UIColor.lightGray
         
-        self.TitleTextView?.layer.borderWidth = 1
+        self.TitleTextView?.layer.borderWidth = 0.5
         self.TitleTextView?.layer.borderColor = UIColor.lightGray.cgColor
-        self.ProfessorTextView?.layer.borderWidth = 1
+        self.ProfessorTextView?.layer.borderWidth = 0.5
         self.ProfessorTextView?.layer.borderColor = UIColor.lightGray.cgColor
-        self.ContentTextView?.layer.borderWidth = 1
+        self.ContentTextView?.layer.borderWidth = 0.5
         self.ContentTextView?.layer.borderColor = UIColor.lightGray.cgColor
 
         // Do any additional setup after loading the view.
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
     }
     
     override func viewDidLayoutSubviews() {
@@ -72,12 +61,7 @@ class JokboUploadViewController: UIViewController, UITextViewDelegate {
         self.TitleTextView?.setContentOffset(CGPoint.zero, animated: false)
         self.ProfessorTextView?.setContentOffset(CGPoint.zero, animated: false)
     }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
+
     func textViewDidBeginEditing(_ textView: UITextView) {
         if textView.textColor == UIColor.lightGray {
             textView.text = nil
@@ -97,6 +81,17 @@ class JokboUploadViewController: UIViewController, UITextViewDelegate {
             textView.textColor = UIColor.lightGray
         }
     }
+    
+    @IBAction func addJokbo(_ sender: Any) {
+        // TODO: post the jokbo to firebase
+        let curRef = ref?.child("jokbos").childByAutoId()
+        curRef?.child("className").setValue(TitleTextView.text)
+        curRef?.child("professorName").setValue(ProfessorTextView.text)
+        curRef?.child("jokboText").setValue(ContentTextView.text)
+        // Dismiss the popover
+        presentingViewController?.dismiss(animated: true, completion: nil)
+    }
+    
         /*
     // MARK: - Navigation
 

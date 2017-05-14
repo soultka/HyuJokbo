@@ -16,10 +16,7 @@ class JokboTableViewController: UITableViewController,JokboDownload {
 
     @IBOutlet weak var JokboLabel: UILabel!
     @IBOutlet weak var SearchTextLabel: UITextField!
-
     static var searchPressedFlag = 0
-
-
 
     @IBAction func handleModalClose(segue: UIStoryboardSegue){
     }
@@ -85,7 +82,6 @@ class JokboTableViewController: UITableViewController,JokboDownload {
             cell.ProfessorLabel?.text = professor
         }
         cell.downloadDelegate = self
-
 
         return cell
     }

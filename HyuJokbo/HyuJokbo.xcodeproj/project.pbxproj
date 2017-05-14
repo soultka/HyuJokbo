@@ -11,7 +11,9 @@
 		23EA29A21EBB226A009F40F8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23EA29A01EBB226A009F40F8 /* Main.storyboard */; };
 		23EA29A41EBB226A009F40F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23EA29A31EBB226A009F40F8 /* Assets.xcassets */; };
 		23EA29A71EBB226A009F40F8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23EA29A51EBB226A009F40F8 /* LaunchScreen.storyboard */; };
+		2F811DF91EC88DEC00382F51 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2F811DF81EC88DEC00382F51 /* GoogleService-Info.plist */; };
 		2FFDB4411EC5B21F003965A2 /* JokboUploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFDB4401EC5B21F003965A2 /* JokboUploadViewController.swift */; };
+		352B919E44EE73DCC7DE37E9 /* Pods_HyuJokbo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FC51CDA8A01E9363B43B7AD /* Pods_HyuJokbo.framework */; };
 		774A93B91EC4BB6000B96A56 /* JokboTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774A93B81EC4BB6000B96A56 /* JokboTableViewController.swift */; };
 		774A93BB1EC4BB6B00B96A56 /* GoohaeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774A93BA1EC4BB6B00B96A56 /* GoohaeTableViewController.swift */; };
 		774A93BD1EC4BB7300B96A56 /* HonorTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774A93BC1EC4BB7300B96A56 /* HonorTableViewController.swift */; };
@@ -22,13 +24,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0FC51CDA8A01E9363B43B7AD /* Pods_HyuJokbo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HyuJokbo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		23EA29991EBB226A009F40F8 /* HyuJokbo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HyuJokbo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		23EA299C1EBB226A009F40F8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		23EA29A11EBB226A009F40F8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		23EA29A31EBB226A009F40F8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		23EA29A61EBB226A009F40F8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		23EA29A81EBB226A009F40F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2F811DF81EC88DEC00382F51 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2FFDB4401EC5B21F003965A2 /* JokboUploadViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JokboUploadViewController.swift; sourceTree = "<group>"; };
+		47038DD4EBD2B32427E1F4A2 /* Pods-HyuJokbo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HyuJokbo.release.xcconfig"; path = "Pods/Target Support Files/Pods-HyuJokbo/Pods-HyuJokbo.release.xcconfig"; sourceTree = "<group>"; };
 		774A93B81EC4BB6000B96A56 /* JokboTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JokboTableViewController.swift; sourceTree = "<group>"; };
 		774A93BA1EC4BB6B00B96A56 /* GoohaeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoohaeTableViewController.swift; sourceTree = "<group>"; };
 		774A93BC1EC4BB7300B96A56 /* HonorTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HonorTableViewController.swift; sourceTree = "<group>"; };
@@ -36,6 +41,7 @@
 		774A93C01EC4BCEC00B96A56 /* DataCenter.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = DataCenter.plist; sourceTree = "<group>"; };
 		774A93C21EC4C2EA00B96A56 /* JokboTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JokboTableViewCell.swift; sourceTree = "<group>"; };
 		77A84EE51EC4DC0C00EB7984 /* JokboTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JokboTableView.swift; sourceTree = "<group>"; };
+		B3DD45124F9E08221214578A /* Pods-HyuJokbo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HyuJokbo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HyuJokbo/Pods-HyuJokbo.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +49,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				352B919E44EE73DCC7DE37E9 /* Pods_HyuJokbo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -54,6 +61,8 @@
 			children = (
 				23EA299B1EBB226A009F40F8 /* HyuJokbo */,
 				23EA299A1EBB226A009F40F8 /* Products */,
+				6EA62B5BD32461C969BCB448 /* Pods */,
+				A7FF53FACE157F7925422B0F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -79,10 +88,28 @@
 				774A93BE1EC4BB7B00B96A56 /* MydataTableViewController.swift */,
 				23EA29A31EBB226A009F40F8 /* Assets.xcassets */,
 				23EA29A51EBB226A009F40F8 /* LaunchScreen.storyboard */,
+				2F811DF81EC88DEC00382F51 /* GoogleService-Info.plist */,
 				23EA29A81EBB226A009F40F8 /* Info.plist */,
 				774A93C01EC4BCEC00B96A56 /* DataCenter.plist */,
 			);
 			path = HyuJokbo;
+			sourceTree = "<group>";
+		};
+		6EA62B5BD32461C969BCB448 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B3DD45124F9E08221214578A /* Pods-HyuJokbo.debug.xcconfig */,
+				47038DD4EBD2B32427E1F4A2 /* Pods-HyuJokbo.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		A7FF53FACE157F7925422B0F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0FC51CDA8A01E9363B43B7AD /* Pods_HyuJokbo.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -92,9 +119,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 23EA29AB1EBB226A009F40F8 /* Build configuration list for PBXNativeTarget "HyuJokbo" */;
 			buildPhases = (
+				575BA41A017CCE70C1AB08A3 /* [CP] Check Pods Manifest.lock */,
 				23EA29951EBB226A009F40F8 /* Sources */,
 				23EA29961EBB226A009F40F8 /* Frameworks */,
 				23EA29971EBB226A009F40F8 /* Resources */,
+				3237103706368AB3B20BC237 /* [CP] Embed Pods Frameworks */,
+				C7125B56622F2F683D8C0192 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -146,12 +176,61 @@
 			files = (
 				23EA29A71EBB226A009F40F8 /* LaunchScreen.storyboard in Resources */,
 				774A93C11EC4BCEC00B96A56 /* DataCenter.plist in Resources */,
+				2F811DF91EC88DEC00382F51 /* GoogleService-Info.plist in Resources */,
 				23EA29A41EBB226A009F40F8 /* Assets.xcassets in Resources */,
 				23EA29A21EBB226A009F40F8 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3237103706368AB3B20BC237 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HyuJokbo/Pods-HyuJokbo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		575BA41A017CCE70C1AB08A3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		C7125B56622F2F683D8C0192 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HyuJokbo/Pods-HyuJokbo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		23EA29951EBB226A009F40F8 /* Sources */ = {
@@ -288,6 +367,7 @@
 		};
 		23EA29AC1EBB226A009F40F8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B3DD45124F9E08221214578A /* Pods-HyuJokbo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = HyuJokbo/Info.plist;
@@ -301,6 +381,7 @@
 		};
 		23EA29AD1EBB226A009F40F8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 47038DD4EBD2B32427E1F4A2 /* Pods-HyuJokbo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = HyuJokbo/Info.plist;
