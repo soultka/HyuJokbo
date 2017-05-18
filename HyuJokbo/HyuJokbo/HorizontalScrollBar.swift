@@ -74,7 +74,7 @@ class HorizontalScroll:UIView {
             for index in 0..<del.numberOfScrollViewElements(){
                 let view = del.elementAtScrollViewIndex(index: index)
 
-                view.frame = CGRect(x: xOffset, y: CGFloat(0), width: CGFloat(100.0), height: CGFloat(50.0))
+                view.frame = CGRect(x: xOffset, y: CGFloat(-65), width: CGFloat(100.0), height: CGFloat(50.0))
                 xOffset = xOffset + CGFloat(PADDING) + view.frame.size.width
                 scroller.addSubview(view)
 
