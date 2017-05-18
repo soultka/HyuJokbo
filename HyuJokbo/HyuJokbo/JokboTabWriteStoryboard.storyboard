@@ -12,7 +12,6 @@
         <!--Navigation Controller-->
         <scene sceneID="Jkn-Gh-WHA">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="HEc-96-tCc" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController id="mO4-Ve-nnN" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="AQY-pt-3Z8">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -27,14 +26,13 @@
                         <segue destination="7Lb-LJ-hsM" kind="relationship" relationship="rootViewController" id="jhr-XG-Bva"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HEc-96-tCc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1114" y="-1773"/>
         </scene>
         <!--족보 업로드-->
         <scene sceneID="JM9-rE-6LX">
             <objects>
-                <exit id="9i1-PD-EKh" userLabel="Exit" sceneMemberID="exit"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ssT-N4-TJU" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="7Lb-LJ-hsM" customClass="JokboUploadViewController" customModule="HyuJokbo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="3Pn-aw-3Ll"/>
@@ -106,6 +104,8 @@
                         <outlet property="TitleTextView" destination="Uiz-DN-T3G" id="aQE-rG-3AY"/>
                     </connections>
                 </viewController>
+                <exit id="9i1-PD-EKh" userLabel="Exit" sceneMemberID="exit"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ssT-N4-TJU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1899" y="-1832"/>
         </scene>
