@@ -14,13 +14,21 @@
 		2F811DF91EC88DEC00382F51 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2F811DF81EC88DEC00382F51 /* GoogleService-Info.plist */; };
 		2FFDB4411EC5B21F003965A2 /* JokboUploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFDB4401EC5B21F003965A2 /* JokboUploadViewController.swift */; };
 		352B919E44EE73DCC7DE37E9 /* Pods_HyuJokbo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FC51CDA8A01E9363B43B7AD /* Pods_HyuJokbo.framework */; };
+		7700FE1D1ECDA68E00D133C5 /* HonorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7700FE141ECDA68E00D133C5 /* HonorViewController.swift */; };
+		7700FE1E1ECDA68E00D133C5 /* HorizontalScrollBarForHonor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7700FE151ECDA68E00D133C5 /* HorizontalScrollBarForHonor.swift */; };
+		7700FE221ECDA68E00D133C5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7700FE191ECDA68E00D133C5 /* ViewController.swift */; };
+		7700FE251ECDAACC00D133C5 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7700FE231ECDAACC00D133C5 /* SearchView.swift */; };
+		7700FE261ECDAACC00D133C5 /* SearchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7700FE241ECDAACC00D133C5 /* SearchView.xib */; };
+		7700FE381ECDAD7800D133C5 /* GoohaeTabStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7700FE331ECDAD7800D133C5 /* GoohaeTabStoryboard.storyboard */; };
+		7700FE3A1ECDAD7800D133C5 /* JokboTabStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7700FE351ECDAD7800D133C5 /* JokboTabStoryboard.storyboard */; };
+		7700FE3C1ECDAD7800D133C5 /* MydataTabStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7700FE371ECDAD7800D133C5 /* MydataTabStoryboard.storyboard */; };
+		7700FE3E1ECEC82500D133C5 /* JokboTabUploadStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7700FE3D1ECEC82500D133C5 /* JokboTabUploadStoryboard.storyboard */; };
+		7700FE401ECEC83200D133C5 /* HonorTabStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7700FE3F1ECEC83200D133C5 /* HonorTabStoryboard.storyboard */; };
 		774A93B91EC4BB6000B96A56 /* JokboTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774A93B81EC4BB6000B96A56 /* JokboTableViewController.swift */; };
 		774A93BB1EC4BB6B00B96A56 /* GoohaeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774A93BA1EC4BB6B00B96A56 /* GoohaeTableViewController.swift */; };
-		774A93BD1EC4BB7300B96A56 /* HonorTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774A93BC1EC4BB7300B96A56 /* HonorTableViewController.swift */; };
 		774A93BF1EC4BB7B00B96A56 /* MydataTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774A93BE1EC4BB7B00B96A56 /* MydataTableViewController.swift */; };
 		774A93C11EC4BCEC00B96A56 /* DataCenter.plist in Resources */ = {isa = PBXBuildFile; fileRef = 774A93C01EC4BCEC00B96A56 /* DataCenter.plist */; };
 		774A93C31EC4C2EA00B96A56 /* JokboTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774A93C21EC4C2EA00B96A56 /* JokboTableViewCell.swift */; };
-		77A84EE61EC4DC0C00EB7984 /* JokboTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A84EE51EC4DC0C00EB7984 /* JokboTableView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,13 +42,21 @@
 		2F811DF81EC88DEC00382F51 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2FFDB4401EC5B21F003965A2 /* JokboUploadViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JokboUploadViewController.swift; sourceTree = "<group>"; };
 		47038DD4EBD2B32427E1F4A2 /* Pods-HyuJokbo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HyuJokbo.release.xcconfig"; path = "Pods/Target Support Files/Pods-HyuJokbo/Pods-HyuJokbo.release.xcconfig"; sourceTree = "<group>"; };
+		7700FE141ECDA68E00D133C5 /* HonorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HonorViewController.swift; sourceTree = "<group>"; };
+		7700FE151ECDA68E00D133C5 /* HorizontalScrollBarForHonor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HorizontalScrollBarForHonor.swift; sourceTree = "<group>"; };
+		7700FE191ECDA68E00D133C5 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		7700FE231ECDAACC00D133C5 /* SearchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		7700FE241ECDAACC00D133C5 /* SearchView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchView.xib; sourceTree = "<group>"; };
+		7700FE331ECDAD7800D133C5 /* GoohaeTabStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = GoohaeTabStoryboard.storyboard; sourceTree = "<group>"; };
+		7700FE351ECDAD7800D133C5 /* JokboTabStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = JokboTabStoryboard.storyboard; sourceTree = "<group>"; };
+		7700FE371ECDAD7800D133C5 /* MydataTabStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MydataTabStoryboard.storyboard; sourceTree = "<group>"; };
+		7700FE3D1ECEC82500D133C5 /* JokboTabUploadStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = JokboTabUploadStoryboard.storyboard; sourceTree = "<group>"; };
+		7700FE3F1ECEC83200D133C5 /* HonorTabStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = HonorTabStoryboard.storyboard; sourceTree = "<group>"; };
 		774A93B81EC4BB6000B96A56 /* JokboTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JokboTableViewController.swift; sourceTree = "<group>"; };
 		774A93BA1EC4BB6B00B96A56 /* GoohaeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoohaeTableViewController.swift; sourceTree = "<group>"; };
-		774A93BC1EC4BB7300B96A56 /* HonorTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HonorTableViewController.swift; sourceTree = "<group>"; };
 		774A93BE1EC4BB7B00B96A56 /* MydataTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MydataTableViewController.swift; sourceTree = "<group>"; };
 		774A93C01EC4BCEC00B96A56 /* DataCenter.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = DataCenter.plist; sourceTree = "<group>"; };
 		774A93C21EC4C2EA00B96A56 /* JokboTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JokboTableViewCell.swift; sourceTree = "<group>"; };
-		77A84EE51EC4DC0C00EB7984 /* JokboTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JokboTableView.swift; sourceTree = "<group>"; };
 		B3DD45124F9E08221214578A /* Pods-HyuJokbo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HyuJokbo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HyuJokbo/Pods-HyuJokbo.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -77,20 +93,28 @@
 		23EA299B1EBB226A009F40F8 /* HyuJokbo */ = {
 			isa = PBXGroup;
 			children = (
-				23EA299C1EBB226A009F40F8 /* AppDelegate.swift */,
-				23EA29A01EBB226A009F40F8 /* Main.storyboard */,
-				774A93C21EC4C2EA00B96A56 /* JokboTableViewCell.swift */,
-				2FFDB4401EC5B21F003965A2 /* JokboUploadViewController.swift */,
-				77A84EE51EC4DC0C00EB7984 /* JokboTableView.swift */,
-				774A93B81EC4BB6000B96A56 /* JokboTableViewController.swift */,
-				774A93BA1EC4BB6B00B96A56 /* GoohaeTableViewController.swift */,
-				774A93BC1EC4BB7300B96A56 /* HonorTableViewController.swift */,
-				774A93BE1EC4BB7B00B96A56 /* MydataTableViewController.swift */,
-				23EA29A31EBB226A009F40F8 /* Assets.xcassets */,
-				23EA29A51EBB226A009F40F8 /* LaunchScreen.storyboard */,
+				774A93C01EC4BCEC00B96A56 /* DataCenter.plist */,
 				2F811DF81EC88DEC00382F51 /* GoogleService-Info.plist */,
 				23EA29A81EBB226A009F40F8 /* Info.plist */,
-				774A93C01EC4BCEC00B96A56 /* DataCenter.plist */,
+				7700FE331ECDAD7800D133C5 /* GoohaeTabStoryboard.storyboard */,
+				7700FE3F1ECEC83200D133C5 /* HonorTabStoryboard.storyboard */,
+				7700FE351ECDAD7800D133C5 /* JokboTabStoryboard.storyboard */,
+				7700FE3D1ECEC82500D133C5 /* JokboTabUploadStoryboard.storyboard */,
+				7700FE371ECDAD7800D133C5 /* MydataTabStoryboard.storyboard */,
+				23EA299C1EBB226A009F40F8 /* AppDelegate.swift */,
+				774A93BA1EC4BB6B00B96A56 /* GoohaeTableViewController.swift */,
+				7700FE141ECDA68E00D133C5 /* HonorViewController.swift */,
+				7700FE151ECDA68E00D133C5 /* HorizontalScrollBarForHonor.swift */,
+				774A93C21EC4C2EA00B96A56 /* JokboTableViewCell.swift */,
+				774A93B81EC4BB6000B96A56 /* JokboTableViewController.swift */,
+				2FFDB4401EC5B21F003965A2 /* JokboUploadViewController.swift */,
+				774A93BE1EC4BB7B00B96A56 /* MydataTableViewController.swift */,
+				7700FE231ECDAACC00D133C5 /* SearchView.swift */,
+				7700FE191ECDA68E00D133C5 /* ViewController.swift */,
+				23EA29A31EBB226A009F40F8 /* Assets.xcassets */,
+				7700FE241ECDAACC00D133C5 /* SearchView.xib */,
+				23EA29A51EBB226A009F40F8 /* LaunchScreen.storyboard */,
+				23EA29A01EBB226A009F40F8 /* Main.storyboard */,
 			);
 			path = HyuJokbo;
 			sourceTree = "<group>";
@@ -175,9 +199,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				23EA29A71EBB226A009F40F8 /* LaunchScreen.storyboard in Resources */,
+				7700FE381ECDAD7800D133C5 /* GoohaeTabStoryboard.storyboard in Resources */,
+				7700FE401ECEC83200D133C5 /* HonorTabStoryboard.storyboard in Resources */,
+				7700FE3A1ECDAD7800D133C5 /* JokboTabStoryboard.storyboard in Resources */,
+				7700FE261ECDAACC00D133C5 /* SearchView.xib in Resources */,
 				774A93C11EC4BCEC00B96A56 /* DataCenter.plist in Resources */,
+				7700FE3C1ECDAD7800D133C5 /* MydataTabStoryboard.storyboard in Resources */,
 				2F811DF91EC88DEC00382F51 /* GoogleService-Info.plist in Resources */,
 				23EA29A41EBB226A009F40F8 /* Assets.xcassets in Resources */,
+				7700FE3E1ECEC82500D133C5 /* JokboTabUploadStoryboard.storyboard in Resources */,
 				23EA29A21EBB226A009F40F8 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -212,7 +242,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		C7125B56622F2F683D8C0192 /* [CP] Copy Pods Resources */ = {
@@ -240,11 +270,13 @@
 				774A93BB1EC4BB6B00B96A56 /* GoohaeTableViewController.swift in Sources */,
 				2FFDB4411EC5B21F003965A2 /* JokboUploadViewController.swift in Sources */,
 				774A93C31EC4C2EA00B96A56 /* JokboTableViewCell.swift in Sources */,
+				7700FE1D1ECDA68E00D133C5 /* HonorViewController.swift in Sources */,
 				774A93B91EC4BB6000B96A56 /* JokboTableViewController.swift in Sources */,
 				774A93BF1EC4BB7B00B96A56 /* MydataTableViewController.swift in Sources */,
-				774A93BD1EC4BB7300B96A56 /* HonorTableViewController.swift in Sources */,
+				7700FE221ECDA68E00D133C5 /* ViewController.swift in Sources */,
+				7700FE1E1ECDA68E00D133C5 /* HorizontalScrollBarForHonor.swift in Sources */,
 				23EA299D1EBB226A009F40F8 /* AppDelegate.swift in Sources */,
-				77A84EE61EC4DC0C00EB7984 /* JokboTableView.swift in Sources */,
+				7700FE251ECDAACC00D133C5 /* SearchView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
