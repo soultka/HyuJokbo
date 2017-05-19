@@ -7,14 +7,16 @@
 //
 
 import UIKit
+import FirebaseDatabase
 
-//plist에서 데이터를 불러오기위한 변수들
-let JokboFileName = "DataCenter"
-var jokbos : Array<AnyObject> = []
+
 
 class JokboTableViewController: UITableViewController,JokboDownload {
-
-
+    
+    var ref:FIRDatabaseReference?
+    var databaseHandle:FIRDatabaseHandle?
+    var jokbosData = [[String:String]]()
+    
     //서치 버튼이 표시되었을 경우 1, 표시 안되어 있을 경우 0
     static var searchPressedFlag = 0
 
@@ -47,25 +49,28 @@ class JokboTableViewController: UITableViewController,JokboDownload {
         //검색창 서브뷰 기본적으로 숨겨짐
         self.searchSubView.isHidden = true
 
-        //DataCenter.plist주소를 jokboURL로 얻어옴
-        guard let jokboURL = Bundle.main.url(forResource: JokboFileName, withExtension: "plist") else{
-            print("No file")
-            return
-        }
-
-        //jokboURL로 부터 자료를 Array로 캐스팅 후 jokboArray로 받아옴, 이를 jokbos에 저장
-        if let jokboArray = NSArray(contentsOf : jokboURL)
-        {
-            print(jokboArray)
-            jokbos += jokboArray as Array
-        }
-
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
+        ref = FIRDatabase.database().reference()
+        //Retrieve the posts and listen for changes
+        
+        databaseHandle = ref?.child("jokbos").observe(.childAdded, with: { (snapshot) in
+            //Take the value from the snapshot and added it to the jokbosData array
+            let jokbo = snapshot.value as? [String:String]
+            if let actualJokbo = jokbo{
+                //Append the data to our jokbo array
+            
+                self.jokbosData.append(actualJokbo)
+                //reload the tableview
+                self.tableView.reloadData()
+            }
+            
+        })
     }
 
     override func didReceiveMemoryWarning() {
@@ -83,7 +88,7 @@ class JokboTableViewController: UITableViewController,JokboDownload {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
 
-        let rowCount = jokbos.count
+        let rowCount = jokbosData.count
         return rowCount
     }
 
@@ -92,17 +97,17 @@ class JokboTableViewController: UITableViewController,JokboDownload {
 
 
         let cell = tableView.dequeueReusableCell(withIdentifier: "JokboCell", for: indexPath) as! JokboTableViewCell
-
+        print(jokbosData)
+        var jokboDataShow = jokbosData[indexPath.row]
         //jokbos로 부터 jokbo를 받아옴
-        guard let jokbo = jokbos[indexPath.row] as? [String:AnyObject] else {
+        guard let jokbo = jokboDataShow["jokboText"]  else {
             return cell
         }
-
-        if let subject = jokbo["subject"] as? String{
+        if let subject = jokboDataShow["className"] {
             cell.SubjectLabel?.text = subject
         }
 
-        if let professor = jokbo["professor"] as? String{
+        if let professor = jokboDataShow["professorName"] {
             cell.ProfessorLabel?.text = professor
         }
 
