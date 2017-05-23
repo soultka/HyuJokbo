@@ -83,11 +83,11 @@ class GoohaeUploadViewController: UIViewController, UITextViewDelegate {
     }
 
     @IBAction func addGoohae(_ sender: Any) {
-        // TODO: post the Goohae to firebase
-        let curRef = ref?.child("Goohaes").childByAutoId()
+        // TODO: post the goohae to firebase
+        let curRef = ref?.child("goohaes").childByAutoId()
         curRef?.child("className").setValue(TitleTextView.text)
         curRef?.child("professorName").setValue(ProfessorTextView.text)
-        curRef?.child("GoohaeText").setValue(ContentTextView.text)
+        curRef?.child("goohaeText").setValue(ContentTextView.text)
         // Dismiss the popover
         presentingViewController?.dismiss(animated: true, completion: nil)
     }

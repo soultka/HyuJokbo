@@ -15,7 +15,7 @@ class GoohaeTableViewController: UITableViewController,GoohaeDownload {
 
     var ref:FIRDatabaseReference?
     var databaseHandle:FIRDatabaseHandle?
-    var GoohaesData = [[String:String]]()
+    var goohaesData = [[String:String]]()
 
     //서치 버튼이 표시되었을 경우 1, 표시 안되어 있을 경우 0
     static var searchPressedFlag = 0
@@ -59,13 +59,13 @@ class GoohaeTableViewController: UITableViewController,GoohaeDownload {
         ref = FIRDatabase.database().reference()
         //Retrieve the posts and listen for changes
 
-        databaseHandle = ref?.child("Goohaes").observe(.childAdded, with: { (snapshot) in
-            //Take the value from the snapshot and added it to the GoohaesData array
-            let Goohae = snapshot.value as? [String:String]
-            if let actualGoohae = Goohae{
+        databaseHandle = ref?.child("goohaes").observe(.childAdded, with: { (snapshot) in
+            //Take the value from the snapshot and added it to the goohaesData array
+            let goohae = snapshot.value as? [String:String]
+            if let actualGoohae = goohae{
                 //Append the data to our Goohae array
 
-                self.GoohaesData.append(actualGoohae)
+                self.goohaesData.append(actualGoohae)
                 //reload the tableview
                 self.tableView.reloadData()
             }
@@ -88,7 +88,7 @@ class GoohaeTableViewController: UITableViewController,GoohaeDownload {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
 
-        let rowCount = GoohaesData.count
+        let rowCount = goohaesData.count
         return rowCount
     }
 
@@ -97,17 +97,17 @@ class GoohaeTableViewController: UITableViewController,GoohaeDownload {
 
 
         let cell = tableView.dequeueReusableCell(withIdentifier: "GoohaeCell", for: indexPath) as! GoohaeTableViewCell
-        print(GoohaesData)
-        var GoohaeDataShow = GoohaesData[indexPath.row]
-        //Goohaes로 부터 Goohae를 받아옴
-        guard let Goohae = GoohaeDataShow["GoohaeText"]  else {
+        print(goohaesData)
+        var goohaeDataShow = goohaesData[indexPath.row]
+        //goohaes로 부터 goohae를 받아옴
+        guard let goohae = goohaeDataShow["goohaeText"]  else {
             return cell
         }
-        if let subject = GoohaeDataShow["className"] {
+        if let subject = goohaeDataShow["className"] {
             cell.SubjectLabel?.text = subject
         }
 
-        if let professor = GoohaeDataShow["professorName"] {
+        if let professor = goohaeDataShow["professorName"] {
             cell.ProfessorLabel?.text = professor
         }
 
