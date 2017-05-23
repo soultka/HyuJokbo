@@ -24,7 +24,7 @@ class GoohaeTableViewController: UITableViewController,GoohaeDownload {
     var refresh = UIRefreshControl()
 
     //검색창 서브뷰
-    var searchSubView:UIView!
+    var searchSubView:SearchView!
 
 
     @IBAction func handleModalClose(segue: UIStoryboardSegue){
@@ -141,6 +141,8 @@ class GoohaeTableViewController: UITableViewController,GoohaeDownload {
             self.tableView.reloadData()
 
             self.searchSubView.isHidden = false
+            //검색버튼을 닫을 경우 editing모드 초기화
+            self.searchSubView.SearchTextView.endEditing(true)
 
             GoohaeTableViewController.searchPressedFlag = 1
 
