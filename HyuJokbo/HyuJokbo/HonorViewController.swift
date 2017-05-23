@@ -10,15 +10,25 @@ import UIKit
 
 class HonorViewController: UIViewController,HorizontalScrollDelegate {
 
+    var superViewWidth:CGFloat!
+    var superViewHeight:CGFloat!
+
+    @IBOutlet weak var CenterMemberLabel: UILabel!
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        superViewWidth = self.view.frame.width
+        superViewHeight = self.view.frame.height
 
-        let hScroll = HorizontalScroll(frame: CGRect(x: 0, y: 100, width: 400, height: 100))
-
+        //For ScrollView---begin
+        let hScroll = HorizontalScroll(frame:
+            CGRect(x: 0, y: superViewHeight/5, width: superViewWidth, height: superViewHeight/5))
 
         hScroll.delegate = self
-        hScroll.backgroundColor = UIColor.blue
+        hScroll.backgroundColor = UIColor.white
         self.view.addSubview(hScroll)
+        //For ScrollView---end
+
 
         // Do any additional setup after loading the view.
     }
@@ -33,15 +43,17 @@ class HonorViewController: UIViewController,HorizontalScrollDelegate {
     }
 
     func elementAtScrollViewIndex(index: Int) -> UIView {
-        var view = UIView(frame: CGRect(x: 25, y: 25, width: 50, height: 50))
+        var view = UIView(frame: CGRect(x: 0, y: 0, width: superViewWidth/5, height: superViewHeight/5))
         let button = UIButton()
         button.frame = view.frame
-        button.setTitle("hello \(index)", for: UIControlState.normal)
-        button.backgroundColor = UIColor.red
+        button.setImage(UIImage(named:"icon-mydata(b)"), for: UIControlState.normal)
+
+
 
         view.addSubview(button)
         return view
     }
+
     
 
     /*
