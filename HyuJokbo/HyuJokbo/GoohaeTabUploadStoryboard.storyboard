@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="O8c-PV-s2D">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="eMS-b7-7eQ">
+            <objects>
+                <navigationController id="O8c-PV-s2D" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="Ch0-co-9Vc">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="barTintColor" red="0.20000000000000001" green="0.40000000000000002" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="IYA-mI-gzK" kind="relationship" relationship="rootViewController" id="dnH-gN-Gp8"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Hwv-67-x5G" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1073" y="-1661"/>
+        </scene>
+        <!--구해요업로드-->
+        <scene sceneID="uo2-SB-YRQ">
+            <objects>
+                <viewController id="IYA-mI-gzK" userLabel="구해요업로드" customClass="GoohaeUploadViewController" customModule="HyuJokbo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="qFG-1K-cZX"/>
+                        <viewControllerLayoutGuide type="bottom" id="NLA-Dt-1Oz"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="S3c-Re-W2O">
+                        <rect key="frame" x="0.0" y="64" width="375" height="559"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="FPf-XW-DqW">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="o0F-ky-Vv7"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" spellCheckingType="no"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="LAy-CZ-7gm">
+                                <rect key="frame" x="0.0" y="40" width="375" height="40"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="azB-DE-RXN"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" spellCheckingType="no"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="4gs-lo-Uzv">
+                                <rect key="frame" x="0.0" y="80" width="375" height="414"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" spellCheckingType="no"/>
+                            </textView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aAe-Il-pgB">
+                                <rect key="frame" x="0.0" y="494" width="375" height="65"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1pb-Qg-WsC">
+                                        <rect key="frame" x="13" y="20" width="25" height="25"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="icon-photo-camera"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2dz-w5-Kws" customClass="DLRadioButton">
+                                        <rect key="frame" x="236" y="15" width="76" height="34"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="익명">
+                                            <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="iconSize">
+                                                <real key="value" value="11"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="iconSquare" value="NO"/>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="indicatorColor">
+                                                <color key="value" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="indicatorSize">
+                                                <real key="value" value="6"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="iconStrokeWidth">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="iconColor">
+                                                <color key="value" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="marginWidth">
+                                                <real key="value" value="6"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="65" id="fSl-tx-F1K"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="FPf-XW-DqW" firstAttribute="centerX" secondItem="S3c-Re-W2O" secondAttribute="centerX" id="KsN-9g-duj"/>
+                            <constraint firstItem="FPf-XW-DqW" firstAttribute="width" secondItem="S3c-Re-W2O" secondAttribute="width" id="N7D-29-QQY"/>
+                            <constraint firstItem="LAy-CZ-7gm" firstAttribute="centerX" secondItem="S3c-Re-W2O" secondAttribute="centerX" id="QGn-Yq-DLg"/>
+                            <constraint firstItem="4gs-lo-Uzv" firstAttribute="centerX" secondItem="S3c-Re-W2O" secondAttribute="centerX" id="Y0a-Lk-IWu"/>
+                            <constraint firstItem="4gs-lo-Uzv" firstAttribute="width" secondItem="S3c-Re-W2O" secondAttribute="width" id="bEd-M5-RJ0"/>
+                            <constraint firstItem="FPf-XW-DqW" firstAttribute="top" secondItem="qFG-1K-cZX" secondAttribute="bottom" id="fBg-l6-TaM"/>
+                            <constraint firstItem="NLA-Dt-1Oz" firstAttribute="top" secondItem="aAe-Il-pgB" secondAttribute="bottom" id="hsY-zI-SAp"/>
+                            <constraint firstItem="LAy-CZ-7gm" firstAttribute="width" secondItem="S3c-Re-W2O" secondAttribute="width" id="nHf-aG-kLM"/>
+                            <constraint firstItem="aAe-Il-pgB" firstAttribute="centerX" secondItem="S3c-Re-W2O" secondAttribute="centerX" id="nv5-0m-brc"/>
+                            <constraint firstItem="LAy-CZ-7gm" firstAttribute="top" secondItem="FPf-XW-DqW" secondAttribute="bottom" id="pdS-L5-9HZ"/>
+                            <constraint firstItem="aAe-Il-pgB" firstAttribute="top" secondItem="4gs-lo-Uzv" secondAttribute="bottom" id="s94-7S-IVz"/>
+                            <constraint firstItem="4gs-lo-Uzv" firstAttribute="top" secondItem="LAy-CZ-7gm" secondAttribute="bottom" id="y6C-DR-j25"/>
+                            <constraint firstItem="aAe-Il-pgB" firstAttribute="width" secondItem="S3c-Re-W2O" secondAttribute="width" id="yyo-Mf-zx5"/>
+                        </constraints>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="구해요 업로드" id="b5V-2m-Pq6" userLabel="구해요 업로드">
+                        <barButtonItem key="leftBarButtonItem" image="icon-cancel" id="PZi-ma-bet">
+                            <connections>
+                                <segue destination="jZc-Rd-IVU" kind="unwind" unwindAction="handleModalCloseWithSegue:" id="UHa-3r-pQs"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="완료" id="ebG-T9-h38" userLabel="Bar Button Item">
+                            <connections>
+                                <action selector="addGoohae:" destination="IYA-mI-gzK" id="S5d-xL-Vdg"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="ContentTextView" destination="4gs-lo-Uzv" id="TfB-mm-uDF"/>
+                        <outlet property="ProfessorTextView" destination="LAy-CZ-7gm" id="rXP-y5-AF4"/>
+                        <outlet property="TitleTextView" destination="FPf-XW-DqW" id="F5J-qU-VOd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dpT-GF-1Qq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="jZc-Rd-IVU" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="1851" y="-1634"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="icon-cancel" width="16" height="16"/>
+        <image name="icon-photo-camera" width="25" height="25"/>
+    </resources>
+</document>
