@@ -46,7 +46,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5jX-gC-U5h">
-                                <rect key="frame" x="139" y="194" width="42" height="42"/>
+                                <rect key="frame" x="139" y="289" width="42" height="42"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="42" id="HeQ-VO-Vd4"/>
                                     <constraint firstAttribute="height" constant="21" id="klX-gE-oFi"/>
@@ -55,6 +55,16 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kji-9U-Iw2">
+                                <rect key="frame" x="40" y="64" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </scrollView>
+                            <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="dDD-he-NYr">
+                                <rect key="frame" x="65" y="220" width="190" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="pageIndicatorTintColor" red="0.20000000000000001" green="0.40000000000000002" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="currentPageIndicatorTintColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </pageControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -65,6 +75,9 @@
                     <navigationItem key="navigationItem" title="명예의 전당" id="eog-z2-K0W"/>
                     <connections>
                         <outlet property="CenterMemberLabel" destination="5jX-gC-U5h" id="lub-M7-saj"/>
+                        <outlet property="PageControl" destination="dDD-he-NYr" id="ZCy-57-jPd"/>
+                        <outlet property="pageControl" destination="dDD-he-NYr" id="RxJ-ca-Mye"/>
+                        <outlet property="slideScroll" destination="Kji-9U-Iw2" id="PpR-jN-mVE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8xE-oc-9Gu" userLabel="First Responder" sceneMemberID="firstResponder"/>
