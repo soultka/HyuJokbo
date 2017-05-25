@@ -12,6 +12,7 @@ class Jokbo{
     var className:String = ""
     var jokboText:String = ""
     var professorName:String = ""
+    var updateDate:Int = 0
 
 }
 
@@ -19,5 +20,5 @@ class Goohae{
     var className:String = ""
     var goohaeText:String = ""
     var professorName:String = ""
-
+    var updateDate:Int = 0
 }

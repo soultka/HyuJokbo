@@ -18,7 +18,7 @@ class GoohaeTableViewController: UITableViewController,GoohaeDownload {
     var databaseChangeHandle:FIRDatabaseHandle?
     var databaseRemoveHandle:FIRDatabaseHandle?
     var goohaesData = [String:Goohae]()
-
+    var goohaesArray = [Goohae]()
     //서치 버튼이 표시되었을 경우 1, 표시 안되어 있을 경우 0
     static var searchPressedFlag = 0
 
@@ -78,6 +78,9 @@ class GoohaeTableViewController: UITableViewController,GoohaeDownload {
                 if let professorName = goohaeData["professorName"] {
                     goohae.professorName = professorName
                 }
+                if let updateDate = goohaeData["updateDate"] {
+                    goohae.updateDate = Int(updateDate)!
+                }
 
                 self.goohaesData[snapshot.key] = goohae
                 //reload the tableview
@@ -102,6 +105,9 @@ class GoohaeTableViewController: UITableViewController,GoohaeDownload {
                 }
                 if let professorName = goohaeData["professorName"] {
                     goohae.professorName = professorName
+                }
+                if let updateDate = goohaeData["updateDate"] {
+                    goohae.updateDate = Int(updateDate)!
                 }
 
                 self.goohaesData[snapshot.key] = goohae
@@ -146,8 +152,11 @@ class GoohaeTableViewController: UITableViewController,GoohaeDownload {
 
 
         let cell = tableView.dequeueReusableCell(withIdentifier: "GoohaeCell", for: indexPath) as! GoohaeTableViewCell
-
-        let goohaeDataShow = Array(goohaesData.values)[indexPath.row]
+        goohaesArray = Array(goohaesData.values)
+        goohaesArray.sort{
+            $0.updateDate < $1.updateDate
+        }
+        let goohaeDataShow = goohaesArray[indexPath.row]
         //goohaes로 부터 goohae를 받아옴
 
         cell.SubjectLabel?.text = goohaeDataShow.className
