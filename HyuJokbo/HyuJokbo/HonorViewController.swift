@@ -13,6 +13,7 @@ class HonorViewController: UIViewController, UIScrollViewDelegate, HonorMemberBu
     var superViewWidth:CGFloat!
     var superViewHeight:CGFloat!
     var scrollViewY:CGFloat!
+    var scrollViewWidth:CGFloat!
     var scrollViewHeight:CGFloat!
     var buttonWidth:CGFloat!
     var buttonHeight:CGFloat!
@@ -26,9 +27,10 @@ class HonorViewController: UIViewController, UIScrollViewDelegate, HonorMemberBu
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        superViewWidth = CGFloat(300)
+        superViewWidth = self.view.frame.height
         superViewHeight = self.view.frame.height
         scrollViewY = CGFloat(100)
+        scrollViewWidth = CGFloat(300)
         scrollViewHeight = CGFloat(120)
         buttonWidth = CGFloat(100)
         buttonHeight = CGFloat(100)
@@ -57,7 +59,7 @@ class HonorViewController: UIViewController, UIScrollViewDelegate, HonorMemberBu
     func elementAtScrollViewIndex(index: Int) -> UIButton {
 
         let button = HonorMemberButton()
-        button.frame = CGRect(x: 0, y: 0, width: buttonWidth-10, height: buttonHeight)
+        button.frame = CGRect(x: 0, y: 0, width: buttonWidth, height: buttonHeight)
         button.setTitle("\(index)!!", for: UIControlState.normal)
         button.setTitleColor(UIColor.black, for: UIControlState.normal)
         button.backgroundColor = UIColor.blue
@@ -81,22 +83,23 @@ class HonorViewController: UIViewController, UIScrollViewDelegate, HonorMemberBu
 
     func setUpScroll(){
         //Make UIScrollView and setting
-//        slideScroll.delegate = self
         slideScroll.showsHorizontalScrollIndicator = true
         slideScroll.isDirectionalLockEnabled = true
         slideScroll.isPagingEnabled = true
 
-//        slideScroll.isUserInteractionEnabled = false
         slideScroll.isMultipleTouchEnabled = false
-        slideScroll.canCancelContentTouches = false
-        slideScroll.isExclusiveTouch = true
-        slideScroll.delaysContentTouches = true
         slideScroll.backgroundColor = UIColor.red
 
-
+        /*
         slideScroll.frame = CGRect(x: 0,
                             y: scrollViewY,
-                            width: superViewWidth, height: scrollViewHeight)
+                            width: scrollViewWidth, height: scrollViewHeight)
+        */
+        slideScroll.translatesAutoresizingMaskIntoConstraints = false
+        slideScroll.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
+        slideScroll.centerYAnchor.constraint(equalTo: self.view.centerYAnchor, constant: -130).isActive = true
+        slideScroll.widthAnchor.constraint(equalToConstant: scrollViewWidth).isActive = true
+        slideScroll.heightAnchor.constraint(equalToConstant: scrollViewHeight).isActive = true
 
         InvisibleScroll.showsHorizontalScrollIndicator = false
         InvisibleScroll.isDirectionalLockEnabled = true
@@ -132,9 +135,11 @@ class HonorViewController: UIViewController, UIScrollViewDelegate, HonorMemberBu
                 slideScroll.addSubview(view)
 
             }
+        /*
             slideScroll.frame = CGRect(x:0,
                                 y: scrollViewY,
-                                width: superViewWidth, height: scrollViewHeight)
+                                width: scrollViewWidth, height: scrollViewHeight)
+ */
             slideScroll.contentSize = CGSize(width: xOffset + buttonWidth, height:scrollViewHeight)
         InvisibleScroll.contentSize = CGSize(width: xOffset - buttonWidth, height:scrollViewHeight)
 

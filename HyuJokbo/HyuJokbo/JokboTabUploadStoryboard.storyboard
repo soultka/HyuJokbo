@@ -74,9 +74,12 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="icon-photo-camera"/>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wgV-Yz-jEd" customClass="DLRadioButton">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wgV-Yz-jEd" customClass="DLRadioButton">
                                         <rect key="frame" x="236" y="15" width="76" height="34"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="76" id="TD6-sH-sCg"/>
+                                            <constraint firstAttribute="height" constant="34" id="nOL-Ne-lND"/>
+                                        </constraints>
                                         <state key="normal" title="익명">
                                             <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -105,7 +108,10 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
+                                    <constraint firstItem="wgV-Yz-jEd" firstAttribute="top" secondItem="yRV-5I-gnt" secondAttribute="top" constant="15" id="bQM-hX-nHR"/>
                                     <constraint firstAttribute="height" constant="65" id="m0P-OL-JqO"/>
+                                    <constraint firstAttribute="trailing" secondItem="wgV-Yz-jEd" secondAttribute="trailing" constant="8" id="ooB-Np-9aS"/>
+                                    <constraint firstAttribute="bottom" secondItem="wgV-Yz-jEd" secondAttribute="bottom" constant="16" id="pkE-OZ-KgJ"/>
                                 </constraints>
                             </view>
                         </subviews>
