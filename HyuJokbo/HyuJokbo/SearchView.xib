@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16B2659" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -48,10 +48,10 @@
                 <constraint firstItem="16O-qx-NQu" firstAttribute="top" secondItem="pIv-aN-PbC" secondAttribute="top" id="4oD-yr-0oN"/>
                 <constraint firstItem="pIv-aN-PbC" firstAttribute="leading" secondItem="yQc-aP-XuA" secondAttribute="leading" id="7fU-mj-VA2"/>
                 <constraint firstItem="pIv-aN-PbC" firstAttribute="top" secondItem="yQc-aP-XuA" secondAttribute="top" id="81I-Ca-yQI"/>
-                <constraint firstItem="8Kz-TJ-dya" firstAttribute="trailing" secondItem="16O-qx-NQu" secondAttribute="trailing" id="AUi-3d-fsA"/>
                 <constraint firstItem="16O-qx-NQu" firstAttribute="width" secondItem="pIv-aN-PbC" secondAttribute="width" id="EOY-Ud-ovl"/>
                 <constraint firstItem="pIv-aN-PbC" firstAttribute="height" secondItem="yQc-aP-XuA" secondAttribute="height" id="WR4-ly-s7h"/>
                 <constraint firstItem="16O-qx-NQu" firstAttribute="leading" secondItem="pIv-aN-PbC" secondAttribute="leading" id="cO0-9X-lFD"/>
+                <constraint firstItem="8Kz-TJ-dya" firstAttribute="trailing" secondItem="pIv-aN-PbC" secondAttribute="trailing" id="gWd-yJ-N6F"/>
                 <constraint firstItem="8Kz-TJ-dya" firstAttribute="centerY" secondItem="16O-qx-NQu" secondAttribute="centerY" id="q41-hi-4i1"/>
                 <constraint firstItem="pIv-aN-PbC" firstAttribute="width" secondItem="yQc-aP-XuA" secondAttribute="width" id="wBI-G2-4fT"/>
             </constraints>
