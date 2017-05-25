@@ -18,7 +18,7 @@ class JokboTableViewController: UITableViewController,JokboDownload {
     var databaseChangeHandle:FIRDatabaseHandle?
     var databaseRemoveHandle:FIRDatabaseHandle?
     var jokbosData = [String:Jokbo]()
-    
+    var jokbosArray = [Jokbo]()
     //서치 버튼이 표시되었을 경우 1, 표시 안되어 있을 경우 0
     static var searchPressedFlag = 0
 
@@ -80,6 +80,9 @@ class JokboTableViewController: UITableViewController,JokboDownload {
                 if let professorName = jokboData["professorName"] {
                     jokbo.professorName = professorName
                 }
+                if let updateDate = jokboData["updateDate"] {
+                    jokbo.updateDate = Int(updateDate)!
+                }
             
                 self.jokbosData[snapshot.key] = jokbo
                 //reload the tableview
@@ -105,7 +108,9 @@ class JokboTableViewController: UITableViewController,JokboDownload {
                 if let professorName = jokboData["professorName"] {
                     jokbo.professorName = professorName
                 }
-
+                if let updateDate = jokboData["updateDate"] {
+                    jokbo.updateDate = Int(updateDate)!
+                }
                 self.jokbosData[snapshot.key] = jokbo
                 //reload the tableview
                 self.tableView.reloadData()
@@ -141,7 +146,8 @@ class JokboTableViewController: UITableViewController,JokboDownload {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-
+       
+        
         let rowCount = jokbosData.count
         return rowCount
     }
@@ -151,8 +157,11 @@ class JokboTableViewController: UITableViewController,JokboDownload {
 
 
         let cell = tableView.dequeueReusableCell(withIdentifier: "JokboCell", for: indexPath) as! JokboTableViewCell
-
-        let jokboDataShow = Array(jokbosData.values)[indexPath.row]
+        jokbosArray = Array(jokbosData.values)
+        jokbosArray.sort{
+            $0.updateDate < $1.updateDate
+        }
+        let jokboDataShow = jokbosArray[indexPath.row]
         //jokbos로 부터 jokbo를 받아옴
 
         cell.SubjectLabel?.text = jokboDataShow.className
