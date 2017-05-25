@@ -46,5 +46,14 @@ class SearchView:UIView, UITextViewDelegate{
             textView.textColor = UIColor.lightGray
         }
     }
+    @IBAction func cancelEditing(_ sender: Any) {
+
+        if self.SearchTextView.text != "검색어를 입력하세요"{
+            self.SearchTextView.text = nil
+            self.SearchTextView.endEditing(true)
+        }
+
+
+    }
 
 }

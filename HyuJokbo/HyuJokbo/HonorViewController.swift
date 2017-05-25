@@ -67,8 +67,10 @@ class HonorViewController: UIViewController, UIScrollViewDelegate {
     }
 
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        /*
         let pageIndex = round(scrollView.contentOffset.x/(buttonWidth*3))
         PageControl.currentPage = Int(pageIndex)
+ */
     }
 
     func setUpScroll(){

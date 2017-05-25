@@ -15,7 +15,9 @@ class JokboTableViewController: UITableViewController,JokboDownload {
     
     var ref:FIRDatabaseReference?
     var databaseHandle:FIRDatabaseHandle?
-    var jokbosData = [[String:String]]()
+    var databaseChangeHandle:FIRDatabaseHandle?
+    var databaseRemoveHandle:FIRDatabaseHandle?
+    var jokbosData = [String:Jokbo]()
     
     //서치 버튼이 표시되었을 경우 1, 표시 안되어 있을 경우 0
     static var searchPressedFlag = 0
@@ -35,6 +37,8 @@ class JokboTableViewController: UITableViewController,JokboDownload {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        print("viewdid!!!!!!!!!")
 
         //테이블 뷰의 왼쪽위 좌표를 CGPoint로 얻어옴
         let topOfTableCGPoint = self.tableView.topAnchor.accessibilityActivationPoint
@@ -61,19 +65,66 @@ class JokboTableViewController: UITableViewController,JokboDownload {
         
         databaseHandle = ref?.child("jokbos").observe(.childAdded, with: { (snapshot) in
             //Take the value from the snapshot and added it to the jokbosData array
-            let jokbo = snapshot.value as? [String:String]
-            if let actualJokbo = jokbo{
-                //Append the data to our jokbo array
+            let data = snapshot.value as? [String:String]
 
-                print(actualJokbo)
-                print("--------")
+            if let jokboData = data{
+                //Append the data to our jokbo array
+                let jokbo = Jokbo()
+
+                jokbo.className = jokboData["className"]!
+
+                if let jokboText = jokboData["jokboText"] {
+                    jokbo.jokboText = jokboText
+
+                }
+                if let professorName = jokboData["professorName"] {
+                    jokbo.professorName = professorName
+                }
             
-                self.jokbosData.append(actualJokbo)
+                self.jokbosData[snapshot.key] = jokbo
                 //reload the tableview
                 self.tableView.reloadData()
             }
             
         })
+
+        databaseChangeHandle = ref?.child("jokbos").observe(.childChanged, with: { (snapshot) in
+            //Take the value from the snapshot and added it to the jokbosData array
+            let data = snapshot.value as? [String:String]
+
+            if let jokboData = data{
+                //Append the data to our jokbo array
+                let jokbo = Jokbo()
+
+                jokbo.className = jokboData["className"]!
+
+                if let jokboText = jokboData["jokboText"] {
+                    jokbo.jokboText = jokboText
+
+                }
+                if let professorName = jokboData["professorName"] {
+                    jokbo.professorName = professorName
+                }
+
+                self.jokbosData[snapshot.key] = jokbo
+                //reload the tableview
+                self.tableView.reloadData()
+            }
+            
+        })
+
+
+        databaseRemoveHandle = ref?.child("jokbos").observe(.childRemoved, with: { (snapshot) in
+            //Take the value from the snapshot and added it to the jokbosData array
+
+                self.jokbosData.removeValue(forKey: snapshot.key)
+                //reload the tableview
+                self.tableView.reloadData()
+
+        })
+
+
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -101,20 +152,11 @@ class JokboTableViewController: UITableViewController,JokboDownload {
 
         let cell = tableView.dequeueReusableCell(withIdentifier: "JokboCell", for: indexPath) as! JokboTableViewCell
 
-        var jokboDataShow = jokbosData[indexPath.row]
+        let jokboDataShow = Array(jokbosData.values)[indexPath.row]
         //jokbos로 부터 jokbo를 받아옴
 
-        if let subject = jokboDataShow["className"] {
-            cell.SubjectLabel?.text = subject
-        }else{
-            cell.SubjectLabel?.text = ""
-        }
-
-        if let professor = jokboDataShow["professorName"] {
-            cell.ProfessorLabel?.text = professor
-        }else{
-            cell.ProfessorLabel?.text = ""
-        }
+        cell.SubjectLabel?.text = jokboDataShow.className
+        cell.ProfessorLabel?.text = jokboDataShow.professorName
 
         cell.downloadDelegate = self
 
@@ -128,8 +170,11 @@ class JokboTableViewController: UITableViewController,JokboDownload {
         self.tableView.reloadData()
     }
     override func viewDidDisappear(_ animated: Bool) {
+        print("disappearaaa")
         super.viewDidDisappear(animated)
         ref?.removeObserver(withHandle: databaseHandle!)
+        ref?.removeObserver(withHandle: databaseChangeHandle!)
+        ref?.removeObserver(withHandle: databaseRemoveHandle!)
     }
     func download() {
         //to do list
@@ -148,15 +193,22 @@ class JokboTableViewController: UITableViewController,JokboDownload {
 
             self.searchSubView.isHidden = true
 
+            //editing모드 초기화
+            if self.searchSubView.SearchTextView.text != "검색어를 입력하세요"{
+            self.searchSubView.SearchTextView.text = nil
+            self.searchSubView.SearchTextView.endEditing(true)
+        }
+
             JokboTableViewController.searchPressedFlag = 0
 
         }else {
         //검색창이 표시안되있을경우
-            self.tableView.reloadData()
 
             self.searchSubView.isHidden = false
-            //검색버튼을 닫을 경우 editing모드 초기화
-            self.searchSubView.SearchTextView.endEditing(true)
+
+             //editing모드 초기화
+
+
 
             JokboTableViewController.searchPressedFlag = 1
 

@@ -15,7 +15,9 @@ class GoohaeTableViewController: UITableViewController,GoohaeDownload {
 
     var ref:FIRDatabaseReference?
     var databaseHandle:FIRDatabaseHandle?
-    var goohaesData = [[String:String]]()
+    var databaseChangeHandle:FIRDatabaseHandle?
+    var databaseRemoveHandle:FIRDatabaseHandle?
+    var goohaesData = [String:Goohae]()
 
     //서치 버튼이 표시되었을 경우 1, 표시 안되어 있을 경우 0
     static var searchPressedFlag = 0
@@ -61,15 +63,62 @@ class GoohaeTableViewController: UITableViewController,GoohaeDownload {
 
         databaseHandle = ref?.child("goohaes").observe(.childAdded, with: { (snapshot) in
             //Take the value from the snapshot and added it to the goohaesData array
-            let goohae = snapshot.value as? [String:String]
-            if let actualGoohae = goohae{
-                //Append the data to our Goohae array
+            let data = snapshot.value as? [String:String]
 
-                self.goohaesData.append(actualGoohae)
+            if let goohaeData = data{
+                //Append the data to our goohae array
+                let goohae = Goohae()
+
+                goohae.className = goohaeData["className"]!
+
+                if let goohaeText = goohaeData["goohaeText"] {
+                    goohae.goohaeText = goohaeText
+
+                }
+                if let professorName = goohaeData["professorName"] {
+                    goohae.professorName = professorName
+                }
+
+                self.goohaesData[snapshot.key] = goohae
                 //reload the tableview
                 self.tableView.reloadData()
             }
 
+        })
+
+        databaseChangeHandle = ref?.child("goohaes").observe(.childChanged, with: { (snapshot) in
+            //Take the value from the snapshot and added it to the goohaesData array
+            let data = snapshot.value as? [String:String]
+
+            if let goohaeData = data{
+                //Append the data to our goohae array
+                let goohae = Goohae()
+
+                goohae.className = goohaeData["className"]!
+
+                if let goohaeText = goohaeData["goohaeText"] {
+                    goohae.goohaeText = goohaeText
+
+                }
+                if let professorName = goohaeData["professorName"] {
+                    goohae.professorName = professorName
+                }
+
+                self.goohaesData[snapshot.key] = goohae
+                //reload the tableview
+                self.tableView.reloadData()
+            }
+
+        })
+
+
+        databaseRemoveHandle = ref?.child("goohaes").observe(.childRemoved, with: { (snapshot) in
+            //Take the value from the snapshot and added it to the goohaesData array
+            
+            self.goohaesData.removeValue(forKey: snapshot.key)
+            //reload the tableview
+            self.tableView.reloadData()
+            
         })
     }
 
@@ -97,19 +146,13 @@ class GoohaeTableViewController: UITableViewController,GoohaeDownload {
 
 
         let cell = tableView.dequeueReusableCell(withIdentifier: "GoohaeCell", for: indexPath) as! GoohaeTableViewCell
-        print(goohaesData)
-        var goohaeDataShow = goohaesData[indexPath.row]
-        //goohaes로 부터 goohae를 받아옴
-        guard let goohae = goohaeDataShow["goohaeText"]  else {
-            return cell
-        }
-        if let subject = goohaeDataShow["className"] {
-            cell.SubjectLabel?.text = subject
-        }
 
-        if let professor = goohaeDataShow["professorName"] {
-            cell.ProfessorLabel?.text = professor
-        }
+        let goohaeDataShow = Array(goohaesData.values)[indexPath.row]
+        //goohaes로 부터 goohae를 받아옴
+
+        cell.SubjectLabel?.text = goohaeDataShow.className
+        cell.ProfessorLabel?.text = goohaeDataShow.professorName
+
 
         cell.downloadDelegate = self
 
@@ -117,6 +160,19 @@ class GoohaeTableViewController: UITableViewController,GoohaeDownload {
         return cell
     }
 
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.tableView.reloadData()
+    }
+    override func viewDidDisappear(_ animated: Bool) {
+        print("disappearaaa")
+        super.viewDidDisappear(animated)
+        ref?.removeObserver(withHandle: databaseHandle!)
+        ref?.removeObserver(withHandle: databaseChangeHandle!)
+        ref?.removeObserver(withHandle: databaseRemoveHandle!)
+    }
+    
     //Download 버튼 클릭시 호출
     func download() {
         //to do list
@@ -134,6 +190,13 @@ class GoohaeTableViewController: UITableViewController,GoohaeDownload {
 
             self.searchSubView.isHidden = true
 
+            //editing모드 초기화
+            if self.searchSubView.SearchTextView.text != "검색어를 입력하세요"{
+                self.searchSubView.SearchTextView.text = nil
+                self.searchSubView.SearchTextView.endEditing(true)
+            }
+
+
             GoohaeTableViewController.searchPressedFlag = 0
 
         }else {
@@ -142,14 +205,14 @@ class GoohaeTableViewController: UITableViewController,GoohaeDownload {
 
             self.searchSubView.isHidden = false
             //검색버튼을 닫을 경우 editing모드 초기화
-            self.searchSubView.SearchTextView.endEditing(true)
-
+            
             GoohaeTableViewController.searchPressedFlag = 1
-
+            
         }
-
-
+        
+        
     }
+
     /*
      // Override to support conditional editing of the table view.
      override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
