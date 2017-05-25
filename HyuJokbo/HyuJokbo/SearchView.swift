@@ -47,5 +47,4 @@ class SearchView:UIView, UITextViewDelegate{
         }
     }
 
-
 }

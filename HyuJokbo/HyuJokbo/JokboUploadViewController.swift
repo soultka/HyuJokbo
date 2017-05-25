@@ -84,6 +84,7 @@ class JokboUploadViewController: UIViewController, UITextViewDelegate {
     
     @IBAction func addJokbo(_ sender: Any) {
         // TODO: post the jokbo to firebase
+        print("ad~~~~~~~~~~~~~~~~~~~~~")
         let curRef = ref?.child("jokbos").childByAutoId()
         curRef?.child("className").setValue(TitleTextView.text)
         curRef?.child("professorName").setValue(ProfessorTextView.text)

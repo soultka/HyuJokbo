@@ -100,18 +100,20 @@ class JokboTableViewController: UITableViewController,JokboDownload {
 
 
         let cell = tableView.dequeueReusableCell(withIdentifier: "JokboCell", for: indexPath) as! JokboTableViewCell
-        print(jokbosData)
+
         var jokboDataShow = jokbosData[indexPath.row]
         //jokbos로 부터 jokbo를 받아옴
-        guard let jokbo = jokboDataShow["jokboText"]  else {
-            return cell
-        }
+
         if let subject = jokboDataShow["className"] {
             cell.SubjectLabel?.text = subject
+        }else{
+            cell.SubjectLabel?.text = ""
         }
 
         if let professor = jokboDataShow["professorName"] {
             cell.ProfessorLabel?.text = professor
+        }else{
+            cell.ProfessorLabel?.text = ""
         }
 
         cell.downloadDelegate = self
