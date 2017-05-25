@@ -8,6 +8,7 @@
 
 import Foundation
 
+
 class Jokbo{
     var className:String = ""
     var jokboText:String = ""

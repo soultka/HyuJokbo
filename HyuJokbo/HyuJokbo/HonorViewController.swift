@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HonorViewController: UIViewController, UIScrollViewDelegate {
+class HonorViewController: UIViewController, UIScrollViewDelegate, HonorMemberButtonDelegate{
 
     var superViewWidth:CGFloat!
     var superViewHeight:CGFloat!
@@ -18,10 +18,10 @@ class HonorViewController: UIViewController, UIScrollViewDelegate {
     var buttonHeight:CGFloat!
     let PADDING = CGFloat(10)
 
-    @IBOutlet weak var slideScroll: UIScrollView!
-    @IBOutlet weak var PageControl: UIPageControl!
+    @IBOutlet weak var slideScroll: HorizontalScrollView!
     @IBOutlet weak var CenterMemberLabel: UILabel!
 
+    @IBOutlet weak var InvisibleScroll: UIScrollView!
 
 
     override func viewDidLoad() {
@@ -29,22 +29,19 @@ class HonorViewController: UIViewController, UIScrollViewDelegate {
         superViewWidth = CGFloat(300)
         superViewHeight = self.view.frame.height
         scrollViewY = CGFloat(100)
-        scrollViewHeight = CGFloat(150)
+        scrollViewHeight = CGFloat(120)
         buttonWidth = CGFloat(100)
         buttonHeight = CGFloat(100)
 
 
         //For ScrollView---
-        slideScroll.delegate = self
+
         setUpScroll()
         reloadScroll()
 
-        //For PageControl
-        PageControl.numberOfPages = self.numberOfScrollViewElements()
-        PageControl.currentPage = 0
-
 
         // Do any additional setup after loading the view.
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -56,34 +53,69 @@ class HonorViewController: UIViewController, UIScrollViewDelegate {
         return 10
     }
 
-    func elementAtScrollViewIndex(index: Int) -> UIView {
-        let view = UIView(frame: CGRect(x: 0, y: 0, width: buttonWidth, height: buttonHeight))
-        let button = UIButton()
-        button.frame = view.frame
-        button.setImage(UIImage(named:"icon-mydata(b)"), for: UIControlState.normal)
 
-        view.addSubview(button)
-        return view
+    func elementAtScrollViewIndex(index: Int) -> UIButton {
+
+        let button = HonorMemberButton()
+        button.frame = CGRect(x: 0, y: 0, width: buttonWidth-10, height: buttonHeight)
+        button.setTitle("\(index)!!", for: UIControlState.normal)
+        button.setTitleColor(UIColor.black, for: UIControlState.normal)
+        button.backgroundColor = UIColor.blue
+        //        button.setImage(UIImage(named:"icon-mydata(b)"), for: UIControlState.normal)
+        button.delegate = self
+
+
+        return button
     }
+    
 
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        /*
-        let pageIndex = round(scrollView.contentOffset.x/(buttonWidth*3))
-        PageControl.currentPage = Int(pageIndex)
- */
+    
+        if(scrollView == InvisibleScroll){
+        slideScroll.contentOffset = InvisibleScroll.contentOffset;
+        }
+        
     }
+
+
 
     func setUpScroll(){
         //Make UIScrollView and setting
-        slideScroll.showsHorizontalScrollIndicator = false
+//        slideScroll.delegate = self
+        slideScroll.showsHorizontalScrollIndicator = true
         slideScroll.isDirectionalLockEnabled = true
         slideScroll.isPagingEnabled = true
+
+//        slideScroll.isUserInteractionEnabled = false
+        slideScroll.isMultipleTouchEnabled = false
+        slideScroll.canCancelContentTouches = false
+        slideScroll.isExclusiveTouch = true
+        slideScroll.delaysContentTouches = true
+        slideScroll.backgroundColor = UIColor.red
+
 
         slideScroll.frame = CGRect(x: 0,
                             y: scrollViewY,
                             width: superViewWidth, height: scrollViewHeight)
 
+        InvisibleScroll.showsHorizontalScrollIndicator = false
+        InvisibleScroll.isDirectionalLockEnabled = true
+        InvisibleScroll.isPagingEnabled = true
+        InvisibleScroll.frame = CGRect(x: buttonWidth,
+                                   y: scrollViewY,
+                                   width: buttonWidth, height: scrollViewHeight)
+
+        InvisibleScroll.isUserInteractionEnabled = false
+
+        slideScroll.addGestureRecognizer(InvisibleScroll.panGestureRecognizer)
+
+
+        InvisibleScroll.delegate = self
+        self.view.bringSubview(toFront: slideScroll)
+        //                InvisibleScroll.delegatePass = self
+
     }
+
 
     func reloadScroll(){
 
@@ -104,6 +136,7 @@ class HonorViewController: UIViewController, UIScrollViewDelegate {
                                 y: scrollViewY,
                                 width: superViewWidth, height: scrollViewHeight)
             slideScroll.contentSize = CGSize(width: xOffset + buttonWidth, height:scrollViewHeight)
+        InvisibleScroll.contentSize = CGSize(width: xOffset - buttonWidth, height:scrollViewHeight)
 
 
     }
@@ -117,5 +150,17 @@ class HonorViewController: UIViewController, UIScrollViewDelegate {
         // Pass the selected object to the new view controller.
     }
     */
+
+    func HonorButtonTouchBegan() {
+        slideScroll.isScrollEnabled = false
+        slideScroll.isPagingEnabled = false
+
+    }
+    func HonorButtonGesture() {
+        print("kk")
+        slideScroll.isScrollEnabled = true
+        slideScroll.isPagingEnabled = true
+
+    }
 
 }

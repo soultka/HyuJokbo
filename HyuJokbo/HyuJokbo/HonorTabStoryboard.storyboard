@@ -55,16 +55,14 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kji-9U-Iw2">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kji-9U-Iw2" customClass="HorizontalScrollView" customModule="HyuJokbo" customModuleProvider="target">
                                 <rect key="frame" x="40" y="64" width="240" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </scrollView>
-                            <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="dDD-he-NYr">
-                                <rect key="frame" x="65" y="220" width="190" height="37"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rEC-Wz-9zn" userLabel="Invisible">
+                                <rect key="frame" x="40" y="356" width="240" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="pageIndicatorTintColor" red="0.20000000000000001" green="0.40000000000000002" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="currentPageIndicatorTintColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                            </pageControl>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -75,8 +73,7 @@
                     <navigationItem key="navigationItem" title="명예의 전당" id="eog-z2-K0W"/>
                     <connections>
                         <outlet property="CenterMemberLabel" destination="5jX-gC-U5h" id="lub-M7-saj"/>
-                        <outlet property="PageControl" destination="dDD-he-NYr" id="ZCy-57-jPd"/>
-                        <outlet property="pageControl" destination="dDD-he-NYr" id="RxJ-ca-Mye"/>
+                        <outlet property="InvisibleScroll" destination="rEC-Wz-9zn" id="6Oq-rH-sC1"/>
                         <outlet property="slideScroll" destination="Kji-9U-Iw2" id="PpR-jN-mVE"/>
                     </connections>
                 </viewController>
