@@ -32,9 +32,12 @@
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Kz-TJ-dya">
-                    <rect key="frame" x="230" y="6" width="40" height="22"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Kz-TJ-dya">
+                    <rect key="frame" x="280" y="6" width="40" height="22"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="22" id="Jpr-Zg-et9"/>
+                        <constraint firstAttribute="width" constant="40" id="g68-Q8-5HL"/>
+                    </constraints>
                     <state key="normal" title="Button" image="icon-cancel"/>
                     <connections>
                         <action selector="cancelEditing:" destination="-1" eventType="touchUpInside" id="m0L-Uw-UCv"/>
@@ -45,9 +48,11 @@
                 <constraint firstItem="16O-qx-NQu" firstAttribute="top" secondItem="pIv-aN-PbC" secondAttribute="top" id="4oD-yr-0oN"/>
                 <constraint firstItem="pIv-aN-PbC" firstAttribute="leading" secondItem="yQc-aP-XuA" secondAttribute="leading" id="7fU-mj-VA2"/>
                 <constraint firstItem="pIv-aN-PbC" firstAttribute="top" secondItem="yQc-aP-XuA" secondAttribute="top" id="81I-Ca-yQI"/>
+                <constraint firstItem="8Kz-TJ-dya" firstAttribute="trailing" secondItem="16O-qx-NQu" secondAttribute="trailing" id="AUi-3d-fsA"/>
                 <constraint firstItem="16O-qx-NQu" firstAttribute="width" secondItem="pIv-aN-PbC" secondAttribute="width" id="EOY-Ud-ovl"/>
                 <constraint firstItem="pIv-aN-PbC" firstAttribute="height" secondItem="yQc-aP-XuA" secondAttribute="height" id="WR4-ly-s7h"/>
                 <constraint firstItem="16O-qx-NQu" firstAttribute="leading" secondItem="pIv-aN-PbC" secondAttribute="leading" id="cO0-9X-lFD"/>
+                <constraint firstItem="8Kz-TJ-dya" firstAttribute="centerY" secondItem="16O-qx-NQu" secondAttribute="centerY" id="q41-hi-4i1"/>
                 <constraint firstItem="pIv-aN-PbC" firstAttribute="width" secondItem="yQc-aP-XuA" secondAttribute="width" id="wBI-G2-4fT"/>
             </constraints>
             <point key="canvasLocation" x="-200" y="-588"/>
