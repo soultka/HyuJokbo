@@ -193,15 +193,22 @@ class JokboTableViewController: UITableViewController,JokboDownload {
 
             self.searchSubView.isHidden = true
 
+            //editing모드 초기화
+            if self.searchSubView.SearchTextView.text != "검색어를 입력하세요"{
+            self.searchSubView.SearchTextView.text = nil
+            self.searchSubView.SearchTextView.endEditing(true)
+        }
+
             JokboTableViewController.searchPressedFlag = 0
 
         }else {
         //검색창이 표시안되있을경우
-            self.tableView.reloadData()
 
             self.searchSubView.isHidden = false
-            //검색버튼을 닫을 경우 editing모드 초기화
-            self.searchSubView.SearchTextView.endEditing(true)
+
+             //editing모드 초기화
+
+
 
             JokboTableViewController.searchPressedFlag = 1
 

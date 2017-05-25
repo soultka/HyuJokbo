@@ -190,6 +190,13 @@ class GoohaeTableViewController: UITableViewController,GoohaeDownload {
 
             self.searchSubView.isHidden = true
 
+            //editing모드 초기화
+            if self.searchSubView.SearchTextView.text != "검색어를 입력하세요"{
+                self.searchSubView.SearchTextView.text = nil
+                self.searchSubView.SearchTextView.endEditing(true)
+            }
+
+
             GoohaeTableViewController.searchPressedFlag = 0
 
         }else {
@@ -198,14 +205,14 @@ class GoohaeTableViewController: UITableViewController,GoohaeDownload {
 
             self.searchSubView.isHidden = false
             //검색버튼을 닫을 경우 editing모드 초기화
-            self.searchSubView.SearchTextView.endEditing(true)
-
+            
             GoohaeTableViewController.searchPressedFlag = 1
-
+            
         }
-
-
+        
+        
     }
+
     /*
      // Override to support conditional editing of the table view.
      override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
