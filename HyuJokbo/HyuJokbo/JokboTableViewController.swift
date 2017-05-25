@@ -64,6 +64,9 @@ class JokboTableViewController: UITableViewController,JokboDownload {
             let jokbo = snapshot.value as? [String:String]
             if let actualJokbo = jokbo{
                 //Append the data to our jokbo array
+
+                print(actualJokbo)
+                print("--------")
             
                 self.jokbosData.append(actualJokbo)
                 //reload the tableview
@@ -117,13 +120,22 @@ class JokboTableViewController: UITableViewController,JokboDownload {
         return cell
     }
 
-    //Download 버튼 클릭시 호출
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.tableView.reloadData()
+    }
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        ref?.removeObserver(withHandle: databaseHandle!)
+    }
     func download() {
         //to do list
         //다운로드 만들것
         print("Downloading...")
     }
 
+     //Download 버튼 클릭시 호출
     @IBAction func SearchBarButtonPressed(_ sender: Any) {
 
         //검색창이 표시되었을 경우
