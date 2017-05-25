@@ -15,7 +15,9 @@ class JokboTableViewController: UITableViewController,JokboDownload {
     
     var ref:FIRDatabaseReference?
     var databaseHandle:FIRDatabaseHandle?
-    var jokbosData = [[String:String]]()
+    var databaseChangeHandle:FIRDatabaseHandle?
+    var databaseRemoveHandle:FIRDatabaseHandle?
+    var jokbosData = [String:Jokbo]()
     
     //서치 버튼이 표시되었을 경우 1, 표시 안되어 있을 경우 0
     static var searchPressedFlag = 0
@@ -61,19 +63,70 @@ class JokboTableViewController: UITableViewController,JokboDownload {
         
         databaseHandle = ref?.child("jokbos").observe(.childAdded, with: { (snapshot) in
             //Take the value from the snapshot and added it to the jokbosData array
-            let jokbo = snapshot.value as? [String:String]
-            if let actualJokbo = jokbo{
-                //Append the data to our jokbo array
+            let data = snapshot.value as? [String:String]
 
-                print(actualJokbo)
-                print("--------")
+            if let jokboData = data{
+                print(jokboData)
+                print(jokboData["className"]!)
+                //Append the data to our jokbo array
+                let jokbo = Jokbo()
+
+                jokbo.className = jokboData["className"]!
+
+                if let jokboText = jokboData["jokboText"] {
+                    jokbo.jokboText = jokboText
+
+                }
+                if let professorName = jokboData["professorName"] {
+                    jokbo.professorName = professorName
+                }
             
-                self.jokbosData.append(actualJokbo)
+                self.jokbosData[snapshot.key] = jokbo
                 //reload the tableview
                 self.tableView.reloadData()
             }
             
         })
+
+        databaseChangeHandle = ref?.child("jokbos").observe(.childChanged, with: { (snapshot) in
+            //Take the value from the snapshot and added it to the jokbosData array
+            let data = snapshot.value as? [String:String]
+
+            if let jokboData = data{
+                print(jokboData)
+                print(jokboData["className"]!)
+                //Append the data to our jokbo array
+                let jokbo = Jokbo()
+
+                jokbo.className = jokboData["className"]!
+
+                if let jokboText = jokboData["jokboText"] {
+                    jokbo.jokboText = jokboText
+
+                }
+                if let professorName = jokboData["professorName"] {
+                    jokbo.professorName = professorName
+                }
+
+                self.jokbosData[snapshot.key] = jokbo
+                //reload the tableview
+                self.tableView.reloadData()
+            }
+            
+        })
+
+
+        databaseRemoveHandle = ref?.child("jokbos").observe(.childRemoved, with: { (snapshot) in
+            //Take the value from the snapshot and added it to the jokbosData array
+
+                self.jokbosData.removeValue(forKey: snapshot.key)
+                //reload the tableview
+                self.tableView.reloadData()
+
+        })
+
+
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -101,20 +154,11 @@ class JokboTableViewController: UITableViewController,JokboDownload {
 
         let cell = tableView.dequeueReusableCell(withIdentifier: "JokboCell", for: indexPath) as! JokboTableViewCell
 
-        var jokboDataShow = jokbosData[indexPath.row]
+        let jokboDataShow = Array(jokbosData.values)[indexPath.row]
         //jokbos로 부터 jokbo를 받아옴
 
-        if let subject = jokboDataShow["className"] {
-            cell.SubjectLabel?.text = subject
-        }else{
-            cell.SubjectLabel?.text = ""
-        }
-
-        if let professor = jokboDataShow["professorName"] {
-            cell.ProfessorLabel?.text = professor
-        }else{
-            cell.ProfessorLabel?.text = ""
-        }
+        cell.SubjectLabel?.text = jokboDataShow.className
+        cell.ProfessorLabel?.text = jokboDataShow.professorName
 
         cell.downloadDelegate = self
 

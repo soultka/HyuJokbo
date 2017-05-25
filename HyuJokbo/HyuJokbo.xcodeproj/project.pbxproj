@@ -32,6 +32,7 @@
 		77A8E7EB1ED3E2F80093F735 /* GoohaeUploadTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A8E7EA1ED3E2F80093F735 /* GoohaeUploadTableViewController.swift */; };
 		77A8E7ED1ED3E33F0093F735 /* GoohaeTabUploadStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77A8E7EC1ED3E33F0093F735 /* GoohaeTabUploadStoryboard.storyboard */; };
 		77A8E7EF1ED67D040093F735 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A8E7EE1ED67D040093F735 /* LoginViewController.swift */; };
+		77A8E7F11ED69C760093F735 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A8E7F01ED69C760093F735 /* Data.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,6 +64,7 @@
 		77A8E7EA1ED3E2F80093F735 /* GoohaeUploadTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoohaeUploadTableViewController.swift; sourceTree = "<group>"; };
 		77A8E7EC1ED3E33F0093F735 /* GoohaeTabUploadStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = GoohaeTabUploadStoryboard.storyboard; sourceTree = "<group>"; };
 		77A8E7EE1ED67D040093F735 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		77A8E7F01ED69C760093F735 /* Data.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		B3DD45124F9E08221214578A /* Pods-HyuJokbo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HyuJokbo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HyuJokbo/Pods-HyuJokbo.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -116,6 +118,7 @@
 				774A93C21EC4C2EA00B96A56 /* JokboTableViewCell.swift */,
 				774A93B81EC4BB6000B96A56 /* JokboTableViewController.swift */,
 				2FFDB4401EC5B21F003965A2 /* JokboUploadViewController.swift */,
+				77A8E7F01ED69C760093F735 /* Data.swift */,
 				7700FE141ECDA68E00D133C5 /* HonorViewController.swift */,
 				774A93BE1EC4BB7B00B96A56 /* MydataTableViewController.swift */,
 				7700FE231ECDAACC00D133C5 /* SearchView.swift */,
@@ -285,6 +288,7 @@
 				77A8E7E91ED3E26E0093F735 /* GoohaeTableViewCell.swift in Sources */,
 				774A93B91EC4BB6000B96A56 /* JokboTableViewController.swift in Sources */,
 				774A93BF1EC4BB7B00B96A56 /* MydataTableViewController.swift in Sources */,
+				77A8E7F11ED69C760093F735 /* Data.swift in Sources */,
 				77A8E7EB1ED3E2F80093F735 /* GoohaeUploadTableViewController.swift in Sources */,
 				7700FE221ECDA68E00D133C5 /* ViewController.swift in Sources */,
 				23EA299D1EBB226A009F40F8 /* AppDelegate.swift in Sources */,
