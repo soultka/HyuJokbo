@@ -411,6 +411,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = hanyang.HyuJokbo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos10.2;
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -425,6 +426,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = hanyang.HyuJokbo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos10.2;
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

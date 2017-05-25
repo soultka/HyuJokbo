@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var HyuJokboContinueButton: UIButton!
     @IBOutlet weak var FacebookContinueButton: UIButton!
@@ -16,6 +16,14 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var HyuJokboLogo: UIImageView!
     @IBOutlet weak var EmailTextField: UITextField!
     @IBOutlet weak var PasswordTextField: UITextField!
+    @IBOutlet weak var signupButton: UIButton!
+    
+    var attrs = [
+        NSFontAttributeName : UIFont.systemFont(ofSize: 7.0),
+        NSForegroundColorAttributeName : UIColor.white,
+        NSUnderlineStyleAttributeName : 1] as [String : Any]
+    
+    var attributedString = NSMutableAttributedString(string:"아직 회원이 아니신가요? 회원가입")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,13 +34,20 @@ class LoginViewController: UIViewController {
         EmailTextField.layer.shadowColor = UIColor(white: 0.0, alpha: 0.3).cgColor
         EmailTextField.layer.shadowOffset = CGSize(width: 3.0, height: 3.0)
         EmailTextField.layer.shadowOpacity = 1.0
+        EmailTextField.text = "이메일"
+        EmailTextField.textColor = UIColor.lightGray
+        EmailTextField.delegate = self
+        EmailTextField.tag = 0
         
         PasswordTextField.layer.masksToBounds = false
         PasswordTextField.layer.shadowRadius = 3.0
         PasswordTextField.layer.shadowColor = UIColor(white: 0.0, alpha: 0.3).cgColor
         PasswordTextField.layer.shadowOffset = CGSize(width: 3.0, height: 3.0)
+        PasswordTextField.text = "비밀번호"
+        PasswordTextField.textColor = UIColor.lightGray
         PasswordTextField.layer.shadowOpacity = 1.0
-
+        PasswordTextField.delegate = self
+        PasswordTextField.tag = 1
         
         HyuJokboContinueButton.backgroundColor = UIColor(red: 252/255, green: 103/255, blue: 0/255, alpha: 1.0)
         HyuJokboContinueButton.layer.cornerRadius = 5
@@ -43,6 +58,11 @@ class LoginViewController: UIViewController {
         HyuJokboContinueButton.layer.shadowOpacity = 1.0
         HyuJokboContinueButton.layer.shadowRadius = 3.0
 
+        let buttonTitleStr = NSMutableAttributedString(string:"아직 회원이 아니신가요? 회원가입", attributes:attrs)
+        attributedString.append(buttonTitleStr)
+        signupButton.setAttributedTitle(attributedString, for: .normal)
+
+        
         FacebookContinueButton.backgroundColor = UIColor(red: 56/255, green: 84/255, blue: 148/255, alpha: 1.0)
         FacebookContinueButton.layer.cornerRadius = 5
         FacebookContinueButton.layer.borderWidth = 1
@@ -74,6 +94,26 @@ class LoginViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func textFieldDidBeginEditing(_ textView: UITextView) {
+        print("edit")
+        if textView.textColor == UIColor.lightGray {
+            textView.text = nil
+            textView.textColor = UIColor.black
+        }
+    }
+    
+    func textFieldDidEndEditing(_ textView: UITextView) {
+        print("end")
+        if textView.text.isEmpty {
+            if textView.tag == 0 {
+                textView.text = "이메일"
+            } else if textView.tag == 1 {
+                textView.text = "비밀번호"
+            }
+            textView.textColor = UIColor.lightGray
+        }
+    }
+
 
     /*
     // MARK: - Navigation
