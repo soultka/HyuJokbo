@@ -81,7 +81,36 @@ class GoohaeUploadViewController: UIViewController, UITextViewDelegate {
             textView.textColor = UIColor.lightGray
         }
     }
-
+    func dateString() -> String{
+        var dateStr = ""
+        let date = Date()
+        
+        let calendar = Calendar.current
+        let component = calendar.dateComponents([.year,.month,.day,.hour,.minute,.second], from: date)
+        dateStr += "\(component.year!)"
+        if (component.month! / 10 == 0){
+            dateStr += "0"
+        }
+        dateStr += "\(component.month!)"
+        if (component.day! / 10 == 0){
+            dateStr += "0"
+        }
+        dateStr += "\(component.day!)"
+        if (component.hour! / 10 == 0){
+            dateStr += "0"
+        }
+        dateStr += "\(component.hour!)"
+        if (component.minute! / 10 == 0){
+            dateStr += "0"
+        }
+        dateStr += "\(component.minute!)"
+        if (component.second! / 10 == 0){
+            dateStr += "0"
+        }
+        dateStr += "\(component.second!)"
+        return dateStr
+    }
+    
     @IBAction func addGoohae(_ sender: Any) {
         // TODO: post the jokbo to firebase
         if (self.TitleTextView?.text == " 수업명") || (self.TitleTextView?.text.isEmpty)! {
@@ -104,11 +133,16 @@ class GoohaeUploadViewController: UIViewController, UITextViewDelegate {
             self.present(alertController, animated: true, completion: nil)
             return
         }
+        
+        var dateStr = ""
+        dateStr += dateString()
         // TODO: post the goohae to firebase
         let curRef = ref?.child("goohaes").childByAutoId()
         curRef?.child("className").setValue(TitleTextView.text)
         curRef?.child("professorName").setValue(ProfessorTextView.text)
         curRef?.child("goohaeText").setValue(ContentTextView.text)
+        curRef?.child("updateDate").setValue(dateStr)
+
         // Dismiss the popover
         presentingViewController?.dismiss(animated: true, completion: nil)
     }
