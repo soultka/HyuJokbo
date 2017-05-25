@@ -22,9 +22,6 @@ class JokboTableViewController: UITableViewController,JokboDownload {
     //서치 버튼이 표시되었을 경우 1, 표시 안되어 있을 경우 0
     static var searchPressedFlag = 0
 
-    //스크롤을 아래로 내리면 리프레쉬뷰가 나오도록하는 클래스
-    var refresh = UIRefreshControl()
-
     //검색창 서브뷰
     var searchSubView:SearchView!
 
@@ -38,19 +35,20 @@ class JokboTableViewController: UITableViewController,JokboDownload {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        print("viewdid!!!!!!!!!")
+
+        //- -   -   -   -   -   -   -   -   -   -   -   SEARCH VIEW ADD
 
         //테이블 뷰의 왼쪽위 좌표를 CGPoint로 얻어옴
         let topOfTableCGPoint = self.tableView.topAnchor.accessibilityActivationPoint
         //서브뷰(검색창)의 CGSize를 얻어옴
         let subviewCGSize = CGSize(width: self.view.frame.width, height: self.view.frame.height)
         //얻어온 값을 기준으로 검색창 서브뷰 설정
-       searchSubView = SearchView(frame:CGRect(origin: topOfTableCGPoint, size: subviewCGSize))
+        searchSubView = SearchView(frame:CGRect(origin: topOfTableCGPoint, size: subviewCGSize))
 
-        self.tableView.addSubview(refresh)
         //검색창 서브뷰 추가
         self.view.addSubview(searchSubView)
         //검색창 서브뷰 기본적으로 숨겨짐
+
         self.searchSubView.isHidden = true
 
 
@@ -59,7 +57,8 @@ class JokboTableViewController: UITableViewController,JokboDownload {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-        
+
+        //- -   -   -   -   -   -   -   -   -   -   DATA READING-
         ref = FIRDatabase.database().reference()
         //Retrieve the posts and listen for changes
         
@@ -179,7 +178,6 @@ class JokboTableViewController: UITableViewController,JokboDownload {
         self.tableView.reloadData()
     }
     override func viewDidDisappear(_ animated: Bool) {
-        print("disappearaaa")
         super.viewDidDisappear(animated)
         ref?.removeObserver(withHandle: databaseHandle!)
         ref?.removeObserver(withHandle: databaseChangeHandle!)
@@ -269,5 +267,11 @@ class JokboTableViewController: UITableViewController,JokboDownload {
      // Pass the selected object to the new view controller.
      }
      */
+
+
+    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let subviewCGSize = CGSize(width: self.view.frame.width, height: self.view.frame.height)
+        searchSubView.frame = CGRect(origin: scrollView.contentOffset, size: subviewCGSize)
+    }
     
 }
