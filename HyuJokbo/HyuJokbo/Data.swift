@@ -14,3 +14,10 @@ class Jokbo{
     var professorName:String = ""
 
 }
+
+class Goohae{
+    var className:String = ""
+    var goohaeText:String = ""
+    var professorName:String = ""
+
+}

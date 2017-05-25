@@ -38,6 +38,8 @@ class JokboTableViewController: UITableViewController,JokboDownload {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        print("viewdid!!!!!!!!!")
+
         //테이블 뷰의 왼쪽위 좌표를 CGPoint로 얻어옴
         let topOfTableCGPoint = self.tableView.topAnchor.accessibilityActivationPoint
         //서브뷰(검색창)의 CGSize를 얻어옴
@@ -66,8 +68,6 @@ class JokboTableViewController: UITableViewController,JokboDownload {
             let data = snapshot.value as? [String:String]
 
             if let jokboData = data{
-                print(jokboData)
-                print(jokboData["className"]!)
                 //Append the data to our jokbo array
                 let jokbo = Jokbo()
 
@@ -93,8 +93,6 @@ class JokboTableViewController: UITableViewController,JokboDownload {
             let data = snapshot.value as? [String:String]
 
             if let jokboData = data{
-                print(jokboData)
-                print(jokboData["className"]!)
                 //Append the data to our jokbo array
                 let jokbo = Jokbo()
 
@@ -172,8 +170,11 @@ class JokboTableViewController: UITableViewController,JokboDownload {
         self.tableView.reloadData()
     }
     override func viewDidDisappear(_ animated: Bool) {
+        print("disappearaaa")
         super.viewDidDisappear(animated)
         ref?.removeObserver(withHandle: databaseHandle!)
+        ref?.removeObserver(withHandle: databaseChangeHandle!)
+        ref?.removeObserver(withHandle: databaseRemoveHandle!)
     }
     func download() {
         //to do list
