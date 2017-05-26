@@ -136,7 +136,7 @@ class JokboUploadViewController: UIViewController, UITextViewDelegate {
             return
         }
         
-        var dateStr = ""
+        var dateStr = "" 
         
         dateStr += dateString()
         
@@ -149,6 +149,12 @@ class JokboUploadViewController: UIViewController, UITextViewDelegate {
         presentingViewController?.dismiss(animated: true, completion: nil)
     }
     
+    @IBAction func photoUploadButton(_ sender: Any) {
+        
+        let picker = UIImagePickerController()
+        present(picker, animated: true, completion: nil)
+
+    }
         /*
     // MARK: - Navigation
 
