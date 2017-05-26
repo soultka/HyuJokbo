@@ -85,6 +85,10 @@ class JokboTableViewController: UITableViewController,JokboDownload {
             
                 self.jokbosData[snapshot.key] = jokbo
                 //reload the tableview
+                self.jokbosArray = Array(self.jokbosData.values)
+                self.jokbosArray.sort{
+                    $0.updateDate > $1.updateDate
+                }
                 self.tableView.reloadData()
             }
             
@@ -92,6 +96,7 @@ class JokboTableViewController: UITableViewController,JokboDownload {
 
         databaseChangeHandle = ref?.child("jokbos").observe(.childChanged, with: { (snapshot) in
             //Take the value from the snapshot and added it to the jokbosData array
+            
             let data = snapshot.value as? [String:String]
 
             if let jokboData = data{
@@ -110,7 +115,14 @@ class JokboTableViewController: UITableViewController,JokboDownload {
                 if let updateDate = jokboData["updateDate"] {
                     jokbo.updateDate = Int(updateDate)!
                 }
+                
+        
                 self.jokbosData[snapshot.key] = jokbo
+                
+                self.jokbosArray = Array(self.jokbosData.values)
+                self.jokbosArray.sort{
+                    $0.updateDate > $1.updateDate
+                }
                 //reload the tableview
                 self.tableView.reloadData()
             }
@@ -156,10 +168,7 @@ class JokboTableViewController: UITableViewController,JokboDownload {
 
 
         let cell = tableView.dequeueReusableCell(withIdentifier: "JokboCell", for: indexPath) as! JokboTableViewCell
-        jokbosArray = Array(jokbosData.values)
-        jokbosArray.sort{
-            $0.updateDate < $1.updateDate
-        }
+       
         let jokboDataShow = jokbosArray[indexPath.row]
         //jokbos로 부터 jokbo를 받아옴
 

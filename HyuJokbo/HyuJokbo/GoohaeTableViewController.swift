@@ -80,6 +80,10 @@ class GoohaeTableViewController: UITableViewController,GoohaeDownload {
                 }
 
                 self.goohaesData[snapshot.key] = goohae
+                self.goohaesArray = Array(self.goohaesData.values)
+                self.goohaesArray.sort{
+                    $0.updateDate > $1.updateDate
+                }
                 //reload the tableview
                 self.tableView.reloadData()
             }
@@ -109,6 +113,10 @@ class GoohaeTableViewController: UITableViewController,GoohaeDownload {
 
                 self.goohaesData[snapshot.key] = goohae
                 //reload the tableview
+                self.goohaesArray = Array(self.goohaesData.values)
+                self.goohaesArray.sort{
+                    $0.updateDate > $1.updateDate
+                }
                 self.tableView.reloadData()
             }
 
@@ -149,10 +157,7 @@ class GoohaeTableViewController: UITableViewController,GoohaeDownload {
 
 
         let cell = tableView.dequeueReusableCell(withIdentifier: "GoohaeCell", for: indexPath) as! GoohaeTableViewCell
-        goohaesArray = Array(goohaesData.values)
-        goohaesArray.sort{
-            $0.updateDate < $1.updateDate
-        }
+        
         let goohaeDataShow = goohaesArray[indexPath.row]
         //goohaes로 부터 goohae를 받아옴
 
