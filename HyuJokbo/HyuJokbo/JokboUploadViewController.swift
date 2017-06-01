@@ -8,8 +8,9 @@
 
 import UIKit
 import FirebaseDatabase
+import FirebaseStorage
 
-class JokboUploadViewController: UIViewController, UITextViewDelegate {
+class JokboUploadViewController: UIViewController, UITextViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var TitleTextView: UITextView!
     @IBOutlet weak var ProfessorTextView: UITextView!
@@ -20,6 +21,8 @@ class JokboUploadViewController: UIViewController, UITextViewDelegate {
     var TitlePlaceholderLabel: UILabel!
     var ProfessorPlaceholderLabel: UILabel!
     var ContentPlaceholderLabel: UILabel!
+
+    var selectedImage:UIImage! // selected photo
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -145,6 +148,8 @@ class JokboUploadViewController: UIViewController, UITextViewDelegate {
         curRef?.child("professorName").setValue(ProfessorTextView.text)
         curRef?.child("jokboText").setValue(ContentTextView.text)
         curRef?.child("updateDate").setValue(dateStr)
+        addPhoto(key: (curRef?.key)!)
+
         // Dismiss the popover
         presentingViewController?.dismiss(animated: true, completion: nil)
     }
@@ -152,17 +157,55 @@ class JokboUploadViewController: UIViewController, UITextViewDelegate {
     @IBAction func photoUploadButton(_ sender: Any) {
         
         let picker = UIImagePickerController()
+        picker.delegate = self
+        picker.allowsEditing = false
         present(picker, animated: true, completion: nil)
 
     }
-        /*
-    // MARK: - Navigation
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]){
+        var selectedImageFromPicker:UIImage?
+        if let editedImage = info[UIImagePickerControllerEditedImage] as? UIImage{
+                selectedImageFromPicker = editedImage
+        }
+        if let originalImage = info[UIImagePickerControllerOriginalImage] as? UIImage{
+            selectedImageFromPicker = originalImage
+        }
+        if let s = selectedImageFromPicker{
+            self.selectedImage = s
+        }
+        dismiss(animated: true, completion: nil)
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
     }
-    */
+    func addPhoto(key:String){
+        let imageName = key + ".jpg"
+        let storageRef = FIRStorage.storage().reference().child(imageName)
+
+        if let uploadData = UIImageJPEGRepresentation(self.selectedImage, 0.1){
+            //0.0~1.0 means quality of image
+
+            storageRef.put(uploadData, metadata: nil, completion: {(metadata,error)
+                in
+                if  error == nil{
+                    print(error)
+                    return
+                }
+                
+                
+            })
+        }
+    }
+
+
+
+
+/*
+ // MARK: - Navigation
+
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+ // Get the new view controller using segue.destinationViewController.
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 }
