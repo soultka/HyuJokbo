@@ -215,6 +215,17 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6ie-d3-2ps">
+                                <rect key="frame" x="209" y="53" width="95" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="개발자용 로그인">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="OHQ-We-Udl" kind="show" id="yPh-xa-dwW"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.20000000000000001" green="0.40000000000000002" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -375,7 +386,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pbr-Ij-XWu" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="sIB-Ms-PFx" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-3444.375" y="238.73239436619718"/>
+            <point key="canvasLocation" x="-3439" y="213"/>
         </scene>
     </scenes>
     <resources>
@@ -385,6 +396,6 @@
         <image name="line" width="298" height="3"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="XJz-x2-r4B"/>
+        <segue reference="yPh-xa-dwW"/>
     </inferredMetricsTieBreakers>
 </document>
