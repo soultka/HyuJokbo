@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewJokboTableViewCell: UITableViewCell {
+class ViewJokboTableTitleViewCell: UITableViewCell {
     
     @IBOutlet weak var SubjectLabel: UILabel!
     @IBOutlet weak var ProfessorLabel: UILabel!
