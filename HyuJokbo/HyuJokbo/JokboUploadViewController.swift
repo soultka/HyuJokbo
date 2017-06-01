@@ -148,6 +148,7 @@ class JokboUploadViewController: UIViewController, UITextViewDelegate, UIImagePi
         curRef?.child("professorName").setValue(ProfessorTextView.text)
         curRef?.child("jokboText").setValue(ContentTextView.text)
         curRef?.child("updateDate").setValue(dateStr)
+
         addPhoto(key: (curRef?.key)!)
 
         // Dismiss the popover
