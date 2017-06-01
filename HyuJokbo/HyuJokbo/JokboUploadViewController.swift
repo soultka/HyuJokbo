@@ -9,6 +9,8 @@
 import UIKit
 import FirebaseDatabase
 import FirebaseStorage
+import Photos
+import BSImagePicker
 
 class JokboUploadViewController: UIViewController, UITextViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
@@ -23,6 +25,7 @@ class JokboUploadViewController: UIViewController, UITextViewDelegate, UIImagePi
     var ContentPlaceholderLabel: UILabel!
 
     var selectedImage:UIImage! // selected photo
+    var selectedImages:[UIImage] = [] // photos
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -156,43 +159,62 @@ class JokboUploadViewController: UIViewController, UITextViewDelegate, UIImagePi
     }
     
     @IBAction func photoUploadButton(_ sender: Any) {
-        
-        let picker = UIImagePickerController()
-        picker.delegate = self
-        picker.allowsEditing = false
-        present(picker, animated: true, completion: nil)
+
+ 
+        let vc = BSImagePickerViewController()
+        vc.maxNumberOfSelections = 6
+
+        bs_presentImagePickerController(vc, animated: true,
+                                        select: { (asset: PHAsset) -> Void in
+                                            print("Selected: \(asset)")
+
+        }, deselect: { (asset: PHAsset) -> Void in
+            print("Deselected: \(asset)")
+        }, cancel: { (assets: [PHAsset]) -> Void in
+            print("Cancel: \(assets)")
+        }, finish: { (assets: [PHAsset]) -> Void in
+            for i in stride(from: 0, to: assets.count, by: 1){
+                self.selectedImages += [self.getAssetThumbnail(asset: assets[i])]
+            }
+            print("Finish: \(assets)")
+        }, completion: nil)
 
     }
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]){
-        var selectedImageFromPicker:UIImage?
-        if let editedImage = info[UIImagePickerControllerEditedImage] as? UIImage{
-                selectedImageFromPicker = editedImage
-        }
-        if let originalImage = info[UIImagePickerControllerOriginalImage] as? UIImage{
-            selectedImageFromPicker = originalImage
-        }
-        if let s = selectedImageFromPicker{
-            self.selectedImage = s
-        }
-        dismiss(animated: true, completion: nil)
 
+    //Convert :PHAsset to :UIImage
+    func getAssetThumbnail(asset: PHAsset) -> UIImage {
+        let manager = PHImageManager.default()
+        let option = PHImageRequestOptions()
+        var thumbnail = UIImage()
+        option.isSynchronous = true
+        manager.requestImage(for: asset, targetSize: CGSize(width: 100, height: 100), contentMode: .aspectFit, options: option, resultHandler: {(result, info)->Void in
+            thumbnail = result!
+        })
+        return thumbnail
     }
+
     func addPhoto(key:String){
-        let imageName = key + ".jpg"
-        let storageRef = FIRStorage.storage().reference().child(imageName)
 
-        if let uploadData = UIImageJPEGRepresentation(self.selectedImage, 0.1){
-            //0.0~1.0 means quality of image
+        var i:Int = 0   //Image counter
+        var imageName:String
+        var storageRef:FIRStorageReference
 
-            storageRef.put(uploadData, metadata: nil, completion: {(metadata,error)
-                in
-                if  error == nil{
-                    print(error)
-                    return
-                }
-                
-                
-            })
+
+        for selected in selectedImages{
+            imageName = key + "[\(i)].jpg"
+            storageRef = FIRStorage.storage().reference().child(imageName)
+            if var uploadData = UIImageJPEGRepresentation(selected, 0.1){
+                //0.0~1.0 means quality of image
+                storageRef.put(uploadData, metadata: nil, completion: {(metadata,error)
+                    in
+                    if  error == nil{
+                        print(error)
+                        return
+                    }
+
+                })
+            }
+            i += 1
         }
     }
 
