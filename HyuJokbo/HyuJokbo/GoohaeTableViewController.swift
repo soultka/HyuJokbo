@@ -181,7 +181,6 @@ class GoohaeTableViewController: UITableViewController,GoohaeDownload {
         super.viewDidDisappear(animated)
         ref?.removeObserver(withHandle: databaseHandle!)
         ref?.removeObserver(withHandle: databaseChangeHandle!)
-        ref?.removeObserver(withHandle: databaseRemoveHandle!)
     }
     
     //Download 버튼 클릭시 호출
