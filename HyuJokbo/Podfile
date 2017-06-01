@@ -7,7 +7,22 @@ use_frameworks!
 
 target 'HyuJokbo' do
 	pod 'Alamofire', '~> 4.4'
+	
+	#Firebase
 	pod 'Firebase/Core'
 	pod 'Firebase/Database'
+	pod 'Firebase/Auth'
+	
+	#Facebook
+	pod 'FBSDKCoreKit'
+	pod 'FBSDKLoginKit'
+	pod 'FBSDKShareKit'
+	pod 'FacebookCore'
+	pod 'FacebookLogin'
+	pod 'FacebookShare'
+	
+	#Google
+	pod 'GoogleSignIn'
+
 	pod 'DLRadioButton', '~> 1.4'
 end

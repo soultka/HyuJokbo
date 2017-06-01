@@ -12,6 +12,7 @@
 		23EA29A41EBB226A009F40F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23EA29A31EBB226A009F40F8 /* Assets.xcassets */; };
 		23EA29A71EBB226A009F40F8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23EA29A51EBB226A009F40F8 /* LaunchScreen.storyboard */; };
 		2F811DF91EC88DEC00382F51 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2F811DF81EC88DEC00382F51 /* GoogleService-Info.plist */; };
+		2FF113D61ED867EA0081B3C2 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF113D51ED867EA0081B3C2 /* SignUpViewController.swift */; };
 		2FFDB4411EC5B21F003965A2 /* JokboUploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFDB4401EC5B21F003965A2 /* JokboUploadViewController.swift */; };
 		352B919E44EE73DCC7DE37E9 /* Pods_HyuJokbo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FC51CDA8A01E9363B43B7AD /* Pods_HyuJokbo.framework */; };
 		7700FE1D1ECDA68E00D133C5 /* HonorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7700FE141ECDA68E00D133C5 /* HonorViewController.swift */; };
@@ -43,7 +44,9 @@
 		23EA29A31EBB226A009F40F8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		23EA29A61EBB226A009F40F8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		23EA29A81EBB226A009F40F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2F02931D1EDA5A98000BB82E /* HyuJokbo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HyuJokbo.entitlements; sourceTree = "<group>"; };
 		2F811DF81EC88DEC00382F51 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		2FF113D51ED867EA0081B3C2 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		2FFDB4401EC5B21F003965A2 /* JokboUploadViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JokboUploadViewController.swift; sourceTree = "<group>"; };
 		47038DD4EBD2B32427E1F4A2 /* Pods-HyuJokbo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HyuJokbo.release.xcconfig"; path = "Pods/Target Support Files/Pods-HyuJokbo/Pods-HyuJokbo.release.xcconfig"; sourceTree = "<group>"; };
 		7700FE141ECDA68E00D133C5 /* HonorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HonorViewController.swift; sourceTree = "<group>"; };
@@ -101,6 +104,7 @@
 		23EA299B1EBB226A009F40F8 /* HyuJokbo */ = {
 			isa = PBXGroup;
 			children = (
+				2F02931D1EDA5A98000BB82E /* HyuJokbo.entitlements */,
 				774A93C01EC4BCEC00B96A56 /* DataCenter.plist */,
 				2F811DF81EC88DEC00382F51 /* GoogleService-Info.plist */,
 				23EA29A81EBB226A009F40F8 /* Info.plist */,
@@ -123,6 +127,7 @@
 				7700FE231ECDAACC00D133C5 /* SearchView.swift */,
 				7700FE191ECDA68E00D133C5 /* ViewController.swift */,
 				77A8E7EE1ED67D040093F735 /* LoginViewController.swift */,
+				2FF113D51ED867EA0081B3C2 /* SignUpViewController.swift */,
 				23EA29A31EBB226A009F40F8 /* Assets.xcassets */,
 				7700FE241ECDAACC00D133C5 /* SearchView.xib */,
 				23EA29A51EBB226A009F40F8 /* LaunchScreen.storyboard */,
@@ -184,6 +189,11 @@
 					23EA29981EBB226A009F40F8 = {
 						CreatedOnToolsVersion = 8.3.2;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -255,7 +265,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		C7125B56622F2F683D8C0192 /* [CP] Copy Pods Resources */ = {
@@ -288,6 +298,7 @@
 				77A8E7E91ED3E26E0093F735 /* GoohaeTableViewCell.swift in Sources */,
 				774A93B91EC4BB6000B96A56 /* JokboTableViewController.swift in Sources */,
 				774A93BF1EC4BB7B00B96A56 /* MydataTableViewController.swift in Sources */,
+				2FF113D61ED867EA0081B3C2 /* SignUpViewController.swift in Sources */,
 				77A8E7F11ED69C760093F735 /* Data.swift in Sources */,
 				77A8E7EB1ED3E2F80093F735 /* GoohaeUploadTableViewController.swift in Sources */,
 				7700FE221ECDA68E00D133C5 /* ViewController.swift in Sources */,
@@ -418,6 +429,31 @@
 			baseConfigurationReference = B3DD45124F9E08221214578A /* Pods-HyuJokbo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = HyuJokbo/HyuJokbo.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/Alamofire\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/Bolts\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/DLRadioButton\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/FBSDKCoreKit\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/FBSDKLoginKit\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/FBSDKShareKit\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/FacebookCore\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/FacebookLogin\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/FacebookShare\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/GTMOAuth2\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/GTMSessionFetcher\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/GoogleToolboxForMac\"",
+					"\"${PODS_ROOT}/FirebaseAnalytics/Frameworks\"",
+					"\"${PODS_ROOT}/FirebaseAuth/Frameworks\"",
+					"\"${PODS_ROOT}/FirebaseCore/Frameworks\"",
+					"\"${PODS_ROOT}/FirebaseDatabase/Frameworks\"",
+					"\"${PODS_ROOT}/FirebaseInstanceID/Frameworks\"",
+					"\"${PODS_ROOT}/GoogleSignIn/Frameworks\"",
+					"~/Documents/FacebookSDK",
+				);
 				INFOPLIST_FILE = HyuJokbo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -432,6 +468,31 @@
 			baseConfigurationReference = 47038DD4EBD2B32427E1F4A2 /* Pods-HyuJokbo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = HyuJokbo/HyuJokbo.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/Alamofire\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/Bolts\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/DLRadioButton\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/FBSDKCoreKit\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/FBSDKLoginKit\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/FBSDKShareKit\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/FacebookCore\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/FacebookLogin\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/FacebookShare\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/GTMOAuth2\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/GTMSessionFetcher\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/GoogleToolboxForMac\"",
+					"\"${PODS_ROOT}/FirebaseAnalytics/Frameworks\"",
+					"\"${PODS_ROOT}/FirebaseAuth/Frameworks\"",
+					"\"${PODS_ROOT}/FirebaseCore/Frameworks\"",
+					"\"${PODS_ROOT}/FirebaseDatabase/Frameworks\"",
+					"\"${PODS_ROOT}/FirebaseInstanceID/Frameworks\"",
+					"\"${PODS_ROOT}/GoogleSignIn/Frameworks\"",
+					"~/Documents/FacebookSDK",
+				);
 				INFOPLIST_FILE = HyuJokbo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
