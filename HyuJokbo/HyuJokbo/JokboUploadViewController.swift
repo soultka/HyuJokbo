@@ -17,36 +17,35 @@ class JokboUploadViewController: UIViewController, UITextViewDelegate, UIImagePi
     @IBOutlet weak var TitleTextView: UITextView!
     @IBOutlet weak var ProfessorTextView: UITextView!
     @IBOutlet weak var ContentTextView: UITextView!
-    
+
     var ref: FIRDatabaseReference?
-    
+
     var TitlePlaceholderLabel: UILabel!
     var ProfessorPlaceholderLabel: UILabel!
     var ContentPlaceholderLabel: UILabel!
 
-    var selectedImage:UIImage! // selected photo
     var selectedImages:[UIImage] = [] // photos
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         ref = FIRDatabase.database().reference()
-        
+
         self.TitleTextView.delegate = self
         self.ProfessorTextView.delegate = self
         self.ContentTextView.delegate = self
-        
+
         self.TitleTextView.tag = 0
         self.ProfessorTextView.tag = 1
         self.ContentTextView.tag = 2
-        
+
         self.TitleTextView?.text = " 수업명"
         self.TitleTextView?.textColor = UIColor.lightGray
         self.ProfessorTextView?.text = " 교수님"
         self.ProfessorTextView?.textColor = UIColor.lightGray
         self.ContentTextView?.text = " 여기를 눌러서 글을 작성할 수 있습니다."
         self.ContentTextView?.textColor = UIColor.lightGray
-        
+
         self.TitleTextView?.layer.borderWidth = 0.5
         self.TitleTextView?.layer.borderColor = UIColor.lightGray.cgColor
         self.ProfessorTextView?.layer.borderWidth = 0.5
@@ -61,7 +60,7 @@ class JokboUploadViewController: UIViewController, UITextViewDelegate, UIImagePi
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         self.TitleTextView?.setContentOffset(CGPoint.zero, animated: false)
@@ -74,7 +73,7 @@ class JokboUploadViewController: UIViewController, UITextViewDelegate, UIImagePi
             textView.textColor = UIColor.black
         }
     }
-    
+
     func textViewDidEndEditing(_ textView: UITextView) {
         if textView.text.isEmpty {
             if textView.tag == 0 {
@@ -87,11 +86,11 @@ class JokboUploadViewController: UIViewController, UITextViewDelegate, UIImagePi
             textView.textColor = UIColor.lightGray
         }
     }
-    
+
     func dateString() -> String{
         var dateStr = ""
         let date = Date()
-        
+
         let calendar = Calendar.current
         let component = calendar.dateComponents([.year,.month,.day,.hour,.minute,.second], from: date)
         dateStr += "\(component.year!)"
@@ -117,7 +116,7 @@ class JokboUploadViewController: UIViewController, UITextViewDelegate, UIImagePi
         dateStr += "\(component.second!)"
         return dateStr
     }
-    
+
     @IBAction func addJokbo(_ sender: Any) {
         // TODO: post the jokbo to firebase
         // TODO: post the jokbo to firebase
@@ -141,26 +140,44 @@ class JokboUploadViewController: UIViewController, UITextViewDelegate, UIImagePi
             self.present(alertController, animated: true, completion: nil)
             return
         }
-        
-        var dateStr = "" 
-        
+
+        var dateStr = ""
+
         dateStr += dateString()
-        
+
+
+
         let curRef = ref?.child("jokbos").childByAutoId()
+
+        let errorIndex = addPhoto(key: (curRef?.key)!)
+        if errorIndex.isEmpty == false
+        {
+            var alertMessage:String = ""
+            alertMessage += "\(errorIndex) "
+            alertMessage += "번째 선택한 사진업로드에서 문제가 발생했습니다. 다른 사진을 선택해주세요"
+            let alertController = UIAlertController(title: "알림", message:
+                alertMessage, preferredStyle: UIAlertControllerStyle.alert)
+            alertController.addAction(UIAlertAction(title: "확인", style: UIAlertActionStyle.default,handler: nil))
+            self.present(alertController, animated: true, completion: nil)
+            return
+        }
+
         curRef?.child("className").setValue(TitleTextView.text)
         curRef?.child("professorName").setValue(ProfessorTextView.text)
         curRef?.child("jokboText").setValue(ContentTextView.text)
         curRef?.child("updateDate").setValue(dateStr)
 
-        addPhoto(key: (curRef?.key)!)
+
 
         // Dismiss the popover
         presentingViewController?.dismiss(animated: true, completion: nil)
     }
-    
+
+
+
     @IBAction func photoUploadButton(_ sender: Any) {
 
- 
+
         let vc = BSImagePickerViewController()
         vc.maxNumberOfSelections = 6
 
@@ -193,22 +210,43 @@ class JokboUploadViewController: UIViewController, UITextViewDelegate, UIImagePi
         return thumbnail
     }
 
-    func addPhoto(key:String){
+    func addPhoto(key:String) -> [Int]{
 
         var i:Int = 0   //Image counter
         var imageName:String
         var storageRef:FIRStorageReference
+        var errorIndex:[Int] = []
 
 
         for selected in selectedImages{
             imageName = key + "[\(i)].jpg"
             storageRef = FIRStorage.storage().reference().child(imageName)
-            if var uploadData = UIImageJPEGRepresentation(selected, 0.1){
+            if let uploadData = UIImageJPEGRepresentation(selected, 0.1){
+            }else{
+                print("\(i)번째 이미지를 jpeg로 변환 중 실패하였습니다")
+                errorIndex += [i]
+            }
+            i += 1
+        }
+
+        if(errorIndex.isEmpty == false){
+            selectedImages.removeAll()
+            return errorIndex
+        }
+        i=0
+        for selected in selectedImages{
+            imageName = key + "[\(i)].jpg"
+            storageRef = FIRStorage.storage().reference().child(imageName)
+            if let uploadData = UIImageJPEGRepresentation(selected, 0.1){
                 //0.0~1.0 means quality of image
                 storageRef.put(uploadData, metadata: nil, completion: {(metadata,error)
                     in
                     if  error == nil{
                         print(error)
+                        return
+                    }else{
+                        print("\(i)번째 이미지 업로드 에러")
+                        errorIndex += [i]
                         return
                     }
 
@@ -216,19 +254,21 @@ class JokboUploadViewController: UIViewController, UITextViewDelegate, UIImagePi
             }
             i += 1
         }
+        selectedImages.removeAll()
+        return errorIndex
     }
 
 
 
 
-/*
- // MARK: - Navigation
+    /*
+     // MARK: - Navigation
 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
- // Get the new view controller using segue.destinationViewController.
- // Pass the selected object to the new view controller.
- }
- */
-
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }
