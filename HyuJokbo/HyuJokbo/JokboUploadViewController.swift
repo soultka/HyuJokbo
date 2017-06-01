@@ -9,7 +9,7 @@
 import UIKit
 import FirebaseDatabase
 
-class JokboUploadViewController: UIViewController, UITextViewDelegate {
+class JokboUploadViewController: UIViewController, UITextViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var TitleTextView: UITextView!
     @IBOutlet weak var ProfessorTextView: UITextView!
@@ -154,6 +154,9 @@ class JokboUploadViewController: UIViewController, UITextViewDelegate {
         let picker = UIImagePickerController()
         present(picker, animated: true, completion: nil)
 
+    }
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        var selectedImageFormat:UIImage?
     }
         /*
     // MARK: - Navigation
