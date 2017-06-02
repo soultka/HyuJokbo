@@ -167,11 +167,19 @@ class JokboUploadViewController: UIViewController, UITextViewDelegate, UIImagePi
             }
         }
 
+        var userName:String = ""
+        if let user = FIRAuth.auth()?.currentUser{
+            userName += user.email!
+        }
 
         curRef?.child("className").setValue(TitleTextView.text)
         curRef?.child("professorName").setValue(ProfessorTextView.text)
         curRef?.child("jokboText").setValue(ContentTextView.text)
         curRef?.child("updateDate").setValue(dateStr)
+        curRef?.child("userName").setValue(userName)
+        curRef?.child("likeNum").setValue("0")
+        curRef?.child("commentNum").setValue("0")
+        
 
         if let user = FIRAuth.auth()?.currentUser {
             curRef?.child("userName").setValue(user.email)

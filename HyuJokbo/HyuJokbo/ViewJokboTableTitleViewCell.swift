@@ -16,7 +16,7 @@ class ViewJokboTableTitleViewCell: UITableViewCell {
     @IBOutlet weak var UserInfoNameLabel: UILabel!
     @IBOutlet weak var UserInfoUploadTime: UILabel!
     @IBOutlet weak var LikeNumLabel: UILabel!
-    @IBOutlet weak var ChatNumLabel: UILabel!
+    @IBOutlet weak var CommentNumLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
