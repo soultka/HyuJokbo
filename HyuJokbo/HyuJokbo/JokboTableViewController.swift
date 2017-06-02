@@ -12,7 +12,7 @@ import FirebaseDatabase
 
 
 class JokboTableViewController: UITableViewController,JokboDownload {
-    
+
     var ref:FIRDatabaseReference?
     var databaseHandle:FIRDatabaseHandle?
     var databaseChangeHandle:FIRDatabaseHandle?
@@ -61,87 +61,86 @@ class JokboTableViewController: UITableViewController,JokboDownload {
         //- -   -   -   -   -   -   -   -   -   -   DATA READING-
         ref = FIRDatabase.database().reference()
         //Retrieve the posts and listen for changes
-        
+
         databaseHandle = ref?.child("jokbos").observe(.childAdded, with: { (snapshot) in
             //Take the value from the snapshot and added it to the jokbosData array
             let data = snapshot.value as? [String:String]
 
             if let jokboData = data{
                 //Append the data to our jokbo array
-                let jokbo = Jokbo()
+                var jokbo = Jokbo()
 
-                jokbo.className = jokboData["className"]!
+                if let className = jokboData["className"],
+                let jokboText = jokboData["jokboText"],
+                let professorName = jokboData["professorName"],
+                let updateDate = jokboData["updateDate"] {
+                    jokbo = Jokbo(key: snapshot.key,
+                                  className: className,
+                                  jokboText: jokboText,
+                                  professorName: professorName,
+                                  updateDate: Int(updateDate)!,
+                                  userName: "익명")
+                    self.jokbosData[snapshot.key] = jokbo
+                    self.jokbosArray = Array(self.jokbosData.values)
+                    //reload the tableview
+                    self.jokbosArray.sort{
+                        $0.updateDate > $1.updateDate
+                    }
+                    self.tableView.reloadData()
+                }
 
-                if let jokboText = jokboData["jokboText"] {
-                    jokbo.jokboText = jokboText
 
-                }
-                if let professorName = jokboData["professorName"] {
-                    jokbo.professorName = professorName
-                }
-                if let updateDate = jokboData["updateDate"] {
-                    jokbo.updateDate = Int(updateDate)!
-                }
-            
-                self.jokbosData[snapshot.key] = jokbo
-                //reload the tableview
-                self.jokbosArray = Array(self.jokbosData.values)
-                self.jokbosArray.sort{
-                    $0.updateDate > $1.updateDate
-                }
-                self.tableView.reloadData()
             }
-            
+
         })
 
         databaseChangeHandle = ref?.child("jokbos").observe(.childChanged, with: { (snapshot) in
             //Take the value from the snapshot and added it to the jokbosData array
-            
+
             let data = snapshot.value as? [String:String]
 
             if let jokboData = data{
                 //Append the data to our jokbo array
-                let jokbo = Jokbo()
+                var jokbo = Jokbo()
 
-                jokbo.className = jokboData["className"]!
-
-                if let jokboText = jokboData["jokboText"] {
-                    jokbo.jokboText = jokboText
-
+                if let className = jokboData["className"],
+                    let jokboText = jokboData["jokboText"],
+                    let professorName = jokboData["professorName"],
+                    let updateDate = jokboData["updateDate"] {
+                    jokbo = Jokbo(key: snapshot.key,
+                                  className: className,
+                                  jokboText: jokboText,
+                                  professorName: professorName,
+                                  updateDate: Int(updateDate)!,
+                                  userName: "익명")
+                    self.jokbosData[snapshot.key] = jokbo
+                    self.jokbosArray = Array(self.jokbosData.values)
+                    //reload the tableview
+                    self.jokbosArray.sort{
+                        $0.updateDate > $1.updateDate
+                    }
+                    self.tableView.reloadData()
                 }
-                if let professorName = jokboData["professorName"] {
-                    jokbo.professorName = professorName
-                }
-                if let updateDate = jokboData["updateDate"] {
-                    jokbo.updateDate = Int(updateDate)!
-                }
-                
-        
-                self.jokbosData[snapshot.key] = jokbo
-                
-                self.jokbosArray = Array(self.jokbosData.values)
-                self.jokbosArray.sort{
-                    $0.updateDate > $1.updateDate
-                }
-                //reload the tableview
-                self.tableView.reloadData()
             }
-            
+
         })
 
 
+        /*
         databaseRemoveHandle = ref?.child("jokbos").observe(.childRemoved, with: { (snapshot) in
             //Take the value from the snapshot and added it to the jokbosData array
 
-                self.jokbosData.removeValue(forKey: snapshot.key)
-                //reload the tableview
-                self.tableView.reloadData()
+            self.jokbosArray.
+            //reload the tableview
+            self.tableView.reloadData()
 
         })
-
-
+ */
 
     }
+
+
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -157,9 +156,9 @@ class JokboTableViewController: UITableViewController,JokboDownload {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-       
-        
-        let rowCount = jokbosData.count
+
+
+        let rowCount = jokbosArray.count
         return rowCount
     }
 
@@ -168,7 +167,7 @@ class JokboTableViewController: UITableViewController,JokboDownload {
 
 
         let cell = tableView.dequeueReusableCell(withIdentifier: "JokboCell", for: indexPath) as! JokboTableViewCell
-       
+
         let jokboDataShow = jokbosArray[indexPath.row]
         //jokbos로 부터 jokbo를 받아옴
 
@@ -190,7 +189,6 @@ class JokboTableViewController: UITableViewController,JokboDownload {
         super.viewDidDisappear(animated)
         ref?.removeObserver(withHandle: databaseHandle!)
         ref?.removeObserver(withHandle: databaseChangeHandle!)
-        ref?.removeObserver(withHandle: databaseRemoveHandle!)
     }
     func download() {
         //to do list
@@ -198,7 +196,7 @@ class JokboTableViewController: UITableViewController,JokboDownload {
         print("Downloading...")
     }
 
-     //Download 버튼 클릭시 호출
+    //Download 버튼 클릭시 호출
     @IBAction func SearchBarButtonPressed(_ sender: Any) {
 
         //검색창이 표시되었을 경우
@@ -211,18 +209,18 @@ class JokboTableViewController: UITableViewController,JokboDownload {
 
             //editing모드 초기화
             if self.searchSubView.SearchTextView.text != "검색어를 입력하세요"{
-            self.searchSubView.SearchTextView.text = nil
-            self.searchSubView.SearchTextView.endEditing(true)
-        }
+                self.searchSubView.SearchTextView.text = nil
+                self.searchSubView.SearchTextView.endEditing(true)
+            }
 
             JokboTableViewController.searchPressedFlag = 0
 
         }else {
-        //검색창이 표시안되있을경우
+            //검색창이 표시안되있을경우
 
             self.searchSubView.isHidden = false
 
-             //editing모드 초기화
+            //editing모드 초기화
 
 
 
@@ -269,15 +267,15 @@ class JokboTableViewController: UITableViewController,JokboDownload {
 
     /*
      // MARK: - Navigation
-
+     
      // In a storyboard-based application, you will often want to do a little preparation before navigation
      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
      // Get the new view controller using segue.destinationViewController.
      // Pass the selected object to the new view controller.
      }
      */
-
-
+    
+    
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let subviewCGSize = CGSize(width: self.view.frame.width, height: self.view.frame.height)
         searchSubView.frame = CGRect(origin: scrollView.contentOffset, size: subviewCGSize)

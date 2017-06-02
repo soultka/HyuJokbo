@@ -6,10 +6,6 @@
     },
     {
       "idiom" : "universal",
-<<<<<<< HEAD:HyuJokbo/HyuJokbo/Assets.xcassets/icon-bookmark.imageset/Contents.json
-      "filename" : "icon-bookmark.png",
-=======
->>>>>>> origin/mydata-UI:HyuJokbo/HyuJokbo/Assets.xcassets/icon-001-chat.imageset/Contents.json
       "scale" : "2x"
     },
     {
@@ -21,5 +17,8 @@
   "info" : {
     "version" : 1,
     "author" : "xcode"
+  },
+  "properties" : {
+    "template-rendering-intent" : "original"
   }
 }

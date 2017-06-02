@@ -11,6 +11,8 @@ import FirebaseDatabase
 import FirebaseStorage
 import Photos
 import BSImagePicker
+import FBSDKLoginKit
+import FirebaseAuth
 
 class JokboUploadViewController: UIViewController, UITextViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
@@ -25,6 +27,7 @@ class JokboUploadViewController: UIViewController, UITextViewDelegate, UIImagePi
     var ContentPlaceholderLabel: UILabel!
 
     var selectedImages:[UIImage] = [] // photos
+    var uploadImageURLs:[String] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -147,7 +150,10 @@ class JokboUploadViewController: UIViewController, UITextViewDelegate, UIImagePi
 
 
 
-        let curRef = ref?.child("jokbos").childByAutoId()
+        var curRef = self.ref?.child("jokbos").childByAutoId()
+        guard let autoId = curRef?.key else{
+            return
+        }
 
         let errorIndex = addPhoto(key: (curRef?.key)!)
         if errorIndex.isEmpty == false
@@ -162,12 +168,18 @@ class JokboUploadViewController: UIViewController, UITextViewDelegate, UIImagePi
             return
         }
 
+
         curRef?.child("className").setValue(TitleTextView.text)
         curRef?.child("professorName").setValue(ProfessorTextView.text)
         curRef?.child("jokboText").setValue(ContentTextView.text)
         curRef?.child("updateDate").setValue(dateStr)
 
+        if let user = FIRAuth.auth()?.currentUser {
+            curRef?.child("userName").setValue(user.email)
+        } else {
+            curRef?.child("userName").setValue("admin")
 
+        }
 
         // Dismiss the popover
         presentingViewController?.dismiss(animated: true, completion: nil)
@@ -217,11 +229,13 @@ class JokboUploadViewController: UIViewController, UITextViewDelegate, UIImagePi
         var storageRef:FIRStorageReference
         var errorIndex:[Int] = []
 
-
+        let curRef = ref?.child("jokbo_images").child(key)
+        //        let curRef =
+        //- -   -   -   -   -   -Exception handling
         for selected in selectedImages{
             imageName = key + "[\(i)].jpg"
             storageRef = FIRStorage.storage().reference().child(imageName)
-            if let uploadData = UIImageJPEGRepresentation(selected, 0.1){
+            if let uploadData = UIImageJPEGRepresentation(selected, 0.0){
             }else{
                 print("\(i)번째 이미지를 jpeg로 변환 중 실패하였습니다")
                 errorIndex += [i]
@@ -233,21 +247,30 @@ class JokboUploadViewController: UIViewController, UITextViewDelegate, UIImagePi
             selectedImages.removeAll()
             return errorIndex
         }
+
         i=0
         for selected in selectedImages{
             imageName = key + "[\(i)].jpg"
             storageRef = FIRStorage.storage().reference().child(imageName)
-            if let uploadData = UIImageJPEGRepresentation(selected, 0.1){
+
+            if let uploadData = UIImageJPEGRepresentation(selected, 0.0){
                 //0.0~1.0 means quality of image
                 storageRef.put(uploadData, metadata: nil, completion: {(metadata,error)
                     in
-                    if  error == nil{
+                    if  error != nil{
                         print(error)
                         return
-                    }else{
-                        print("\(i)번째 이미지 업로드 에러")
-                        errorIndex += [i]
-                        return
+                    }
+
+                    if let downloadURL = metadata?.downloadURL(){
+
+                        self.uploadImageURLs += ["\(downloadURL)"]
+                        print("URL!!")
+                        print(downloadURL)
+
+                    }
+                    if(i >= self.selectedImages.count-2){
+                        self.uploadPhoto(curRef: curRef!)
                     }
 
                 })
@@ -257,13 +280,25 @@ class JokboUploadViewController: UIViewController, UITextViewDelegate, UIImagePi
         selectedImages.removeAll()
         return errorIndex
     }
+    func uploadPhoto(curRef:FIRDatabaseReference){
+        var count:Int = 0
+        print("upupup")
 
-
-
-
+        for imageURL in self.uploadImageURLs{
+            let imageRef = curRef.child("j\(count)")
+            imageRef.setValue(imageURL){(error) in
+//                print("Error while writing image to FIRdatabase")
+            }
+            count += 1
+        }
+    }
+    
+    
+    
+    
     /*
      // MARK: - Navigation
-
+     
      // In a storyboard-based application, you will often want to do a little preparation before navigation
      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
      // Get the new view controller using segue.destinationViewController.
