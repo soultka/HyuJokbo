@@ -6,6 +6,10 @@ PODS:
   - Bolts/AppLinks (1.8.4):
     - Bolts/Tasks
   - Bolts/Tasks (1.8.4)
+  - BSGridCollectionViewLayout (1.2.0)
+  - BSImagePicker (2.6.0):
+    - BSGridCollectionViewLayout (~> 1.2.0)
+    - UIImageViewModeScaleAspect (= 1.5)
   - DLRadioButton (1.4.9)
   - FacebookCore (0.2.0):
     - Bolts (~> 1.8)
@@ -77,9 +81,11 @@ PODS:
   - GTMSessionFetcher/Core (1.1.9)
   - GTMSessionFetcher/Full (1.1.9):
     - GTMSessionFetcher/Core (= 1.1.9)
+  - UIImageViewModeScaleAspect (1.5)
 
 DEPENDENCIES:
   - Alamofire (~> 4.4)
+  - BSImagePicker (~> 2.4)
   - DLRadioButton (~> 1.4)
   - FacebookCore
   - FacebookLogin
@@ -96,6 +102,8 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
+  BSGridCollectionViewLayout: 8f12c8e1e08c47057f5a39a6828f4395f043d78f
+  BSImagePicker: 7b740d0a9f23160bcdca01f179445583bd1c09b0
   DLRadioButton: 7bb8a6e3768b572469ace553391ab4d2af6f9c19
   FacebookCore: 2cb3f0fbff218e9d3119cec84bae983b232412de
   FacebookLogin: c9d606504735780a9e3002465a615512e0a691a5
@@ -114,7 +122,8 @@ SPEC CHECKSUMS:
   GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
   GTMOAuth2: 7fc9c10f5c745f4d9850419ea88889fe3baa6b7d
   GTMSessionFetcher: 5c046c76a1f859bc9c187e918f18e4fc7bb57b5e
+  UIImageViewModeScaleAspect: 11a790a0b9d248a13dc63e3a78991f1463b6d84e
 
-PODFILE CHECKSUM: ce4cb89355b13421fcc1d231b6014091a04e6ecc
+PODFILE CHECKSUM: b78d3819a22c6654020df13001c7502ba504d98a
 
 COCOAPODS: 1.2.1
