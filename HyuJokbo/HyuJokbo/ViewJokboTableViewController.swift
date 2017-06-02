@@ -7,15 +7,25 @@
 //
 
 import UIKit
+import FirebaseDatabase
+import FirebaseStorage
+import FirebaseAuth
 
 class ViewJokboTableViewController: UITableViewController {
 
+    var ref: FIRDatabaseReference?
+    
     var isLikeButtonTapped: Bool = false
     var isBookMarkButtonTapped: Bool = false
     var isSirenButtonTapped: Bool = false
     var jokbo = Jokbo()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        ref = FIRDatabase.database().reference()
+        
+        tableView.allowsSelection = false
         
         tableView.estimatedRowHeight = 44.0
         tableView.rowHeight = UITableViewAutomaticDimension
@@ -54,7 +64,7 @@ class ViewJokboTableViewController: UITableViewController {
         
         if indexPath.section == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "ViewJokboTitleCell", for: indexPath) as! ViewJokboTableTitleViewCell
-            
+        
            var Date = jokbo.updateDate
             
             
@@ -98,6 +108,7 @@ class ViewJokboTableViewController: UITableViewController {
             self.present(alertController, animated: true, completion: nil)
             return
         }  else {
+            ref?.child("jokbos").child(jokbo.key).updateChildValues(["likeNum": "\(jokbo.likeNum+1)"])
             print("like button tapped")
             isLikeButtonTapped = true
         }

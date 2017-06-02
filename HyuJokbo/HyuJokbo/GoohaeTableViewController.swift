@@ -258,15 +258,27 @@ class GoohaeTableViewController: UITableViewController,GoohaeDownload {
      }
      */
 
-    /*
+    
      // MARK: - Navigation
 
      // In a storyboard-based application, you will often want to do a little preparation before navigation
      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
      // Get the new view controller using segue.destinationViewController.
      // Pass the selected object to the new view controller.
-     }
-     */
+        if segue.identifier == "JokboAutoUploadSegue" {
+            if let uploadButton = sender as? UIButton {
+                let cell = uploadButton.superview?.superview as! UITableViewCell
+                let indexPath = self.tableView.indexPath(for: cell)
+                
+                if let destination = segue.destination as? UINavigationController {
+                    let targetController = destination.topViewController as? JokboUploadViewController
+                    targetController?.passedClassName = goohaesArray[(indexPath?.row)!].className
+                    targetController?.passedProfessorName = goohaesArray[(indexPath?.row)!].professorName
+                }
+            }
+        }
+    }
+    
 
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let subviewCGSize = CGSize(width: self.view.frame.width, height: self.view.frame.height)
