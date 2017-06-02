@@ -11,8 +11,6 @@ import Foundation
 
 class Jokbo{
     var key:String = ""
-    var userName:String = "익명"
-
     var className:String = ""
     var jokboText:String = ""
     var professorName:String = ""
@@ -45,7 +43,6 @@ class Jokbo{
 
 class Goohae{
     var key:String = ""
-    var userName:String = "익명"
 
     var className:String = ""
     var goohaeText:String = ""

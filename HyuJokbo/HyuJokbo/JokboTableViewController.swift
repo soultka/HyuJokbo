@@ -74,15 +74,16 @@ class JokboTableViewController: UITableViewController,JokboDownload {
                 let jokboText = jokboData["jokboText"],
                 let professorName = jokboData["professorName"],
                 let updateDate = jokboData["updateDate"] ,
-                let likeNum = Int(jokboData["likeNum"]),
-                let commentNum = Int(jokboData["commentNum"]){
+                let likeNum = Int(jokboData["likeNum"]!),
+                let userName = jokboData["userName"],
+                let commentNum = Int(jokboData["commentNum"]!){
                     jokbo = Jokbo(key: snapshot.key,
                                   className: className,
                                   jokboText: jokboText,
                                   professorName: professorName,
                                   updateDate: Int(updateDate)!,
-                                  userName: "익명"
-                                  likeNum: likeNum
+                                  userName: userName,
+                                  likeNum: likeNum,
                                   commentNum: commentNum)
                     self.jokbosData[snapshot.key] = jokbo
                     self.jokbosArray = Array(self.jokbosData.values)
@@ -110,16 +111,17 @@ class JokboTableViewController: UITableViewController,JokboDownload {
                 if let className = jokboData["className"],
                     let jokboText = jokboData["jokboText"],
                     let professorName = jokboData["professorName"],
-                    let updateDate = jokboData["updateDate"] {
-                    let likeNum = Int(jokboData["likeNum"]),
-                    let commentNum = Int(jokboData["commentNum"]){
+                    let updateDate = jokboData["updateDate"] ,
+                    let likeNum = Int(jokboData["likeNum"]!),
+                    let userName = jokboData["userName"],
+                    let commentNum = Int(jokboData["commentNum"]!){
                     jokbo = Jokbo(key: snapshot.key,
                                   className: className,
                                   jokboText: jokboText,
                                   professorName: professorName,
                                   updateDate: Int(updateDate)!,
-                                  userName: "익명"
-                                  likeNum: likeNum
+                                  userName: userName,
+                                  likeNum: likeNum,
                                   commentNum: commentNum)
                     self.jokbosData[snapshot.key] = jokbo
                     self.jokbosArray = Array(self.jokbosData.values)
