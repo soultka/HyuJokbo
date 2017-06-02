@@ -14,14 +14,10 @@ protocol HonorMemberButtonDelegate  {
 
 class HonorMemberButton: UIButton, UIGestureRecognizerDelegate {
     var delegate:HonorMemberButtonDelegate?
+    var imageAddedFlag:Int = 0
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-/*
-        let myPanGesture = UIPanGestureRecognizer(target: self, action: #selector(HonorMemberButton.PanGestureRecognizer(_:shouldRecognizeSimultaneouslyWith:)))
-        myPanGesture.delegate = self
-        self.addGestureRecognizer(myPanGesture)
- */
 
     }
 
@@ -29,7 +25,6 @@ class HonorMemberButton: UIButton, UIGestureRecognizerDelegate {
         super.init(coder: aDecoder)!
 
     }
-
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         print("button \(self.titleLabel?.text)")
@@ -49,35 +44,6 @@ class HonorMemberButton: UIButton, UIGestureRecognizerDelegate {
          delegate?.HonorButtonGesture()
     }
 
-/*
-    func PanGestureRecognizer(_ PanGestureRecognizer: UIPanGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
-
-        switch PanGestureRecognizer.state {
-
-        case .began:
-            delegate?.HonorButtonGesture()
-            print("g---hello button")
-
-
-            print("g---button \(self.titleLabel?.text)")
-            delegate?.HonorButtonTouchBegan()
-
-        case .ended, .cancelled, .failed:
-            print("g---button end")
-
-        case .changed:
-            print("g---hello button")
-            delegate?.HonorButtonGesture()
-
-        default:
-            break;
-        }
-
-//        print("g-g-g-g-g-g-")
-        return true
-    }
-
-*/
     /*
     // Only override draw() if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.

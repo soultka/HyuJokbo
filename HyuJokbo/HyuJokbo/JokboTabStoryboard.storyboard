@@ -479,13 +479,13 @@
     </scenes>
     <resources>
         <image name="hyujokbo-img-logo" width="628" height="795"/>
-        <image name="icon-bookmark" width="213" height="213"/>
+        <image name="icon-bookmark" width="427" height="427"/>
         <image name="icon-chat" width="64" height="64"/>
         <image name="icon-download" width="25" height="25"/>
         <image name="icon-edit" width="25" height="25"/>
         <image name="icon-jokbo(b)" width="25" height="25"/>
         <image name="icon-jokbo(g)" width="25" height="25"/>
-        <image name="icon-like" width="32" height="32"/>
+        <image name="icon-like" width="64" height="64"/>
         <image name="icon-mydata(g)" width="25" height="25"/>
         <image name="icon-search" width="25" height="25"/>
         <image name="icon-siren" width="32" height="32"/>
