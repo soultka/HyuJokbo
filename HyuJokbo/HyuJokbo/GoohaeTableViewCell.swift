@@ -19,6 +19,11 @@ class GoohaeTableViewCell: UITableViewCell {
 
     @IBOutlet weak var DownloadButtonImage: UIButton!
 
+    @IBOutlet weak var DateLabel: UILabel!
+    @IBOutlet weak var UserNameLabel: UILabel!
+    @IBOutlet weak var LikeNumLabel: UILabel!
+    @IBOutlet weak var CommentNumLabel: UILabel!
+    @IBOutlet weak var BookMarkNumLabel: UILabel!
     var downloadDelegate : GoohaeDownload?
 
 

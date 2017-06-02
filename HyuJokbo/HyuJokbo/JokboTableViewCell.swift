@@ -16,6 +16,11 @@ class JokboTableViewCell: UITableViewCell {
 
     @IBOutlet weak var SubjectLabel: UILabel!
     @IBOutlet weak var ProfessorLabel: UILabel!
+    @IBOutlet weak var DateLabel: UILabel!
+    @IBOutlet weak var UserNameLabel: UILabel!
+    @IBOutlet weak var LikeNumLabel: UILabel!
+    @IBOutlet weak var CommentNumLabel: UILabel!
+    @IBOutlet weak var BookMarkNumLabel: UILabel!
 
     @IBOutlet weak var DownloadButtonImage: UIButton!
 

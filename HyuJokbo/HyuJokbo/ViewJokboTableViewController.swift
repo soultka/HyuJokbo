@@ -10,13 +10,17 @@ import UIKit
 
 class ViewJokboTableViewController: UITableViewController {
 
+    var isLikeButtonTapped: Bool = false
+    var isBookMarkButtonTapped: Bool = false
+    var isSirenButtonTapped: Bool = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.estimatedRowHeight = 44.0
         tableView.rowHeight = UITableViewAutomaticDimension
 
-
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -77,7 +81,48 @@ class ViewJokboTableViewController: UITableViewController {
             return cell
         }
     }
-
+   
+    @IBAction func likeButtonTapped(_ sender: Any) {
+        if isLikeButtonTapped == true {
+            let alertController = UIAlertController(title: "알림", message:
+                "이미 추천한 게시물입니다.", preferredStyle: UIAlertControllerStyle.alert)
+            alertController.addAction(UIAlertAction(title: "확인", style: UIAlertActionStyle.default,handler: nil))
+            self.present(alertController, animated: true, completion: nil)
+            return
+        }  else {
+            print("like button tapped")
+            isLikeButtonTapped = true
+        }
+    }
+    
+    @IBAction func bookmarkButtonTapped(_ sender: Any) {
+        if isBookMarkButtonTapped == true {
+            let alertController = UIAlertController(title: "알림", message:
+                "이미 스크랩한 게시물입니다.", preferredStyle: UIAlertControllerStyle.alert)
+            alertController.addAction(UIAlertAction(title: "확인", style: UIAlertActionStyle.default,handler: nil))
+            self.present(alertController, animated: true, completion: nil)
+            return
+        } else {
+            print("bookmark button tapped")
+            isBookMarkButtonTapped = true
+        }
+    }
+    
+    @IBAction func sirenButtonTapped(_ sender: Any) {
+        if isSirenButtonTapped == true {
+            let alertController = UIAlertController(title: "알림", message:
+            "이미 신고한 게시물입니다.", preferredStyle: UIAlertControllerStyle.alert)
+            alertController.addAction(UIAlertAction(title: "확인", style: UIAlertActionStyle.default,handler: nil))
+            self.present(alertController, animated: true, completion: nil)
+            return
+        } else {
+            print("siren button tapped")
+            isSirenButtonTapped = true
+        }
+    }
+    
+    
+    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
