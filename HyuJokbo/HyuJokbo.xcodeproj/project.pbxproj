@@ -49,8 +49,6 @@
 		774A93BB1EC4BB6B00B96A56 /* GoohaeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774A93BA1EC4BB6B00B96A56 /* GoohaeTableViewController.swift */; };
 		774A93C11EC4BCEC00B96A56 /* DataCenter.plist in Resources */ = {isa = PBXBuildFile; fileRef = 774A93C01EC4BCEC00B96A56 /* DataCenter.plist */; };
 		774A93C31EC4C2EA00B96A56 /* JokboTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774A93C21EC4C2EA00B96A56 /* JokboTableViewCell.swift */; };
-		7797319F1EE1596A005A0F96 /* HonorJokboTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7797319E1EE1596A005A0F96 /* HonorJokboTableView.swift */; };
-		779731A31EE159AE005A0F96 /* HonorGoohaeTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779731A21EE159AE005A0F96 /* HonorGoohaeTableView.swift */; };
 		77A8E7E91ED3E26E0093F735 /* GoohaeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A8E7E81ED3E26E0093F735 /* GoohaeTableViewCell.swift */; };
 		77A8E7EB1ED3E2F80093F735 /* GoohaeUploadTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A8E7EA1ED3E2F80093F735 /* GoohaeUploadTableViewController.swift */; };
 		77A8E7ED1ED3E33F0093F735 /* GoohaeTabUploadStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77A8E7EC1ED3E33F0093F735 /* GoohaeTabUploadStoryboard.storyboard */; };
@@ -58,6 +56,8 @@
 		77A8E7F11ED69C760093F735 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A8E7F01ED69C760093F735 /* Data.swift */; };
 		77A8E7F71ED6F1A70093F735 /* HorizontalScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A8E7F61ED6F1A70093F735 /* HorizontalScrollView.swift */; };
 		77A8E7F91ED716DF0093F735 /* HonorMemberButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A8E7F81ED716DF0093F735 /* HonorMemberButton.swift */; };
+		77BEBE4B1EE165190018A5FB /* HonorJokboTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BEBE4A1EE165190018A5FB /* HonorJokboTableViewCell.swift */; };
+		77BEBE4D1EE1AA3C0018A5FB /* HonorGoohaeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BEBE4C1EE1AA3C0018A5FB /* HonorGoohaeTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -106,8 +106,6 @@
 		774A93BA1EC4BB6B00B96A56 /* GoohaeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoohaeTableViewController.swift; sourceTree = "<group>"; };
 		774A93C01EC4BCEC00B96A56 /* DataCenter.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = DataCenter.plist; sourceTree = "<group>"; };
 		774A93C21EC4C2EA00B96A56 /* JokboTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JokboTableViewCell.swift; sourceTree = "<group>"; };
-		7797319E1EE1596A005A0F96 /* HonorJokboTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HonorJokboTableView.swift; sourceTree = "<group>"; };
-		779731A21EE159AE005A0F96 /* HonorGoohaeTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HonorGoohaeTableView.swift; sourceTree = "<group>"; };
 		77A8E7E81ED3E26E0093F735 /* GoohaeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoohaeTableViewCell.swift; sourceTree = "<group>"; };
 		77A8E7EA1ED3E2F80093F735 /* GoohaeUploadTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoohaeUploadTableViewController.swift; sourceTree = "<group>"; };
 		77A8E7EC1ED3E33F0093F735 /* GoohaeTabUploadStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = GoohaeTabUploadStoryboard.storyboard; sourceTree = "<group>"; };
@@ -115,6 +113,8 @@
 		77A8E7F01ED69C760093F735 /* Data.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		77A8E7F61ED6F1A70093F735 /* HorizontalScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HorizontalScrollView.swift; sourceTree = "<group>"; };
 		77A8E7F81ED716DF0093F735 /* HonorMemberButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HonorMemberButton.swift; sourceTree = "<group>"; };
+		77BEBE4A1EE165190018A5FB /* HonorJokboTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HonorJokboTableViewCell.swift; sourceTree = "<group>"; };
+		77BEBE4C1EE1AA3C0018A5FB /* HonorGoohaeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HonorGoohaeTableViewCell.swift; sourceTree = "<group>"; };
 		B3DD45124F9E08221214578A /* Pods-HyuJokbo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HyuJokbo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HyuJokbo/Pods-HyuJokbo.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -215,11 +215,11 @@
 			children = (
 				77A8E7F81ED716DF0093F735 /* HonorMemberButton.swift */,
 				7700FE3F1ECEC83200D133C5 /* HonorTabStoryboard.storyboard */,
-				7797319E1EE1596A005A0F96 /* HonorJokboTableView.swift */,
 				7700FE141ECDA68E00D133C5 /* HonorViewController.swift */,
 				772F0C5F1EE0F1CF00BE2576 /* HonorMemberImageView.swift */,
 				77A8E7F61ED6F1A70093F735 /* HorizontalScrollView.swift */,
-				779731A21EE159AE005A0F96 /* HonorGoohaeTableView.swift */,
+				77BEBE4A1EE165190018A5FB /* HonorJokboTableViewCell.swift */,
+				77BEBE4C1EE1AA3C0018A5FB /* HonorGoohaeTableViewCell.swift */,
 			);
 			name = Honortab;
 			sourceTree = "<group>";
@@ -385,18 +385,18 @@
 				2F4FA3611EDFE79900B56D3C /* ViewJokboTableCommentViewCell.swift in Sources */,
 				77A8E7EF1ED67D040093F735 /* LoginViewController.swift in Sources */,
 				2F4FA35F1EDFE77700B56D3C /* ViewJokboTableContentViewCell.swift in Sources */,
+				77BEBE4B1EE165190018A5FB /* HonorJokboTableViewCell.swift in Sources */,
 				77A8E7F71ED6F1A70093F735 /* HorizontalScrollView.swift in Sources */,
 				772F0C5A1EE07B4A00BE2576 /* MydataViewController.swift in Sources */,
 				2FFABD001EDFD2FE00F3D0EB /* ViewJokboTableViewController.swift in Sources */,
 				774A93BB1EC4BB6B00B96A56 /* GoohaeTableViewController.swift in Sources */,
 				2FFDB4411EC5B21F003965A2 /* JokboUploadViewController.swift in Sources */,
 				774A93C31EC4C2EA00B96A56 /* JokboTableViewCell.swift in Sources */,
-				779731A31EE159AE005A0F96 /* HonorGoohaeTableView.swift in Sources */,
 				7700FE1D1ECDA68E00D133C5 /* HonorViewController.swift in Sources */,
 				772F0C5C1EE07BF300BE2576 /* MydataJokboButton.swift in Sources */,
 				77A8E7E91ED3E26E0093F735 /* GoohaeTableViewCell.swift in Sources */,
+				77BEBE4D1EE1AA3C0018A5FB /* HonorGoohaeTableViewCell.swift in Sources */,
 				774A93B91EC4BB6000B96A56 /* JokboTableViewController.swift in Sources */,
-				7797319F1EE1596A005A0F96 /* HonorJokboTableView.swift in Sources */,
 				2FF113D61ED867EA0081B3C2 /* SignUpViewController.swift in Sources */,
 				2FFABCFE1EDFCA4300F3D0EB /* ViewJokboTableTitleViewCell.swift in Sources */,
 				77A8E7F11ED69C760093F735 /* Data.swift in Sources */,

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HonorViewController: UIViewController, UIScrollViewDelegate, HonorMemberButtonDelegate{
+class HonorViewController: UIViewController, UIScrollViewDelegate, HonorMemberButtonDelegate, UITableViewDataSource, UITableViewDelegate{
 
     var superViewWidth:CGFloat!
     var superViewHeight:CGFloat!
@@ -26,6 +26,8 @@ class HonorViewController: UIViewController, UIScrollViewDelegate, HonorMemberBu
 
     @IBOutlet weak var InvisibleScroll: UIScrollView!
 
+    @IBOutlet weak var HonorJokboTableView: UITableView!
+    @IBOutlet weak var HonorGoohaeTableView: UITableView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,9 +38,10 @@ class HonorViewController: UIViewController, UIScrollViewDelegate, HonorMemberBu
         scrollViewHeight = CGFloat(100)
         buttonWidth = CGFloat(100)
         buttonHeight = CGFloat(100)
-        memberImageWidth = CGFloat(80)
+        memberImageWidth = CGFloat(70)
 
-        self.CenterMemberLabel.text = "Member : 1"
+        self.CenterMemberLabel.text = "Member 1"
+
 
 
         //For ScrollView---
@@ -47,6 +50,9 @@ class HonorViewController: UIViewController, UIScrollViewDelegate, HonorMemberBu
         reloadScroll()
         scrollViewDidScroll(InvisibleScroll)
 
+
+        //For TableView
+        print(HonorJokboTableView.numberOfRows(inSection: 1))
 
         // Do any additional setup after loading the view.
 
@@ -198,5 +204,33 @@ class HonorViewController: UIViewController, UIScrollViewDelegate, HonorMemberBu
     
     @IBAction func GoohaeMoreButton(_ sender: Any) {
         self.tabBarController?.selectedIndex = 1
+    }
+
+
+    /// -   -   -   -   -   -   --  -   -   -   -TABLE VIEW
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 16
+    }
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let myCell = UITableViewCell()
+        if tableView == HonorJokboTableView{
+            if let myJCell = tableView.dequeueReusableCell(withIdentifier: "HonorJokboCell", for: indexPath) as? HonorJokboTableViewCell{
+            myJCell.TitleLabel.text = "\(indexPath.row).안녕"
+
+            return myJCell
+            }
+
+        }else if tableView == HonorGoohaeTableView{
+            if let myGCell = tableView.dequeueReusableCell(withIdentifier: "HonorGoohaeCell", for: indexPath) as? HonorGoohaeTableViewCell{
+            myGCell.TitleLabel.text = "\(indexPath.row).Rool ro"
+            return myGCell
+            }
+
+        }
+        return myCell
+
     }
 }
