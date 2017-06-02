@@ -135,19 +135,6 @@ class JokboTableViewController: UITableViewController,JokboDownload {
             }
 
         })
-
-
-        /*
-        databaseRemoveHandle = ref?.child("jokbos").observe(.childRemoved, with: { (snapshot) in
-            //Take the value from the snapshot and added it to the jokbosData array
-
-            self.jokbosArray.
-            //reload the tableview
-            self.tableView.reloadData()
-
-        })
- */
-
     }
 
 

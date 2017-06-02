@@ -163,10 +163,11 @@ class GoohaeTableViewController: UITableViewController,GoohaeDownload {
 
         cell.SubjectLabel?.text = goohaeDataShow.className
         cell.ProfessorLabel?.text = goohaeDataShow.professorName
-
+        cell.LikeNumLabel?.text = String(goohaeDataShow.likeNum)
+        cell.CommentNumLabel?.text = String(goohaeDataShow.commentNum)
+        cell.DateLabel?.text = viewDate(date: goohaeDataShow.updateDate)
 
         cell.downloadDelegate = self
-
 
         return cell
     }
@@ -284,5 +285,37 @@ class GoohaeTableViewController: UITableViewController,GoohaeDownload {
         let subviewCGSize = CGSize(width: self.view.frame.width, height: self.view.frame.height)
         searchSubView.frame = CGRect(origin: scrollView.contentOffset, size: subviewCGSize)
     }
-    
+ 
+    func viewDate(date DateNum:Int ) -> String{
+        var dateString = ""
+        var dateN = DateNum
+        var year = dateN/10000000000
+        dateString += "\(year)."
+        dateN = dateN % 10000000000
+        var month = dateN/100000000
+        if (month / 10 == 0){
+            dateString += "0"
+        }
+        dateString += "\(month)."
+        dateN = dateN % 100000000
+        var day = dateN / 1000000
+        if (month / 10 == 0){
+            dateString += "0"
+        }
+        dateString += "\(day) "
+        dateN = dateN % 1000000
+        var hour = dateN / 10000
+        if (hour / 10 == 0){
+            dateString += "0"
+        }
+        dateString += "\(hour):"
+        dateN = dateN % 10000
+        var minute = dateN / 100
+        if (minute / 10 == 0){
+            dateString += "0"
+        }
+        dateString += "\(minute)"
+        return dateString
+    }
+
 }

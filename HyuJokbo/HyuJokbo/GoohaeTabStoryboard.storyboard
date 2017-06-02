@@ -220,17 +220,17 @@
             </objects>
             <point key="canvasLocation" x="1113" y="-1112"/>
         </scene>
-        <!--View Jokbo Table View Controller-->
+        <!--View Goohae Table View Controller-->
         <scene sceneID="zSb-4H-fqr">
             <objects>
-                <tableViewController id="4VN-lh-BP6" customClass="ViewJokboTableViewController" customModule="HyuJokbo" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="4VN-lh-BP6" customClass="ViewGoohaeTableViewController" customModule="HyuJokbo" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="63" sectionHeaderHeight="28" sectionFooterHeight="28" id="7ys-YH-ya8">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ViewJokboTitleCell" rowHeight="63" id="HDZ-56-yhu" customClass="ViewJokboTableTitleViewCell" customModule="HyuJokbo" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ViewGoohaeTitleCell" rowHeight="63" id="HDZ-56-yhu" customClass="ViewJokboTableTitleViewCell" customModule="HyuJokbo" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="320" height="63"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HDZ-56-yhu" id="jNp-Q5-6D1">
@@ -364,7 +364,7 @@
                                     <outlet property="UserInfoUploadTime" destination="4D6-gv-Wz2" id="Dei-mx-FsA"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ViewJokboContentCell" rowHeight="337" id="tW8-7X-tj9" customClass="ViewJokboTableContentViewCell" customModule="HyuJokbo" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ViewGoohaeContentCell" rowHeight="337" id="tW8-7X-tj9" customClass="ViewJokboTableContentViewCell" customModule="HyuJokbo" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="91" width="320" height="337"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tW8-7X-tj9" id="T16-9H-V9J">
@@ -429,7 +429,7 @@
                                     <outlet property="ContentLabel" destination="qIb-UW-Rq9" id="dSA-cU-s01"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ViewJokboCommentCell" rowHeight="65" id="4n4-8M-gMq" customClass="ViewJokboTableCommentViewCell" customModule="HyuJokbo" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ViewGoohaeCommentCell" rowHeight="65" id="4n4-8M-gMq" customClass="ViewJokboTableCommentViewCell" customModule="HyuJokbo" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="428" width="320" height="65"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4n4-8M-gMq" id="ifp-Lw-jfO">
