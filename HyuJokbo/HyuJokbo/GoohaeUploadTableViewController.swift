@@ -34,11 +34,11 @@ class GoohaeUploadViewController: UIViewController, UITextViewDelegate {
         self.ProfessorTextView.tag = 1
         self.ContentTextView.tag = 2
 
-        self.TitleTextView?.text = " 수업명"
+        self.TitleTextView?.text = "수업명"
         self.TitleTextView?.textColor = UIColor.lightGray
-        self.ProfessorTextView?.text = " 교수님"
+        self.ProfessorTextView?.text = "교수님"
         self.ProfessorTextView?.textColor = UIColor.lightGray
-        self.ContentTextView?.text = " 여기를 눌러서 글을 작성할 수 있습니다."
+        self.ContentTextView?.text = "여기를 눌러서 글을 작성할 수 있습니다."
         self.ContentTextView?.textColor = UIColor.lightGray
 
         self.TitleTextView?.layer.borderWidth = 0.5
@@ -72,11 +72,11 @@ class GoohaeUploadViewController: UIViewController, UITextViewDelegate {
     func textViewDidEndEditing(_ textView: UITextView) {
         if textView.text.isEmpty {
             if textView.tag == 0 {
-                textView.text = " 수업명"
+                textView.text = "수업명"
             } else if textView.tag == 1 {
-                textView.text = " 교수님"
+                textView.text = "교수님"
             } else if textView.tag == 2 {
-                textView.text = " 여기를 눌러서 글을 작성할 수 있습니다."
+                textView.text = "여기를 눌러서 글을 작성할 수 있습니다."
             }
             textView.textColor = UIColor.lightGray
         }
@@ -113,20 +113,20 @@ class GoohaeUploadViewController: UIViewController, UITextViewDelegate {
     
     @IBAction func addGoohae(_ sender: Any) {
         // TODO: post the jokbo to firebase
-        if (self.TitleTextView?.text == " 수업명") || (self.TitleTextView?.text.isEmpty)! {
+        if (self.TitleTextView?.text == "수업명") || (self.TitleTextView?.text.isEmpty)! {
             let alertController = UIAlertController(title: "알림", message:
                 "수업명을 입력해주세요", preferredStyle: UIAlertControllerStyle.alert)
             alertController.addAction(UIAlertAction(title: "확인", style: UIAlertActionStyle.default,handler: nil))
             self.present(alertController, animated: true, completion: nil)
             return
 
-        } else if (self.ProfessorTextView?.text == " 교수님") || (self.ProfessorTextView?.text.isEmpty)! {
+        } else if (self.ProfessorTextView?.text == "교수님") || (self.ProfessorTextView?.text.isEmpty)! {
             let alertController = UIAlertController(title: "알림", message:
                 "교수님명을 입력해주세요", preferredStyle: UIAlertControllerStyle.alert)
             alertController.addAction(UIAlertAction(title: "확인", style: UIAlertActionStyle.default,handler: nil))
             self.present(alertController, animated: true, completion: nil)
             return
-        } else if (self.ContentTextView?.text == " 여기를 눌러서 글을 작성할 수 있습니다.") || (self.ContentTextView?.text.isEmpty)! {
+        } else if (self.ContentTextView?.text == "여기를 눌러서 글을 작성할 수 있습니다.") || (self.ContentTextView?.text.isEmpty)! {
             let alertController = UIAlertController(title: "알림", message:
                 "내용을 입력해주세요", preferredStyle: UIAlertControllerStyle.alert)
             alertController.addAction(UIAlertAction(title: "확인", style: UIAlertActionStyle.default,handler: nil))
