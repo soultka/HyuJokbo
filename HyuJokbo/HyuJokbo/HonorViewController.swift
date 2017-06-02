@@ -69,11 +69,6 @@ class HonorViewController: UIViewController, UIScrollViewDelegate, HonorMemberBu
 
         let button = HonorMemberButton()
         button.frame = CGRect(x: 0, y: 0, width: buttonWidth, height: buttonHeight)
-//        button.setTitle("\(index)!!", for: UIControlState.normal)
-//        button.setTitleColor(UIColor.black, for: UIControlState.normal)
-//        button.backgroundColor = UIColor.blue
-
-//                        button.setImage(UIImage(named:"icon-h_mydata(b)"), for: UIControlState.normal)
 
         if(button.imageAddedFlag == 0){
             let imageView = HonorMemberImageView(image: UIImage(named: "icon-h_mydata(b)"))
@@ -97,39 +92,38 @@ class HonorViewController: UIViewController, UIScrollViewDelegate, HonorMemberBu
         }
         button.delegate = self
 
-
-
-
         return button
     }
 
 
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
 
-//        if(scrollView == InvisibleScroll){
+        if(scrollView == InvisibleScroll || scrollView == slideScroll)
+        {
             slideScroll.contentOffset = InvisibleScroll.contentOffset
 
             let index = Int((Double(slideScroll.contentOffset.x)/Double(buttonWidth)).rounded()) + 1
             print("moved \(Int(slideScroll.contentOffset.x)/Int(buttonWidth))")
             self.CenterMemberLabel.text = "Member\(index)"
-//        }
 
-        for index in stride(from: 0, to: self.numberOfScrollViewElements(), by: 1)
-        {
-        let slideInt = Int(slideScroll.contentOffset.x)
-        let scrollViewWidth  = Int(self.scrollViewWidth)
-        let intxoffset = imageViews[index].xOffsetOfSuper
-        let ButtonWidth = Int(self.buttonWidth)
+            for index in stride(from: 0, to: self.numberOfScrollViewElements(), by: 1)
+            {
+                let slideInt = Int(slideScroll.contentOffset.x)
+                let scrollViewWidth  = Int(self.scrollViewWidth)
+                let intxoffset = imageViews[index].xOffsetOfSuper
+                let ButtonWidth = Int(self.buttonWidth)
 
-        let differency = (slideInt + scrollViewWidth/2) - (intxoffset + ButtonWidth/2)
-        imageViews[index].width = Int(memberImageWidth) - (abs(differency))/4
-        imageViews[index].height = imageViews[index].width
-        imageViews[index].frame = CGRect(x: (Int(buttonWidth) - imageViews[index].width)/2,
-                                         y: (Int(buttonHeight) - imageViews[index].height)/2,
-                                         width: imageViews[index].width,
-                                         height: imageViews[index].height)
+                let differency = (slideInt + scrollViewWidth/2) - (intxoffset + ButtonWidth/2)
+                imageViews[index].width = Int(memberImageWidth) - (abs(differency))/4
+                imageViews[index].height = imageViews[index].width
+                imageViews[index].frame = CGRect(x: (Int(buttonWidth) - imageViews[index].width)/2,
+                                                 y: (Int(buttonHeight) - imageViews[index].height)/2,
+                                                 width: imageViews[index].width,
+                                                 height: imageViews[index].height)
+                
+            }
         }
-
+        
     }
 
 
@@ -137,10 +131,7 @@ class HonorViewController: UIViewController, UIScrollViewDelegate, HonorMemberBu
         //Make UIScrollView and setting
         slideScroll.showsHorizontalScrollIndicator = false
         slideScroll.isDirectionalLockEnabled = true
-//        slideScroll.isPagingEnabled = true
-
         slideScroll.isMultipleTouchEnabled = false
-
 
         slideScroll.translatesAutoresizingMaskIntoConstraints = false
         slideScroll.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
@@ -151,7 +142,7 @@ class HonorViewController: UIViewController, UIScrollViewDelegate, HonorMemberBu
         InvisibleScroll.showsHorizontalScrollIndicator = false
         InvisibleScroll.isDirectionalLockEnabled = true
         InvisibleScroll.isPagingEnabled = true
-
+        InvisibleScroll.isUserInteractionEnabled = false
 
         InvisibleScroll.translatesAutoresizingMaskIntoConstraints = false
         InvisibleScroll.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
@@ -159,11 +150,7 @@ class HonorViewController: UIViewController, UIScrollViewDelegate, HonorMemberBu
         InvisibleScroll.widthAnchor.constraint(equalToConstant: buttonWidth).isActive = true
         InvisibleScroll.heightAnchor.constraint(equalToConstant: scrollViewHeight).isActive = true
 
-
-        InvisibleScroll.isUserInteractionEnabled = false
-
         slideScroll.addGestureRecognizer(InvisibleScroll.panGestureRecognizer)
-
 
         InvisibleScroll.delegate = self
         self.view.bringSubview(toFront: slideScroll)
@@ -190,7 +177,6 @@ class HonorViewController: UIViewController, UIScrollViewDelegate, HonorMemberBu
         slideScroll.contentSize = CGSize(width: xOffset + buttonWidth, height:scrollViewHeight)
         InvisibleScroll.contentSize = CGSize(width: xOffset - buttonWidth, height:scrollViewHeight)
 
-
     }
 
 
@@ -206,5 +192,11 @@ class HonorViewController: UIViewController, UIScrollViewDelegate, HonorMemberBu
         slideScroll.isPagingEnabled = true
         
     }
+    @IBAction func JokboMoreButton(_ sender: Any) {
+        self.tabBarController?.selectedIndex = 0
+    }
     
+    @IBAction func GoohaeMoreButton(_ sender: Any) {
+        self.tabBarController?.selectedIndex = 1
+    }
 }
