@@ -151,21 +151,20 @@ class JokboUploadViewController: UIViewController, UITextViewDelegate, UIImagePi
 
 
         var curRef = self.ref?.child("jokbos").childByAutoId()
-        guard let autoId = curRef?.key else{
-            return
-        }
 
-        let errorIndex = addPhoto(key: (curRef?.key)!)
-        if errorIndex.isEmpty == false
-        {
-            var alertMessage:String = ""
-            alertMessage += "\(errorIndex) "
-            alertMessage += "번째 선택한 사진업로드에서 문제가 발생했습니다. 다른 사진을 선택해주세요"
-            let alertController = UIAlertController(title: "알림", message:
-                alertMessage, preferredStyle: UIAlertControllerStyle.alert)
-            alertController.addAction(UIAlertAction(title: "확인", style: UIAlertActionStyle.default,handler: nil))
-            self.present(alertController, animated: true, completion: nil)
-            return
+        if(selectedImages.isEmpty == false){
+            let errorIndex = addPhoto(key: (curRef?.key)!)
+            if errorIndex.isEmpty == false
+            {
+                var alertMessage:String = ""
+                alertMessage += "\(errorIndex) "
+                alertMessage += "번째 선택한 사진업로드에서 문제가 발생했습니다. 다른 사진을 선택해주세요"
+                let alertController = UIAlertController(title: "알림", message:
+                    alertMessage, preferredStyle: UIAlertControllerStyle.alert)
+                alertController.addAction(UIAlertAction(title: "확인", style: UIAlertActionStyle.default,handler: nil))
+                self.present(alertController, animated: true, completion: nil)
+                return
+            }
         }
 
 
@@ -287,7 +286,7 @@ class JokboUploadViewController: UIViewController, UITextViewDelegate, UIImagePi
         for imageURL in self.uploadImageURLs{
             let imageRef = curRef.child("j\(count)")
             imageRef.setValue(imageURL){(error) in
-//                print("Error while writing image to FIRdatabase")
+                //                print("Error while writing image to FIRdatabase")
             }
             count += 1
         }
