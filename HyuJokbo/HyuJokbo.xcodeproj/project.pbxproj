@@ -9,12 +9,12 @@
 /* Begin PBXBuildFile section */
 		23EA299D1EBB226A009F40F8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EA299C1EBB226A009F40F8 /* AppDelegate.swift */; };
 		23EA29A21EBB226A009F40F8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23EA29A01EBB226A009F40F8 /* Main.storyboard */; };
-		23EA29A41EBB226A009F40F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23EA29A31EBB226A009F40F8 /* Assets.xcassets */; };
 		23EA29A71EBB226A009F40F8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23EA29A51EBB226A009F40F8 /* LaunchScreen.storyboard */; };
 		2F4FA35F1EDFE77700B56D3C /* ViewJokboTableContentViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4FA35E1EDFE77700B56D3C /* ViewJokboTableContentViewCell.swift */; };
 		2F4FA3611EDFE79900B56D3C /* ViewJokboTableCommentViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4FA3601EDFE79900B56D3C /* ViewJokboTableCommentViewCell.swift */; };
 		2F811DF91EC88DEC00382F51 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2F811DF81EC88DEC00382F51 /* GoogleService-Info.plist */; };
 		2FF113D61ED867EA0081B3C2 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF113D51ED867EA0081B3C2 /* SignUpViewController.swift */; };
+		2FF1E5B01EE112F000DE702E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2FF1E5AF1EE112F000DE702E /* Assets.xcassets */; };
 		2FFABCFE1EDFCA4300F3D0EB /* ViewJokboTableTitleViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFABCFD1EDFCA4300F3D0EB /* ViewJokboTableTitleViewCell.swift */; };
 		2FFABD001EDFD2FE00F3D0EB /* ViewJokboTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFABCFF1EDFD2FE00F3D0EB /* ViewJokboTableViewController.swift */; };
 		2FFDB4411EC5B21F003965A2 /* JokboUploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFDB4401EC5B21F003965A2 /* JokboUploadViewController.swift */; };
@@ -61,7 +61,6 @@
 		23EA29991EBB226A009F40F8 /* HyuJokbo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HyuJokbo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		23EA299C1EBB226A009F40F8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		23EA29A11EBB226A009F40F8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		23EA29A31EBB226A009F40F8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		23EA29A61EBB226A009F40F8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		23EA29A81EBB226A009F40F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2F02931D1EDA5A98000BB82E /* HyuJokbo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HyuJokbo.entitlements; sourceTree = "<group>"; };
@@ -69,6 +68,7 @@
 		2F4FA3601EDFE79900B56D3C /* ViewJokboTableCommentViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewJokboTableCommentViewCell.swift; sourceTree = "<group>"; };
 		2F811DF81EC88DEC00382F51 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2FF113D51ED867EA0081B3C2 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		2FF1E5AF1EE112F000DE702E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2FFABCFD1EDFCA4300F3D0EB /* ViewJokboTableTitleViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewJokboTableTitleViewCell.swift; sourceTree = "<group>"; };
 		2FFABCFF1EDFD2FE00F3D0EB /* ViewJokboTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewJokboTableViewController.swift; sourceTree = "<group>"; };
 		2FFDB4401EC5B21F003965A2 /* JokboUploadViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JokboUploadViewController.swift; sourceTree = "<group>"; };
@@ -161,6 +161,7 @@
 				774A93C01EC4BCEC00B96A56 /* DataCenter.plist */,
 				2F811DF81EC88DEC00382F51 /* GoogleService-Info.plist */,
 				23EA29A81EBB226A009F40F8 /* Info.plist */,
+				2FF1E5AF1EE112F000DE702E /* Assets.xcassets */,
 				23EA29A01EBB226A009F40F8 /* Main.storyboard */,
 				7700FE351ECDAD7800D133C5 /* JokboTabStoryboard.storyboard */,
 				7700FE3D1ECEC82500D133C5 /* JokboTabUploadStoryboard.storyboard */,
@@ -188,7 +189,6 @@
 				774A93BE1EC4BB7B00B96A56 /* MydataTableViewController.swift */,
 				7700FE231ECDAACC00D133C5 /* SearchView.swift */,
 				7700FE191ECDA68E00D133C5 /* ViewController.swift */,
-				23EA29A31EBB226A009F40F8 /* Assets.xcassets */,
 				7700FE241ECDAACC00D133C5 /* SearchView.xib */,
 				23EA29A51EBB226A009F40F8 /* LaunchScreen.storyboard */,
 			);
@@ -293,6 +293,7 @@
 				772F0C531EDFCE1C00BE2576 /* GoogleSymbolUtilities.framework in Resources */,
 				772F0C3B1EDFCC1900BE2576 /* GoogleSignIn.bundle in Resources */,
 				23EA29A71EBB226A009F40F8 /* LaunchScreen.storyboard in Resources */,
+				2FF1E5B01EE112F000DE702E /* Assets.xcassets in Resources */,
 				7700FE381ECDAD7800D133C5 /* GoohaeTabStoryboard.storyboard in Resources */,
 				7700FE401ECEC83200D133C5 /* HonorTabStoryboard.storyboard in Resources */,
 				7700FE3A1ECDAD7800D133C5 /* JokboTabStoryboard.storyboard in Resources */,
@@ -300,7 +301,6 @@
 				774A93C11EC4BCEC00B96A56 /* DataCenter.plist in Resources */,
 				7700FE3C1ECDAD7800D133C5 /* MydataTabStoryboard.storyboard in Resources */,
 				2F811DF91EC88DEC00382F51 /* GoogleService-Info.plist in Resources */,
-				23EA29A41EBB226A009F40F8 /* Assets.xcassets in Resources */,
 				7700FE3E1ECEC82500D133C5 /* JokboTabUploadStoryboard.storyboard in Resources */,
 				23EA29A21EBB226A009F40F8 /* Main.storyboard in Resources */,
 				77A8E7ED1ED3E33F0093F735 /* GoohaeTabUploadStoryboard.storyboard in Resources */,
