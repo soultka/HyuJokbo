@@ -51,6 +51,9 @@ class HonorViewController: UIViewController, UIScrollViewDelegate, HonorMemberBu
         // Do any additional setup after loading the view.
 
     }
+    override func viewDidAppear(_ animated: Bool) {
+        scrollViewDidScroll(InvisibleScroll)
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
