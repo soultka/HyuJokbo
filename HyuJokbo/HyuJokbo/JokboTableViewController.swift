@@ -74,17 +74,17 @@ class JokboTableViewController: UITableViewController,JokboDownload {
                 let jokboText = jokboData["jokboText"],
                 let professorName = jokboData["professorName"],
                 let updateDate = jokboData["updateDate"] ,
-                let likeNum = Int(jokboData["likeNum"]!),
+                let likeNum = jokboData["likeNum"],
                 let userName = jokboData["userName"],
-                let commentNum = Int(jokboData["commentNum"]!){
+                let commentNum = jokboData["commentNum"]{
                     jokbo = Jokbo(key: snapshot.key,
                                   className: className,
                                   jokboText: jokboText,
                                   professorName: professorName,
                                   updateDate: Int(updateDate)!,
                                   userName: userName,
-                                  likeNum: likeNum,
-                                  commentNum: commentNum)
+                                  likeNum: Int(likeNum)!,
+                                  commentNum: Int(commentNum)!)
                     self.jokbosData[snapshot.key] = jokbo
                     self.jokbosArray = Array(self.jokbosData.values)
                     //reload the tableview
@@ -112,17 +112,17 @@ class JokboTableViewController: UITableViewController,JokboDownload {
                     let jokboText = jokboData["jokboText"],
                     let professorName = jokboData["professorName"],
                     let updateDate = jokboData["updateDate"] ,
-                    let likeNum = Int(jokboData["likeNum"]!),
+                    let likeNum = jokboData["likeNum"],
                     let userName = jokboData["userName"],
-                    let commentNum = Int(jokboData["commentNum"]!){
+                    let commentNum = jokboData["commentNum"]{
                     jokbo = Jokbo(key: snapshot.key,
                                   className: className,
                                   jokboText: jokboText,
                                   professorName: professorName,
                                   updateDate: Int(updateDate)!,
                                   userName: userName,
-                                  likeNum: likeNum,
-                                  commentNum: commentNum)
+                                  likeNum: Int(likeNum)!,
+                                  commentNum: Int(commentNum)!)
                     self.jokbosData[snapshot.key] = jokbo
                     self.jokbosArray = Array(self.jokbosData.values)
                     //reload the tableview
