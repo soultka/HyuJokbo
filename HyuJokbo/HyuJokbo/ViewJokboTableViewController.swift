@@ -12,6 +12,10 @@ class ViewJokboTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tableView.estimatedRowHeight = 44.0
+        tableView.rowHeight = UITableViewAutomaticDimension
+
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -68,6 +72,7 @@ class ViewJokboTableViewController: UITableViewController {
             cell.UserInfoName?.text = "박병욱"
             cell.CommentInfoDate?.text = "2017.6.1 15:28"
             cell.CommentInfoComment?.text = "제발 되라어ㅏ리ㅓㅣㅁ러이"
+            
             
             return cell
         }
