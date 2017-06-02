@@ -14,6 +14,9 @@ class Jokbo{
     var jokboText:String = ""
     var professorName:String = ""
     var updateDate:Int = 0
+    var userName:String = ""
+    var likeNum:Int = 0;
+    var commentNum:Int = 0;
 
 }
 
@@ -22,4 +25,7 @@ class Goohae{
     var goohaeText:String = ""
     var professorName:String = ""
     var updateDate:Int = 0
+    var userName:String = ""
+    var likeNum:Int = 0;
+    var commentNum:Int = 0;
 }

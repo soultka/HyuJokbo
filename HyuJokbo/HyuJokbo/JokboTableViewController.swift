@@ -82,7 +82,16 @@ class JokboTableViewController: UITableViewController,JokboDownload {
                 if let updateDate = jokboData["updateDate"] {
                     jokbo.updateDate = Int(updateDate)!
                 }
-            
+                if let userName = jokboData["userName"] {
+                    jokbo.userName = userName
+                }
+                if let likeNum = jokboData["likeNum"] {
+                    jokbo.likeNum = Int(likeNum)!
+                }
+                if let commentNum = jokboData["commentNum"] {
+                    jokbo.commentNum = Int( commentNum)!
+                }
+                
                 self.jokbosData[snapshot.key] = jokbo
                 //reload the tableview
                 self.jokbosArray = Array(self.jokbosData.values)
@@ -114,6 +123,15 @@ class JokboTableViewController: UITableViewController,JokboDownload {
                 }
                 if let updateDate = jokboData["updateDate"] {
                     jokbo.updateDate = Int(updateDate)!
+                }
+                if let userName = jokboData["userName"] {
+                    jokbo.userName = userName
+                }
+                if let likeNum = jokboData["likeNum"] {
+                    jokbo.likeNum = Int(likeNum)!
+                }
+                if let commentNum = jokboData["commentNum"] {
+                    jokbo.commentNum = Int( commentNum)!
                 }
                 
         
@@ -172,10 +190,17 @@ class JokboTableViewController: UITableViewController,JokboDownload {
        
         let jokboDataShow = jokbosArray[indexPath.row]
         //jokbos로 부터 jokbo를 받아옴
-
+        
+        if let index = jokboDataShow.userName.range(of: "@")?.lowerBound{
+            cell.UserNameLabel?.text = jokboDataShow.userName.substring(to: index)
+        }else{
+            cell.UserNameLabel?.text = jokboDataShow.userName
+        }
         cell.SubjectLabel?.text = jokboDataShow.className
         cell.ProfessorLabel?.text = jokboDataShow.professorName
-
+        cell.LikeNumLabel?.text = String(jokboDataShow.likeNum)
+        cell.CommentNumLabel?.text = String(jokboDataShow.commentNum)
+        cell.DateLabel?.text = viewDate(date: jokboDataShow.updateDate)
         cell.downloadDelegate = self
 
 
@@ -233,6 +258,16 @@ class JokboTableViewController: UITableViewController,JokboDownload {
 
 
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "JokboSegue"{
+            if let destination = segue.destination as? ViewJokboTableViewController, let selectedIndex = self.tableView.indexPathForSelectedRow?.row{
+                
+                destination.jokbo = self.jokbosArray[selectedIndex]
+                
+            }
+        }
+    }
     /*
      // Override to support conditional editing of the table view.
      override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -282,6 +317,37 @@ class JokboTableViewController: UITableViewController,JokboDownload {
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let subviewCGSize = CGSize(width: self.view.frame.width, height: self.view.frame.height)
         searchSubView.frame = CGRect(origin: scrollView.contentOffset, size: subviewCGSize)
+    }
+    func viewDate(date DateNum:Int ) -> String{
+        var dateString = ""
+        var dateN = DateNum
+        var year = dateN/10000000000
+        dateString += "\(year)."
+        dateN = dateN % 10000000000
+        var month = dateN/100000000
+        if (month / 10 == 0){
+            dateString += "0"
+        }
+        dateString += "\(month)."
+        dateN = dateN % 100000000
+        var day = dateN / 1000000
+        if (month / 10 == 0){
+            dateString += "0"
+        }
+        dateString += "\(day) "
+        dateN = dateN % 1000000
+        var hour = dateN / 10000
+        if (hour / 10 == 0){
+            dateString += "0"
+        }
+        dateString += "\(hour):"
+        dateN = dateN % 10000
+        var minute = dateN / 100
+        if (minute / 10 == 0){
+            dateString += "0"
+        }
+        dateString += "\(minute)"
+        return dateString
     }
     
 }

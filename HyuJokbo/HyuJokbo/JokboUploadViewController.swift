@@ -11,6 +11,7 @@ import FirebaseDatabase
 import FirebaseStorage
 import Photos
 import BSImagePicker
+import FirebaseAuth
 
 class JokboUploadViewController: UIViewController, UITextViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
@@ -161,11 +162,20 @@ class JokboUploadViewController: UIViewController, UITextViewDelegate, UIImagePi
             self.present(alertController, animated: true, completion: nil)
             return
         }
-
+        
+        var userName:String = ""
+        if let user = FIRAuth.auth()?.currentUser{
+            userName += user.email!
+        }
+        
         curRef?.child("className").setValue(TitleTextView.text)
         curRef?.child("professorName").setValue(ProfessorTextView.text)
         curRef?.child("jokboText").setValue(ContentTextView.text)
         curRef?.child("updateDate").setValue(dateStr)
+        curRef?.child("userName").setValue(userName)
+        curRef?.child("likeNum").setValue("0")
+        curRef?.child("commentNum").setValue("0")
+        
 
 
 
