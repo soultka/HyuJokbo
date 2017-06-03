@@ -13,8 +13,6 @@ import FirebaseAuth
 
 class ViewJokboTableViewController: UITableViewController {
 
-    var commentSubView:CommentUploadView!
-
     var ref: FIRDatabaseReference?
     var databaseHandle:FIRDatabaseHandle?
 
@@ -22,24 +20,13 @@ class ViewJokboTableViewController: UITableViewController {
     var isBookMarkButtonTapped: Bool = false
     var isSirenButtonTapped: Bool = false
     var jokbo = Jokbo()
+
+    var commentSubView:CommentUploadView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        //- -   -   -   -   -   -   -   -   -   -   -   COMMENT VIEW ADD
 
-        //테이블 뷰의 왼쪽위 좌표를 CGPoint로 얻어옴
-        //서브뷰(검색창)의 CGSize를 얻어옴
-            let subviewCGSize = CGSize(width: self.view.frame.width,
-                                       height: self.view.frame.height-100)
-            //얻어온 값을 기준으로 검색창 서브뷰 설정
-            commentSubView = CommentUploadView(frame:CGRect(origin: self.tableView.contentOffset, size: subviewCGSize))
-
-
-        //검색창 서브뷰 추가
-        self.view.addSubview(commentSubView)
-        self.view.bringSubview(toFront: commentSubView)
-        commentSubView.isHidden = false
 
         ref = FIRDatabase.database().reference()
         
@@ -47,6 +34,17 @@ class ViewJokboTableViewController: UITableViewController {
         
         tableView.estimatedRowHeight = 44.0
         tableView.rowHeight = UITableViewAutomaticDimension
+
+
+        //- -   -   -   -   -   -   -   -   -   -   -   COMMENT VIEW ADD
+        let subviewCGSize = CGSize(width: self.view.frame.width,
+                                   height: self.view.frame.height)
+        commentSubView = CommentUploadView(frame:CGRect(origin: self.tableView.contentOffset, size: subviewCGSize))
+
+
+        //검색창 서브뷰 추가
+        self.view.addSubview(commentSubView)
+        self.view.bringSubview(toFront: commentSubView)
 
         
         // Uncomment the following line to preserve selection between presentations
@@ -252,11 +250,9 @@ class ViewJokboTableViewController: UITableViewController {
     */
 
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        if let tabbarSize = self.tabBarController?.tabBar.frame.height{
             let subviewCGSize = CGSize(width: self.view.frame.width,
-                                       height: self.view.frame.height-tabbarSize)
+                                       height: self.view.frame.height)
                     commentSubView.frame = CGRect(origin: scrollView.contentOffset, size: subviewCGSize)
-        }
 
     }
     func viewDate(date DateNum:Int ) -> String{

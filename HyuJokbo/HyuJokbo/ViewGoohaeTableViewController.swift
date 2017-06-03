@@ -11,14 +11,15 @@ import FirebaseDatabase
 import FirebaseAuth
 
 class ViewGoohaeTableViewController: UITableViewController {
-    
+
     var ref: FIRDatabaseReference?
     
     var isLikeButtonTapped: Bool = false
     var isBookMarkButtonTapped: Bool = false
     var isSirenButtonTapped: Bool = false
     var goohae = Goohae()
-    
+
+    var commentSubView:CommentUploadView!
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -28,7 +29,18 @@ class ViewGoohaeTableViewController: UITableViewController {
         
         tableView.estimatedRowHeight = 44.0
         tableView.rowHeight = UITableViewAutomaticDimension
-        
+
+
+        //- -   -   -   -   -   -   -   -   -   -   -   COMMENT VIEW ADD
+
+        let subviewCGSize = CGSize(width: self.view.frame.width,
+                                   height: self.view.frame.height)
+        commentSubView = CommentUploadView(frame:CGRect(origin: self.tableView.contentOffset, size: subviewCGSize))
+
+
+        self.view.addSubview(commentSubView)
+        self.view.bringSubview(toFront: commentSubView)
+
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -37,6 +49,9 @@ class ViewGoohaeTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()    override func didReceiveMemoryWarning() {
         //super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        scrollViewDidScroll((self.tableView as? UIScrollView)!)
     }
 
     override func didReceiveMemoryWarning() {
@@ -209,6 +224,13 @@ class ViewGoohaeTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
+
+    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let subviewCGSize = CGSize(width: self.view.frame.width,
+                                   height: self.view.frame.height)
+        commentSubView.frame = CGRect(origin: scrollView.contentOffset, size: subviewCGSize)
+
+    }
     func viewDate(date DateNum:Int ) -> String{
         var dateString = ""
         var dateN = DateNum
