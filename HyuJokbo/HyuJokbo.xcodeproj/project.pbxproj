@@ -14,7 +14,6 @@
 		2F4FA3611EDFE79900B56D3C /* ViewJokboTableCommentViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4FA3601EDFE79900B56D3C /* ViewJokboTableCommentViewCell.swift */; };
 		2F811DF91EC88DEC00382F51 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2F811DF81EC88DEC00382F51 /* GoogleService-Info.plist */; };
 		2FF113D61ED867EA0081B3C2 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF113D51ED867EA0081B3C2 /* SignUpViewController.swift */; };
-		2FF1E5B31EE17E4600DE702E /* Assets 20-06-14-067.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2FF1E5B21EE17E4600DE702E /* Assets 20-06-14-067.xcassets */; };
 		2FF1E5B51EE1902400DE702E /* ViewGoohaeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF1E5B41EE1902400DE702E /* ViewGoohaeTableViewController.swift */; };
 		2FFABCFE1EDFCA4300F3D0EB /* ViewJokboTableTitleViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFABCFD1EDFCA4300F3D0EB /* ViewJokboTableTitleViewCell.swift */; };
 		2FFABD001EDFD2FE00F3D0EB /* ViewJokboTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFABCFF1EDFD2FE00F3D0EB /* ViewJokboTableViewController.swift */; };
@@ -45,6 +44,8 @@
 		772F0C5A1EE07B4A00BE2576 /* MydataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772F0C591EE07B4A00BE2576 /* MydataViewController.swift */; };
 		772F0C5C1EE07BF300BE2576 /* MydataJokboButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772F0C5B1EE07BF300BE2576 /* MydataJokboButton.swift */; };
 		772F0C601EE0F1CF00BE2576 /* HonorMemberImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772F0C5F1EE0F1CF00BE2576 /* HonorMemberImageView.swift */; };
+		77406ACB1EE31C8600A2F931 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 77406AC91EE31C8600A2F931 /* Assets.xcassets */; };
+		77406ACC1EE31C8600A2F931 /* Base.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 77406ACA1EE31C8600A2F931 /* Base.lproj */; };
 		774A93B91EC4BB6000B96A56 /* JokboTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774A93B81EC4BB6000B96A56 /* JokboTableViewController.swift */; };
 		774A93BB1EC4BB6B00B96A56 /* GoohaeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774A93BA1EC4BB6B00B96A56 /* GoohaeTableViewController.swift */; };
 		774A93C11EC4BCEC00B96A56 /* DataCenter.plist in Resources */ = {isa = PBXBuildFile; fileRef = 774A93C01EC4BCEC00B96A56 /* DataCenter.plist */; };
@@ -70,7 +71,6 @@
 		2F4FA3601EDFE79900B56D3C /* ViewJokboTableCommentViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewJokboTableCommentViewCell.swift; sourceTree = "<group>"; };
 		2F811DF81EC88DEC00382F51 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2FF113D51ED867EA0081B3C2 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
-		2FF1E5B21EE17E4600DE702E /* Assets 20-06-14-067.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = "Assets 20-06-14-067.xcassets"; path = "../../../../.Trash/Assets 20-06-14-067.xcassets"; sourceTree = "<group>"; };
 		2FF1E5B41EE1902400DE702E /* ViewGoohaeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewGoohaeTableViewController.swift; sourceTree = "<group>"; };
 		2FFABCFD1EDFCA4300F3D0EB /* ViewJokboTableTitleViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewJokboTableTitleViewCell.swift; sourceTree = "<group>"; };
 		2FFABCFF1EDFD2FE00F3D0EB /* ViewJokboTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewJokboTableViewController.swift; sourceTree = "<group>"; };
@@ -100,6 +100,8 @@
 		772F0C591EE07B4A00BE2576 /* MydataViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MydataViewController.swift; sourceTree = "<group>"; };
 		772F0C5B1EE07BF300BE2576 /* MydataJokboButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MydataJokboButton.swift; sourceTree = "<group>"; };
 		772F0C5F1EE0F1CF00BE2576 /* HonorMemberImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HonorMemberImageView.swift; sourceTree = "<group>"; };
+		77406AC91EE31C8600A2F931 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		77406ACA1EE31C8600A2F931 /* Base.lproj */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Base.lproj; sourceTree = "<group>"; };
 		774A93B81EC4BB6000B96A56 /* JokboTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JokboTableViewController.swift; sourceTree = "<group>"; };
 		774A93BA1EC4BB6B00B96A56 /* GoohaeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoohaeTableViewController.swift; sourceTree = "<group>"; };
 		774A93C01EC4BCEC00B96A56 /* DataCenter.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = DataCenter.plist; sourceTree = "<group>"; };
@@ -161,7 +163,8 @@
 		23EA299B1EBB226A009F40F8 /* HyuJokbo */ = {
 			isa = PBXGroup;
 			children = (
-				2FF1E5B21EE17E4600DE702E /* Assets 20-06-14-067.xcassets */,
+				77406AC91EE31C8600A2F931 /* Assets.xcassets */,
+				77406ACA1EE31C8600A2F931 /* Base.lproj */,
 				2F02931D1EDA5A98000BB82E /* HyuJokbo.entitlements */,
 				23EA29A81EBB226A009F40F8 /* Info.plist */,
 				774A93C01EC4BCEC00B96A56 /* DataCenter.plist */,
@@ -298,11 +301,12 @@
 				772F0C521EDFCE1C00BE2576 /* GoogleSignInDependencies.framework in Resources */,
 				772F0C531EDFCE1C00BE2576 /* GoogleSymbolUtilities.framework in Resources */,
 				772F0C3B1EDFCC1900BE2576 /* GoogleSignIn.bundle in Resources */,
-				2FF1E5B31EE17E4600DE702E /* Assets 20-06-14-067.xcassets in Resources */,
 				23EA29A71EBB226A009F40F8 /* LaunchScreen.storyboard in Resources */,
+				77406ACB1EE31C8600A2F931 /* Assets.xcassets in Resources */,
 				7700FE381ECDAD7800D133C5 /* GoohaeTabStoryboard.storyboard in Resources */,
 				7700FE401ECEC83200D133C5 /* HonorTabStoryboard.storyboard in Resources */,
 				7700FE3A1ECDAD7800D133C5 /* JokboTabStoryboard.storyboard in Resources */,
+				77406ACC1EE31C8600A2F931 /* Base.lproj in Resources */,
 				7700FE261ECDAACC00D133C5 /* SearchView.xib in Resources */,
 				774A93C11EC4BCEC00B96A56 /* DataCenter.plist in Resources */,
 				7700FE3C1ECDAD7800D133C5 /* MydataTabStoryboard.storyboard in Resources */,
