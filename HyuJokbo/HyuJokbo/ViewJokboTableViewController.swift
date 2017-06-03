@@ -14,7 +14,8 @@ import FirebaseAuth
 class ViewJokboTableViewController: UITableViewController {
 
     var ref: FIRDatabaseReference?
-    
+    var databaseHandle:FIRDatabaseHandle?
+
     var isLikeButtonTapped: Bool = false
     var isBookMarkButtonTapped: Bool = false
     var isSirenButtonTapped: Bool = false
@@ -96,7 +97,25 @@ class ViewJokboTableViewController: UITableViewController {
             return cell
         } else if indexPath.section == 1 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "ViewJokboContentCell", for: indexPath) as! ViewJokboTableContentViewCell
-            
+            databaseHandle = ref?.child("jokbo_images").observe(.childAdded, with: { (snapshot) in
+                let data = snapshot.value as? [String:String]
+                if snapshot.key == self.jokbo.key{
+                    if let image_Data = data{
+                        if let image_url = image_Data["j0"]{
+                            print(image_url)
+                            let url = URL(string: image_url)
+                            URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, error) in
+                                DispatchQueue.main.async {
+                                    cell.JokboImage?.image = UIImage(data: data!)
+                                }
+                            }).resume()
+                        }
+                    }
+                }
+
+                
+            })
+         //   cell.JokboImage?.image = UIimage[
             cell.ContentLabel?.text = jokbo.jokboText
             return cell
         } else {
@@ -110,6 +129,7 @@ class ViewJokboTableViewController: UITableViewController {
             return cell
         }
     }
+
    
     @IBAction func likeButtonTapped(_ sender: Any) {
         if isLikeButtonTapped == true {
