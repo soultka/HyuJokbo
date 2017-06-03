@@ -29,6 +29,9 @@ class JokboUploadViewController: UIViewController, UITextViewDelegate, UIImagePi
     var selectedImages:[UIImage] = [] // photos
     var uploadImageURLs:[String] = []
 
+    var passedClassName: String = ""
+    var passedProfessorName: String = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -38,14 +41,25 @@ class JokboUploadViewController: UIViewController, UITextViewDelegate, UIImagePi
         self.ProfessorTextView.delegate = self
         self.ContentTextView.delegate = self
 
+        if passedClassName.isEmpty == true {
+            self.TitleTextView?.text = "수업명"
+            self.TitleTextView?.textColor = UIColor.lightGray
+        } else {
+            self.TitleTextView?.text = passedClassName
+        }
+        
+        if passedProfessorName.isEmpty == true {
+            self.ProfessorTextView?.text = "교수님"
+            self.ProfessorTextView?.textColor = UIColor.lightGray
+        } else {
+            self.ProfessorTextView?.text = passedProfessorName
+        }
+
+        
         self.TitleTextView.tag = 0
         self.ProfessorTextView.tag = 1
         self.ContentTextView.tag = 2
-        self.TitleTextView?.text = "수업명"
-
-        self.TitleTextView?.textColor = UIColor.lightGray
-        self.ProfessorTextView?.text = "교수님"
-        self.ProfessorTextView?.textColor = UIColor.lightGray
+        
         self.ContentTextView?.text = "여기를 눌러서 글을 작성할 수 있습니다."
         self.ContentTextView?.textColor = UIColor.lightGray
 
@@ -167,11 +181,19 @@ class JokboUploadViewController: UIViewController, UITextViewDelegate, UIImagePi
             }
         }
 
+        var userName:String = ""
+        if let user = FIRAuth.auth()?.currentUser{
+            userName += user.email!
+        }
 
         curRef?.child("className").setValue(TitleTextView.text)
         curRef?.child("professorName").setValue(ProfessorTextView.text)
         curRef?.child("jokboText").setValue(ContentTextView.text)
         curRef?.child("updateDate").setValue(dateStr)
+        curRef?.child("userName").setValue(userName)
+        curRef?.child("likeNum").setValue("0")
+        curRef?.child("commentNum").setValue("0")
+        
 
         if let user = FIRAuth.auth()?.currentUser {
             curRef?.child("userName").setValue(user.email)

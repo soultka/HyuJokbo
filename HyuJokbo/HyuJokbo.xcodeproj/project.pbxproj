@@ -14,12 +14,12 @@
 		2F4FA3611EDFE79900B56D3C /* ViewJokboTableCommentViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4FA3601EDFE79900B56D3C /* ViewJokboTableCommentViewCell.swift */; };
 		2F811DF91EC88DEC00382F51 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2F811DF81EC88DEC00382F51 /* GoogleService-Info.plist */; };
 		2FF113D61ED867EA0081B3C2 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF113D51ED867EA0081B3C2 /* SignUpViewController.swift */; };
+		2FF1E5B51EE1902400DE702E /* ViewGoohaeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF1E5B41EE1902400DE702E /* ViewGoohaeTableViewController.swift */; };
 		2FFABCFE1EDFCA4300F3D0EB /* ViewJokboTableTitleViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFABCFD1EDFCA4300F3D0EB /* ViewJokboTableTitleViewCell.swift */; };
 		2FFABD001EDFD2FE00F3D0EB /* ViewJokboTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFABCFF1EDFD2FE00F3D0EB /* ViewJokboTableViewController.swift */; };
 		2FFDB4411EC5B21F003965A2 /* JokboUploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFDB4401EC5B21F003965A2 /* JokboUploadViewController.swift */; };
 		352B919E44EE73DCC7DE37E9 /* Pods_HyuJokbo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FC51CDA8A01E9363B43B7AD /* Pods_HyuJokbo.framework */; };
 		7700FE1D1ECDA68E00D133C5 /* HonorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7700FE141ECDA68E00D133C5 /* HonorViewController.swift */; };
-		7700FE221ECDA68E00D133C5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7700FE191ECDA68E00D133C5 /* ViewController.swift */; };
 		7700FE251ECDAACC00D133C5 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7700FE231ECDAACC00D133C5 /* SearchView.swift */; };
 		7700FE261ECDAACC00D133C5 /* SearchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7700FE241ECDAACC00D133C5 /* SearchView.xib */; };
 		7700FE381ECDAD7800D133C5 /* GoohaeTabStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7700FE331ECDAD7800D133C5 /* GoohaeTabStoryboard.storyboard */; };
@@ -43,8 +43,9 @@
 		772F0C581EDFCE3400BE2576 /* GoogleSymbolUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 772F0C4F1EDFCE1C00BE2576 /* GoogleSymbolUtilities.framework */; };
 		772F0C5A1EE07B4A00BE2576 /* MydataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772F0C591EE07B4A00BE2576 /* MydataViewController.swift */; };
 		772F0C5C1EE07BF300BE2576 /* MydataJokboButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772F0C5B1EE07BF300BE2576 /* MydataJokboButton.swift */; };
-		772F0C5E1EE0EFBF00BE2576 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 772F0C5D1EE0EFBF00BE2576 /* Assets.xcassets */; };
 		772F0C601EE0F1CF00BE2576 /* HonorMemberImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772F0C5F1EE0F1CF00BE2576 /* HonorMemberImageView.swift */; };
+		77406ACB1EE31C8600A2F931 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 77406AC91EE31C8600A2F931 /* Assets.xcassets */; };
+		77406ACC1EE31C8600A2F931 /* Base.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 77406ACA1EE31C8600A2F931 /* Base.lproj */; };
 		774A93B91EC4BB6000B96A56 /* JokboTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774A93B81EC4BB6000B96A56 /* JokboTableViewController.swift */; };
 		774A93BB1EC4BB6B00B96A56 /* GoohaeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774A93BA1EC4BB6B00B96A56 /* GoohaeTableViewController.swift */; };
 		774A93C11EC4BCEC00B96A56 /* DataCenter.plist in Resources */ = {isa = PBXBuildFile; fileRef = 774A93C01EC4BCEC00B96A56 /* DataCenter.plist */; };
@@ -72,12 +73,12 @@
 		2F4FA3601EDFE79900B56D3C /* ViewJokboTableCommentViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewJokboTableCommentViewCell.swift; sourceTree = "<group>"; };
 		2F811DF81EC88DEC00382F51 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2FF113D51ED867EA0081B3C2 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		2FF1E5B41EE1902400DE702E /* ViewGoohaeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewGoohaeTableViewController.swift; sourceTree = "<group>"; };
 		2FFABCFD1EDFCA4300F3D0EB /* ViewJokboTableTitleViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewJokboTableTitleViewCell.swift; sourceTree = "<group>"; };
 		2FFABCFF1EDFD2FE00F3D0EB /* ViewJokboTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewJokboTableViewController.swift; sourceTree = "<group>"; };
 		2FFDB4401EC5B21F003965A2 /* JokboUploadViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JokboUploadViewController.swift; sourceTree = "<group>"; wrapsLines = 0; };
 		47038DD4EBD2B32427E1F4A2 /* Pods-HyuJokbo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HyuJokbo.release.xcconfig"; path = "Pods/Target Support Files/Pods-HyuJokbo/Pods-HyuJokbo.release.xcconfig"; sourceTree = "<group>"; };
 		7700FE141ECDA68E00D133C5 /* HonorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HonorViewController.swift; sourceTree = "<group>"; };
-		7700FE191ECDA68E00D133C5 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		7700FE231ECDAACC00D133C5 /* SearchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		7700FE241ECDAACC00D133C5 /* SearchView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchView.xib; sourceTree = "<group>"; };
 		7700FE331ECDAD7800D133C5 /* GoohaeTabStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = GoohaeTabStoryboard.storyboard; sourceTree = "<group>"; };
@@ -100,8 +101,9 @@
 		772F0C4F1EDFCE1C00BE2576 /* GoogleSymbolUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleSymbolUtilities.framework; sourceTree = "<group>"; };
 		772F0C591EE07B4A00BE2576 /* MydataViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MydataViewController.swift; sourceTree = "<group>"; };
 		772F0C5B1EE07BF300BE2576 /* MydataJokboButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MydataJokboButton.swift; sourceTree = "<group>"; };
-		772F0C5D1EE0EFBF00BE2576 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		772F0C5F1EE0F1CF00BE2576 /* HonorMemberImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HonorMemberImageView.swift; sourceTree = "<group>"; };
+		77406AC91EE31C8600A2F931 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		77406ACA1EE31C8600A2F931 /* Base.lproj */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Base.lproj; sourceTree = "<group>"; };
 		774A93B81EC4BB6000B96A56 /* JokboTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JokboTableViewController.swift; sourceTree = "<group>"; };
 		774A93BA1EC4BB6B00B96A56 /* GoohaeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoohaeTableViewController.swift; sourceTree = "<group>"; };
 		774A93C01EC4BCEC00B96A56 /* DataCenter.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = DataCenter.plist; sourceTree = "<group>"; };
@@ -165,19 +167,37 @@
 		23EA299B1EBB226A009F40F8 /* HyuJokbo */ = {
 			isa = PBXGroup;
 			children = (
+<<<<<<< HEAD
 				7797319D1EE15883005A0F96 /* Honortab */,
 				772F0C5D1EE0EFBF00BE2576 /* Assets.xcassets */,
 				23EA299C1EBB226A009F40F8 /* AppDelegate.swift */,
 				77A8E7F01ED69C760093F735 /* Data.swift */,
+=======
+				77406AC91EE31C8600A2F931 /* Assets.xcassets */,
+				77406ACA1EE31C8600A2F931 /* Base.lproj */,
+				2F02931D1EDA5A98000BB82E /* HyuJokbo.entitlements */,
+				23EA29A81EBB226A009F40F8 /* Info.plist */,
+>>>>>>> master
 				774A93C01EC4BCEC00B96A56 /* DataCenter.plist */,
 				2F811DF81EC88DEC00382F51 /* GoogleService-Info.plist */,
+				23EA299C1EBB226A009F40F8 /* AppDelegate.swift */,
+				77A8E7F01ED69C760093F735 /* Data.swift */,
 				77A8E7E81ED3E26E0093F735 /* GoohaeTableViewCell.swift */,
 				774A93BA1EC4BB6B00B96A56 /* GoohaeTableViewController.swift */,
+				2FF1E5B41EE1902400DE702E /* ViewGoohaeTableViewController.swift */,
 				7700FE331ECDAD7800D133C5 /* GoohaeTabStoryboard.storyboard */,
 				77A8E7EC1ED3E33F0093F735 /* GoohaeTabUploadStoryboard.storyboard */,
 				77A8E7EA1ED3E2F80093F735 /* GoohaeUploadTableViewController.swift */,
+<<<<<<< HEAD
 				2F02931D1EDA5A98000BB82E /* HyuJokbo.entitlements */,
 				23EA29A81EBB226A009F40F8 /* Info.plist */,
+=======
+				77A8E7F81ED716DF0093F735 /* HonorMemberButton.swift */,
+				7700FE3F1ECEC83200D133C5 /* HonorTabStoryboard.storyboard */,
+				7700FE141ECDA68E00D133C5 /* HonorViewController.swift */,
+				772F0C5F1EE0F1CF00BE2576 /* HonorMemberImageView.swift */,
+				77A8E7F61ED6F1A70093F735 /* HorizontalScrollView.swift */,
+>>>>>>> master
 				774A93C21EC4C2EA00B96A56 /* JokboTableViewCell.swift */,
 				774A93B81EC4BB6000B96A56 /* JokboTableViewController.swift */,
 				7700FE351ECDAD7800D133C5 /* JokboTabStoryboard.storyboard */,
@@ -192,7 +212,6 @@
 				7700FE231ECDAACC00D133C5 /* SearchView.swift */,
 				7700FE241ECDAACC00D133C5 /* SearchView.xib */,
 				2FF113D51ED867EA0081B3C2 /* SignUpViewController.swift */,
-				7700FE191ECDA68E00D133C5 /* ViewController.swift */,
 				2F4FA3601EDFE79900B56D3C /* ViewJokboTableCommentViewCell.swift */,
 				2F4FA35E1EDFE77700B56D3C /* ViewJokboTableContentViewCell.swift */,
 				2FFABCFD1EDFCA4300F3D0EB /* ViewJokboTableTitleViewCell.swift */,
@@ -313,10 +332,11 @@
 				772F0C531EDFCE1C00BE2576 /* GoogleSymbolUtilities.framework in Resources */,
 				772F0C3B1EDFCC1900BE2576 /* GoogleSignIn.bundle in Resources */,
 				23EA29A71EBB226A009F40F8 /* LaunchScreen.storyboard in Resources */,
-				772F0C5E1EE0EFBF00BE2576 /* Assets.xcassets in Resources */,
+				77406ACB1EE31C8600A2F931 /* Assets.xcassets in Resources */,
 				7700FE381ECDAD7800D133C5 /* GoohaeTabStoryboard.storyboard in Resources */,
 				7700FE401ECEC83200D133C5 /* HonorTabStoryboard.storyboard in Resources */,
 				7700FE3A1ECDAD7800D133C5 /* JokboTabStoryboard.storyboard in Resources */,
+				77406ACC1EE31C8600A2F931 /* Base.lproj in Resources */,
 				7700FE261ECDAACC00D133C5 /* SearchView.xib in Resources */,
 				774A93C11EC4BCEC00B96A56 /* DataCenter.plist in Resources */,
 				7700FE3C1ECDAD7800D133C5 /* MydataTabStoryboard.storyboard in Resources */,
@@ -383,6 +403,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2F4FA3611EDFE79900B56D3C /* ViewJokboTableCommentViewCell.swift in Sources */,
+				2FF1E5B51EE1902400DE702E /* ViewGoohaeTableViewController.swift in Sources */,
 				77A8E7EF1ED67D040093F735 /* LoginViewController.swift in Sources */,
 				2F4FA35F1EDFE77700B56D3C /* ViewJokboTableContentViewCell.swift in Sources */,
 				77BEBE4B1EE165190018A5FB /* HonorJokboTableViewCell.swift in Sources */,
@@ -401,7 +422,6 @@
 				2FFABCFE1EDFCA4300F3D0EB /* ViewJokboTableTitleViewCell.swift in Sources */,
 				77A8E7F11ED69C760093F735 /* Data.swift in Sources */,
 				77A8E7EB1ED3E2F80093F735 /* GoohaeUploadTableViewController.swift in Sources */,
-				7700FE221ECDA68E00D133C5 /* ViewController.swift in Sources */,
 				77A8E7F91ED716DF0093F735 /* HonorMemberButton.swift in Sources */,
 				772F0C601EE0F1CF00BE2576 /* HonorMemberImageView.swift in Sources */,
 				23EA299D1EBB226A009F40F8 /* AppDelegate.swift in Sources */,

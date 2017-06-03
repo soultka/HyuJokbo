@@ -7,15 +7,25 @@
 //
 
 import UIKit
+import FirebaseDatabase
+import FirebaseStorage
+import FirebaseAuth
 
 class ViewJokboTableViewController: UITableViewController {
 
+    var ref: FIRDatabaseReference?
+    
     var isLikeButtonTapped: Bool = false
     var isBookMarkButtonTapped: Bool = false
     var isSirenButtonTapped: Bool = false
+    var jokbo = Jokbo()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        ref = FIRDatabase.database().reference()
+        
+        tableView.allowsSelection = false
         
         tableView.estimatedRowHeight = 44.0
         tableView.rowHeight = UITableViewAutomaticDimension
@@ -54,21 +64,29 @@ class ViewJokboTableViewController: UITableViewController {
         
         if indexPath.section == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "ViewJokboTitleCell", for: indexPath) as! ViewJokboTableTitleViewCell
-
+        
+           var Date = jokbo.updateDate
+            
+            
             // Configure the cell...
-            cell.SubjectLabel?.text = "소프트웨어 스튜디오"
-            cell.ProfessorLabel?.text = "유민수 교수님"
-            cell.UserInfoNameLabel?.text = "신지원"
-            cell.UserInfoUploadTime?.text = "2017.5.6. 07:32"
-            cell.LikeNumLabel?.text = "5"
-            cell.ChatNumLabel?.text = "2"
+        
+            if let index = jokbo.userName.range(of: "@")?.lowerBound{
+                cell.UserInfoNameLabel?.text = jokbo.userName.substring(to: index)
+            }else{
+                cell.UserInfoNameLabel?.text = jokbo.userName
+            }
+
+            cell.SubjectLabel?.text = jokbo.className
+            cell.ProfessorLabel?.text = jokbo.professorName
+            cell.UserInfoUploadTime?.text = viewDate(date: Date)
+            cell.LikeNumLabel?.text = String(jokbo.likeNum)
+            cell.CommentNumLabel?.text = String(jokbo.commentNum)
         
             return cell
         } else if indexPath.section == 1 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "ViewJokboContentCell", for: indexPath) as! ViewJokboTableContentViewCell
             
-            cell.ContentLabel?.text = "이번 시험 정말 어려웠습니다... 다들 참고하시길!"
-            
+            cell.ContentLabel?.text = jokbo.jokboText
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "ViewJokboCommentCell", for: indexPath) as! ViewJokboTableCommentViewCell
@@ -90,6 +108,7 @@ class ViewJokboTableViewController: UITableViewController {
             self.present(alertController, animated: true, completion: nil)
             return
         }  else {
+            ref?.child("jokbos").child(jokbo.key).updateChildValues(["likeNum": "\(jokbo.likeNum+1)"])
             print("like button tapped")
             isLikeButtonTapped = true
         }
@@ -167,5 +186,35 @@ class ViewJokboTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+    func viewDate(date DateNum:Int ) -> String{
+        var dateString = ""
+        var dateN = DateNum
+        var year = dateN/10000000000
+        dateString += "\(year)."
+        dateN = dateN % 10000000000
+        var month = dateN/100000000
+        if (month / 10 == 0){
+            dateString += "0"
+        }
+        dateString += "\(month)."
+        dateN = dateN % 100000000
+        var day = dateN / 1000000
+        if (month / 10 == 0){
+            dateString += "0"
+        }
+        dateString += "\(day) "
+        dateN = dateN % 1000000
+        var hour = dateN / 10000
+        if (hour / 10 == 0){
+            dateString += "0"
+        }
+        dateString += "\(hour):"
+        dateN = dateN % 10000
+        var minute = dateN / 100
+        if (minute / 10 == 0){
+            dateString += "0"
+        }
+        dateString += "\(minute)"
+        return dateString
+    }
 }
