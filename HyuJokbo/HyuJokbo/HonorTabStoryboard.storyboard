@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16B2659" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="E0u-4w-CPu">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="E0u-4w-CPu">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -127,35 +127,11 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="HonorGoohaeCell" rowHeight="24" id="e4O-BI-wVF" customClass="HonorGoohaeTableViewCell" customModule="HyuJokbo" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="HonorGoohaeCell" id="JUH-Ck-z8A" customClass="HonorGoohaeTableViewCell" customModule="HyuJokbo" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="266" height="24"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="e4O-BI-wVF" id="IBq-gm-GSc">
-                                            <rect key="frame" x="0.0" y="0.0" width="266" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="1fq-MN-146">
-                                        <rect key="frame" x="0.0" y="72" width="266" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1fq-MN-146" id="1vO-ve-kAr">
-                                            <rect key="frame" x="0.0" y="0.0" width="266" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="0b4-A3-nqG">
-                                        <rect key="frame" x="0.0" y="116" width="266" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0b4-A3-nqG" id="cZa-vN-78p">
-                                            <rect key="frame" x="0.0" y="0.0" width="266" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="JUH-Ck-z8A">
-                                        <rect key="frame" x="0.0" y="160" width="266" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="JUH-Ck-z8A" id="OhV-Oo-EMa">
-                                            <rect key="frame" x="0.0" y="0.0" width="266" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="266" height="23.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icon-chat" translatesAutoresizingMaskIntoConstraints="NO" id="Uxo-u4-btb">
@@ -206,36 +182,11 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="HonorJokboCell" rowHeight="24" id="WfI-SF-ejn" customClass="HonorJokboTableViewCell" customModule="HyuJokbo" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="HonorJokboCell" id="4X1-ez-Y1N" customClass="HonorJokboTableViewCell" customModule="HyuJokbo" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="266" height="24"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WfI-SF-ejn" id="a8R-ig-7HN">
-
-                                            <rect key="frame" x="0.0" y="0.0" width="266" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="vcM-mV-W5e">
-                                        <rect key="frame" x="0.0" y="72" width="266" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vcM-mV-W5e" id="72e-h5-3KU">
-                                            <rect key="frame" x="0.0" y="0.0" width="266" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="rZc-RK-tHa">
-                                        <rect key="frame" x="0.0" y="116" width="266" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rZc-RK-tHa" id="gRm-2P-w5e">
-                                            <rect key="frame" x="0.0" y="0.0" width="266" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="4X1-ez-Y1N">
-                                        <rect key="frame" x="0.0" y="160" width="266" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4X1-ez-Y1N" id="XX8-up-fHD">
-                                            <rect key="frame" x="0.0" y="0.0" width="266" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="266" height="23.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icon-chat" translatesAutoresizingMaskIntoConstraints="NO" id="M6a-lF-2Xt">
@@ -304,7 +255,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Pb-mE-gSV">
-                                <rect key="frame" x="93" y="328" width="39" height="30"/>
+                                <rect key="frame" x="93" y="328.5" width="39" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="39" id="b3f-iF-Kx6"/>
                                     <constraint firstAttribute="height" constant="30" id="fPz-aJ-RMZ"/>
@@ -316,7 +267,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8fF-lN-WmF">
-                                <rect key="frame" x="81" y="183" width="39" height="30"/>
+                                <rect key="frame" x="81" y="183.5" width="39" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="39" id="27M-Zr-yXK"/>
                                     <constraint firstAttribute="height" constant="30" id="JuW-NV-TIf"/>
