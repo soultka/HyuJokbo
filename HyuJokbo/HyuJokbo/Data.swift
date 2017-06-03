@@ -8,7 +8,12 @@
 
 import Foundation
 
-var jokbosData = [String:Jokbo]()
+//"g_" means global variable
+var g_JokbosData = [String:Jokbo]()
+var g_JokbosArray = [Jokbo]()
+
+var g_GoohaesData = [String:Goohae]()
+var g_GoohaesArray = [Goohae]()
 
 class Jokbo{
     var key:String = ""
