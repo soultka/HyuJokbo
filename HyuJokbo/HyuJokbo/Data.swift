@@ -78,14 +78,11 @@ class Goohae{
 
 
 class User{
-
-    var name:String = ""
+    
     var email:String = ""
     var jokbos:[Jokbo] = []
     var goohaes:[Goohae] = []
 
-    var like:Int = 0
-   
-
-
+    var likeNum:Int = 0
+    var commentNum:Int = 0
 }
