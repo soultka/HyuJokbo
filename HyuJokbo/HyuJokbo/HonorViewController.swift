@@ -29,6 +29,10 @@ class HonorViewController: UIViewController, UIScrollViewDelegate, HonorMemberBu
     @IBOutlet weak var HonorJokboTableView: UITableView!
     @IBOutlet weak var HonorGoohaeTableView: UITableView!
 
+    //- -   -   -   -   -   Honor Jokbos
+    var honorJokbos:[Jokbo] = []
+    var honorGoohaes:[Goohae] = []
+
     override func viewDidLoad() {
         super.viewDidLoad()
         superViewWidth = self.view.frame.height
@@ -55,6 +59,8 @@ class HonorViewController: UIViewController, UIScrollViewDelegate, HonorMemberBu
         print(HonorJokboTableView.numberOfRows(inSection: 1))
 
         // Do any additional setup after loading the view.
+        self.honorJokboLoad()
+        self.honorGoohaeLoad()
 
     }
     override func viewDidAppear(_ animated: Bool) {
@@ -209,24 +215,46 @@ class HonorViewController: UIViewController, UIScrollViewDelegate, HonorMemberBu
 
 
     /// -   -   -   -   -   -   --  -   -   -   -TABLE VIEW
+    func honorJokboLoad(){
+        self.honorJokbos = g_JokbosArray.sorted{ $0.likeNum > $1.likeNum }
+    }
+    func honorGoohaeLoad(){
+        self.honorGoohaes = g_GoohaesArray.sorted{ $0.likeNum > $1.likeNum }
+    }
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 16
+        if tableView == HonorJokboTableView{
+            if honorJokbos.count > 10 { return 10 }
+            return honorJokbos.count
+
+        }else if tableView == HonorGoohaeTableView{
+            if honorGoohaes.count > 10 { return 10 }
+            return honorGoohaes.count
+        }
+        return 0
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let myCell = UITableViewCell()
         if tableView == HonorJokboTableView{
             if let myJCell = tableView.dequeueReusableCell(withIdentifier: "HonorJokboCell", for: indexPath) as? HonorJokboTableViewCell{
-            myJCell.TitleLabel.text = "\(indexPath.row).안녕"
+                let jokbo = self.honorJokbos[indexPath.row]
+
+                myJCell.TitleLabel.text = "\(indexPath.row). \(jokbo.className)"
+                myJCell.LikeLabel.text = String(jokbo.likeNum)
+                myJCell.commentLabel.text = String(jokbo.commentNum)
 
             return myJCell
             }
 
         }else if tableView == HonorGoohaeTableView{
             if let myGCell = tableView.dequeueReusableCell(withIdentifier: "HonorGoohaeCell", for: indexPath) as? HonorGoohaeTableViewCell{
-            myGCell.TitleLabel.text = "\(indexPath.row).Rool ro"
+                let goohae = self.honorGoohaes[indexPath.row]
+
+                myGCell.TitleLabel.text = "\(indexPath.row). \(goohae.className)"
+                myGCell.LikeLabel.text = String(goohae.likeNum)
+                myGCell.commentLabel.text = String(goohae.commentNum)
             return myGCell
             }
 

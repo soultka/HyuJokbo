@@ -16,7 +16,7 @@ class JokboTableViewController: UITableViewController,JokboDownload {
     var databaseChangeHandle:FIRDatabaseHandle?
     var databaseRemoveHandle:FIRDatabaseHandle?
 
-    var jokbosArray = [Jokbo]()
+   
     //서치 버튼이 표시되었을 경우 1, 표시 안되어 있을 경우 0
     static var searchPressedFlag = 0
 
@@ -85,10 +85,10 @@ class JokboTableViewController: UITableViewController,JokboDownload {
                                   likeNum: Int(likeNum)!,
                                   commentNum: Int(commentNum)!,
                                   bookmarkNum: Int(bookmarkNum)!)
-                    jokbosData[snapshot.key] = jokbo
-                    self.jokbosArray = Array(jokbosData.values)
+                    g_JokbosData[snapshot.key] = jokbo
+                    g_JokbosArray = Array(g_JokbosData.values)
                     //reload the tableview
-                    self.jokbosArray.sort{
+                    g_JokbosArray.sort{
                         $0.updateDate > $1.updateDate
                     }
                     self.tableView.reloadData()
@@ -99,7 +99,7 @@ class JokboTableViewController: UITableViewController,JokboDownload {
         })
 
         databaseChangeHandle = ref?.child("jokbos").observe(.childChanged, with: { (snapshot) in
-            //Take the value from the snapshot and added it to the jokbosData array
+            //Take the value from the snapshot and added it to the gJokbosData array
 
             let data = snapshot.value as? [String:String]
 
@@ -125,10 +125,10 @@ class JokboTableViewController: UITableViewController,JokboDownload {
                                   likeNum: Int(likeNum)!,
                                   commentNum: Int(commentNum)!,
                                   bookmarkNum: Int(bookmarkNum)!)
-                    jokbosData[snapshot.key] = jokbo
-                    self.jokbosArray = Array(jokbosData.values)
+                    g_JokbosData[snapshot.key] = jokbo
+                    g_JokbosArray = Array(g_JokbosData.values)
                     //reload the tableview
-                    self.jokbosArray.sort{
+                    g_JokbosArray.sort{
                         $0.updateDate > $1.updateDate
                     }
                     self.tableView.reloadData()
@@ -156,7 +156,7 @@ class JokboTableViewController: UITableViewController,JokboDownload {
         // #warning Incomplete implementation, return the number of rows
 
 
-        let rowCount = jokbosArray.count
+        let rowCount = g_JokbosArray.count
         return rowCount
     }
 
@@ -166,7 +166,7 @@ class JokboTableViewController: UITableViewController,JokboDownload {
 
         let cell = tableView.dequeueReusableCell(withIdentifier: "JokboCell", for: indexPath) as! JokboTableViewCell
 
-        let jokboDataShow = jokbosArray[indexPath.row]
+        let jokboDataShow = g_JokbosArray[indexPath.row]
         //jokbos로 부터 jokbo를 받아옴
         
         if let index = jokboDataShow.userName.range(of: "@")?.lowerBound{
@@ -242,7 +242,7 @@ class JokboTableViewController: UITableViewController,JokboDownload {
         if segue.identifier == "JokboSegue" {
             if let destination = segue.destination as? ViewJokboTableViewController, let selectedIndex = self.tableView.indexPathForSelectedRow?.row {
                 
-                destination.jokbo = self.jokbosArray[selectedIndex]
+                destination.jokbo = g_JokbosArray[selectedIndex]
             }
         }
     }

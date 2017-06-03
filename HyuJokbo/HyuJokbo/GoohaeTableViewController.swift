@@ -15,8 +15,7 @@ class GoohaeTableViewController: UITableViewController,GoohaeDownload {
     var databaseHandle:FIRDatabaseHandle?
     var databaseChangeHandle:FIRDatabaseHandle?
     var databaseRemoveHandle:FIRDatabaseHandle?
-    var goohaesData = [String:Goohae]()
-    var goohaesArray = [Goohae]()
+
     //서치 버튼이 표시되었을 경우 1, 표시 안되어 있을 경우 0
     static var searchPressedFlag = 0
 
@@ -80,10 +79,10 @@ class GoohaeTableViewController: UITableViewController,GoohaeDownload {
                                     likeNum: Int(likeNum)!,
                                     commentNum: Int(commentNum)!,
                                     bookmarkNum: Int(bookmarkNum)!)
-                    self.goohaesData[snapshot.key] = goohae
-                    self.goohaesArray = Array(self.goohaesData.values)
+                   g_GoohaesData[snapshot.key] = goohae
+                    g_GoohaesArray = Array(g_GoohaesData.values)
                     //reload the tableview
-                    self.goohaesArray.sort{
+                    g_GoohaesArray.sort{
                         $0.updateDate > $1.updateDate
                     }
                     self.tableView.reloadData()
@@ -115,10 +114,10 @@ class GoohaeTableViewController: UITableViewController,GoohaeDownload {
                                     likeNum: Int(likeNum)!,
                                     commentNum: Int(commentNum)!,
                                     bookmarkNum: Int(bookmarkNum)!)
-                    self.goohaesData[snapshot.key] = goohae
-                    self.goohaesArray = Array(self.goohaesData.values)
+                    g_GoohaesData[snapshot.key] = goohae
+                    g_GoohaesArray = Array(g_GoohaesData.values)
                     //reload the tableview
-                    self.goohaesArray.sort{
+                    g_GoohaesArray.sort{
                         $0.updateDate > $1.updateDate
                     }
                     self.tableView.reloadData()
@@ -131,7 +130,7 @@ class GoohaeTableViewController: UITableViewController,GoohaeDownload {
         databaseRemoveHandle = ref?.child("goohaes").observe(.childRemoved, with: { (snapshot) in
             //Take the value from the snapshot and added it to the goohaesData array
             
-            self.goohaesData.removeValue(forKey: snapshot.key)
+            g_GoohaesData.removeValue(forKey: snapshot.key)
             //reload the tableview
             self.tableView.reloadData()
             
@@ -153,7 +152,7 @@ class GoohaeTableViewController: UITableViewController,GoohaeDownload {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
 
-        let rowCount = goohaesData.count
+        let rowCount = g_GoohaesData.count
         return rowCount
     }
 
@@ -164,7 +163,7 @@ class GoohaeTableViewController: UITableViewController,GoohaeDownload {
         let cell = tableView.dequeueReusableCell(withIdentifier: "GoohaeCell", for: indexPath) as! GoohaeTableViewCell
         
         
-        let goohaeDataShow = goohaesArray[indexPath.row]
+        let goohaeDataShow = g_GoohaesArray[indexPath.row]
         //goohaes로 부터 goohae를 받아옴
         
         if let index = goohaeDataShow.userName.range(of: "@")?.lowerBound{
@@ -286,13 +285,13 @@ class GoohaeTableViewController: UITableViewController,GoohaeDownload {
                 
                 if let destination = segue.destination as? UINavigationController {
                     let targetController = destination.topViewController as? JokboUploadViewController
-                    targetController?.passedClassName = goohaesArray[(indexPath?.row)!].className
-                    targetController?.passedProfessorName = goohaesArray[(indexPath?.row)!].professorName
+                    targetController?.passedClassName = g_GoohaesArray[(indexPath?.row)!].className
+                    targetController?.passedProfessorName = g_GoohaesArray[(indexPath?.row)!].professorName
                 }
             }
         } else if segue.identifier == "GoohaeSegue" {
             if let destination = segue.destination as? ViewGoohaeTableViewController, let selectedIndex = self.tableView.indexPathForSelectedRow?.row {
-                    destination.goohae = self.goohaesArray[selectedIndex]
+                    destination.goohae = g_GoohaesArray[selectedIndex]
             }
         }
     }
