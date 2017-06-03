@@ -65,8 +65,7 @@ class ViewJokboTableViewController: UITableViewController {
         if indexPath.section == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "ViewJokboTitleCell", for: indexPath) as! ViewJokboTableTitleViewCell
         
-           var Date = jokbo.updateDate
-            
+           let Date = jokbo.updateDate
             
             // Configure the cell...
         
@@ -79,7 +78,19 @@ class ViewJokboTableViewController: UITableViewController {
             cell.SubjectLabel?.text = jokbo.className
             cell.ProfessorLabel?.text = jokbo.professorName
             cell.UserInfoUploadTime?.text = viewDate(date: Date)
-            cell.LikeNumLabel?.text = String(jokbo.likeNum)
+            
+            if isLikeButtonTapped == false {
+                cell.LikeNumLabel?.text = String(jokbo.likeNum)
+            } else {
+                cell.LikeNumLabel?.text = String(jokbo.likeNum+1)
+            }
+            
+            if isBookMarkButtonTapped == false {
+                cell.BookmarkNumLabel?.text = String(jokbo.bookmarkNum)
+            } else {
+                cell.BookmarkNumLabel?.text = String(jokbo.bookmarkNum+1)
+            }
+            
             cell.CommentNumLabel?.text = String(jokbo.commentNum)
         
             return cell
@@ -107,10 +118,16 @@ class ViewJokboTableViewController: UITableViewController {
             alertController.addAction(UIAlertAction(title: "확인", style: UIAlertActionStyle.default,handler: nil))
             self.present(alertController, animated: true, completion: nil)
             return
-        }  else {
+        } else {
             ref?.child("jokbos").child(jokbo.key).updateChildValues(["likeNum": "\(jokbo.likeNum+1)"])
-            print("like button tapped")
             isLikeButtonTapped = true
+            
+            let likeButton = sender as? UIButton
+            let jokboTableView = likeButton?.superview?.superview?.superview?.superview as! UITableView
+            let indexPath = IndexPath(row: 0, section: 0)
+            let titleCell = jokboTableView.cellForRow(at: indexPath) as? ViewJokboTableTitleViewCell
+            titleCell?.LikeNumLabel?.text = String(jokbo.likeNum+1)
+            tableView.reloadRows(at: [indexPath], with: .automatic)
         }
     }
     
@@ -122,8 +139,15 @@ class ViewJokboTableViewController: UITableViewController {
             self.present(alertController, animated: true, completion: nil)
             return
         } else {
-            print("bookmark button tapped")
+            ref?.child("jokbos").child(jokbo.key).updateChildValues(["bookmarkNum": "\(jokbo.bookmarkNum+1)"])
             isBookMarkButtonTapped = true
+            
+            let bookmarkButton = sender as? UIButton
+            let jokboTableView = bookmarkButton?.superview?.superview?.superview?.superview as! UITableView
+            let indexPath = IndexPath(row: 0, section: 0)
+            let titleCell = jokboTableView.cellForRow(at: indexPath) as? ViewJokboTableTitleViewCell
+            titleCell?.BookmarkNumLabel?.text = String(jokbo.bookmarkNum+1)
+            tableView.reloadRows(at: [indexPath], with: .automatic)
         }
     }
     
@@ -135,7 +159,6 @@ class ViewJokboTableViewController: UITableViewController {
             self.present(alertController, animated: true, completion: nil)
             return
         } else {
-            print("siren button tapped")
             isSirenButtonTapped = true
         }
     }
@@ -189,28 +212,28 @@ class ViewJokboTableViewController: UITableViewController {
     func viewDate(date DateNum:Int ) -> String{
         var dateString = ""
         var dateN = DateNum
-        var year = dateN/10000000000
+        let year = dateN/10000000000
         dateString += "\(year)."
         dateN = dateN % 10000000000
-        var month = dateN/100000000
+        let month = dateN/100000000
         if (month / 10 == 0){
             dateString += "0"
         }
         dateString += "\(month)."
         dateN = dateN % 100000000
-        var day = dateN / 1000000
+        let day = dateN / 1000000
         if (month / 10 == 0){
             dateString += "0"
         }
         dateString += "\(day) "
         dateN = dateN % 1000000
-        var hour = dateN / 10000
+        let hour = dateN / 10000
         if (hour / 10 == 0){
             dateString += "0"
         }
         dateString += "\(hour):"
         dateN = dateN % 10000
-        var minute = dateN / 100
+        let minute = dateN / 100
         if (minute / 10 == 0){
             dateString += "0"
         }

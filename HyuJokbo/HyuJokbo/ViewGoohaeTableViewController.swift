@@ -66,8 +66,7 @@ class ViewGoohaeTableViewController: UITableViewController {
         if indexPath.section == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "ViewGoohaeTitleCell", for: indexPath) as! ViewJokboTableTitleViewCell
             
-            var Date = goohae.updateDate
-            
+            let Date = goohae.updateDate
             
             // Configure the cell...
             
@@ -77,13 +76,24 @@ class ViewGoohaeTableViewController: UITableViewController {
                 cell.UserInfoNameLabel?.text = goohae.userName
             }
             
-            print(goohae.className, goohae.professorName, goohae.likeNum, goohae.commentNum)
             cell.SubjectLabel?.text = goohae.className
             cell.ProfessorLabel?.text = goohae.professorName
             cell.UserInfoUploadTime?.text = viewDate(date: Date)
-            cell.LikeNumLabel?.text = String(goohae.likeNum)
-            cell.CommentNumLabel?.text = String(goohae.commentNum)
             
+            if isLikeButtonTapped == false {
+                cell.LikeNumLabel?.text = String(goohae.likeNum)
+            } else {
+                cell.LikeNumLabel?.text = String(goohae.likeNum+1)
+            }
+            
+            if isBookMarkButtonTapped == false {
+                cell.BookmarkNumLabel?.text = String(goohae.bookmarkNum)
+            } else {
+                cell.BookmarkNumLabel?.text = String(goohae.bookmarkNum+1)
+            }
+            
+            cell.CommentNumLabel?.text = String(goohae.commentNum)
+        
             return cell
         } else if indexPath.section == 1 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "ViewGoohaeContentCell", for: indexPath) as! ViewJokboTableContentViewCell
@@ -109,10 +119,16 @@ class ViewGoohaeTableViewController: UITableViewController {
             alertController.addAction(UIAlertAction(title: "확인", style: UIAlertActionStyle.default,handler: nil))
             self.present(alertController, animated: true, completion: nil)
             return
-        }  else {
+        } else {
             ref?.child("goohaes").child(goohae.key).updateChildValues(["likeNum": "\(goohae.likeNum+1)"])
-            print("like button tapped")
             isLikeButtonTapped = true
+            
+            let likeButton = sender as? UIButton
+            let goohaeTableView = likeButton?.superview?.superview?.superview?.superview as! UITableView
+            let indexPath = IndexPath(row: 0, section: 0)
+            let titleCell = goohaeTableView.cellForRow(at: indexPath) as? ViewJokboTableTitleViewCell
+            titleCell?.LikeNumLabel?.text = String(goohae.likeNum+1)
+            tableView.reloadRows(at: [indexPath], with: .automatic)
         }
     }
     
@@ -124,8 +140,16 @@ class ViewGoohaeTableViewController: UITableViewController {
             self.present(alertController, animated: true, completion: nil)
             return
         } else {
-            print("bookmark button tapped")
+            ref?.child("goohaes").child(goohae.key).updateChildValues(["bookmarkNum": "\(goohae.bookmarkNum+1)"])
             isBookMarkButtonTapped = true
+            
+            let bookmarkButton = sender as? UIButton
+            let goohaeTableView = bookmarkButton?.superview?.superview?.superview?.superview as! UITableView
+            let indexPath = IndexPath(row: 0, section: 0)
+            let titleCell = goohaeTableView.cellForRow(at: indexPath) as? ViewJokboTableTitleViewCell
+            titleCell?.BookmarkNumLabel?.text = String(goohae.bookmarkNum+1)
+            tableView.reloadRows(at: [indexPath], with: .automatic)
+            print(titleCell?.BookmarkNumLabel)
         }
     }
     
@@ -137,7 +161,6 @@ class ViewGoohaeTableViewController: UITableViewController {
             self.present(alertController, animated: true, completion: nil)
             return
         } else {
-            print("siren button tapped")
             isSirenButtonTapped = true
         }
     }

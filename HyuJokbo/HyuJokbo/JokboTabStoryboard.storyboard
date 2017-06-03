@@ -324,6 +324,7 @@
                                 </tableViewCellContentView>
                                 <edgeInsets key="layoutMargins" top="8" left="0.0" bottom="8" right="8"/>
                                 <connections>
+                                    <outlet property="BookmarkNumLabel" destination="hO7-iw-dNN" id="1QQ-yy-rCw"/>
                                     <outlet property="CommentNumLabel" destination="dnO-dz-H2s" id="Tk6-0s-QGq"/>
                                     <outlet property="LikeNumLabel" destination="Rjk-Qk-ev0" id="j8E-84-FPh"/>
                                     <outlet property="ProfessorLabel" destination="lyd-UB-bcI" id="tIL-T4-Vi8"/>

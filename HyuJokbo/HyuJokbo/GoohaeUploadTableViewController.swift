@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseDatabase
+import FirebaseAuth
 
 class GoohaeUploadViewController: UIViewController, UITextViewDelegate {
 
@@ -134,6 +135,11 @@ class GoohaeUploadViewController: UIViewController, UITextViewDelegate {
             return
         }
         
+        var userName: String = ""
+        if let user = FIRAuth.auth()?.currentUser {
+            userName += user.email!
+        }
+        
         var dateStr = ""
         dateStr += dateString()
         // TODO: post the goohae to firebase
@@ -142,9 +148,21 @@ class GoohaeUploadViewController: UIViewController, UITextViewDelegate {
         curRef?.child("professorName").setValue(ProfessorTextView.text)
         curRef?.child("goohaeText").setValue(ContentTextView.text)
         curRef?.child("updateDate").setValue(dateStr)
-
+        curRef?.child("userName").setValue(userName)
+        curRef?.child("likeNum").setValue("0")
+        curRef?.child("commentNum").setValue("0")
+        curRef?.child("bookmarkNum").setValue("0")
+        
+        if let user = FIRAuth.auth()?.currentUser {
+            curRef?.child("userName").setValue(user.email)
+        } else {
+            curRef?.child("userName").setValue("admin")
+        }
+        
         // Dismiss the popover
         presentingViewController?.dismiss(animated: true, completion: nil)
+        
+        
     }
 
     

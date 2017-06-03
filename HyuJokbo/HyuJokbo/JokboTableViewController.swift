@@ -9,8 +9,6 @@
 import UIKit
 import FirebaseDatabase
 
-
-
 class JokboTableViewController: UITableViewController,JokboDownload {
 
     var ref:FIRDatabaseReference?
@@ -76,7 +74,8 @@ class JokboTableViewController: UITableViewController,JokboDownload {
                 let updateDate = jokboData["updateDate"] ,
                 let likeNum = jokboData["likeNum"],
                 let userName = jokboData["userName"],
-                let commentNum = jokboData["commentNum"]{
+                let commentNum = jokboData["commentNum"],
+                let bookmarkNum = jokboData["bookmarkNum"]{
                     jokbo = Jokbo(key: snapshot.key,
                                   className: className,
                                   jokboText: jokboText,
@@ -84,7 +83,8 @@ class JokboTableViewController: UITableViewController,JokboDownload {
                                   updateDate: Int(updateDate)!,
                                   userName: userName,
                                   likeNum: Int(likeNum)!,
-                                  commentNum: Int(commentNum)!)
+                                  commentNum: Int(commentNum)!,
+                                  bookmarkNum: Int(bookmarkNum)!)
                     self.jokbosData[snapshot.key] = jokbo
                     self.jokbosArray = Array(self.jokbosData.values)
                     //reload the tableview
@@ -114,7 +114,8 @@ class JokboTableViewController: UITableViewController,JokboDownload {
                     let likeNum = jokboData["likeNum"],
                     let professorName = jokboData["professorName"],
                     let updateDate = jokboData["updateDate"] ,
-                    let userName = jokboData["userName"]{
+                    let userName = jokboData["userName"],
+                    let bookmarkNum = jokboData["bookmarkNum"]{
                     jokbo = Jokbo(key: snapshot.key,
                                   className: className,
                                   jokboText: jokboText,
@@ -122,7 +123,8 @@ class JokboTableViewController: UITableViewController,JokboDownload {
                                   updateDate: Int(updateDate)!,
                                   userName: userName,
                                   likeNum: Int(likeNum)!,
-                                  commentNum: Int(commentNum)!)
+                                  commentNum: Int(commentNum)!,
+                                  bookmarkNum: Int(bookmarkNum)!)
                     self.jokbosData[snapshot.key] = jokbo
                     self.jokbosArray = Array(self.jokbosData.values)
                     //reload the tableview
@@ -136,9 +138,6 @@ class JokboTableViewController: UITableViewController,JokboDownload {
 
         })
     }
-
-
-
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -179,9 +178,11 @@ class JokboTableViewController: UITableViewController,JokboDownload {
         cell.ProfessorLabel?.text = jokboDataShow.professorName
         cell.LikeNumLabel?.text = String(jokboDataShow.likeNum)
         cell.CommentNumLabel?.text = String(jokboDataShow.commentNum)
+        cell.BookMarkNumLabel?.text = String(jokboDataShow.bookmarkNum)
         cell.DateLabel?.text = viewDate(date: jokboDataShow.updateDate)
+        
         cell.downloadDelegate = self
-
+        
 
         return cell
     }
@@ -238,11 +239,10 @@ class JokboTableViewController: UITableViewController,JokboDownload {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "JokboSegue"{
-            if let destination = segue.destination as? ViewJokboTableViewController, let selectedIndex = self.tableView.indexPathForSelectedRow?.row{
+        if segue.identifier == "JokboSegue" {
+            if let destination = segue.destination as? ViewJokboTableViewController, let selectedIndex = self.tableView.indexPathForSelectedRow?.row {
                 
                 destination.jokbo = self.jokbosArray[selectedIndex]
-                
             }
         }
     }
@@ -299,28 +299,28 @@ class JokboTableViewController: UITableViewController,JokboDownload {
     func viewDate(date DateNum:Int ) -> String{
         var dateString = ""
         var dateN = DateNum
-        var year = dateN/10000000000
+        let year = dateN/10000000000
         dateString += "\(year)."
         dateN = dateN % 10000000000
-        var month = dateN/100000000
+        let month = dateN/100000000
         if (month / 10 == 0){
             dateString += "0"
         }
         dateString += "\(month)."
         dateN = dateN % 100000000
-        var day = dateN / 1000000
+        let day = dateN / 1000000
         if (month / 10 == 0){
             dateString += "0"
         }
         dateString += "\(day) "
         dateN = dateN % 1000000
-        var hour = dateN / 10000
+        let hour = dateN / 10000
         if (hour / 10 == 0){
             dateString += "0"
         }
         dateString += "\(hour):"
         dateN = dateN % 10000
-        var minute = dateN / 100
+        let minute = dateN / 100
         if (minute / 10 == 0){
             dateString += "0"
         }

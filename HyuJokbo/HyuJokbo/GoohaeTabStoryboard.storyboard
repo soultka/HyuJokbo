@@ -183,7 +183,7 @@
                                     <outlet property="ProfessorLabel" destination="SzO-YX-XSK" id="Sdm-ML-ODo"/>
                                     <outlet property="SubjectLabel" destination="mA8-bP-3S3" id="dYC-jL-bSG"/>
                                     <outlet property="UserNameLabel" destination="hQy-wl-bp8" id="pdj-oy-UtK"/>
-                                    <segue destination="4VN-lh-BP6" kind="show" id="zlI-4F-5hJ"/>
+                                    <segue destination="4VN-lh-BP6" kind="show" identifier="GoohaeSegue" id="zlI-4F-5hJ"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -355,6 +355,7 @@
                                 </tableViewCellContentView>
                                 <edgeInsets key="layoutMargins" top="8" left="0.0" bottom="8" right="8"/>
                                 <connections>
+                                    <outlet property="BookmarkNumLabel" destination="fzX-ak-rUH" id="ldv-We-ZFv"/>
                                     <outlet property="CommentNumLabel" destination="7VC-5Z-rdi" id="SuP-4h-2KQ"/>
                                     <outlet property="LikeNumLabel" destination="IdJ-Rt-4DJ" id="2NA-em-bnq"/>
                                     <outlet property="ProfessorLabel" destination="L4X-1C-EfL" id="aMe-26-opd"/>
