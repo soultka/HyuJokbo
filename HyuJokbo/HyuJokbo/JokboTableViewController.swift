@@ -110,6 +110,8 @@ class JokboTableViewController: UITableViewController,JokboDownload {
 
                 if let className = jokboData["className"],
                     let jokboText = jokboData["jokboText"],
+                    let commentNum = jokboData["commentNum"],
+                    let likeNum = jokboData["likeNum"],
                     let professorName = jokboData["professorName"],
                     let updateDate = jokboData["updateDate"] ,
                     let likeNum = jokboData["likeNum"],
