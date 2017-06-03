@@ -114,9 +114,7 @@ class JokboTableViewController: UITableViewController,JokboDownload {
                     let likeNum = jokboData["likeNum"],
                     let professorName = jokboData["professorName"],
                     let updateDate = jokboData["updateDate"] ,
-                    let likeNum = jokboData["likeNum"],
-                    let userName = jokboData["userName"],
-                    let commentNum = jokboData["commentNum"]{
+                    let userName = jokboData["userName"]{
                     jokbo = Jokbo(key: snapshot.key,
                                   className: className,
                                   jokboText: jokboText,
