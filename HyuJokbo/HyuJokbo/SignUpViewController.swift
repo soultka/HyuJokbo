@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import FirebaseDatabase
+import FirebaseAuth
 import Firebase
 
 class SignUpViewController: UIViewController, UITextFieldDelegate {
@@ -15,8 +17,12 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var PasswordTextField: UITextField!
     @IBOutlet weak var HyuJokboLogo: UIImageView!
     
+    var ref: FIRDatabaseReference?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        ref = FIRDatabase.database().reference()
         
         EmailTextField.layer.masksToBounds = false
         EmailTextField.layer.shadowRadius = 3.0
@@ -96,6 +102,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
             FIRAuth.auth()?.createUser(withEmail: email, password: password, completion: { (user, error) in
                 if let u = user {
                     self.performSegue(withIdentifier: "signUpSegue", sender: self)
+                    
                 } else {
                     if let errCode = FIRAuthErrorCode(rawValue: error!._code) {
                         
