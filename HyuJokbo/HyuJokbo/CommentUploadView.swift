@@ -56,7 +56,9 @@ class CommentUploadView:UIView, UITextViewDelegate{
         
     }
     @IBAction func SendText(_ sender: Any) {
-        print(self.CommentTextView.text)
+        if(self.CommentTextView.text != "댓글을 입력하세요"){
+            print(self.CommentTextView.text)
+        }
     }
     
 }

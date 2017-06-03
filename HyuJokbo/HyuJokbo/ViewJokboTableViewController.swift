@@ -30,19 +30,16 @@ class ViewJokboTableViewController: UITableViewController {
 
         //테이블 뷰의 왼쪽위 좌표를 CGPoint로 얻어옴
         //서브뷰(검색창)의 CGSize를 얻어옴
-        if let tabbarSize = self.tabBarController?.tabBar.frame.height{
             let subviewCGSize = CGSize(width: self.view.frame.width,
-                                       height: self.view.frame.height-tabbarSize)
+                                       height: self.view.frame.height-100)
             //얻어온 값을 기준으로 검색창 서브뷰 설정
             commentSubView = CommentUploadView(frame:CGRect(origin: self.tableView.contentOffset, size: subviewCGSize))
-        }
 
 
         //검색창 서브뷰 추가
         self.view.addSubview(commentSubView)
         self.view.bringSubview(toFront: commentSubView)
         commentSubView.isHidden = false
-//        self.scroll
 
         ref = FIRDatabase.database().reference()
         
@@ -57,6 +54,10 @@ class ViewJokboTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        scrollViewDidScroll((self.tableView as? UIScrollView)!)
     }
 
     override func didReceiveMemoryWarning() {
