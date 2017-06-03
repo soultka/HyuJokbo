@@ -138,6 +138,7 @@ class HonorViewController: UIViewController, UIScrollViewDelegate, HonorMemberBu
         slideScroll.showsHorizontalScrollIndicator = false
         slideScroll.isDirectionalLockEnabled = true
         slideScroll.isMultipleTouchEnabled = false
+        slideScroll.isPagingEnabled = false
 
         slideScroll.translatesAutoresizingMaskIntoConstraints = false
         slideScroll.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
