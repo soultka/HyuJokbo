@@ -17,16 +17,10 @@ class ViewJokboTableTitleViewCell: UITableViewCell {
     @IBOutlet weak var UserInfoUploadTime: UILabel!
     @IBOutlet weak var LikeNumLabel: UILabel!
     @IBOutlet weak var CommentNumLabel: UILabel!
+    @IBOutlet weak var BookmarkNumLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
-        /*SubjectLabel.text = "소프트웨어 스튜디오"
-        ProfessorLabel.text = "유민수 교수님"
-        UserInfoNameLabel.text = "신지원"
-        UserInfoUploadTime.text = "2017.5.6 07:32"
-        */
-        
         
     }
 

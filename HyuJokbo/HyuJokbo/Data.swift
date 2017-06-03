@@ -20,13 +20,14 @@ class Jokbo{
     var updateDate:Int = 0
 
     var userName:String = ""
-    var likeNum:Int = 0;
-    var commentNum:Int = 0;
-
+    var likeNum:Int = 0
+    var commentNum:Int = 0
+    var bookmarkNum:Int = 0
+    
     init() {
     }
 
-    convenience init(key:String, className:String, jokboText:String, professorName:String, updateDate:Int, userName:String ,likeNum:Int, commentNum:Int) {
+    convenience init(key:String, className:String, jokboText:String, professorName:String, updateDate:Int, userName:String ,likeNum:Int, commentNum:Int, bookmarkNum:Int) {
         self.init()
         self.key = key
         self.className = className
@@ -36,6 +37,7 @@ class Jokbo{
         self.userName = userName
         self.likeNum = likeNum
         self.commentNum = commentNum
+        self.bookmarkNum = bookmarkNum
     }
 
 
@@ -53,22 +55,24 @@ class Goohae{
     var updateDate:Int = 0
 
     var userName:String = ""
-    var likeNum:Int = 0;
-    var commentNum:Int = 0;
-
+    var likeNum:Int = 0
+    var commentNum:Int = 0
+    var bookmarkNum:Int = 0
+    
     init() {
     }
 
-    convenience init(key:String, className:String, jokboText:String, professorName:String, updateDate:Int, userName:String,likeNum:Int, commentNum:Int) {
+    convenience init(key:String, className:String, goohaeText:String, professorName:String, updateDate:Int, userName:String,likeNum:Int, commentNum:Int, bookmarkNum:Int) {
         self.init()
         self.key = key
         self.className = className
-        self.goohaeText = jokboText
+        self.goohaeText = goohaeText
         self.professorName = professorName
         self.updateDate = updateDate
         self.userName = userName
         self.likeNum = likeNum
         self.commentNum = commentNum
+        self.bookmarkNum = bookmarkNum
     }
 }
 
