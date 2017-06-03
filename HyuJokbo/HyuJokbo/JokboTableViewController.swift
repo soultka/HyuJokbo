@@ -15,7 +15,7 @@ class JokboTableViewController: UITableViewController,JokboDownload {
     var databaseHandle:FIRDatabaseHandle?
     var databaseChangeHandle:FIRDatabaseHandle?
     var databaseRemoveHandle:FIRDatabaseHandle?
-    var jokbosData = [String:Jokbo]()
+
     var jokbosArray = [Jokbo]()
     //서치 버튼이 표시되었을 경우 1, 표시 안되어 있을 경우 0
     static var searchPressedFlag = 0
@@ -85,8 +85,8 @@ class JokboTableViewController: UITableViewController,JokboDownload {
                                   likeNum: Int(likeNum)!,
                                   commentNum: Int(commentNum)!,
                                   bookmarkNum: Int(bookmarkNum)!)
-                    self.jokbosData[snapshot.key] = jokbo
-                    self.jokbosArray = Array(self.jokbosData.values)
+                    jokbosData[snapshot.key] = jokbo
+                    self.jokbosArray = Array(jokbosData.values)
                     //reload the tableview
                     self.jokbosArray.sort{
                         $0.updateDate > $1.updateDate
@@ -125,8 +125,8 @@ class JokboTableViewController: UITableViewController,JokboDownload {
                                   likeNum: Int(likeNum)!,
                                   commentNum: Int(commentNum)!,
                                   bookmarkNum: Int(bookmarkNum)!)
-                    self.jokbosData[snapshot.key] = jokbo
-                    self.jokbosArray = Array(self.jokbosData.values)
+                    jokbosData[snapshot.key] = jokbo
+                    self.jokbosArray = Array(jokbosData.values)
                     //reload the tableview
                     self.jokbosArray.sort{
                         $0.updateDate > $1.updateDate

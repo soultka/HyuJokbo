@@ -48,6 +48,8 @@
 		77406ACC1EE31C8600A2F931 /* Base.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 77406ACA1EE31C8600A2F931 /* Base.lproj */; };
 		77406ACF1EE320A200A2F931 /* HonorGoohaeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77406ACD1EE320A200A2F931 /* HonorGoohaeTableViewCell.swift */; };
 		77406AD01EE320A200A2F931 /* HonorJokboTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77406ACE1EE320A200A2F931 /* HonorJokboTableViewCell.swift */; };
+		77406AD21EE32D0F00A2F931 /* CommentUploadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 77406AD11EE32D0F00A2F931 /* CommentUploadView.xib */; };
+		77406AD41EE32D2100A2F931 /* CommentUploadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77406AD31EE32D2100A2F931 /* CommentUploadView.swift */; };
 		774A93B91EC4BB6000B96A56 /* JokboTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774A93B81EC4BB6000B96A56 /* JokboTableViewController.swift */; };
 		774A93BB1EC4BB6B00B96A56 /* GoohaeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774A93BA1EC4BB6B00B96A56 /* GoohaeTableViewController.swift */; };
 		774A93C11EC4BCEC00B96A56 /* DataCenter.plist in Resources */ = {isa = PBXBuildFile; fileRef = 774A93C01EC4BCEC00B96A56 /* DataCenter.plist */; };
@@ -106,6 +108,8 @@
 		77406ACA1EE31C8600A2F931 /* Base.lproj */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Base.lproj; sourceTree = "<group>"; };
 		77406ACD1EE320A200A2F931 /* HonorGoohaeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HonorGoohaeTableViewCell.swift; sourceTree = "<group>"; };
 		77406ACE1EE320A200A2F931 /* HonorJokboTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HonorJokboTableViewCell.swift; sourceTree = "<group>"; };
+		77406AD11EE32D0F00A2F931 /* CommentUploadView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommentUploadView.xib; sourceTree = "<group>"; };
+		77406AD31EE32D2100A2F931 /* CommentUploadView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentUploadView.swift; sourceTree = "<group>"; };
 		774A93B81EC4BB6000B96A56 /* JokboTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JokboTableViewController.swift; sourceTree = "<group>"; };
 		774A93BA1EC4BB6B00B96A56 /* GoohaeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoohaeTableViewController.swift; sourceTree = "<group>"; };
 		774A93C01EC4BCEC00B96A56 /* DataCenter.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = DataCenter.plist; sourceTree = "<group>"; };
@@ -198,6 +202,8 @@
 				23EA29A01EBB226A009F40F8 /* Main.storyboard */,
 				7700FE371ECDAD7800D133C5 /* MydataTabStoryboard.storyboard */,
 				772F0C5B1EE07BF300BE2576 /* MydataJokboButton.swift */,
+				77406AD11EE32D0F00A2F931 /* CommentUploadView.xib */,
+				77406AD31EE32D2100A2F931 /* CommentUploadView.swift */,
 				772F0C591EE07B4A00BE2576 /* MydataViewController.swift */,
 				7700FE231ECDAACC00D133C5 /* SearchView.swift */,
 				7700FE241ECDAACC00D133C5 /* SearchView.xib */,
@@ -306,6 +312,7 @@
 				772F0C511EDFCE1C00BE2576 /* GoogleSignIn.framework in Resources */,
 				772F0C521EDFCE1C00BE2576 /* GoogleSignInDependencies.framework in Resources */,
 				772F0C531EDFCE1C00BE2576 /* GoogleSymbolUtilities.framework in Resources */,
+				77406AD21EE32D0F00A2F931 /* CommentUploadView.xib in Resources */,
 				772F0C3B1EDFCC1900BE2576 /* GoogleSignIn.bundle in Resources */,
 				23EA29A71EBB226A009F40F8 /* LaunchScreen.storyboard in Resources */,
 				77406ACB1EE31C8600A2F931 /* Assets.xcassets in Resources */,
@@ -388,6 +395,7 @@
 				2FFABD001EDFD2FE00F3D0EB /* ViewJokboTableViewController.swift in Sources */,
 				774A93BB1EC4BB6B00B96A56 /* GoohaeTableViewController.swift in Sources */,
 				2FFDB4411EC5B21F003965A2 /* JokboUploadViewController.swift in Sources */,
+				77406AD41EE32D2100A2F931 /* CommentUploadView.swift in Sources */,
 				774A93C31EC4C2EA00B96A56 /* JokboTableViewCell.swift in Sources */,
 				7700FE1D1ECDA68E00D133C5 /* HonorViewController.swift in Sources */,
 				772F0C5C1EE07BF300BE2576 /* MydataJokboButton.swift in Sources */,

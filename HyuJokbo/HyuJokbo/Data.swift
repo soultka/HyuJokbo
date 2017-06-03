@@ -8,6 +8,7 @@
 
 import Foundation
 
+var jokbosData = [String:Jokbo]()
 
 class Jokbo{
     var key:String = ""

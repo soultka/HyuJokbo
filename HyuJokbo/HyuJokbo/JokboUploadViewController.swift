@@ -20,6 +20,7 @@ class JokboUploadViewController: UIViewController, UITextViewDelegate, UIImagePi
     @IBOutlet weak var ProfessorTextView: UITextView!
     @IBOutlet weak var ContentTextView: UITextView!
 
+
     var ref: FIRDatabaseReference?
 
     var TitlePlaceholderLabel: UILabel!
@@ -34,6 +35,8 @@ class JokboUploadViewController: UIViewController, UITextViewDelegate, UIImagePi
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+
 
         ref = FIRDatabase.database().reference()
 
