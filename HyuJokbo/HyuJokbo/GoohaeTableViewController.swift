@@ -9,8 +9,6 @@
 import UIKit
 import FirebaseDatabase
 
-
-
 class GoohaeTableViewController: UITableViewController,GoohaeDownload {
 
     var ref:FIRDatabaseReference?
@@ -62,62 +60,69 @@ class GoohaeTableViewController: UITableViewController,GoohaeDownload {
             //Take the value from the snapshot and added it to the goohaesData array
             let data = snapshot.value as? [String:String]
 
-            if let goohaeData = data{
-                //Append the data to our goohae array
-                let goohae = Goohae()
-
-                goohae.className = goohaeData["className"]!
-
-                if let goohaeText = goohaeData["goohaeText"] {
-                    goohae.goohaeText = goohaeText
-
+            if let goohaeData = data {
+                var goohae = Goohae()
+                
+                if let className = goohaeData["className"],
+                let goohaeText = goohaeData["goohaeText"],
+                let professorName = goohaeData["professorName"],
+                let updateDate = goohaeData["updateDate"] ,
+                let likeNum = goohaeData["likeNum"],
+                let userName = goohaeData["userName"],
+                let commentNum = goohaeData["commentNum"],
+                let bookmarkNum = goohaeData["bookmarkNum"]{
+                    goohae = Goohae(key: snapshot.key,
+                                    className: className,
+                                    goohaeText: goohaeText,
+                                    professorName: professorName,
+                                    updateDate: Int(updateDate)!,
+                                    userName: userName,
+                                    likeNum: Int(likeNum)!,
+                                    commentNum: Int(commentNum)!,
+                                    bookmarkNum: Int(bookmarkNum)!)
+                    self.goohaesData[snapshot.key] = goohae
+                    self.goohaesArray = Array(self.goohaesData.values)
+                    //reload the tableview
+                    self.goohaesArray.sort{
+                        $0.updateDate > $1.updateDate
+                    }
+                    self.tableView.reloadData()
                 }
-                if let professorName = goohaeData["professorName"] {
-                    goohae.professorName = professorName
-                }
-                if let updateDate = goohaeData["updateDate"] {
-                    goohae.updateDate = Int(updateDate)!
-                }
-
-                self.goohaesData[snapshot.key] = goohae
-                self.goohaesArray = Array(self.goohaesData.values)
-                self.goohaesArray.sort{
-                    $0.updateDate > $1.updateDate
-                }
-                //reload the tableview
-                self.tableView.reloadData()
             }
-
         })
 
         databaseChangeHandle = ref?.child("goohaes").observe(.childChanged, with: { (snapshot) in
             //Take the value from the snapshot and added it to the goohaesData array
             let data = snapshot.value as? [String:String]
-
-            if let goohaeData = data{
-                //Append the data to our goohae array
-                let goohae = Goohae()
-
-                goohae.className = goohaeData["className"]!
-
-                if let goohaeText = goohaeData["goohaeText"] {
-                    goohae.goohaeText = goohaeText
-
+            
+            if let goohaeData = data {
+                var goohae = Goohae()
+                
+                if let className = goohaeData["className"],
+                    let goohaeText = goohaeData["goohaeText"],
+                    let professorName = goohaeData["professorName"],
+                    let updateDate = goohaeData["updateDate"] ,
+                    let likeNum = goohaeData["likeNum"],
+                    let userName = goohaeData["userName"],
+                    let commentNum = goohaeData["commentNum"],
+                    let bookmarkNum = goohaeData["bookmarkNum"]{
+                    goohae = Goohae(key: snapshot.key,
+                                    className: className,
+                                    goohaeText: goohaeText,
+                                    professorName: professorName,
+                                    updateDate: Int(updateDate)!,
+                                    userName: userName,
+                                    likeNum: Int(likeNum)!,
+                                    commentNum: Int(commentNum)!,
+                                    bookmarkNum: Int(bookmarkNum)!)
+                    self.goohaesData[snapshot.key] = goohae
+                    self.goohaesArray = Array(self.goohaesData.values)
+                    //reload the tableview
+                    self.goohaesArray.sort{
+                        $0.updateDate > $1.updateDate
+                    }
+                    self.tableView.reloadData()
                 }
-                if let professorName = goohaeData["professorName"] {
-                    goohae.professorName = professorName
-                }
-                if let updateDate = goohaeData["updateDate"] {
-                    goohae.updateDate = Int(updateDate)!
-                }
-
-                self.goohaesData[snapshot.key] = goohae
-                //reload the tableview
-                self.goohaesArray = Array(self.goohaesData.values)
-                self.goohaesArray.sort{
-                    $0.updateDate > $1.updateDate
-                }
-                self.tableView.reloadData()
             }
 
         })
@@ -158,13 +163,21 @@ class GoohaeTableViewController: UITableViewController,GoohaeDownload {
 
         let cell = tableView.dequeueReusableCell(withIdentifier: "GoohaeCell", for: indexPath) as! GoohaeTableViewCell
         
+        
         let goohaeDataShow = goohaesArray[indexPath.row]
         //goohaes로 부터 goohae를 받아옴
+        
+        if let index = goohaeDataShow.userName.range(of: "@")?.lowerBound{
+            cell.UserNameLabel?.text = goohaeDataShow.userName.substring(to: index)
+        } else {
+            cell.UserNameLabel?.text = goohaeDataShow.userName
+        }
 
         cell.SubjectLabel?.text = goohaeDataShow.className
         cell.ProfessorLabel?.text = goohaeDataShow.professorName
         cell.LikeNumLabel?.text = String(goohaeDataShow.likeNum)
         cell.CommentNumLabel?.text = String(goohaeDataShow.commentNum)
+        cell.BookMarkNumLabel?.text = String(goohaeDataShow.bookmarkNum)
         cell.DateLabel?.text = viewDate(date: goohaeDataShow.updateDate)
 
         cell.downloadDelegate = self
@@ -277,6 +290,10 @@ class GoohaeTableViewController: UITableViewController,GoohaeDownload {
                     targetController?.passedProfessorName = goohaesArray[(indexPath?.row)!].professorName
                 }
             }
+        } else if segue.identifier == "GoohaeSegue" {
+            if let destination = segue.destination as? ViewGoohaeTableViewController, let selectedIndex = self.tableView.indexPathForSelectedRow?.row {
+                    destination.goohae = self.goohaesArray[selectedIndex]
+            }
         }
     }
     
@@ -289,28 +306,28 @@ class GoohaeTableViewController: UITableViewController,GoohaeDownload {
     func viewDate(date DateNum:Int ) -> String{
         var dateString = ""
         var dateN = DateNum
-        var year = dateN/10000000000
+        let year = dateN/10000000000
         dateString += "\(year)."
         dateN = dateN % 10000000000
-        var month = dateN/100000000
+        let month = dateN/100000000
         if (month / 10 == 0){
             dateString += "0"
         }
         dateString += "\(month)."
         dateN = dateN % 100000000
-        var day = dateN / 1000000
+        let day = dateN / 1000000
         if (month / 10 == 0){
             dateString += "0"
         }
         dateString += "\(day) "
         dateN = dateN % 1000000
-        var hour = dateN / 10000
+        let hour = dateN / 10000
         if (hour / 10 == 0){
             dateString += "0"
         }
         dateString += "\(hour):"
         dateN = dateN % 10000
-        var minute = dateN / 100
+        let minute = dateN / 100
         if (minute / 10 == 0){
             dateString += "0"
         }
