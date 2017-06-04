@@ -56,11 +56,19 @@ class HonorViewController: UIViewController, UIScrollViewDelegate, HonorMemberBu
 
 
         //For TableView
-        print(HonorJokboTableView.numberOfRows(inSection: 1))
-
+        HonorJokboTableView.separatorStyle = UITableViewCellSeparatorStyle.none
+        HonorGoohaeTableView.separatorStyle = UITableViewCellSeparatorStyle.none
         // Do any additional setup after loading the view.
         self.honorJokboLoad()
         self.honorGoohaeLoad()
+        
+        HonorJokboTableView.delegate = self
+        HonorJokboTableView.dataSource = self
+        HonorGoohaeTableView.register(HonorJokboTableViewCell.self, forCellReuseIdentifier: "HonorJokboCell")
+        
+        HonorGoohaeTableView.delegate = self
+        HonorGoohaeTableView.dataSource = self
+        HonorGoohaeTableView.register(HonorJokboTableViewCell.self, forCellReuseIdentifier: "HonorGoohaeCell")
 
     }
     override func viewDidAppear(_ animated: Bool) {
@@ -206,10 +214,12 @@ class HonorViewController: UIViewController, UIScrollViewDelegate, HonorMemberBu
         
     }
     @IBAction func JokboMoreButton(_ sender: Any) {
+        print("jokbo more")
         self.tabBarController?.selectedIndex = 0
     }
     
     @IBAction func GoohaeMoreButton(_ sender: Any) {
+        print("goohae more")
         self.tabBarController?.selectedIndex = 1
     }
 
@@ -222,40 +232,48 @@ class HonorViewController: UIViewController, UIScrollViewDelegate, HonorMemberBu
         self.honorGoohaes = g_GoohaesArray.sorted{ $0.likeNum > $1.likeNum }
     }
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        if tableView == self.HonorJokboTableView {
+            return 1
+        } else {
+            return 1
+        }
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if tableView == HonorJokboTableView{
-            if honorJokbos.count > 10 { return 10 }
-            return honorJokbos.count
+        if tableView == self.HonorJokboTableView {
+            return min(10, honorJokbos.count)
 
-        }else if tableView == HonorGoohaeTableView{
-            if honorGoohaes.count > 10 { return 10 }
-            return honorGoohaes.count
+        } else {
+            return min(10, honorGoohaes.count)
         }
-        return 0
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let myCell = UITableViewCell()
-        if tableView == HonorJokboTableView{
+        if tableView == self.HonorJokboTableView {
             if let myJCell = tableView.dequeueReusableCell(withIdentifier: "HonorJokboCell", for: indexPath) as? HonorJokboTableViewCell{
                 let jokbo = self.honorJokbos[indexPath.row]
-
-                myJCell.TitleLabel.text = "\(indexPath.row). \(jokbo.className)"
-                myJCell.LikeLabel.text = String(jokbo.likeNum)
-                myJCell.commentLabel.text = String(jokbo.commentNum)
-
-            return myJCell
+                
+                myJCell.RankNumLabel?.text = String(indexPath.row+1)
+                myJCell.SubjectLabel?.text = String(jokbo.className)
+                myJCell.ProfessorLabel?.text = String(jokbo.professorName)
+                myJCell.LikeNumLabel?.text = String(jokbo.likeNum)
+                myJCell.CommentNumLabel?.text = String(jokbo.commentNum)
+                myJCell.BookmarkNumLabel?.text = String(jokbo.bookmarkNum)
+                
+                return myJCell
             }
-
-        }else if tableView == HonorGoohaeTableView{
-            if let myGCell = tableView.dequeueReusableCell(withIdentifier: "HonorGoohaeCell", for: indexPath) as? HonorGoohaeTableViewCell{
+        } else {
+            if let myGCell = tableView.dequeueReusableCell(withIdentifier: "HonorGoohaeCell", for: indexPath) as? HonorJokboTableViewCell{
                 let goohae = self.honorGoohaes[indexPath.row]
 
-                myGCell.TitleLabel.text = "\(indexPath.row). \(goohae.className)"
-                myGCell.LikeLabel.text = String(goohae.likeNum)
-                myGCell.commentLabel.text = String(goohae.commentNum)
-            return myGCell
+                myGCell.RankNumLabel?.text = String(indexPath.row+1)
+                myGCell.SubjectLabel?.text = String(goohae.className)
+                myGCell.ProfessorLabel?.text = String(goohae.professorName)
+                myGCell.LikeNumLabel?.text = String(goohae.likeNum)
+                myGCell.CommentNumLabel?.text = String(goohae.commentNum)
+                myGCell.BookmarkNumLabel?.text = String(goohae.bookmarkNum)
+                
+                print(indexPath.row+1, goohae.className)
+                return myGCell
             }
 
         }

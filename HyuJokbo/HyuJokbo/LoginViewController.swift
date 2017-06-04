@@ -30,7 +30,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate, GIDSignInUIDel
         NSUnderlineStyleAttributeName : 1] as [String : Any]
     
     var attributedString = NSMutableAttributedString(string:"아직 회원이 아니신가요? 회원가입")
-    
+    var placeHolderColor: UIColor = UIColor(red: 193/255, green: 203/255, blue: 234/255, alpha: 1.0)
+
     @IBAction func handleModalClose(segue: UIStoryboardSegue) {
         
     }
@@ -40,40 +41,40 @@ class LoginViewController: UIViewController, UITextFieldDelegate, GIDSignInUIDel
         
         // Do any additional setup after loading the view.
         //EmailTextField Button
-        EmailTextField.layer.masksToBounds = false
-        EmailTextField.layer.shadowRadius = 3.0
-        EmailTextField.layer.shadowColor = UIColor(white: 0.0, alpha: 0.3).cgColor
-        EmailTextField.layer.shadowOffset = CGSize(width: 3.0, height: 3.0)
-        EmailTextField.layer.shadowOpacity = 1.0
         EmailTextField.text = "이메일을 입력해주세요."
         EmailTextField.font = .systemFont(ofSize:10)
-        EmailTextField.textColor = UIColor.lightGray
+        EmailTextField.textColor = UIColor.white
         EmailTextField.delegate = self
         EmailTextField.tag = 0
+        let emailBorder = CALayer()
+        let ewidth = CGFloat(0.5)
+        emailBorder.borderColor = placeHolderColor.cgColor
+        emailBorder.frame = CGRect(x: 0, y: EmailTextField.frame.size.height - ewidth, width:  EmailTextField.frame.size.width, height: EmailTextField.frame.size.height)
+        emailBorder.borderWidth = ewidth
+        EmailTextField.layer.addSublayer(emailBorder)
+        EmailTextField.layer.masksToBounds = true
         
         //PasswordTextField Button
-        PasswordTextField.layer.masksToBounds = false
-        PasswordTextField.layer.shadowRadius = 3.0
-        PasswordTextField.layer.shadowColor = UIColor(white: 0.0, alpha: 0.3).cgColor
-        PasswordTextField.layer.shadowOffset = CGSize(width: 3.0, height: 3.0)
-        PasswordTextField.layer.shadowOpacity = 1.0
         PasswordTextField.text = "비밀번호를 입력해주세요."
         PasswordTextField.font = .systemFont(ofSize:10)
-        PasswordTextField.textColor = UIColor.lightGray
+        PasswordTextField.textColor = UIColor.white
         PasswordTextField.delegate = self
         PasswordTextField.tag = 1
         PasswordTextField.isSecureTextEntry = false
+        let passwordBorder = CALayer()
+        let pwidth = CGFloat(0.5)
+        passwordBorder.borderColor = placeHolderColor.cgColor
+        passwordBorder.frame = CGRect(x: 0, y: PasswordTextField.frame.size.height - pwidth, width: PasswordTextField.frame.size.width, height: PasswordTextField.frame.size.height)
+        passwordBorder.borderWidth = pwidth
+        PasswordTextField.layer.addSublayer(passwordBorder)
+        PasswordTextField.layer.masksToBounds = true
+
         
         //HyuJokboContinue Button
-        HyuJokboContinueButton.backgroundColor = UIColor(red: 252/255, green: 103/255, blue: 0/255, alpha: 1.0)
-        HyuJokboContinueButton.layer.cornerRadius = 5
+        HyuJokboContinueButton.backgroundColor = UIColor(red: 131/255, green: 154/255, blue: 213/255, alpha: 1.0)
+        HyuJokboContinueButton.layer.cornerRadius = 3
         HyuJokboContinueButton.layer.borderWidth = 1
-        HyuJokboContinueButton.layer.borderColor = UIColor(red: 252/255, green: 103/255, blue: 0/255, alpha: 1.0).cgColor
-        HyuJokboContinueButton.layer.shadowColor = UIColor(white: 0.0, alpha: 0.3).cgColor
-        HyuJokboContinueButton.layer.shadowOffset = CGSize(width: 3.0, height: 3.0)
-        HyuJokboContinueButton.layer.shadowOpacity = 1.0
-        HyuJokboContinueButton.layer.shadowRadius = 3.0
-        
+        HyuJokboContinueButton.layer.borderColor = UIColor(red: 131/255, green: 154/255, blue: 213/255, alpha: 1.0).cgColor
         //신규 회원 가입 버튼
         let buttonTitleStr = NSMutableAttributedString(string:"아직 회원이 아니신가요? 회원가입", attributes:attrs)
         attributedString.append(buttonTitleStr)
@@ -81,29 +82,15 @@ class LoginViewController: UIViewController, UITextFieldDelegate, GIDSignInUIDel
         
         //FacebookContinue Button
         FacebookContinueButton.backgroundColor = UIColor(red: 56/255, green: 84/255, blue: 148/255, alpha: 1.0)
-        FacebookContinueButton.layer.cornerRadius = 5
+        FacebookContinueButton.layer.cornerRadius = 3
         FacebookContinueButton.layer.borderWidth = 1
         FacebookContinueButton.layer.borderColor = UIColor(red: 56/255, green: 84/255, blue: 148/255, alpha: 1.0).cgColor
-        FacebookContinueButton.layer.shadowColor = UIColor(white: 0.0, alpha: 0.3).cgColor
-        FacebookContinueButton.layer.shadowOffset = CGSize(width: 3.0, height: 3.0)
-        FacebookContinueButton.layer.shadowOpacity = 1.0
-        FacebookContinueButton.layer.shadowRadius = 3.0
-        
-        //GoogleContinue Button
+                //GoogleContinue Button
         GoogleContinueButton.backgroundColor = UIColor(red: 223/255, green: 74/255, blue: 50/255, alpha: 1.0)
-        GoogleContinueButton.layer.cornerRadius = 5
+        GoogleContinueButton.layer.cornerRadius = 3
         GoogleContinueButton.layer.borderWidth = 1
         GoogleContinueButton.layer.borderColor = UIColor(red: 223/255, green: 74/255, blue: 50/255, alpha: 1.0).cgColor
-        GoogleContinueButton.layer.shadowColor = UIColor(white: 0.0, alpha: 0.3).cgColor
-        GoogleContinueButton.layer.shadowOffset = CGSize(width: 3.0, height: 3.0)
-        GoogleContinueButton.layer.shadowOpacity = 1.0
-        GoogleContinueButton.layer.shadowRadius = 3.0
         
-        //HyuJokboLogo
-        HyuJokboLogo.layer.shadowColor = UIColor(white: 0.0, alpha: 0.3).cgColor
-        HyuJokboLogo.layer.shadowOffset = CGSize(width: 3.0, height: 3.0)
-        HyuJokboLogo.layer.shadowOpacity = 1.0
-        HyuJokboLogo.layer.shadowRadius = 3.0
         
         GIDSignIn.sharedInstance().uiDelegate = self
     }
@@ -114,9 +101,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate, GIDSignInUIDel
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        if textField.textColor == UIColor.lightGray {
+        if textField.text?.isEmpty == false {
             textField.text = nil
-            textField.textColor = UIColor.black
+            textField.textColor = UIColor.white
             if textField.tag == 1 {
                 PasswordTextField.isSecureTextEntry = true
             }
@@ -124,6 +111,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate, GIDSignInUIDel
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
+        print("end")
         if (textField.text?.isEmpty)! {
             if textField.tag == 0 {
                 textField.text = "이메일을 입력해주세요."
@@ -132,7 +120,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate, GIDSignInUIDel
                 PasswordTextField.isSecureTextEntry = false
 
             }
-            textField.textColor = UIColor.lightGray
+            textField.textColor = UIColor.white
         }
     }
     

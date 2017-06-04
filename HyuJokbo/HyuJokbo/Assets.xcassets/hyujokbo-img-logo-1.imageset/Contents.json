@@ -2,6 +2,7 @@
   "images" : [
     {
       "idiom" : "universal",
+      "filename" : "note.png",
       "scale" : "1x"
     },
     {
@@ -10,15 +11,11 @@
     },
     {
       "idiom" : "universal",
-      "filename" : "icon-002-like.png",
       "scale" : "3x"
     }
   ],
   "info" : {
     "version" : 1,
     "author" : "xcode"
-  },
-  "properties" : {
-    "template-rendering-intent" : "original"
   }
 }

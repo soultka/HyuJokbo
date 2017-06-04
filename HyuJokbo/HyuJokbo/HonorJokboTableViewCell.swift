@@ -10,18 +10,17 @@
 import UIKit
 
 class HonorJokboTableViewCell: UITableViewCell {
-
-    @IBOutlet weak var TitleLabel: UILabel!
-    @IBOutlet weak var LikeLabel: UILabel!
-    @IBOutlet weak var commentLabel: UILabel!
-
+    
+    @IBOutlet weak var RankNumLabel: UILabel!
+    @IBOutlet weak var SubjectLabel: UILabel!
+    @IBOutlet weak var ProfessorLabel: UILabel!
+    @IBOutlet weak var LikeNumLabel: UILabel!
+    @IBOutlet weak var CommentNumLabel: UILabel!
+    @IBOutlet weak var BookmarkNumLabel: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        self.TitleLabel.text = "안녕"
-        self.LikeLabel.text = "10"
-        self.commentLabel.text = "9"
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
