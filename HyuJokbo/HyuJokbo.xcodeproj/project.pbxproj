@@ -46,7 +46,6 @@
 		772F0C601EE0F1CF00BE2576 /* HonorMemberImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772F0C5F1EE0F1CF00BE2576 /* HonorMemberImageView.swift */; };
 		77406ACB1EE31C8600A2F931 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 77406AC91EE31C8600A2F931 /* Assets.xcassets */; };
 		77406ACC1EE31C8600A2F931 /* Base.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 77406ACA1EE31C8600A2F931 /* Base.lproj */; };
-		77406ACF1EE320A200A2F931 /* HonorGoohaeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77406ACD1EE320A200A2F931 /* HonorGoohaeTableViewCell.swift */; };
 		77406AD01EE320A200A2F931 /* HonorJokboTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77406ACE1EE320A200A2F931 /* HonorJokboTableViewCell.swift */; };
 		77406AD21EE32D0F00A2F931 /* CommentUploadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 77406AD11EE32D0F00A2F931 /* CommentUploadView.xib */; };
 		77406AD41EE32D2100A2F931 /* CommentUploadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77406AD31EE32D2100A2F931 /* CommentUploadView.swift */; };
@@ -106,7 +105,6 @@
 		772F0C5F1EE0F1CF00BE2576 /* HonorMemberImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HonorMemberImageView.swift; sourceTree = "<group>"; };
 		77406AC91EE31C8600A2F931 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		77406ACA1EE31C8600A2F931 /* Base.lproj */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Base.lproj; sourceTree = "<group>"; };
-		77406ACD1EE320A200A2F931 /* HonorGoohaeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HonorGoohaeTableViewCell.swift; sourceTree = "<group>"; };
 		77406ACE1EE320A200A2F931 /* HonorJokboTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HonorJokboTableViewCell.swift; sourceTree = "<group>"; };
 		77406AD11EE32D0F00A2F931 /* CommentUploadView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommentUploadView.xib; sourceTree = "<group>"; };
 		77406AD31EE32D2100A2F931 /* CommentUploadView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentUploadView.swift; sourceTree = "<group>"; };
@@ -171,8 +169,6 @@
 		23EA299B1EBB226A009F40F8 /* HyuJokbo */ = {
 			isa = PBXGroup;
 			children = (
-				77406ACD1EE320A200A2F931 /* HonorGoohaeTableViewCell.swift */,
-				77406ACE1EE320A200A2F931 /* HonorJokboTableViewCell.swift */,
 				77406AC91EE31C8600A2F931 /* Assets.xcassets */,
 				77406ACA1EE31C8600A2F931 /* Base.lproj */,
 				2F02931D1EDA5A98000BB82E /* HyuJokbo.entitlements */,
@@ -189,6 +185,7 @@
 				77A8E7EA1ED3E2F80093F735 /* GoohaeUploadTableViewController.swift */,
 				77A8E7F81ED716DF0093F735 /* HonorMemberButton.swift */,
 				7700FE3F1ECEC83200D133C5 /* HonorTabStoryboard.storyboard */,
+				77406ACE1EE320A200A2F931 /* HonorJokboTableViewCell.swift */,
 				7700FE141ECDA68E00D133C5 /* HonorViewController.swift */,
 				772F0C5F1EE0F1CF00BE2576 /* HonorMemberImageView.swift */,
 				77A8E7F61ED6F1A70093F735 /* HorizontalScrollView.swift */,
@@ -404,7 +401,6 @@
 				2FF113D61ED867EA0081B3C2 /* SignUpViewController.swift in Sources */,
 				2FFABCFE1EDFCA4300F3D0EB /* ViewJokboTableTitleViewCell.swift in Sources */,
 				77A8E7F11ED69C760093F735 /* Data.swift in Sources */,
-				77406ACF1EE320A200A2F931 /* HonorGoohaeTableViewCell.swift in Sources */,
 				77A8E7EB1ED3E2F80093F735 /* GoohaeUploadTableViewController.swift in Sources */,
 				77A8E7F91ED716DF0093F735 /* HonorMemberButton.swift in Sources */,
 				772F0C601EE0F1CF00BE2576 /* HonorMemberImageView.swift in Sources */,

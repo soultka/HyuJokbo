@@ -158,6 +158,7 @@ class ViewJokboTableViewController: UITableViewController {
             self.present(alertController, animated: true, completion: nil)
             return
         } else {
+            print("like button tapped")
             ref?.child("jokbos").child(jokbo.key).updateChildValues(["likeNum": "\(jokbo.likeNum+1)"])
             isLikeButtonTapped = true
             
