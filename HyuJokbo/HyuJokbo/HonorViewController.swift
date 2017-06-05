@@ -64,15 +64,19 @@ class HonorViewController: UIViewController, UIScrollViewDelegate, HonorMemberBu
         
         HonorJokboTableView.delegate = self
         HonorJokboTableView.dataSource = self
-        HonorGoohaeTableView.register(HonorJokboTableViewCell.self, forCellReuseIdentifier: "HonorJokboCell")
-        
+//        HonorJokboTableView.register(HonorJokboTableViewCell.self, forCellReuseIdentifier: "HonorJokboCell")
+
         HonorGoohaeTableView.delegate = self
         HonorGoohaeTableView.dataSource = self
-        HonorGoohaeTableView.register(HonorJokboTableViewCell.self, forCellReuseIdentifier: "HonorGoohaeCell")
+//        HonorGoohaeTableView.register(HonorGoohaeTableViewCell.self, forCellReuseIdentifier: "HonorGoohaeCell")
 
     }
     override func viewDidAppear(_ animated: Bool) {
         scrollViewDidScroll(InvisibleScroll)
+        self.HonorJokboTableView.reloadData()
+        self.HonorGoohaeTableView.reloadData()
+        honorGoohaeLoad()
+        honorJokboLoad()
     }
 
     override func didReceiveMemoryWarning() {
@@ -229,7 +233,9 @@ class HonorViewController: UIViewController, UIScrollViewDelegate, HonorMemberBu
         self.honorJokbos = g_JokbosArray.sorted{ $0.likeNum > $1.likeNum }
     }
     func honorGoohaeLoad(){
+        if(!g_GoohaesArray.isEmpty){
         self.honorGoohaes = g_GoohaesArray.sorted{ $0.likeNum > $1.likeNum }
+        }
     }
     func numberOfSections(in tableView: UITableView) -> Int {
         if tableView == self.HonorJokboTableView {
@@ -248,6 +254,8 @@ class HonorViewController: UIViewController, UIScrollViewDelegate, HonorMemberBu
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let myCell = UITableViewCell()
+
+
         if tableView == self.HonorJokboTableView {
             if let myJCell = tableView.dequeueReusableCell(withIdentifier: "HonorJokboCell", for: indexPath) as? HonorJokboTableViewCell{
                 let jokbo = self.honorJokbos[indexPath.row]
@@ -261,8 +269,10 @@ class HonorViewController: UIViewController, UIScrollViewDelegate, HonorMemberBu
                 
                 return myJCell
             }
-        } else {
-            if let myGCell = tableView.dequeueReusableCell(withIdentifier: "HonorGoohaeCell", for: indexPath) as? HonorJokboTableViewCell{
+        }
+
+        if tableView == self.HonorGoohaeTableView {
+            if let myGCell = tableView.dequeueReusableCell(withIdentifier: "HonorGoohaeCell", for: indexPath) as? HonorGoohaeTableViewCell{
                 let goohae = self.honorGoohaes[indexPath.row]
 
                 myGCell.RankNumLabel?.text = String(indexPath.row+1)
@@ -271,13 +281,14 @@ class HonorViewController: UIViewController, UIScrollViewDelegate, HonorMemberBu
                 myGCell.LikeNumLabel?.text = String(goohae.likeNum)
                 myGCell.CommentNumLabel?.text = String(goohae.commentNum)
                 myGCell.BookmarkNumLabel?.text = String(goohae.bookmarkNum)
-                
-                print(indexPath.row+1, goohae.className)
+
                 return myGCell
             }
-
+            
         }
+
         return myCell
 
     }
+
 }

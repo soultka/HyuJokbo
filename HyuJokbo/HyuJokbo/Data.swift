@@ -13,7 +13,7 @@ var g_JokbosData = [String:Jokbo]()
 var g_JokbosArray = [Jokbo]()
 
 var g_GoohaesData = [String:Goohae]()
-var g_GoohaesArray = [Goohae]()
+var g_GoohaesArray:[Goohae] = []
 
 class Jokbo{
     var key:String = ""

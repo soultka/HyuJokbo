@@ -22,6 +22,7 @@ class ViewJokboTableViewController: UITableViewController {
     var jokbo = Jokbo()
 
     var commentSubView:CommentUploadView!
+    var commentSubViewHeight:CGFloat = 40
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,9 +38,11 @@ class ViewJokboTableViewController: UITableViewController {
 
 
         //- -   -   -   -   -   -   -   -   -   -   -   COMMENT VIEW ADD
+        let subviewPoint = CGPoint(x:self.tableView.contentOffset.x,
+                                   y:self.tableView.contentOffset.y + self.tableView.frame.height - self.commentSubViewHeight)
         let subviewCGSize = CGSize(width: self.view.frame.width,
-                                   height: self.view.frame.height)
-        commentSubView = CommentUploadView(frame:CGRect(origin: self.tableView.contentOffset, size: subviewCGSize))
+                                   height: self.commentSubViewHeight)
+        commentSubView = CommentUploadView(frame:CGRect(origin: subviewPoint, size: subviewCGSize))
 
 
         //검색창 서브뷰 추가
@@ -251,9 +254,11 @@ class ViewJokboTableViewController: UITableViewController {
     */
 
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let subviewPoint = CGPoint(x:scrollView.contentOffset.x,
+                                   y:scrollView.contentOffset.y + self.tableView.frame.height - self.commentSubViewHeight)
             let subviewCGSize = CGSize(width: self.view.frame.width,
-                                       height: self.view.frame.height)
-                    commentSubView.frame = CGRect(origin: scrollView.contentOffset, size: subviewCGSize)
+                                       height: self.commentSubViewHeight)
+                    commentSubView.frame = CGRect(origin: subviewPoint, size: subviewCGSize)
 
     }
     func viewDate(date DateNum:Int ) -> String{
