@@ -206,7 +206,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="소프트웨어 스튜디오" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KzR-6o-OFE">
-                                            <rect key="frame" x="13" y="8" width="121" height="29.5"/>
+                                            <rect key="frame" x="13" y="8" width="121" height="29"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" relation="lessThanOrEqual" constant="215" id="K2k-mo-mHm"/>
                                             </constraints>
@@ -228,7 +228,7 @@
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="유민수 교수님" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lyd-UB-bcI">
-                                            <rect key="frame" x="13" y="37.5" width="66" height="15"/>
+                                            <rect key="frame" x="13" y="37" width="66" height="15"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="15" id="FgE-FG-sBQ"/>
                                                 <constraint firstAttribute="width" relation="lessThanOrEqual" constant="146" id="jZM-A5-moY"/>
@@ -342,7 +342,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cR4-a4-wec">
-                                            <rect key="frame" x="13" y="267" width="295" height="14"/>
+                                            <rect key="frame" x="13" y="267" width="295" height="15"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -355,7 +355,7 @@
                                             </constraints>
                                         </imageView>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tIy-lJ-Mvo">
-                                            <rect key="frame" x="271" y="317" width="14" height="12"/>
+                                            <rect key="frame" x="267" y="316" width="14" height="12"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="12" id="rDv-Od-z9R"/>
                                                 <constraint firstAttribute="width" constant="14" id="uXC-Dg-zxZ"/>
@@ -366,10 +366,10 @@
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g28-Uf-BVs">
-                                            <rect key="frame" x="253" y="316" width="12" height="12"/>
+                                            <rect key="frame" x="268" y="299" width="12" height="12"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="12" id="a8i-OE-KEz"/>
-                                                <constraint firstAttribute="width" constant="12" id="ubH-Ii-eEF"/>
+                                                <constraint firstAttribute="width" constant="12" id="sRi-Ga-TOD"/>
                                             </constraints>
                                             <state key="normal" image="icon-like"/>
                                             <connections>
@@ -377,7 +377,7 @@
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kjd-Ig-BJ1">
-                                            <rect key="frame" x="291" y="315" width="16" height="16"/>
+                                            <rect key="frame" x="13" y="314" width="16" height="16"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="16" id="WJX-eM-l4N"/>
                                                 <constraint firstAttribute="width" constant="16" id="sA0-U0-621"/>
@@ -387,20 +387,68 @@
                                                 <action selector="sirenButtonTapped:" destination="16k-la-qsF" eventType="touchUpInside" id="x6a-We-0Hc"/>
                                             </connections>
                                         </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uq2-ie-tRr">
+                                            <rect key="frame" x="281" y="299" width="31" height="12"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="12" id="4a9-k2-xpt"/>
+                                                <constraint firstAttribute="width" constant="31" id="knz-9u-B4d"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                            <state key="normal" title="좋아요">
+                                                <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="likeButtonTapped:" destination="16k-la-qsF" eventType="touchUpInside" id="FgH-tn-bIj"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uOM-k4-WKm">
+                                            <rect key="frame" x="281" y="316.5" width="31" height="12"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="12" id="CGb-3Z-xuR"/>
+                                                <constraint firstAttribute="width" constant="31" id="Srv-xj-hRQ"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                            <state key="normal" title="스크랩">
+                                                <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="bookmarkButtonTapped:" destination="16k-la-qsF" eventType="touchUpInside" id="saq-j9-0TW"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zg9-lE-doa">
+                                            <rect key="frame" x="30" y="316" width="20" height="12"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="12" id="Uw8-rZ-wiW"/>
+                                                <constraint firstAttribute="width" constant="20" id="dBU-UK-mDe"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                            <state key="normal" title="신고">
+                                                <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="sirenButtonTapped:" destination="16k-la-qsF" eventType="touchUpInside" id="6DZ-s0-Oh7"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstItem="g28-Uf-BVs" firstAttribute="centerX" secondItem="tIy-lJ-Mvo" secondAttribute="centerX" id="14S-kv-oL5"/>
                                         <constraint firstItem="MQR-ay-0uQ" firstAttribute="top" secondItem="r4s-IE-yjL" secondAttribute="topMargin" constant="19" id="1f9-Zr-NK3"/>
-                                        <constraint firstItem="g28-Uf-BVs" firstAttribute="top" secondItem="cR4-a4-wec" secondAttribute="bottom" constant="35" id="3Wu-OP-Y2j"/>
-                                        <constraint firstItem="kjd-Ig-BJ1" firstAttribute="centerY" secondItem="tIy-lJ-Mvo" secondAttribute="centerY" id="4b1-j2-OnH"/>
+                                        <constraint firstItem="kjd-Ig-BJ1" firstAttribute="leading" secondItem="r4s-IE-yjL" secondAttribute="leadingMargin" constant="5" id="2tN-Yt-MHN"/>
                                         <constraint firstItem="cR4-a4-wec" firstAttribute="leading" secondItem="r4s-IE-yjL" secondAttribute="leadingMargin" constant="5" id="8r0-Nd-viw"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="g28-Uf-BVs" secondAttribute="bottom" id="DK7-nq-8sr"/>
+                                        <constraint firstItem="uOM-k4-WKm" firstAttribute="leading" secondItem="uq2-ie-tRr" secondAttribute="leading" id="EVv-qW-ULg"/>
+                                        <constraint firstItem="g28-Uf-BVs" firstAttribute="top" secondItem="cR4-a4-wec" secondAttribute="bottom" constant="17" id="IUi-2u-oOG"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="tIy-lJ-Mvo" secondAttribute="bottom" id="LKL-Xq-uwp"/>
-                                        <constraint firstItem="tIy-lJ-Mvo" firstAttribute="leading" secondItem="g28-Uf-BVs" secondAttribute="trailing" constant="6" id="YB8-Qf-K44"/>
+                                        <constraint firstItem="uq2-ie-tRr" firstAttribute="centerY" secondItem="g28-Uf-BVs" secondAttribute="centerY" id="NFT-pB-B1K"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="uq2-ie-tRr" secondAttribute="trailing" id="Nog-PA-2PS"/>
+                                        <constraint firstItem="Zg9-lE-doa" firstAttribute="leading" secondItem="kjd-Ig-BJ1" secondAttribute="trailing" constant="1" id="PGV-ns-NO9"/>
+                                        <constraint firstItem="uq2-ie-tRr" firstAttribute="leading" secondItem="g28-Uf-BVs" secondAttribute="trailing" constant="1" id="SNk-is-epe"/>
+                                        <constraint firstItem="kjd-Ig-BJ1" firstAttribute="centerY" secondItem="tIy-lJ-Mvo" secondAttribute="centerY" id="Z3L-vb-p5G"/>
                                         <constraint firstItem="cR4-a4-wec" firstAttribute="centerX" secondItem="r4s-IE-yjL" secondAttribute="centerX" id="eqT-Oe-aou"/>
+                                        <constraint firstItem="tIy-lJ-Mvo" firstAttribute="top" secondItem="g28-Uf-BVs" secondAttribute="bottom" constant="5" id="gPi-pP-0UQ"/>
                                         <constraint firstItem="cR4-a4-wec" firstAttribute="top" secondItem="MQR-ay-0uQ" secondAttribute="bottom" constant="41" id="iUB-vf-0HM"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="kjd-Ig-BJ1" secondAttribute="trailing" constant="5" id="kDT-Fk-Cgw"/>
+                                        <constraint firstItem="Zg9-lE-doa" firstAttribute="centerY" secondItem="kjd-Ig-BJ1" secondAttribute="centerY" id="lU0-sY-dZu"/>
+                                        <constraint firstItem="uOM-k4-WKm" firstAttribute="centerY" secondItem="tIy-lJ-Mvo" secondAttribute="centerY" id="nrA-nS-Kiw"/>
                                         <constraint firstItem="MQR-ay-0uQ" firstAttribute="centerX" secondItem="r4s-IE-yjL" secondAttribute="centerX" id="rD3-Qh-69Z"/>
-                                        <constraint firstItem="kjd-Ig-BJ1" firstAttribute="leading" secondItem="tIy-lJ-Mvo" secondAttribute="trailing" constant="6" id="vB2-cZ-wmr"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <edgeInsets key="layoutMargins" top="8" left="0.0" bottom="8" right="8"/>

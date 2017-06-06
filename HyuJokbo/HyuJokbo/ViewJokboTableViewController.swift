@@ -152,7 +152,6 @@ class ViewJokboTableViewController: UITableViewController {
         }
     }
 
-   
     @IBAction func likeButtonTapped(_ sender: Any) {
         if isLikeButtonTapped == true {
             let alertController = UIAlertController(title: "알림", message:
@@ -172,6 +171,7 @@ class ViewJokboTableViewController: UITableViewController {
             titleCell?.LikeNumLabel?.text = String(jokbo.likeNum+1)
             tableView.reloadRows(at: [indexPath], with: .automatic)
         }
+
     }
     
     @IBAction func bookmarkButtonTapped(_ sender: Any) {
@@ -197,7 +197,7 @@ class ViewJokboTableViewController: UITableViewController {
     @IBAction func sirenButtonTapped(_ sender: Any) {
         if isSirenButtonTapped == true {
             let alertController = UIAlertController(title: "알림", message:
-            "이미 신고한 게시물입니다.", preferredStyle: UIAlertControllerStyle.alert)
+                "이미 신고한 게시물입니다.", preferredStyle: UIAlertControllerStyle.alert)
             alertController.addAction(UIAlertAction(title: "확인", style: UIAlertActionStyle.default,handler: nil))
             self.present(alertController, animated: true, completion: nil)
             return
@@ -205,8 +205,6 @@ class ViewJokboTableViewController: UITableViewController {
             isSirenButtonTapped = true
         }
     }
-    
-    
     
     /*
     // Override to support conditional editing of the table view.

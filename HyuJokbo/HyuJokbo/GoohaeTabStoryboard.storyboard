@@ -132,7 +132,7 @@
                                             </constraints>
                                         </imageView>
                                         <button opaque="NO" contentMode="scaleToFill" highlighted="YES" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vLh-Yb-GCk">
-                                            <rect key="frame" x="126" y="8.5" width="15" height="15"/>
+                                            <rect key="frame" x="126" y="9" width="15" height="15"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="15" id="1oo-lS-pDu"/>
                                                 <constraint firstAttribute="height" constant="15" id="Xnu-Zj-ITV"/>
@@ -237,7 +237,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="소프트웨어 스튜디오" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g8R-6I-XiL">
-                                            <rect key="frame" x="13" y="8" width="121" height="26.5"/>
+                                            <rect key="frame" x="13" y="8" width="121" height="28"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" relation="lessThanOrEqual" constant="215" id="y9F-W2-owv"/>
                                             </constraints>
@@ -259,7 +259,7 @@
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="유민수 교수님" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L4X-1C-EfL">
-                                            <rect key="frame" x="13" y="34.5" width="66" height="20"/>
+                                            <rect key="frame" x="13" y="36" width="66" height="18"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" relation="lessThanOrEqual" constant="146" id="C9g-fu-elY"/>
                                             </constraints>
@@ -372,27 +372,16 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qIb-UW-Rq9">
-                                            <rect key="frame" x="13" y="18" width="295" height="263"/>
+                                            <rect key="frame" x="13" y="18" width="294" height="251"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nc5-or-WTg">
-                                            <rect key="frame" x="271" y="316" width="14" height="12"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="12" id="7Kt-WE-oEK"/>
-                                                <constraint firstAttribute="width" constant="14" id="n25-4J-ued"/>
-                                            </constraints>
-                                            <state key="normal" title="Button" image="icon-bookmark"/>
-                                            <connections>
-                                                <action selector="bookmarkButtonTapped:" destination="4VN-lh-BP6" eventType="touchUpInside" id="enT-Ng-TFD"/>
-                                            </connections>
-                                        </button>
                                         <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vBL-NH-654">
-                                            <rect key="frame" x="253" y="316" width="12" height="12"/>
+                                            <rect key="frame" x="263" y="299" width="12" height="12"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="12" id="FPa-bu-gzz"/>
                                                 <constraint firstAttribute="height" constant="12" id="WmJ-ht-VfX"/>
+                                                <constraint firstAttribute="width" constant="12" id="diV-u7-Hew"/>
                                             </constraints>
                                             <state key="normal" image="icon-like"/>
                                             <connections>
@@ -400,7 +389,7 @@
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HLK-L6-qve">
-                                            <rect key="frame" x="291" y="314" width="16" height="16"/>
+                                            <rect key="frame" x="13" y="314" width="16" height="16"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="16" id="K4f-3l-YVV"/>
                                                 <constraint firstAttribute="height" constant="16" id="NJ0-aH-oHo"/>
@@ -410,18 +399,79 @@
                                                 <action selector="sirenButtonTapped:" destination="4VN-lh-BP6" eventType="touchUpInside" id="iWZ-9T-sCJ"/>
                                             </connections>
                                         </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nc5-or-WTg">
+                                            <rect key="frame" x="262" y="316" width="14" height="12"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="12" id="7Kt-WE-oEK"/>
+                                                <constraint firstAttribute="width" constant="14" id="n25-4J-ued"/>
+                                            </constraints>
+                                            <state key="normal" title="Button" image="icon-bookmark"/>
+                                            <connections>
+                                                <action selector="bookmarkButtonTapped:" destination="4VN-lh-BP6" eventType="touchUpInside" id="enT-Ng-TFD"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rAc-ki-5AJ">
+                                            <rect key="frame" x="276" y="299" width="31" height="12"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="31" id="Ao2-by-bWn"/>
+                                                <constraint firstAttribute="height" constant="12" id="YBV-T2-hf5"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                            <state key="normal" title="좋아요">
+                                                <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="likeButtonTapped:" destination="4VN-lh-BP6" eventType="touchUpInside" id="q3x-EL-2C1"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fEi-3x-m0P">
+                                            <rect key="frame" x="276" y="316" width="31" height="12"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="31" id="Bb3-Oc-xpa"/>
+                                                <constraint firstAttribute="height" constant="12" id="cai-y5-bKw"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                            <state key="normal" title="스크랩">
+                                                <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="bookmarkButtonTapped:" destination="4VN-lh-BP6" eventType="touchUpInside" id="f3N-eH-TGY"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sB5-dS-p2A">
+                                            <rect key="frame" x="30" y="316" width="20" height="12"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="20" id="KJm-Kl-SqI"/>
+                                                <constraint firstAttribute="height" constant="12" id="cYF-7f-Xiv"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                            <state key="normal" title="신고">
+                                                <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="sirenButtonTapped:" destination="4VN-lh-BP6" eventType="touchUpInside" id="9SQ-IL-Jm9"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="qIb-UW-Rq9" firstAttribute="centerX" secondItem="T16-9H-V9J" secondAttribute="centerX" id="0ni-9c-Khc"/>
+                                        <constraint firstItem="fEi-3x-m0P" firstAttribute="width" secondItem="rAc-ki-5AJ" secondAttribute="width" id="2Zj-Yv-dbE"/>
+                                        <constraint firstItem="fEi-3x-m0P" firstAttribute="leading" secondItem="rAc-ki-5AJ" secondAttribute="leading" id="8XM-rC-5R0"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="rAc-ki-5AJ" secondAttribute="trailing" constant="5" id="9wG-OO-X7k"/>
                                         <constraint firstItem="HLK-L6-qve" firstAttribute="centerY" secondItem="nc5-or-WTg" secondAttribute="centerY" id="FkS-re-b5Q"/>
+                                        <constraint firstItem="nc5-or-WTg" firstAttribute="centerX" secondItem="vBL-NH-654" secondAttribute="centerX" id="L8X-Yn-pYq"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="nc5-or-WTg" secondAttribute="bottom" id="Oow-9j-Poa"/>
-                                        <constraint firstItem="nc5-or-WTg" firstAttribute="leading" secondItem="vBL-NH-654" secondAttribute="trailing" constant="6" id="TfD-yg-8Dr"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="vBL-NH-654" secondAttribute="bottom" id="nr7-1U-lS5"/>
+                                        <constraint firstItem="fEi-3x-m0P" firstAttribute="centerY" secondItem="nc5-or-WTg" secondAttribute="centerY" id="SlI-rW-GQf"/>
+                                        <constraint firstItem="fEi-3x-m0P" firstAttribute="height" secondItem="rAc-ki-5AJ" secondAttribute="height" id="Y6i-lX-bYQ"/>
+                                        <constraint firstItem="rAc-ki-5AJ" firstAttribute="leading" secondItem="vBL-NH-654" secondAttribute="trailing" constant="1" id="cde-gJ-9Kc"/>
+                                        <constraint firstItem="sB5-dS-p2A" firstAttribute="centerY" secondItem="HLK-L6-qve" secondAttribute="centerY" id="ddv-CI-tlL"/>
+                                        <constraint firstItem="nc5-or-WTg" firstAttribute="top" secondItem="vBL-NH-654" secondAttribute="bottom" constant="5" id="eca-bv-gFT"/>
+                                        <constraint firstItem="rAc-ki-5AJ" firstAttribute="centerY" secondItem="vBL-NH-654" secondAttribute="centerY" id="l1d-0s-9cU"/>
                                         <constraint firstItem="qIb-UW-Rq9" firstAttribute="leading" secondItem="T16-9H-V9J" secondAttribute="leadingMargin" constant="5" id="nwR-n6-KkX"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="HLK-L6-qve" secondAttribute="trailing" constant="5" id="opr-Ce-FFj"/>
-                                        <constraint firstItem="vBL-NH-654" firstAttribute="top" secondItem="qIb-UW-Rq9" secondAttribute="bottom" constant="35" id="qPa-7r-N3O"/>
+                                        <constraint firstItem="vBL-NH-654" firstAttribute="top" secondItem="qIb-UW-Rq9" secondAttribute="bottom" constant="30" id="qG1-5f-A6U"/>
                                         <constraint firstItem="qIb-UW-Rq9" firstAttribute="top" secondItem="T16-9H-V9J" secondAttribute="topMargin" constant="10" id="rji-Q6-7oT"/>
-                                        <constraint firstItem="HLK-L6-qve" firstAttribute="leading" secondItem="nc5-or-WTg" secondAttribute="trailing" constant="6" id="sqr-mL-AYa"/>
+                                        <constraint firstItem="HLK-L6-qve" firstAttribute="leading" secondItem="T16-9H-V9J" secondAttribute="leadingMargin" constant="5" id="vCR-9Z-9R7"/>
+                                        <constraint firstItem="sB5-dS-p2A" firstAttribute="leading" secondItem="HLK-L6-qve" secondAttribute="trailing" constant="1" id="yHD-Vd-Ace"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <edgeInsets key="layoutMargins" top="8" left="0.0" bottom="8" right="8"/>
@@ -495,7 +545,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X5Y-fm-xZu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1288" y="-663"/>
+            <point key="canvasLocation" x="1286.25" y="-663.38028169014081"/>
         </scene>
     </scenes>
     <resources>

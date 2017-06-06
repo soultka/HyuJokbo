@@ -147,6 +147,7 @@ class ViewGoohaeTableViewController: UITableViewController {
             titleCell?.LikeNumLabel?.text = String(goohae.likeNum+1)
             tableView.reloadRows(at: [indexPath], with: .automatic)
         }
+
     }
     
     @IBAction func bookmarkButtonTapped(_ sender: Any) {
@@ -166,10 +167,9 @@ class ViewGoohaeTableViewController: UITableViewController {
             let titleCell = goohaeTableView.cellForRow(at: indexPath) as? ViewJokboTableTitleViewCell
             titleCell?.BookmarkNumLabel?.text = String(goohae.bookmarkNum+1)
             tableView.reloadRows(at: [indexPath], with: .automatic)
-            print(titleCell?.BookmarkNumLabel)
         }
     }
-    
+
     @IBAction func sirenButtonTapped(_ sender: Any) {
         if isSirenButtonTapped == true {
             let alertController = UIAlertController(title: "알림", message:
