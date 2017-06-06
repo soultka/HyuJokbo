@@ -16,42 +16,54 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var EmailTextField: UITextField!
     @IBOutlet weak var PasswordTextField: UITextField!
     @IBOutlet weak var HyuJokboLogo: UIImageView!
+    @IBOutlet weak var SignUpButton: UIButton!
     
     var ref: FIRDatabaseReference?
+    
+    var placeHolderColor: UIColor = UIColor(red: 193/255, green: 203/255, blue: 234/255, alpha: 1.0)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         ref = FIRDatabase.database().reference()
         
-        EmailTextField.layer.masksToBounds = false
-        EmailTextField.layer.shadowRadius = 3.0
-        EmailTextField.layer.shadowColor = UIColor(white: 0.0, alpha: 0.3).cgColor
-        EmailTextField.layer.shadowOffset = CGSize(width: 3.0, height: 3.0)
-        EmailTextField.layer.shadowOpacity = 1.0
         EmailTextField.text = "이메일을 입력해주세요."
         EmailTextField.font = .systemFont(ofSize:10)
-        EmailTextField.textColor = UIColor.lightGray
+        EmailTextField.textColor = UIColor.white
+        EmailTextField.delegate = self
+        EmailTextField.tag = 0
+        let emailBorder = CALayer()
+        let ewidth = CGFloat(0.5)
+        emailBorder.borderColor = placeHolderColor.cgColor
+        emailBorder.frame = CGRect(x: 0, y: EmailTextField.frame.size.height - ewidth, width:  EmailTextField.frame.size.width, height: EmailTextField.frame.size.height)
+        emailBorder.borderWidth = ewidth
+        EmailTextField.layer.addSublayer(emailBorder)
+        EmailTextField.layer.masksToBounds = true
         EmailTextField.delegate = self
         EmailTextField.tag = 0
 
-        PasswordTextField.layer.masksToBounds = false
-        PasswordTextField.layer.shadowRadius = 3.0
-        PasswordTextField.layer.shadowColor = UIColor(white: 0.0, alpha: 0.3).cgColor
-        PasswordTextField.layer.shadowOffset = CGSize(width: 3.0, height: 3.0)
-        PasswordTextField.layer.shadowOpacity = 1.0
         PasswordTextField.text = "비밀번호를 입력해주세요."
         PasswordTextField.font = .systemFont(ofSize:10)
-        PasswordTextField.textColor = UIColor.lightGray
+        PasswordTextField.textColor = UIColor.white
         PasswordTextField.delegate = self
         PasswordTextField.tag = 1
         PasswordTextField.isSecureTextEntry = false
-
-        HyuJokboLogo.layer.shadowColor = UIColor(white: 0.0, alpha: 0.3).cgColor
-        HyuJokboLogo.layer.shadowOffset = CGSize(width: 3.0, height: 3.0)
-        HyuJokboLogo.layer.shadowOpacity = 1.0
-        HyuJokboLogo.layer.shadowRadius = 3.0
+        let passwordBorder = CALayer()
+        let pwidth = CGFloat(0.5)
+        passwordBorder.borderColor = placeHolderColor.cgColor
+        passwordBorder.frame = CGRect(x: 0, y: PasswordTextField.frame.size.height - pwidth, width: PasswordTextField.frame.size.width, height: PasswordTextField.frame.size.height)
+        passwordBorder.borderWidth = pwidth
+        PasswordTextField.layer.addSublayer(passwordBorder)
+        PasswordTextField.layer.masksToBounds = true
+        PasswordTextField.delegate = self
+        PasswordTextField.tag = 1
+        PasswordTextField.isSecureTextEntry = false
         
+        SignUpButton.backgroundColor = UIColor(red: 131/255, green: 154/255, blue: 213/255, alpha: 1.0)
+        SignUpButton.layer.cornerRadius = 3
+        SignUpButton.layer.borderWidth = 1
+        SignUpButton.layer.borderColor = UIColor(red: 131/255, green: 154/255, blue: 213/255, alpha: 1.0).cgColor
+
         // Do any additional setup after loading the view.
     }
 
@@ -77,9 +89,8 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
             } else if textField.tag == 1 {
                 textField.text = "비밀번호를 입력해주세요."
                 PasswordTextField.isSecureTextEntry = false
-                
             }
-            textField.textColor = UIColor.lightGray
+            textField.textColor = UIColor.white
         }
     }
 
@@ -131,9 +142,10 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
                 }
             })
         }
+
     }
     
-
+   
     /*
     // MARK: - Navigation
 

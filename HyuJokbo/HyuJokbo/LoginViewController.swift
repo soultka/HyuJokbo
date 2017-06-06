@@ -111,7 +111,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate, GIDSignInUIDel
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        print("end")
         if (textField.text?.isEmpty)! {
             if textField.tag == 0 {
                 textField.text = "이메일을 입력해주세요."
