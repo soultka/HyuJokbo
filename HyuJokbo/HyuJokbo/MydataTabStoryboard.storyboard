@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="SEw-kb-stW">
-    <device id="retina4_0" orientation="portrait">
+    <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -41,32 +41,32 @@
                         <viewControllerLayoutGuide type="top" id="7VF-2D-PYg"/>
                         <viewControllerLayoutGuide type="bottom" id="io6-Nr-Qer"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="RLw-ra-Soj">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                    <view key="view" contentMode="scaleToFill" misplaced="YES" id="RLw-ra-Soj">
+                        <rect key="frame" x="0.0" y="64" width="414" height="672"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="76j-zA-T7C">
-                                <rect key="frame" x="130" y="75" width="60" height="60"/>
+                                <rect key="frame" x="177" y="75" width="60" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="jHj-Q9-eGN"/>
                                     <constraint firstAttribute="width" constant="60" id="nfe-zx-IGI"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rbA-rU-PWK">
-                                <rect key="frame" x="139" y="145" width="42" height="21"/>
+                                <rect key="frame" x="172" y="146" width="70" height="20"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="42" id="Fd1-t8-L7J"/>
-                                    <constraint firstAttribute="height" constant="21" id="SjR-A0-k2Y"/>
+                                    <constraint firstAttribute="height" constant="20" id="Guo-2g-tHi"/>
+                                    <constraint firstAttribute="width" constant="70" id="y9s-t2-0hB"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="님" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CNI-yo-Qgn">
-                                <rect key="frame" x="189" y="147" width="12" height="19"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="님" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CNI-yo-Qgn">
+                                <rect key="frame" x="250" y="132" width="20" height="20"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="12" id="4Xz-Gg-C8O"/>
-                                    <constraint firstAttribute="height" constant="19" id="v0f-5z-5RK"/>
+                                    <constraint firstAttribute="height" constant="20" id="hng-1d-kn0"/>
+                                    <constraint firstAttribute="width" constant="20" id="uji-OO-J8e"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="8"/>
                                 <nil key="textColor"/>
@@ -75,12 +75,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="CNI-yo-Qgn" firstAttribute="bottom" secondItem="rbA-rU-PWK" secondAttribute="bottom" id="diT-OU-uAB"/>
+                            <constraint firstItem="CNI-yo-Qgn" firstAttribute="leading" secondItem="rbA-rU-PWK" secondAttribute="trailing" constant="5" id="7fd-Mp-jyy"/>
+                            <constraint firstItem="CNI-yo-Qgn" firstAttribute="top" secondItem="76j-zA-T7C" secondAttribute="bottom" constant="11" id="7jQ-yy-9kk"/>
+                            <constraint firstItem="rbA-rU-PWK" firstAttribute="leading" secondItem="RLw-ra-Soj" secondAttribute="leadingMargin" constant="152" id="HGO-T1-6Jv"/>
+                            <constraint firstItem="rbA-rU-PWK" firstAttribute="top" secondItem="76j-zA-T7C" secondAttribute="bottom" constant="11" id="NsE-hn-MAt"/>
                             <constraint firstItem="76j-zA-T7C" firstAttribute="centerX" secondItem="RLw-ra-Soj" secondAttribute="centerX" id="edA-Ap-ndc"/>
-                            <constraint firstItem="rbA-rU-PWK" firstAttribute="centerX" secondItem="76j-zA-T7C" secondAttribute="centerX" id="lyk-D7-e42"/>
+                            <constraint firstItem="CNI-yo-Qgn" firstAttribute="bottom" secondItem="rbA-rU-PWK" secondAttribute="bottom" id="rvK-zD-d1R"/>
                             <constraint firstItem="76j-zA-T7C" firstAttribute="top" secondItem="7VF-2D-PYg" secondAttribute="bottom" constant="75" id="wzo-5I-eSn"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="CNI-yo-Qgn" secondAttribute="trailing" constant="103" id="yiP-MJ-xPu"/>
-                            <constraint firstItem="rbA-rU-PWK" firstAttribute="top" secondItem="7VF-2D-PYg" secondAttribute="bottom" constant="145" id="zxz-69-oGw"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="내 정보" id="s5P-Sb-kcQ"/>
@@ -91,7 +92,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MTE-3N-MJ8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="84.375" y="636.97183098591552"/>
+            <point key="canvasLocation" x="84.057971014492765" y="636.68478260869574"/>
         </scene>
     </scenes>
     <resources>

@@ -14,15 +14,23 @@ class MyDataViewController: UIViewController {
 
     @IBOutlet weak var myImage: UIImageView!
     @IBOutlet weak var myName: UILabel!
+    let user = User()
+    var userLike = 0
     override func viewDidLoad() {
         super.viewDidLoad()
-        var userName:String = ""
+        
         myImage.image = #imageLiteral(resourceName: "icon-mydata(g)")
-        if let user = FIRAuth.auth()?.currentUser{
-            userName += user.email!
+        if let userID = FIRAuth.auth()?.currentUser{
+            user.email = userID.email!
+        }
+        if let index = user.email.range(of: "@")?.lowerBound{
+            myName.text = user.email.substring(to: index)
+        }else{
+            myName.text = user.email
         }
         
-        myName.text = userName
+        countLike()
+        print(userLike)
         // Do any additional setup after loading the view.
     }
 
@@ -31,7 +39,23 @@ class MyDataViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    func countLike () -> (){
+        for i in 1...g_JokbosArray.count {
+            print(g_JokbosArray.count)
+            print(i)
+            let temp_jokbo = g_JokbosArray[i-1]
+            if(temp_jokbo.userName == user.email){
+                userLike += temp_jokbo.likeNum
+            }
+        }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        userLike = 0
+        countLike()
+        print("userLike")
+        print(userLike)
+    }
     /*
     // MARK: - Navigation
 
