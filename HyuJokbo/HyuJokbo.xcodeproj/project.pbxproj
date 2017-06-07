@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2395FE5E1EE7CD2A006AE496 /* MyDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2395FE5D1EE7CD2A006AE496 /* MyDataViewController.swift */; };
 		23EA299D1EBB226A009F40F8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EA299C1EBB226A009F40F8 /* AppDelegate.swift */; };
 		23EA29A21EBB226A009F40F8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23EA29A01EBB226A009F40F8 /* Main.storyboard */; };
 		23EA29A71EBB226A009F40F8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23EA29A51EBB226A009F40F8 /* LaunchScreen.storyboard */; };
@@ -41,7 +42,6 @@
 		772F0C561EDFCE3400BE2576 /* GoogleSignIn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 772F0C4D1EDFCE1C00BE2576 /* GoogleSignIn.framework */; };
 		772F0C571EDFCE3400BE2576 /* GoogleSignInDependencies.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 772F0C4E1EDFCE1C00BE2576 /* GoogleSignInDependencies.framework */; };
 		772F0C581EDFCE3400BE2576 /* GoogleSymbolUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 772F0C4F1EDFCE1C00BE2576 /* GoogleSymbolUtilities.framework */; };
-		772F0C5A1EE07B4A00BE2576 /* MydataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772F0C591EE07B4A00BE2576 /* MydataViewController.swift */; };
 		772F0C5C1EE07BF300BE2576 /* MydataJokboButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772F0C5B1EE07BF300BE2576 /* MydataJokboButton.swift */; };
 		772F0C601EE0F1CF00BE2576 /* HonorMemberImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772F0C5F1EE0F1CF00BE2576 /* HonorMemberImageView.swift */; };
 		77406ACB1EE31C8600A2F931 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 77406AC91EE31C8600A2F931 /* Assets.xcassets */; };
@@ -65,6 +65,7 @@
 
 /* Begin PBXFileReference section */
 		0FC51CDA8A01E9363B43B7AD /* Pods_HyuJokbo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HyuJokbo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2395FE5D1EE7CD2A006AE496 /* MyDataViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MyDataViewController.swift; path = ../MyDataViewController.swift; sourceTree = "<group>"; };
 		23EA29991EBB226A009F40F8 /* HyuJokbo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HyuJokbo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		23EA299C1EBB226A009F40F8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		23EA29A11EBB226A009F40F8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -101,7 +102,6 @@
 		772F0C4D1EDFCE1C00BE2576 /* GoogleSignIn.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleSignIn.framework; sourceTree = "<group>"; };
 		772F0C4E1EDFCE1C00BE2576 /* GoogleSignInDependencies.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleSignInDependencies.framework; sourceTree = "<group>"; };
 		772F0C4F1EDFCE1C00BE2576 /* GoogleSymbolUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleSymbolUtilities.framework; sourceTree = "<group>"; };
-		772F0C591EE07B4A00BE2576 /* MydataViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MydataViewController.swift; sourceTree = "<group>"; };
 		772F0C5B1EE07BF300BE2576 /* MydataJokboButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MydataJokboButton.swift; sourceTree = "<group>"; };
 		772F0C5F1EE0F1CF00BE2576 /* HonorMemberImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HonorMemberImageView.swift; sourceTree = "<group>"; };
 		77406AC91EE31C8600A2F931 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -202,9 +202,9 @@
 				23EA29A01EBB226A009F40F8 /* Main.storyboard */,
 				7700FE371ECDAD7800D133C5 /* MydataTabStoryboard.storyboard */,
 				772F0C5B1EE07BF300BE2576 /* MydataJokboButton.swift */,
+				2395FE5D1EE7CD2A006AE496 /* MyDataViewController.swift */,
 				77406AD11EE32D0F00A2F931 /* CommentUploadView.xib */,
 				77406AD31EE32D2100A2F931 /* CommentUploadView.swift */,
-				772F0C591EE07B4A00BE2576 /* MydataViewController.swift */,
 				7700FE231ECDAACC00D133C5 /* SearchView.swift */,
 				7700FE241ECDAACC00D133C5 /* SearchView.xib */,
 				2FF113D51ED867EA0081B3C2 /* SignUpViewController.swift */,
@@ -390,7 +390,6 @@
 				77A8E7EF1ED67D040093F735 /* LoginViewController.swift in Sources */,
 				2F4FA35F1EDFE77700B56D3C /* ViewJokboTableContentViewCell.swift in Sources */,
 				77A8E7F71ED6F1A70093F735 /* HorizontalScrollView.swift in Sources */,
-				772F0C5A1EE07B4A00BE2576 /* MydataViewController.swift in Sources */,
 				77406AD01EE320A200A2F931 /* HonorJokboTableViewCell.swift in Sources */,
 				2FFABD001EDFD2FE00F3D0EB /* ViewJokboTableViewController.swift in Sources */,
 				774A93BB1EC4BB6B00B96A56 /* GoohaeTableViewController.swift in Sources */,
@@ -410,6 +409,7 @@
 				772F0C601EE0F1CF00BE2576 /* HonorMemberImageView.swift in Sources */,
 				23EA299D1EBB226A009F40F8 /* AppDelegate.swift in Sources */,
 				7700FE251ECDAACC00D133C5 /* SearchView.swift in Sources */,
+				2395FE5E1EE7CD2A006AE496 /* MyDataViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
