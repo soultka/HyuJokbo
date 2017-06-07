@@ -41,9 +41,16 @@ class MyDataViewController: UIViewController {
     
     func countLike () -> (){
         for i in 1...g_JokbosArray.count {
-            print(g_JokbosArray.count)
-            print(i)
             let temp_jokbo = g_JokbosArray[i-1]
+            if(temp_jokbo.userName == user.email){
+                userLike += temp_jokbo.likeNum
+            }
+        }
+    }
+    
+    func goohaeLike () -> (){
+        for i in 1...g_GoohaesArray.count {
+            let temp_jokbo = g_GoohaesArray[i-1]
             if(temp_jokbo.userName == user.email){
                 userLike += temp_jokbo.likeNum
             }
@@ -53,6 +60,7 @@ class MyDataViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         userLike = 0
         countLike()
+        goohaeLike()
         print("userLike")
         print(userLike)
     }
