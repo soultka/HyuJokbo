@@ -15,13 +15,15 @@ var g_JokbosArray = [Jokbo]()
 var g_GoohaesData = [String:Goohae]()
 var g_GoohaesArray:[Goohae] = []
 
+var g_SelectedData:String = ""
+
 class Jokbo{
     var key:String = ""
     var className:String = ""
     var jokboText:String = ""
     var professorName:String = ""
     var images:[String] = []
-    var comments:[String] = []
+    var comments:[Comment] = []
 
     var updateDate:Int = 0
 
@@ -56,7 +58,7 @@ class Goohae{
     var goohaeText:String = ""
     var professorName:String = ""
     var images:[String] = []
-    var comments:[String] = []
+    var comments:[Comment] = []
 
     var updateDate:Int = 0
 
@@ -82,6 +84,22 @@ class Goohae{
     }
 }
 
+class Comment{
+    var userName: String = ""
+    var updateDate: String = ""
+    var commentContent: String = ""
+    var uploadID: String = ""
+    
+    init() {
+    }
+    
+    convenience init(userName:String, updateDate:String, commentContent:String, uploadID: String){
+        self.init()
+        self.userName = userName
+        self.updateDate = updateDate
+        self.commentContent = commentContent
+    }
+}
 
 class User{
     

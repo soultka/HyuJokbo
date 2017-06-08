@@ -7,9 +7,13 @@
 //
 
 import UIKit
+import FirebaseDatabase
+import FirebaseAuth
 
 class CommentUploadView:UIView, UITextViewDelegate{
 
+    var ref: FIRDatabaseReference?
+    
     @IBOutlet weak var CommentTextView: UITextView!
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -20,6 +24,7 @@ class CommentUploadView:UIView, UITextViewDelegate{
         self.commonInit()
     }
     func commonInit(){
+        ref = FIRDatabase.database().reference()
         //CommentView.xib 파일을 얻어옴(owner는 File's Owner에서 정해주었음)
         let view = Bundle.main.loadNibNamed("CommentUploadView", owner: self, options: nil)?.first as! UIView
         view.frame = self.bounds
@@ -31,7 +36,7 @@ class CommentUploadView:UIView, UITextViewDelegate{
         self.CommentTextView.textColor = UIColor.lightGray
         self.CommentTextView.layer.borderWidth = 0.5
         self.CommentTextView.layer.borderColor = UIColor.lightGray.cgColor
-
+        self.CommentTextView.textContainerInset = UIEdgeInsetsMake(12, 8, 12, 35)
     }
     func textViewDidBeginEditing(_ textView: UITextView) {
         if textView.textColor == UIColor.lightGray {
@@ -46,19 +51,67 @@ class CommentUploadView:UIView, UITextViewDelegate{
             textView.textColor = UIColor.lightGray
         }
     }
-    @IBAction func cancelEditing(_ sender: Any) {
-
-        if self.CommentTextView.text != "댓글을 입력하세요"{
-            self.CommentTextView.text = nil
-            self.CommentTextView.endEditing(true)
+   
+    func dateString() -> String{
+        var dateStr = ""
+        let date = Date()
+        
+        let calendar = Calendar.current
+        let component = calendar.dateComponents([.year,.month,.day,.hour,.minute,.second], from: date)
+        dateStr += "\(component.year!)"
+        if (component.month! / 10 == 0){
+            dateStr += "0"
         }
-        
-        
+        dateStr += "\(component.month!)"
+        if (component.day! / 10 == 0){
+            dateStr += "0"
+        }
+        dateStr += "\(component.day!)"
+        if (component.hour! / 10 == 0){
+            dateStr += "0"
+        }
+        dateStr += "\(component.hour!)"
+        if (component.minute! / 10 == 0){
+            dateStr += "0"
+        }
+        dateStr += "\(component.minute!)"
+        if (component.second! / 10 == 0){
+            dateStr += "0"
+        }
+        dateStr += "\(component.second!)"
+        return dateStr
     }
-    @IBAction func SendText(_ sender: Any) {
-        if(self.CommentTextView.text != "댓글을 입력하세요"){
-            print(self.CommentTextView.text)
+
+    
+    @IBAction func addComment(_ sender: Any) {
+        if(self.CommentTextView.text != "댓글을 입력하세요" || self.CommentTextView.text.isEmpty == false){
+            
+            var userName: String = ""
+            var uploadID: String = ""
+            var dateStr: String = ""
+            var commentContent: String = ""
+            
+            if let user = FIRAuth.auth()?.currentUser {
+                userName += user.email!
+            } else {
+                userName += "admin"
+            }
+            
+            uploadID = g_SelectedData
+            dateStr += dateString()
+            commentContent = CommentTextView.text
+            
+            let curRef = ref?.child("comments").childByAutoId()
+            curRef?.child("userName").setValue(userName)
+            curRef?.child("uploadID").setValue(uploadID)
+            curRef?.child("updateDate").setValue(dateStr)
+            curRef?.child("commentContent").setValue(commentContent)
+            
+            print(userName, uploadID, dateStr, commentContent)
+        } else {
+            
         }
+
     }
     
 }
