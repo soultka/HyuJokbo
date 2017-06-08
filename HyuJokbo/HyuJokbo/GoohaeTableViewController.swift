@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import QuartzCore
 import FirebaseDatabase
 
 class GoohaeTableViewController: UITableViewController,GoohaeDownload {
@@ -31,7 +32,7 @@ class GoohaeTableViewController: UITableViewController,GoohaeDownload {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         //- -   -   -   -   --  -   -   -   -   -   -   SEARCH VIEW ADD
         //테이블 뷰의 왼쪽위 좌표를 CGPoint로 얻어옴
         let topOfTableCGPoint = self.tableView.topAnchor.accessibilityActivationPoint
@@ -133,8 +134,9 @@ class GoohaeTableViewController: UITableViewController,GoohaeDownload {
             g_GoohaesData.removeValue(forKey: snapshot.key)
             //reload the tableview
             self.tableView.reloadData()
-            
         })
+       
+        self.tableView.separatorStyle = UITableViewCellSeparatorStyle.none
     }
 
     override func didReceiveMemoryWarning() {
@@ -159,10 +161,17 @@ class GoohaeTableViewController: UITableViewController,GoohaeDownload {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-
         let cell = tableView.dequeueReusableCell(withIdentifier: "GoohaeCell", for: indexPath) as! GoohaeTableViewCell
-        
-        
+
+        if indexPath.row == 0 {
+            var topLineView = UIView(frame: CGRect(x: CGFloat(0), y: CGFloat(0), width: CGFloat(view.bounds.size.width), height: CGFloat(1)))
+            topLineView.backgroundColor = UIColor.gray
+            cell.contentView.addSubview(topLineView)
+        }
+        var bottomLineView = UIView(frame: CGRect(x: CGFloat(0), y: CGFloat(cell.bounds.size.height), width: CGFloat(view.bounds.size.width), height: CGFloat(1)))
+        bottomLineView.backgroundColor = UIColor.gray
+        cell.contentView.addSubview(bottomLineView)
+
         let goohaeDataShow = g_GoohaesArray[indexPath.row]
         //goohaes로 부터 goohae를 받아옴
         
