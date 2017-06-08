@@ -44,6 +44,10 @@ class JokboUploadViewController: UIViewController, UITextViewDelegate, UIImagePi
         self.ProfessorTextView.delegate = self
         self.ContentTextView.delegate = self
 
+        self.TitleTextView.layer.sublayerTransform = CATransform3DMakeTranslation(1.0, 1.0, 0.0)
+        self.ProfessorTextView.layer.sublayerTransform = CATransform3DMakeTranslation(1.0, 1.0, 0.0)
+        self.ContentTextView.layer.sublayerTransform = CATransform3DMakeTranslation(1.0, 1.0, 0.0)
+
         if passedClassName.isEmpty == true {
             self.TitleTextView?.text = "수업명"
             self.TitleTextView?.textColor = UIColor.lightGray

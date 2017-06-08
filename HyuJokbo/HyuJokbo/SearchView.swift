@@ -8,9 +8,10 @@
 
 import UIKit
 
-class SearchView:UIView, UITextViewDelegate{
+class SearchView:UIView, UITextFieldDelegate{
 
-    @IBOutlet weak var SearchTextView: UITextView!
+    @IBOutlet weak var SearchTextField: UITextField!
+   
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.commonInit()
@@ -26,31 +27,32 @@ class SearchView:UIView, UITextViewDelegate{
         self.addSubview(view)
 
         //for UITextView
-        self.SearchTextView.delegate = self
-        self.SearchTextView.text = "검색어를 입력하세요"
-        self.SearchTextView.textColor = UIColor.lightGray
-        self.SearchTextView.layer.borderWidth = 0.5
-        self.SearchTextView.layer.borderColor = UIColor.lightGray.cgColor
-        self.SearchTextView.textContainerInset = UIEdgeInsetsMake(12, 8, 12, 35)
+        self.SearchTextField.delegate = self
+        self.SearchTextField.text = "검색어를 입력하세요"
+        self.SearchTextField.textColor = UIColor.lightGray
+        self.SearchTextField.layer.borderWidth = 0.5
+        self.SearchTextField.layer.borderColor = UIColor.lightGray.cgColor
+        self.SearchTextField.layer.sublayerTransform = CATransform3DMakeTranslation(5.0, 0.0, 0.0)
     }
-    func textViewDidBeginEditing(_ textView: UITextView) {
-        if textView.textColor == UIColor.lightGray {
-            textView.text = nil
-            textView.textColor = UIColor.black
+    
+    func textFieldDidBeginEditing(_ textField: UITextView) {
+        if textField.textColor == UIColor.lightGray {
+            textField.text = nil
+            textField.textColor = UIColor.black
         }
     }
 
-    func textViewDidEndEditing(_ textView: UITextView) {
-        if textView.text.isEmpty {
-            SearchTextView.text = "검색어를 입력하세요"
-            textView.textColor = UIColor.lightGray
+    func textFieldDidEndEditing(_ textField: UITextView) {
+        if textField.text.isEmpty {
+            SearchTextField.text = "검색어를 입력하세요"
+            textField.textColor = UIColor.lightGray
         }
     }
     @IBAction func cancelEditing(_ sender: Any) {
 
-        if self.SearchTextView.text != "검색어를 입력하세요"{
-            self.SearchTextView.text = nil
-            self.SearchTextView.endEditing(true)
+        if self.SearchTextField.text != "검색어를 입력하세요"{
+            self.SearchTextField.text = nil
+            self.SearchTextField.endEditing(true)
         }
 
 
