@@ -11,15 +11,19 @@ import FirebaseAuth
 
 
 class MyDataViewController: UIViewController {
-
+    
+    @IBOutlet weak var viewComment: UILabel!
+    @IBOutlet weak var viewLike: UILabel!
     @IBOutlet weak var myImage: UIImageView!
     @IBOutlet weak var myName: UILabel!
     let user = User()
     var userLike = 0
+    var userComment = 0
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        myImage.image = #imageLiteral(resourceName: "icon-mydata(g)")
+        myImage.image = #imageLiteral(resourceName: "icon-mydata")
+        myImage.backgroundColor = UIColor.clear
         if let userID = FIRAuth.auth()?.currentUser{
             user.email = userID.email!
         }
@@ -29,49 +33,77 @@ class MyDataViewController: UIViewController {
             myName.text = user.email
         }
         
-        countLike()
-        print(userLike)
         // Do any additional setup after loading the view.
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-    func countLike () -> (){
-        for i in 1...g_JokbosArray.count {
-            let temp_jokbo = g_JokbosArray[i-1]
-            if(temp_jokbo.userName == user.email){
-                userLike += temp_jokbo.likeNum
+    func JokboLike () -> (){
+        if g_JokbosArray.count > 0 {
+            for i in 1...g_JokbosArray.count {
+                let temp_jokbo = g_JokbosArray[i-1]
+                if(temp_jokbo.userName == user.email){
+                    userLike += temp_jokbo.likeNum
+                }
             }
         }
     }
     
     func goohaeLike () -> (){
-        for i in 0...(g_GoohaesArray.count) - 1 {
-            let temp_jokbo = g_GoohaesArray[i]
-            if(temp_jokbo.userName == user.email){
-                userLike += temp_jokbo.likeNum
+        if g_GoohaesArray.count > 0 {
+            for i in 1...g_GoohaesArray.count {
+                let temp_goohae = g_GoohaesArray[i-1]
+                if(temp_goohae.userName == user.email){
+                    userLike += temp_goohae.likeNum
+                }
+            }
+        }
+    }
+    func JokboComment () -> (){
+        if g_JokbosArray.count > 0 {
+            for i in 1...g_JokbosArray.count {
+                let temp_jokbo = g_JokbosArray[i-1]
+                if(temp_jokbo.userName == user.email){
+                    userComment += temp_jokbo.commentNum
+                }
             }
         }
     }
     
+    func goohaeComment () -> (){
+        if g_GoohaesArray.count > 0 {
+            for i in 1...g_GoohaesArray.count {
+                let temp_goohae = g_GoohaesArray[i-1]
+                if(temp_goohae.userName == user.email){
+                    userComment += temp_goohae.commentNum
+                }
+            }
+        }
+        
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         userLike = 0
-        countLike()
+        JokboLike()
         goohaeLike()
-        print("userLike")
+        print(userComment)
         print(userLike)
+        JokboComment()
+        goohaeComment()
+        viewLike.text = String(userLike)
+        //viewComment.text = String(userComment)
     }
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }
