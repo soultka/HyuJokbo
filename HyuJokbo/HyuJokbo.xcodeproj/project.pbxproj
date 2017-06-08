@@ -60,6 +60,7 @@
 		77A8E7F11ED69C760093F735 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A8E7F01ED69C760093F735 /* Data.swift */; };
 		77A8E7F71ED6F1A70093F735 /* HorizontalScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A8E7F61ED6F1A70093F735 /* HorizontalScrollView.swift */; };
 		77A8E7F91ED716DF0093F735 /* HonorMemberButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A8E7F81ED716DF0093F735 /* HonorMemberButton.swift */; };
+		77B4344E1EE8F5A800B5B6DE /* DownloadClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B4344D1EE8F5A800B5B6DE /* DownloadClass.swift */; };
 		77E0EE2D1EE51001004ABF49 /* HonorGoohaeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E0EE2C1EE51001004ABF49 /* HonorGoohaeTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -120,6 +121,7 @@
 		77A8E7F01ED69C760093F735 /* Data.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		77A8E7F61ED6F1A70093F735 /* HorizontalScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HorizontalScrollView.swift; sourceTree = "<group>"; };
 		77A8E7F81ED716DF0093F735 /* HonorMemberButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HonorMemberButton.swift; sourceTree = "<group>"; };
+		77B4344D1EE8F5A800B5B6DE /* DownloadClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadClass.swift; sourceTree = "<group>"; };
 		77E0EE2C1EE51001004ABF49 /* HonorGoohaeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HonorGoohaeTableViewCell.swift; sourceTree = "<group>"; };
 		B3DD45124F9E08221214578A /* Pods-HyuJokbo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HyuJokbo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HyuJokbo/Pods-HyuJokbo.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -193,6 +195,7 @@
 				772F0C5F1EE0F1CF00BE2576 /* HonorMemberImageView.swift */,
 				77A8E7F61ED6F1A70093F735 /* HorizontalScrollView.swift */,
 				774A93C21EC4C2EA00B96A56 /* JokboTableViewCell.swift */,
+				77B4344D1EE8F5A800B5B6DE /* DownloadClass.swift */,
 				774A93B81EC4BB6000B96A56 /* JokboTableViewController.swift */,
 				7700FE351ECDAD7800D133C5 /* JokboTabStoryboard.storyboard */,
 				7700FE3D1ECEC82500D133C5 /* JokboTabUploadStoryboard.storyboard */,
@@ -385,6 +388,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				77B4344E1EE8F5A800B5B6DE /* DownloadClass.swift in Sources */,
 				2F4FA3611EDFE79900B56D3C /* ViewJokboTableCommentViewCell.swift in Sources */,
 				2FF1E5B51EE1902400DE702E /* ViewGoohaeTableViewController.swift in Sources */,
 				77A8E7EF1ED67D040093F735 /* LoginViewController.swift in Sources */,

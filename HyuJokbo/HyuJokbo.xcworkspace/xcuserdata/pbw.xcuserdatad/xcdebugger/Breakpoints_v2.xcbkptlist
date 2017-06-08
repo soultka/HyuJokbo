@@ -170,11 +170,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "HyuJokbo/Data.swift"
-            timestampString = "518212355.184451"
+            timestampString = "518599473.547121"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "76"
-            endingLineNumber = "76"
+            startingLineNumber = "78"
+            endingLineNumber = "78"
             landmarkName = "init(key:className:goohaeText:professorName:updateDate:userName:likeNum:commentNum:bookmarkNum:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -186,11 +186,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "HyuJokbo/Data.swift"
-            timestampString = "518212355.184451"
+            timestampString = "518599473.547121"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "75"
-            endingLineNumber = "75"
+            startingLineNumber = "77"
+            endingLineNumber = "77"
             landmarkName = "init(key:className:goohaeText:professorName:updateDate:userName:likeNum:commentNum:bookmarkNum:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -202,11 +202,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "HyuJokbo/Data.swift"
-            timestampString = "518212355.184451"
+            timestampString = "518599473.547121"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "80"
-            endingLineNumber = "80"
+            startingLineNumber = "82"
+            endingLineNumber = "82"
             landmarkName = "init(key:className:goohaeText:professorName:updateDate:userName:likeNum:commentNum:bookmarkNum:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -567,11 +567,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "HyuJokbo/ViewJokboTableViewController.swift"
-            timestampString = "518327550.15762"
+            timestampString = "518608991.299386"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "240"
-            endingLineNumber = "240"
+            startingLineNumber = "276"
+            endingLineNumber = "276"
             landmarkName = "ViewJokboTableViewController"
             landmarkType = "3">
          </BreakpointContent>
@@ -583,11 +583,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "HyuJokbo/ViewJokboTableViewController.swift"
-            timestampString = "518327550.15762"
+            timestampString = "518608991.299386"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "237"
-            endingLineNumber = "237"
+            startingLineNumber = "273"
+            endingLineNumber = "273"
             landmarkName = "ViewJokboTableViewController"
             landmarkType = "3">
          </BreakpointContent>
@@ -765,6 +765,958 @@
             startingLineNumber = "270"
             endingLineNumber = "270"
             landmarkName = "tableView(_:cellForRowAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HyuJokbo/JokboTableViewCell.swift"
+            timestampString = "518603615.048007"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "97"
+            endingLineNumber = "97"
+            landmarkName = "DownloadJokbo()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HyuJokbo/JokboTableViewCell.swift"
+            timestampString = "518603615.048007"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "89"
+            endingLineNumber = "89"
+            landmarkName = "DownloadJokbo()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HyuJokbo/JokboTableViewCell.swift"
+            timestampString = "518603615.048007"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "98"
+            endingLineNumber = "98"
+            landmarkName = "DownloadJokbo()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HyuJokbo/JokboTableViewCell.swift"
+            timestampString = "518603615.048007"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "94"
+            endingLineNumber = "94"
+            landmarkName = "DownloadJokbo()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HyuJokbo/HonorViewController.swift"
+            timestampString = "518598381.434915"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "25"
+            endingLineNumber = "25"
+            landmarkName = "HonorViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "HyuJokbo.HonorViewController.CenterMemberLabel.getter : weak Swift.ImplicitlyUnwrappedOptional&lt;__ObjC.UILabel&gt;"
+                  moduleName = "HyuJokbo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pbw/Documents/gitdesk/master/HyuJokbo/HyuJokbo/HyuJokbo/HonorViewController.swift"
+                  timestampString = "518598381.882359"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "25"
+                  endingLineNumber = "25"
+                  offsetFromSymbolStart = "27">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "HyuJokbo.HonorViewController.CenterMemberLabel.setter : weak Swift.ImplicitlyUnwrappedOptional&lt;__ObjC.UILabel&gt;"
+                  moduleName = "HyuJokbo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pbw/Documents/gitdesk/master/HyuJokbo/HyuJokbo/HyuJokbo/HonorViewController.swift"
+                  timestampString = "518598381.884162"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "25"
+                  endingLineNumber = "25"
+                  offsetFromSymbolStart = "42">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "HyuJokbo.HonorViewController.init (nibName : Swift.Optional&lt;Swift.String&gt;, bundle : Swift.Optional&lt;__ObjC.Bundle&gt;) -&gt; HyuJokbo.HonorViewController"
+                  moduleName = "HyuJokbo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pbw/Documents/gitdesk/master/HyuJokbo/HyuJokbo/HyuJokbo/HonorViewController.swift"
+                  timestampString = "518598381.88575"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "25"
+                  endingLineNumber = "25"
+                  offsetFromSymbolStart = "622">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "HyuJokbo.HonorViewController.init (coder : __ObjC.NSCoder) -&gt; Swift.Optional&lt;HyuJokbo.HonorViewController&gt;"
+                  moduleName = "HyuJokbo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pbw/Documents/gitdesk/master/HyuJokbo/HyuJokbo/HyuJokbo/HonorViewController.swift"
+                  timestampString = "518598381.887272"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "25"
+                  endingLineNumber = "25"
+                  offsetFromSymbolStart = "503">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HyuJokbo/ViewJokboTableViewController.swift"
+            timestampString = "518605117.371305"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "28"
+            endingLineNumber = "28"
+            landmarkName = "ViewJokboTableViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "HyuJokbo.ViewJokboTableViewController.slideScroll.getter : weak Swift.ImplicitlyUnwrappedOptional&lt;__ObjC.UIScrollView&gt;"
+                  moduleName = "HyuJokbo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pbw/Documents/gitdesk/master/HyuJokbo/HyuJokbo/HyuJokbo/ViewJokboTableViewController.swift"
+                  timestampString = "518600080.770663"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "28"
+                  endingLineNumber = "28"
+                  offsetFromSymbolStart = "27">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "HyuJokbo.ViewJokboTableViewController.slideScroll.setter : weak Swift.ImplicitlyUnwrappedOptional&lt;__ObjC.UIScrollView&gt;"
+                  moduleName = "HyuJokbo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pbw/Documents/gitdesk/master/HyuJokbo/HyuJokbo/HyuJokbo/ViewJokboTableViewController.swift"
+                  timestampString = "518600080.772875"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "28"
+                  endingLineNumber = "28"
+                  offsetFromSymbolStart = "42">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "HyuJokbo.ViewJokboTableViewController.init (style : __C.UITableViewStyle) -&gt; HyuJokbo.ViewJokboTableViewController"
+                  moduleName = "HyuJokbo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pbw/Documents/gitdesk/master/HyuJokbo/HyuJokbo/HyuJokbo/ViewJokboTableViewController.swift"
+                  timestampString = "518600080.775088"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "28"
+                  endingLineNumber = "28"
+                  offsetFromSymbolStart = "203">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "HyuJokbo.ViewJokboTableViewController.init (nibName : Swift.Optional&lt;Swift.String&gt;, bundle : Swift.Optional&lt;__ObjC.Bundle&gt;) -&gt; HyuJokbo.ViewJokboTableViewController"
+                  moduleName = "HyuJokbo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pbw/Documents/gitdesk/master/HyuJokbo/HyuJokbo/HyuJokbo/ViewJokboTableViewController.swift"
+                  timestampString = "518600080.776984"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "28"
+                  endingLineNumber = "28"
+                  offsetFromSymbolStart = "276">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "HyuJokbo.ViewJokboTableViewController.init (coder : __ObjC.NSCoder) -&gt; Swift.Optional&lt;HyuJokbo.ViewJokboTableViewController&gt;"
+                  moduleName = "HyuJokbo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pbw/Documents/gitdesk/master/HyuJokbo/HyuJokbo/HyuJokbo/ViewJokboTableViewController.swift"
+                  timestampString = "518600080.780005"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "28"
+                  endingLineNumber = "28"
+                  offsetFromSymbolStart = "203">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HyuJokbo/JokboTableViewCell.swift"
+            timestampString = "518603615.048007"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "90"
+            endingLineNumber = "90"
+            landmarkName = "DownloadJokbo()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HyuJokbo/JokboTableViewCell.swift"
+            timestampString = "518603615.048007"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "91"
+            endingLineNumber = "91"
+            landmarkName = "DownloadJokbo()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HyuJokbo/JokboTableViewCell.swift"
+            timestampString = "518603615.048007"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "92"
+            endingLineNumber = "92"
+            landmarkName = "DownloadJokbo()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "HyuJokbo.JokboTableViewCell.(DownloadJokbo () -&gt; ()).(closure #1)"
+                  moduleName = "HyuJokbo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pbw/Documents/gitdesk/master/HyuJokbo/HyuJokbo/HyuJokbo/JokboTableViewCell.swift"
+                  timestampString = "518602668.084383"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "91"
+                  endingLineNumber = "91"
+                  offsetFromSymbolStart = "1725">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "HyuJokbo.JokboTableViewCell.(DownloadJokbo () -&gt; ()).(closure #1).(closure #1)"
+                  moduleName = "HyuJokbo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pbw/Documents/gitdesk/master/HyuJokbo/HyuJokbo/HyuJokbo/JokboTableViewCell.swift"
+                  timestampString = "518602668.08746"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "92"
+                  endingLineNumber = "92"
+                  offsetFromSymbolStart = "27">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HyuJokbo/JokboTableViewCell.swift"
+            timestampString = "518603615.048007"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "93"
+            endingLineNumber = "93"
+            landmarkName = "DownloadJokbo()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "HyuJokbo.JokboTableViewCell.(DownloadJokbo () -&gt; ()).(closure #1).(closure #1)"
+                  moduleName = "HyuJokbo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pbw/Documents/gitdesk/master/HyuJokbo/HyuJokbo/HyuJokbo/JokboTableViewCell.swift"
+                  timestampString = "518602668.093364"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "92"
+                  endingLineNumber = "92"
+                  offsetFromSymbolStart = "27">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "HyuJokbo.JokboTableViewCell.(DownloadJokbo () -&gt; ()).(closure #1).(closure #1).(closure #1)"
+                  moduleName = "HyuJokbo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pbw/Documents/gitdesk/master/HyuJokbo/HyuJokbo/HyuJokbo/JokboTableViewCell.swift"
+                  timestampString = "518602668.09521"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "93"
+                  endingLineNumber = "93"
+                  offsetFromSymbolStart = "12">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HyuJokbo/ViewJokboTableViewController.swift"
+            timestampString = "518605117.371305"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "139"
+            endingLineNumber = "139"
+            landmarkName = "tableView(_:cellForRowAt:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "HyuJokbo.ViewJokboTableViewController.(tableView (__ObjC.UITableView, cellForRowAt : Foundation.IndexPath) -&gt; __ObjC.UITableViewCell).(closure #1)"
+                  moduleName = "HyuJokbo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pbw/Documents/gitdesk/master/HyuJokbo/HyuJokbo/HyuJokbo/ViewJokboTableViewController.swift"
+                  timestampString = "518604675.309087"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "135"
+                  endingLineNumber = "135"
+                  offsetFromSymbolStart = "1436">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "HyuJokbo.ViewJokboTableViewController.(tableView (__ObjC.UITableView, cellForRowAt : Foundation.IndexPath) -&gt; __ObjC.UITableViewCell).(closure #1).(closure #1)"
+                  moduleName = "HyuJokbo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pbw/Documents/gitdesk/master/HyuJokbo/HyuJokbo/HyuJokbo/ViewJokboTableViewController.swift"
+                  timestampString = "518604675.310869"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "136"
+                  endingLineNumber = "136"
+                  offsetFromSymbolStart = "31">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HyuJokbo/ViewJokboTableViewController.swift"
+            timestampString = "518606616.640745"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "140"
+            endingLineNumber = "140"
+            landmarkName = "tableView(_:cellForRowAt:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "HyuJokbo.ViewJokboTableViewController.(tableView (__ObjC.UITableView, cellForRowAt : Foundation.IndexPath) -&gt; __ObjC.UITableViewCell).(closure #1).(closure #1)"
+                  moduleName = "HyuJokbo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pbw/Documents/gitdesk/master/HyuJokbo/HyuJokbo/HyuJokbo/ViewJokboTableViewController.swift"
+                  timestampString = "518604675.433124"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "136"
+                  endingLineNumber = "136"
+                  offsetFromSymbolStart = "31">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "HyuJokbo.ViewJokboTableViewController.(tableView (__ObjC.UITableView, cellForRowAt : Foundation.IndexPath) -&gt; __ObjC.UITableViewCell).(closure #1).(closure #1).(closure #1)"
+                  moduleName = "HyuJokbo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pbw/Documents/gitdesk/master/HyuJokbo/HyuJokbo/HyuJokbo/ViewJokboTableViewController.swift"
+                  timestampString = "518604675.436193"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "137"
+                  endingLineNumber = "137"
+                  offsetFromSymbolStart = "23">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HyuJokbo/ViewJokboTableViewController.swift"
+            timestampString = "518608991.299386"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "151"
+            endingLineNumber = "151"
+            landmarkName = "tableView(_:cellForRowAt:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "HyuJokbo.ViewJokboTableViewController.(tableView (__ObjC.UITableView, cellForRowAt : Foundation.IndexPath) -&gt; __ObjC.UITableViewCell).(closure #1).(closure #1)"
+                  moduleName = "HyuJokbo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pbw/Documents/gitdesk/master/HyuJokbo/HyuJokbo/HyuJokbo/ViewJokboTableViewController.swift"
+                  timestampString = "518604786.554711"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "141"
+                  endingLineNumber = "141"
+                  offsetFromSymbolStart = "268">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "HyuJokbo.ViewJokboTableViewController.(tableView (__ObjC.UITableView, cellForRowAt : Foundation.IndexPath) -&gt; __ObjC.UITableViewCell).(closure #1).(closure #1).(closure #1)"
+                  moduleName = "HyuJokbo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pbw/Documents/gitdesk/master/HyuJokbo/HyuJokbo/HyuJokbo/ViewJokboTableViewController.swift"
+                  timestampString = "518604786.556788"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "141"
+                  endingLineNumber = "141"
+                  offsetFromSymbolStart = "267">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HyuJokbo/ViewJokboTableViewController.swift"
+            timestampString = "518608991.299386"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "169"
+            endingLineNumber = "169"
+            landmarkName = "tableView(_:cellForRowAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HyuJokbo/ViewJokboTableViewController.swift"
+            timestampString = "518608991.299386"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "152"
+            endingLineNumber = "152"
+            landmarkName = "tableView(_:cellForRowAt:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "HyuJokbo.ViewJokboTableViewController.(tableView (__ObjC.UITableView, cellForRowAt : Foundation.IndexPath) -&gt; __ObjC.UITableViewCell).(closure #1).(closure #1)"
+                  moduleName = "HyuJokbo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pbw/Documents/gitdesk/master/HyuJokbo/HyuJokbo/HyuJokbo/ViewJokboTableViewController.swift"
+                  timestampString = "518605421.85098"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "146"
+                  endingLineNumber = "146"
+                  offsetFromSymbolStart = "343">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "HyuJokbo.ViewJokboTableViewController.(tableView (__ObjC.UITableView, cellForRowAt : Foundation.IndexPath) -&gt; __ObjC.UITableViewCell).(closure #1).(closure #1).(closure #1)"
+                  moduleName = "HyuJokbo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pbw/Documents/gitdesk/master/HyuJokbo/HyuJokbo/HyuJokbo/ViewJokboTableViewController.swift"
+                  timestampString = "518605421.853731"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "146"
+                  endingLineNumber = "146"
+                  offsetFromSymbolStart = "1046">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HyuJokbo/ViewJokboTableViewController.swift"
+            timestampString = "518608991.299386"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "157"
+            endingLineNumber = "157"
+            landmarkName = "tableView(_:cellForRowAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HyuJokbo/ViewJokboTableViewController.swift"
+            timestampString = "518608991.299386"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "156"
+            endingLineNumber = "156"
+            landmarkName = "tableView(_:cellForRowAt:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "HyuJokbo.ViewJokboTableViewController.(tableView (__ObjC.UITableView, cellForRowAt : Foundation.IndexPath) -&gt; __ObjC.UITableViewCell).(closure #1)"
+                  moduleName = "HyuJokbo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pbw/Documents/gitdesk/master/HyuJokbo/HyuJokbo/HyuJokbo/ViewJokboTableViewController.swift"
+                  timestampString = "518605602.534833"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "150"
+                  endingLineNumber = "150"
+                  offsetFromSymbolStart = "2267">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "HyuJokbo.ViewJokboTableViewController.(tableView (__ObjC.UITableView, cellForRowAt : Foundation.IndexPath) -&gt; __ObjC.UITableViewCell).(closure #1).(closure #1)"
+                  moduleName = "HyuJokbo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pbw/Documents/gitdesk/master/HyuJokbo/HyuJokbo/HyuJokbo/ViewJokboTableViewController.swift"
+                  timestampString = "518605602.536428"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "150"
+                  endingLineNumber = "150"
+                  offsetFromSymbolStart = "705">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HyuJokbo/ViewJokboTableViewController.swift"
+            timestampString = "518606205.792926"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
+            landmarkName = "ViewJokboTableViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "HyuJokbo.ViewJokboTableViewController.commentSubView.getter : Swift.ImplicitlyUnwrappedOptional&lt;HyuJokbo.CommentUploadView&gt;"
+                  moduleName = "HyuJokbo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pbw/Documents/gitdesk/master/HyuJokbo/HyuJokbo/HyuJokbo/ViewJokboTableViewController.swift"
+                  timestampString = "518605821.478913"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "26"
+                  endingLineNumber = "26"
+                  offsetFromSymbolStart = "35">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "HyuJokbo.ViewJokboTableViewController.commentSubView.setter : Swift.ImplicitlyUnwrappedOptional&lt;HyuJokbo.CommentUploadView&gt;"
+                  moduleName = "HyuJokbo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pbw/Documents/gitdesk/master/HyuJokbo/HyuJokbo/HyuJokbo/ViewJokboTableViewController.swift"
+                  timestampString = "518605821.480572"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "26"
+                  endingLineNumber = "26"
+                  offsetFromSymbolStart = "65">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "HyuJokbo.ViewJokboTableViewController.init (style : __C.UITableViewStyle) -&gt; HyuJokbo.ViewJokboTableViewController"
+                  moduleName = "HyuJokbo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pbw/Documents/gitdesk/master/HyuJokbo/HyuJokbo/HyuJokbo/ViewJokboTableViewController.swift"
+                  timestampString = "518605821.483556"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "26"
+                  endingLineNumber = "26"
+                  offsetFromSymbolStart = "219">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "HyuJokbo.ViewJokboTableViewController.init (nibName : Swift.Optional&lt;Swift.String&gt;, bundle : Swift.Optional&lt;__ObjC.Bundle&gt;) -&gt; HyuJokbo.ViewJokboTableViewController"
+                  moduleName = "HyuJokbo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pbw/Documents/gitdesk/master/HyuJokbo/HyuJokbo/HyuJokbo/ViewJokboTableViewController.swift"
+                  timestampString = "518605821.485533"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "26"
+                  endingLineNumber = "26"
+                  offsetFromSymbolStart = "296">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "HyuJokbo.ViewJokboTableViewController.init (coder : __ObjC.NSCoder) -&gt; Swift.Optional&lt;HyuJokbo.ViewJokboTableViewController&gt;"
+                  moduleName = "HyuJokbo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pbw/Documents/gitdesk/master/HyuJokbo/HyuJokbo/HyuJokbo/ViewJokboTableViewController.swift"
+                  timestampString = "518605821.488162"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "26"
+                  endingLineNumber = "26"
+                  offsetFromSymbolStart = "222">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HyuJokbo/ViewJokboTableViewController.swift"
+            timestampString = "518606205.792926"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HyuJokbo/ViewJokboTableViewController.swift"
+            timestampString = "518606205.792926"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "66"
+            endingLineNumber = "66"
+            landmarkName = "viewDidAppear(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HyuJokbo/ViewJokboTableViewController.swift"
+            timestampString = "518606205.792926"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "128"
+            endingLineNumber = "128"
+            landmarkName = "tableView(_:cellForRowAt:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "HyuJokbo.ViewJokboTableViewController.tableView (__ObjC.UITableView, cellForRowAt : Foundation.IndexPath) -&gt; __ObjC.UITableViewCell"
+                  moduleName = "HyuJokbo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pbw/Documents/gitdesk/master/HyuJokbo/HyuJokbo/HyuJokbo/ViewJokboTableViewController.swift"
+                  timestampString = "518605843.188887"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "127"
+                  endingLineNumber = "127"
+                  offsetFromSymbolStart = "6748">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "HyuJokbo.ViewJokboTableViewController.(tableView (__ObjC.UITableView, cellForRowAt : Foundation.IndexPath) -&gt; __ObjC.UITableViewCell).(closure #1)"
+                  moduleName = "HyuJokbo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pbw/Documents/gitdesk/master/HyuJokbo/HyuJokbo/HyuJokbo/ViewJokboTableViewController.swift"
+                  timestampString = "518605843.191286"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "128"
+                  endingLineNumber = "128"
+                  offsetFromSymbolStart = "23">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HyuJokbo/ViewJokboTableViewController.swift"
+            timestampString = "518608991.299386"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "174"
+            endingLineNumber = "174"
+            landmarkName = "tableView(_:cellForRowAt:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "HyuJokbo.ViewJokboTableViewController.tableView (__ObjC.UITableView, cellForRowAt : Foundation.IndexPath) -&gt; __ObjC.UITableViewCell"
+                  moduleName = "HyuJokbo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pbw/Documents/gitdesk/master/HyuJokbo/HyuJokbo/HyuJokbo/ViewJokboTableViewController.swift"
+                  timestampString = "518606616.779847"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "204"
+                  endingLineNumber = "204"
+                  offsetFromSymbolStart = "7133">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "HyuJokbo.ViewJokboTableViewController.(tableView (__ObjC.UITableView, cellForRowAt : Foundation.IndexPath) -&gt; __ObjC.UITableViewCell).(closure #1)"
+                  moduleName = "HyuJokbo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pbw/Documents/gitdesk/master/HyuJokbo/HyuJokbo/HyuJokbo/ViewJokboTableViewController.swift"
+                  timestampString = "518606616.781947"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "204"
+                  endingLineNumber = "204"
+                  offsetFromSymbolStart = "2735">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HyuJokbo/ViewJokboTableViewController.swift"
+            timestampString = "518608991.299386"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "293"
+            endingLineNumber = "293"
+            landmarkName = "scrollViewDidScroll(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HyuJokbo/ViewJokboTableViewController.swift"
+            timestampString = "518608991.299386"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "290"
+            endingLineNumber = "290"
+            landmarkName = "scrollViewDidScroll(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HyuJokbo/ViewJokboTableContentViewCell.swift"
+            timestampString = "518608900.059547"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "85"
+            endingLineNumber = "85"
+            landmarkName = "scrollViewDidScroll(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HyuJokbo/ViewJokboTableContentViewCell.swift"
+            timestampString = "518608900.059547"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "83"
+            endingLineNumber = "83"
+            landmarkName = "scrollViewDidScroll(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HyuJokbo/ViewJokboTableContentViewCell.swift"
+            timestampString = "518608756.60923"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
+            landmarkName = "ViewJokboTableContentViewCell"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HyuJokbo/ViewJokboTableContentViewCell.swift"
+            timestampString = "518608756.60923"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "32"
+            endingLineNumber = "32"
+            landmarkName = "setSelected(_:animated:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

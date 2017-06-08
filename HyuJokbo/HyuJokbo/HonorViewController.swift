@@ -21,7 +21,7 @@ class HonorViewController: UIViewController, UIScrollViewDelegate, HonorMemberBu
     let PADDING = CGFloat(10)
 
     var imageViews:[HonorMemberImageView] = []
-    @IBOutlet weak var slideScroll: HorizontalScrollView!
+    @IBOutlet weak var slideScroll: UIScrollView!
     @IBOutlet weak var CenterMemberLabel: UILabel!
 
     @IBOutlet weak var InvisibleScroll: UIScrollView!

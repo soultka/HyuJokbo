@@ -174,6 +174,7 @@ class JokboTableViewController: UITableViewController,JokboDownload {
         }else{
             cell.UserNameLabel?.text = jokboDataShow.userName
         }
+        cell.key = jokboDataShow.key
         cell.SubjectLabel?.text = jokboDataShow.className
         cell.ProfessorLabel?.text = jokboDataShow.professorName
         cell.LikeNumLabel?.text = String(jokboDataShow.likeNum)
