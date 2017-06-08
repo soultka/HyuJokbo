@@ -82,6 +82,7 @@ class ViewJokboTableContentViewCell: UITableViewCell, UIScrollViewDelegate {
 
 
         PageControl.numberOfPages = self.numberOfScrollViewElements()
+        self.bringSubview(toFront: PageControl)
 
     }
     func reloadScroll(){

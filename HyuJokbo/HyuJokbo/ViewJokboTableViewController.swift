@@ -172,12 +172,14 @@ class ViewJokboTableViewController: UITableViewController {
             return cell
         } else if indexPath.section == 1 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "ViewJokboContentCell", for: indexPath) as! ViewJokboTableContentViewCell
+            if(cell.imageCount  <= 0){
             databaseHandle = ref?.child("jokbo_images").observe(.childAdded, with: { (snapshot) in
                 let dataaa = snapshot.value as? [String:String]
+                let snapshotCnt = snapshot.childrenCount
                 if snapshot.key == self.jokbo.key{
                     if let image_Data = dataaa{
 
-                        for i  in stride(from: 0, to: g_MAX_JOKBO_NUM, by: 1)
+                        for i  in stride(from: 0, to: Int(snapshotCnt), by: 1)
                         {
                         if var image_url = image_Data["j\(i)"]{
                             print(image_url)
@@ -194,7 +196,7 @@ class ViewJokboTableViewController: UITableViewController {
                                         {
                                             newImage.frame.size = CGSize(width: (newImage.image?.size.width)!, height: (newImage.image?.size.height)!)
                                         cell.jokboImages[i] = newImage
-                                        cell.imageCount += 1
+                                        cell.imageCount = Int(snapshotCnt)
                                         cell.setUpScroll()
                                         cell.reloadScroll()
                                         }
@@ -208,11 +210,9 @@ class ViewJokboTableViewController: UITableViewController {
                             }
                         }else{
                             //Image count over
-                            if(!cell.jokboImages.isEmpty){
-
+//                            if(cell.imageCount > 0 ){ cell.imageCount = i}
                                 cell.setUpScroll()
                                 cell.reloadScroll()
-                            }
 
                             break;
                             }
@@ -224,6 +224,7 @@ class ViewJokboTableViewController: UITableViewController {
                 
                 
             })
+            }
          //   cell.JokboImage?.image = UIimage[
             cell.ContentLabel?.text = jokbo.jokboText
             return cell
