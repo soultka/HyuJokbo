@@ -41,7 +41,7 @@ class GoohaeTableViewCell: UITableViewCell {
     //다운로드 버튼이 눌러졌을 경우
     @IBAction func DownloadButtonPressed(_ sender: Any) {
         //icon-download(b)로 버튼을 바꿈
-        let blueDownButton = UIImage(named: "icon-download(b)")
+        let blueDownButton = UIImage(named: "icon-upload(b)")
 
         //DownloadButtonImage.setImage(blueDownButton, for: UIControlState.normal)
 
@@ -56,8 +56,8 @@ class GoohaeTableViewCell: UITableViewCell {
     //다운로드 버튼을 누른 후 땠을 경우
     @IBAction func DownloadButton(_ sender: Any) {
         //기본 아이콘인 icon-download로 버튼을 바꿈
-        let blueDownButton = UIImage(named: "icon-download(b)")
-        let grayDownButton = UIImage(named: "icon-download")
+        let blueDownButton = UIImage(named: "icon-upload(b)")
+        let grayDownButton = UIImage(named: "icon-upload")
 
         downloadDelegate?.download()
 

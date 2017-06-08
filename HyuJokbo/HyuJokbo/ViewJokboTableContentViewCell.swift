@@ -41,7 +41,7 @@ class ViewJokboTableContentViewCell: UITableViewCell, UIScrollViewDelegate {
 
     func elementAtScrollViewIndex(index: Int) -> UIView {
 
-        let view = UIView()
+        let view = UIScrollView()
         let jokboImage = jokboImages[index]
         if(jokboImage.image == nil){ return UIView()}
 
@@ -54,6 +54,17 @@ class ViewJokboTableContentViewCell: UITableViewCell, UIScrollViewDelegate {
 
 
         view.addSubview(jokboImage)
+        //for zooming
+        view.minimumZoomScale = 1.0
+        view.maximumZoomScale = 10.0
+        view.alwaysBounceVertical = false
+        view.alwaysBounceHorizontal = false
+        view.showsVerticalScrollIndicator = true
+        view.flashScrollIndicators()
+        view.delegate = self
+        jokboImage.layer.cornerRadius = 11.0
+        jokboImage.clipsToBounds = false
+
 
 //         jokboImage.frame.size = CGSize(width: (jokboImage.image?.size.width)!, height: (jokboImage.image?.size.height)!)
 
@@ -122,6 +133,11 @@ class ViewJokboTableContentViewCell: UITableViewCell, UIScrollViewDelegate {
         PageControl.currentPage = Int(scrollView.contentOffset.x)/Int(scrollViewWidth)
 //        self.reloadScroll()
     }
+    func viewForZooming(in scrollView: UIScrollView) -> UIView? {
+        return jokboImages[PageControl.currentPage]
+    }
+
+
 
 
 }
