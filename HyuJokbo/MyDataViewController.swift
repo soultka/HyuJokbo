@@ -31,10 +31,7 @@ class MyDataViewController: UIViewController {
         }else{
             myName.text = user.email
         }
-         viewLike.text = String(userLike)
-         viewComment.text = String(userComment)
-        
-      
+    
         // Do any additional setup after loading the view.
     }
 
@@ -82,8 +79,12 @@ class MyDataViewController: UIViewController {
         userLike = 0
         JokboLike()
         goohaeLike()
+        print(userComment)
+        print(userLike)
         JokboComment()
         goohaeComment()
+        viewLike.text = String(userLike)
+        viewComment.text = String(userComment)
     }
     /*
     // MARK: - Navigation
