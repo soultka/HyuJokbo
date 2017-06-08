@@ -29,5 +29,5 @@ target 'HyuJokbo' do
 
     #BSImagePicker
     pod "BSImagePicker", "~> 2.4"
-	pod 'iCarousel', '~> 1.8'
+	
 end

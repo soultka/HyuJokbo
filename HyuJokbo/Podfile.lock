@@ -81,7 +81,6 @@ PODS:
   - GTMSessionFetcher/Core (1.1.9)
   - GTMSessionFetcher/Full (1.1.9):
     - GTMSessionFetcher/Core (= 1.1.9)
-  - iCarousel (1.8.3)
   - UIImageViewModeScaleAspect (1.5)
 
 DEPENDENCIES:
@@ -99,7 +98,6 @@ DEPENDENCIES:
   - Firebase/Database
   - Firebase/Storage
   - GoogleSignIn
-  - iCarousel (~> 1.8)
 
 SPEC CHECKSUMS:
   Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
@@ -124,9 +122,8 @@ SPEC CHECKSUMS:
   GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
   GTMOAuth2: 7fc9c10f5c745f4d9850419ea88889fe3baa6b7d
   GTMSessionFetcher: 5c046c76a1f859bc9c187e918f18e4fc7bb57b5e
-  iCarousel: d782f635afac190c49bb8ee455882284cff8b85f
   UIImageViewModeScaleAspect: 11a790a0b9d248a13dc63e3a78991f1463b6d84e
 
-PODFILE CHECKSUM: 1a1372627d3a742cdf220c1450160e45f150b90c
+PODFILE CHECKSUM: f5d242b0373147fc9c02883f0ff0430df9401759
 
 COCOAPODS: 1.2.1

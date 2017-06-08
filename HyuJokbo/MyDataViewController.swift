@@ -23,6 +23,7 @@ class MyDataViewController: UIViewController {
         super.viewDidLoad()
         
         myImage.image = #imageLiteral(resourceName: "icon-mydata(g)")
+        myImage.backgroundColor = UIColor(red: 33.0, green: 33.0, blue: 33.0, alpha: 0.5)
         if let userID = FIRAuth.auth()?.currentUser{
             user.email = userID.email!
         }
