@@ -29,4 +29,5 @@ target 'HyuJokbo' do
 
     #BSImagePicker
     pod "BSImagePicker", "~> 2.4"
+	
 end
