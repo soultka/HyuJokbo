@@ -91,10 +91,6 @@ class CommentUploadView:UIView, UITextViewDelegate {
 
 
         if rows > 3 {
-            let alertController = UIAlertController(title: "알림", message:
-                "댓글을 세 줄 이하로 작성해주세요", preferredStyle: UIAlertControllerStyle.alert)
-            alertController.addAction(UIAlertAction(title: "확인", style: UIAlertActionStyle.default,handler: nil))
-            alertController.present(alertController, animated: true, completion: nil)
             return
         }
         

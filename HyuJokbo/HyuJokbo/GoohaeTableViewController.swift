@@ -135,8 +135,6 @@ class GoohaeTableViewController: UITableViewController,GoohaeDownload {
             //reload the tableview
             self.tableView.reloadData()
         })
-       
-        self.tableView.separatorStyle = UITableViewCellSeparatorStyle.none
     }
 
     override func didReceiveMemoryWarning() {

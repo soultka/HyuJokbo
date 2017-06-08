@@ -22,7 +22,6 @@ class ViewJokboTableViewController: UITableViewController {
     var jokbo = Jokbo()
     var jokboImages = [UIImageView](repeating: UIImageView(), count: 10)
 
-
     var commentsData: [String:Comment] = [:]
     var commentsArray: [Comment] = []
    

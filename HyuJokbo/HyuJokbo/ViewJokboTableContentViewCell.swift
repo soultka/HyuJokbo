@@ -17,7 +17,7 @@ class ViewJokboTableContentViewCell: UITableViewCell, UIScrollViewDelegate {
     @IBOutlet weak var PageControl: UIPageControl!
     //for scroll
     var scrollViewWidth = CGFloat(0)
-    let scrollViewHeight = CGFloat(250)
+    let scrollViewHeight = CGFloat(380)
     let jokboWidth = CGFloat(160)
     let jokboHeight = CGFloat(199)
     var jokboImages = [UIImageView](repeating: UIImageView(), count: 20)
@@ -61,13 +61,14 @@ class ViewJokboTableContentViewCell: UITableViewCell, UIScrollViewDelegate {
         jokboImage.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         jokboImage.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         jokboImage.widthAnchor.constraint(equalToConstant: CGFloat(Double(jokboImage.frame.width) * multi)).isActive = true
-        jokboImage.heightAnchor.constraint(equalToConstant: CGFloat(Double(jokboImage.frame.height) * multi)).isActive = true
+        jokboImage.heightAnchor.constraint(equalToConstant: CGFloat(Double(jokboImage.frame.height) * multi) - CGFloat(15)).isActive = true
         return view
     }
 
     func setUpScroll(){
         //Make UIScrollView and setting
         slideScroll.showsHorizontalScrollIndicator = false
+         slideScroll.showsVerticalScrollIndicator = false
         slideScroll.isDirectionalLockEnabled = true
         slideScroll.isMultipleTouchEnabled = false
         slideScroll.isPagingEnabled = true
@@ -78,10 +79,17 @@ class ViewJokboTableContentViewCell: UITableViewCell, UIScrollViewDelegate {
         slideScroll.topAnchor.constraint(equalTo: self.topAnchor, constant: 10).isActive = true
         slideScroll.widthAnchor.constraint(equalToConstant: scrollViewWidth).isActive = true
         slideScroll.heightAnchor.constraint(equalToConstant: scrollViewHeight).isActive = true
-
-
+        
+        
 
         PageControl.numberOfPages = self.numberOfScrollViewElements()
+        
+        PageControl.translatesAutoresizingMaskIntoConstraints = false
+        PageControl.centerXAnchor.constraint(equalTo: slideScroll.centerXAnchor).isActive = true
+        PageControl.topAnchor.constraint(equalTo: slideScroll.bottomAnchor, constant: 8).isActive = true
+        PageControl.widthAnchor.constraint(lessThanOrEqualToConstant: CGFloat(100)).isActive = true
+        PageControl.heightAnchor.constraint(equalToConstant: 10).isActive = true
+        
         self.bringSubview(toFront: PageControl)
 
     }

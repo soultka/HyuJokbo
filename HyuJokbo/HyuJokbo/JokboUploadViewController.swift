@@ -219,7 +219,7 @@ class JokboUploadViewController: UIViewController, UITextViewDelegate, UIImagePi
 
 
         let vc = BSImagePickerViewController()
-        vc.maxNumberOfSelections = 6
+        vc.maxNumberOfSelections = 30
 
         bs_presentImagePickerController(vc, animated: true,
                                         select: { (asset: PHAsset) -> Void in
@@ -243,9 +243,14 @@ class JokboUploadViewController: UIViewController, UITextViewDelegate, UIImagePi
         let manager = PHImageManager.default()
         let option = PHImageRequestOptions()
         var thumbnail = UIImage()
+        option.version = .original
         option.isSynchronous = true
-        manager.requestImage(for: asset, targetSize: CGSize(width: 100, height: 100), contentMode: .aspectFit, options: option, resultHandler: {(result, info)->Void in
-            thumbnail = result!
+        manager.requestImageData(for: asset, options: option, resultHandler: {data, _, _, _ in
+            
+            if let data = data{
+                thumbnail = UIImage(data:data)!
+                
+            }
         })
         return thumbnail
     }
@@ -263,7 +268,7 @@ class JokboUploadViewController: UIViewController, UITextViewDelegate, UIImagePi
         for selected in selectedImages{
             imageName = key + "[\(i)].jpg"
             storageRef = FIRStorage.storage().reference().child(imageName)
-            if var uploadData = UIImageJPEGRepresentation(selected, 0.1){
+            if var uploadData = UIImageJPEGRepresentation(selected, 1.0){
             }else if var uploadData = UIImagePNGRepresentation(selected) {
             }else{
                 print("\(i)번째 이미지를 변환 중 실패하였습니다")

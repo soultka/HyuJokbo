@@ -49,8 +49,8 @@ class MyDataViewController: UIViewController {
     }
     
     func goohaeLike () -> (){
-        for i in 1...g_GoohaesArray.count {
-            let temp_jokbo = g_GoohaesArray[i-1]
+        for i in 0...(g_GoohaesArray.count) - 1 {
+            let temp_jokbo = g_GoohaesArray[i]
             if(temp_jokbo.userName == user.email){
                 userLike += temp_jokbo.likeNum
             }

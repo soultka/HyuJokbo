@@ -16,7 +16,7 @@ var g_GoohaesData = [String:Goohae]()
 var g_GoohaesArray:[Goohae] = []
 
 
-let g_MAX_JOKBO_NUM = 10
+let g_MAX_JOKBO_NUM = 30
 
 var g_SelectedData:String = ""
 
