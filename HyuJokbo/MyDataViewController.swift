@@ -22,8 +22,8 @@ class MyDataViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        myImage.image = #imageLiteral(resourceName: "icon-mydata(g)")
-        myImage.backgroundColor = UIColor(red: 33.0, green: 33.0, blue: 33.0, alpha: 0.5)
+        myImage.image = #imageLiteral(resourceName: "icon-mydata")
+        myImage.backgroundColor = UIColor.clear
         if let userID = FIRAuth.auth()?.currentUser{
             user.email = userID.email!
         }
@@ -42,38 +42,47 @@ class MyDataViewController: UIViewController {
     }
     
     func JokboLike () -> (){
-        for i in 1...g_JokbosArray.count {
-            let temp_jokbo = g_JokbosArray[i-1]
-            if(temp_jokbo.userName == user.email){
-                userLike += temp_jokbo.likeNum
+        if g_JokbosArray.count > 0 {
+            for i in 1...g_JokbosArray.count {
+                let temp_jokbo = g_JokbosArray[i-1]
+                if(temp_jokbo.userName == user.email){
+                    userLike += temp_jokbo.likeNum
+                }
             }
         }
     }
     
     func goohaeLike () -> (){
-        for i in 1...g_GoohaesArray.count {
-            let temp_goohae = g_GoohaesArray[i-1]
-            if(temp_goohae.userName == user.email){
-                userLike += temp_goohae.likeNum
+        if g_GoohaesArray.count > 0 {
+            for i in 1...g_GoohaesArray.count {
+                let temp_goohae = g_GoohaesArray[i-1]
+                if(temp_goohae.userName == user.email){
+                    userLike += temp_goohae.likeNum
+                }
             }
         }
     }
     func JokboComment () -> (){
-        for i in 1...g_JokbosArray.count {
-            let temp_jokbo = g_JokbosArray[i-1]
-            if(temp_jokbo.userName == user.email){
-                userComment += temp_jokbo.commentNum
+        if g_JokbosArray.count > 0 {
+            for i in 1...g_JokbosArray.count {
+                let temp_jokbo = g_JokbosArray[i-1]
+                if(temp_jokbo.userName == user.email){
+                    userComment += temp_jokbo.commentNum
+                }
             }
         }
     }
     
     func goohaeComment () -> (){
-        for i in 1...g_GoohaesArray.count {
-            let temp_goohae = g_GoohaesArray[i-1]
-            if(temp_goohae.userName == user.email){
-                userComment += temp_goohae.commentNum
+        if g_GoohaesArray.count > 0 {
+            for i in 1...g_GoohaesArray.count {
+                let temp_goohae = g_GoohaesArray[i-1]
+                if(temp_goohae.userName == user.email){
+                    userComment += temp_goohae.commentNum
+                }
             }
         }
+      
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -85,7 +94,7 @@ class MyDataViewController: UIViewController {
         JokboComment()
         goohaeComment()
         viewLike.text = String(userLike)
-        viewComment.text = String(userComment)
+        //viewComment.text = String(userComment)
     }
     /*
     // MARK: - Navigation
