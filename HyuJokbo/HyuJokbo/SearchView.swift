@@ -31,7 +31,7 @@ class SearchView:UIView, UITextViewDelegate{
         self.SearchTextView.textColor = UIColor.lightGray
         self.SearchTextView.layer.borderWidth = 0.5
         self.SearchTextView.layer.borderColor = UIColor.lightGray.cgColor
-
+        self.SearchTextView.textContainerInset = UIEdgeInsetsMake(12, 8, 12, 35)
     }
     func textViewDidBeginEditing(_ textView: UITextView) {
         if textView.textColor == UIColor.lightGray {
