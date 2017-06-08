@@ -15,6 +15,8 @@ var g_JokbosArray = [Jokbo]()
 var g_GoohaesData = [String:Goohae]()
 var g_GoohaesArray:[Goohae] = []
 
+let g_MAX_JOKBO_NUM = 10
+
 class Jokbo{
     var key:String = ""
     var className:String = ""

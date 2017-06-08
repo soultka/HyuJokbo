@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import FirebaseDatabase
 protocol JokboDownload{
     func download()
 }
@@ -21,15 +21,19 @@ class JokboTableViewCell: UITableViewCell {
     @IBOutlet weak var LikeNumLabel: UILabel!
     @IBOutlet weak var CommentNumLabel: UILabel!
     @IBOutlet weak var BookMarkNumLabel: UILabel!
+    var key:String = ""
 
     @IBOutlet weak var DownloadButtonImage: UIButton!
 
     var downloadDelegate : JokboDownload?
+    var ref: FIRDatabaseReference?
+    var databaseHandle:FIRDatabaseHandle?
 
 
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        ref = FIRDatabase.database().reference()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -75,7 +79,34 @@ class JokboTableViewCell: UITableViewCell {
     }
 
     func DownloadJokbo(){
-        print("down\(self.SubjectLabel.text)")
+        let myImageName = "down\(self.SubjectLabel.text)"
+
+        databaseHandle = ref?.child("jokbo_images").observe(.childAdded, with: { (snapshot) in
+            let data = snapshot.value as? [String:String]
+            if snapshot.key == self.key{
+                if let image_Data = data{
+                    for i in stride(from: 0, to: g_MAX_JOKBO_NUM, by: 1){
+                        if let image_url = image_Data["j\(i)"]{
+                            print(image_url)
+                            let url = URL(string: image_url)
+                            URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, error) in
+                                DispatchQueue.main.async {
+                                    if let jokboImage = UIImage(data: data!){
+                                    CustomPhotoAlbum.sharedInstance.save(image: jokboImage)
+                                    }
+                                }
+                            }).resume()
+                        }else{
+                            break
+                        }
+                    }
+                }
+            }
+            
+            
+        })
+
+
     }
     
 }

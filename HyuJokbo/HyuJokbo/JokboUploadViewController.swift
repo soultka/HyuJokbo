@@ -259,9 +259,10 @@ class JokboUploadViewController: UIViewController, UITextViewDelegate, UIImagePi
         for selected in selectedImages{
             imageName = key + "[\(i)].jpg"
             storageRef = FIRStorage.storage().reference().child(imageName)
-            if let uploadData = UIImageJPEGRepresentation(selected, 0.0){
+            if var uploadData = UIImageJPEGRepresentation(selected, 0.1){
+            }else if var uploadData = UIImagePNGRepresentation(selected) {
             }else{
-                print("\(i)번째 이미지를 jpeg로 변환 중 실패하였습니다")
+                print("\(i)번째 이미지를 변환 중 실패하였습니다")
                 errorIndex += [i]
             }
             i += 1
@@ -277,7 +278,13 @@ class JokboUploadViewController: UIViewController, UITextViewDelegate, UIImagePi
             imageName = key + "[\(i)].jpg"
             storageRef = FIRStorage.storage().reference().child(imageName)
 
-            if let uploadData = UIImageJPEGRepresentation(selected, 0.0){
+            guard var uploadData = UIImageJPEGRepresentation(selected, 0.1) else{
+                guard var uploadData = UIImagePNGRepresentation(selected) else{
+                    return errorIndex
+                }
+                return errorIndex
+            }
+
                 //0.0~1.0 means quality of image
                 storageRef.put(uploadData, metadata: nil, completion: {(metadata,error)
                     in
@@ -298,7 +305,7 @@ class JokboUploadViewController: UIViewController, UITextViewDelegate, UIImagePi
                     }
 
                 })
-            }
+
             i += 1
         }
         selectedImages.removeAll()

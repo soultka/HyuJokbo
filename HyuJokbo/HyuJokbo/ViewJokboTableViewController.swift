@@ -20,10 +20,15 @@ class ViewJokboTableViewController: UITableViewController {
     var isBookMarkButtonTapped: Bool = false
     var isSirenButtonTapped: Bool = false
     var jokbo = Jokbo()
+    var jokboImages = [UIImageView](repeating: UIImageView(), count: 10)
+
 
     var commentSubView:CommentUploadView!
     var commentSubViewHeight:CGFloat = 40
-    
+
+
+
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -120,21 +125,54 @@ class ViewJokboTableViewController: UITableViewController {
         } else if indexPath.section == 1 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "ViewJokboContentCell", for: indexPath) as! ViewJokboTableContentViewCell
             databaseHandle = ref?.child("jokbo_images").observe(.childAdded, with: { (snapshot) in
-                let data = snapshot.value as? [String:String]
+                let dataaa = snapshot.value as? [String:String]
                 if snapshot.key == self.jokbo.key{
-                    if let image_Data = data{
-                        if let image_url = image_Data["j0"]{
+                    if let image_Data = dataaa{
+
+                        for i  in stride(from: 0, to: g_MAX_JOKBO_NUM, by: 1)
+                        {
+                        if var image_url = image_Data["j\(i)"]{
                             print(image_url)
-                            let url = URL(string: image_url)
-                            URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, error) in
-                                DispatchQueue.main.async {
-                                    cell.JokboImage?.image = UIImage(data: data!)
-                                }
-                            }).resume()
+                            if var url = URL(string: image_url){
+                                var request = URLRequest(url:url)
+
+                                URLSession.shared.dataTask(with: request, completionHandler: { (data, response, error) in
+                                    DispatchQueue.main.async {
+                                        let newImage = UIImageView()
+                                        newImage.image = UIImage(data:data!)
+
+//                                        cell.JokboImage.image = UIImage(data: data!)
+                                        if( newImage.image != nil)
+                                        {
+                                            newImage.frame.size = CGSize(width: (newImage.image?.size.width)!, height: (newImage.image?.size.height)!)
+                                        cell.jokboImages[i] = newImage
+                                        cell.imageCount += 1
+                                        cell.setUpScroll()
+                                        cell.reloadScroll()
+                                        }
+
+                                    }
+                                    if(error != nil){
+                                        print(error)
+                                    }
+                                }).resume()
+
+                            }
+                        }else{
+                            //Image count over
+                            if(!cell.jokboImages.isEmpty){
+
+                                cell.setUpScroll()
+                                cell.reloadScroll()
+                            }
+
+                            break;
+                            }
                         }
+
                     }
                 }
-
+                
                 
             })
          //   cell.JokboImage?.image = UIimage[
@@ -252,11 +290,13 @@ class ViewJokboTableViewController: UITableViewController {
     */
 
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if scrollView == self.tableView{
         let subviewPoint = CGPoint(x:scrollView.contentOffset.x,
                                    y:scrollView.contentOffset.y + self.tableView.frame.height - self.commentSubViewHeight)
             let subviewCGSize = CGSize(width: self.view.frame.width,
                                        height: self.commentSubViewHeight)
                     commentSubView.frame = CGRect(origin: subviewPoint, size: subviewCGSize)
+        }
 
     }
     func viewDate(date DateNum:Int ) -> String{
@@ -290,4 +330,6 @@ class ViewJokboTableViewController: UITableViewController {
         dateString += "\(minute)"
         return dateString
     }
+
+
 }
