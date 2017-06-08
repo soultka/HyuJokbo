@@ -21,12 +21,15 @@ class ViewJokboTableContentViewCell: UITableViewCell, UIScrollViewDelegate {
     let jokboWidth = CGFloat(160)
     let jokboHeight = CGFloat(199)
     var jokboImages = [UIImageView](repeating: UIImageView(), count: 20)
+    var currentPage:Int = 0
 //        var jokboImages = [UIImageView]()
     var imageCount:Int = 0
 
     override func awakeFromNib() {
         super.awakeFromNib()
         self.scrollViewWidth = self.frame.width
+        self.PageControl.isHidden = true
+        self.PageControl.numberOfPages = 0
         // Initialization code
     }
 
@@ -56,14 +59,15 @@ class ViewJokboTableContentViewCell: UITableViewCell, UIScrollViewDelegate {
         view.addSubview(jokboImage)
         //for zooming
         view.minimumZoomScale = 1.0
-        view.maximumZoomScale = 10.0
+        view.maximumZoomScale = 2.5
         view.alwaysBounceVertical = false
         view.alwaysBounceHorizontal = false
         view.showsVerticalScrollIndicator = true
-        view.flashScrollIndicators()
+//        view.flashScrollIndicators()
+        view.clipsToBounds = true
         view.delegate = self
         jokboImage.layer.cornerRadius = 11.0
-        jokboImage.clipsToBounds = false
+        jokboImage.clipsToBounds = true
 
 
 //         jokboImage.frame.size = CGSize(width: (jokboImage.image?.size.width)!, height: (jokboImage.image?.size.height)!)
@@ -122,19 +126,24 @@ class ViewJokboTableContentViewCell: UITableViewCell, UIScrollViewDelegate {
             slideScroll.addSubview(view)
 
         }
-        if(self.imageCount > 0){
-
-        self.JokboImage.isHidden = true
-    }
+        if(self.JokboImage != nil){ self.JokboImage.isHidden = true}
+        self.PageControl.isHidden = false
         slideScroll.contentSize = CGSize(width: xOffset, height:scrollViewHeight)
         
     }
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if(scrollView == slideScroll){
+
         PageControl.currentPage = Int(scrollView.contentOffset.x)/Int(scrollViewWidth)
+        }
 //        self.reloadScroll()
     }
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        self.currentPage = PageControl.currentPage
+
+    }
     func viewForZooming(in scrollView: UIScrollView) -> UIView? {
-        return jokboImages[PageControl.currentPage]
+        return jokboImages[self.currentPage]
     }
 
 

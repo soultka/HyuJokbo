@@ -221,6 +221,7 @@ class JokboUploadViewController: UIViewController, UITextViewDelegate, UIImagePi
         let vc = BSImagePickerViewController()
         vc.maxNumberOfSelections = 30
 
+
         bs_presentImagePickerController(vc, animated: true,
                                         select: { (asset: PHAsset) -> Void in
                                             print("Selected: \(asset)")
