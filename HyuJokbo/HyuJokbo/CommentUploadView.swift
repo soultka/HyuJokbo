@@ -10,7 +10,7 @@ import UIKit
 import FirebaseDatabase
 import FirebaseAuth
 
-class CommentUploadView:UIView, UITextViewDelegate{
+class CommentUploadView:UIView, UITextViewDelegate {
 
     var ref: FIRDatabaseReference?
     
@@ -47,7 +47,7 @@ class CommentUploadView:UIView, UITextViewDelegate{
 
     func textViewDidEndEditing(_ textView: UITextView) {
         if textView.text.isEmpty {
-            CommentTextView.text = "댓글을 입력하세요"
+            textView.text = "댓글을 입력하세요"
             textView.textColor = UIColor.lightGray
         }
     }
@@ -82,36 +82,56 @@ class CommentUploadView:UIView, UITextViewDelegate{
         return dateStr
     }
 
-    
     @IBAction func addComment(_ sender: Any) {
-        if(self.CommentTextView.text != "댓글을 입력하세요" || self.CommentTextView.text.isEmpty == false){
-            
-            var userName: String = ""
-            var uploadID: String = ""
-            var dateStr: String = ""
-            var commentContent: String = ""
-            
-            if let user = FIRAuth.auth()?.currentUser {
-                userName += user.email!
-            } else {
-                userName += "admin"
-            }
-            
-            uploadID = g_SelectedData
-            dateStr += dateString()
-            commentContent = CommentTextView.text
-            
-            let curRef = ref?.child("comments").childByAutoId()
-            curRef?.child("userName").setValue(userName)
-            curRef?.child("uploadID").setValue(uploadID)
-            curRef?.child("updateDate").setValue(dateStr)
-            curRef?.child("commentContent").setValue(commentContent)
-            
-            print(userName, uploadID, dateStr, commentContent)
-        } else {
-            
+        if CommentTextView?.text == "댓글을 입력하세요" || (CommentTextView?.text.isEmpty)! {
+            return
         }
+        
+        let rows = Int(round((CommentTextView.contentSize.height - CommentTextView.textContainerInset.top - CommentTextView.textContainerInset.bottom) / CommentTextView.font!.lineHeight))
 
+
+        if rows > 3 {
+            let alertController = UIAlertController(title: "알림", message:
+                "댓글을 세 줄 이하로 작성해주세요", preferredStyle: UIAlertControllerStyle.alert)
+            alertController.addAction(UIAlertAction(title: "확인", style: UIAlertActionStyle.default,handler: nil))
+            alertController.present(alertController, animated: true, completion: nil)
+            return
+        }
+        
+        var userName: String = ""
+        var uploadID: String = ""
+        var dateStr: String = ""
+        var commentContent: String = ""
+            
+        if let user = FIRAuth.auth()?.currentUser {
+            userName += user.email!
+        } else {
+            userName += "admin"
+        }
+            
+        uploadID = g_SelectedData
+        dateStr += dateString()
+        commentContent = CommentTextView.text
+            
+        let curRef = ref?.child("comments").childByAutoId()
+        curRef?.child("userName").setValue(userName)
+        curRef?.child("uploadID").setValue(uploadID)
+        curRef?.child("updateDate").setValue(dateStr)
+        curRef?.child("commentContent").setValue(commentContent)
+        
+        ref?.child("jokbos").observeSingleEvent(of: FIRDataEventType.value, with: { (snapshot) in
+            if snapshot.hasChild(g_SelectedData) {
+                self.ref?.child("jokbos").child(g_SelectedData).updateChildValues(["commentNum": "\((g_JokbosData[g_SelectedData]?.commentNum)!+1)"])
+            }
+        })
+        
+        ref?.child("goohaes").observeSingleEvent(of: FIRDataEventType.value, with: { (snapshot) in
+            if snapshot.hasChild(g_SelectedData) {
+                self.ref?.child("goohaes").child(g_SelectedData).updateChildValues(["commentNum": "\((g_GoohaesData[g_SelectedData]?.commentNum)!+1)"])
+            }
+        })
+
+        CommentTextView.text = nil
     }
     
 }

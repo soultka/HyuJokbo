@@ -22,14 +22,12 @@ class ViewJokboTableViewController: UITableViewController {
     var jokbo = Jokbo()
     var commentsData: [String:Comment] = [:]
     var commentsArray: [Comment] = []
-
+   
     var commentSubView:CommentUploadView!
     var commentSubViewHeight:CGFloat = 40
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-
 
         ref = FIRDatabase.database().reference()
         
@@ -49,7 +47,7 @@ class ViewJokboTableViewController: UITableViewController {
                         self.commentsData[snapshot.key] = comment
                         self.commentsArray = Array(self.commentsData.values)
                         self.commentsArray.sort {
-                            $0.updateDate > $1.updateDate
+                            $0.updateDate < $1.updateDate
                         }
                         self.tableView.reloadData()
                     }
@@ -73,7 +71,7 @@ class ViewJokboTableViewController: UITableViewController {
                         self.commentsData[snapshot.key] = comment
                         self.commentsArray = Array(self.commentsData.values)
                         self.commentsArray.sort {
-                            $0.updateDate > $1.updateDate
+                            $0.updateDate < $1.updateDate
                         }
                         self.tableView.reloadData()
                     }
@@ -82,11 +80,11 @@ class ViewJokboTableViewController: UITableViewController {
         })
 
         tableView.allowsSelection = false
-        
         tableView.estimatedRowHeight = 44.0
         tableView.rowHeight = UITableViewAutomaticDimension
-
-
+        tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 40, right: 0)
+        
+        
         //- -   -   -   -   -   -   -   -   -   -   -   COMMENT VIEW ADD
         let subviewPoint = CGPoint(x:self.tableView.contentOffset.x,
                                    y:self.tableView.contentOffset.y + self.tableView.frame.height - self.commentSubViewHeight)
@@ -151,6 +149,7 @@ class ViewJokboTableViewController: UITableViewController {
             cell.SubjectLabel?.text = jokbo.className
             cell.ProfessorLabel?.text = jokbo.professorName
             cell.UserInfoUploadTime?.text = viewDate(date: Date)
+            cell.CommentNumLabel?.text = String(commentsArray.count)
             
             if isLikeButtonTapped == false {
                 cell.LikeNumLabel?.text = String(jokbo.likeNum)
@@ -164,8 +163,6 @@ class ViewJokboTableViewController: UITableViewController {
                 cell.BookmarkNumLabel?.text = String(jokbo.bookmarkNum+1)
             }
             
-            cell.CommentNumLabel?.text = String(jokbo.commentNum)
-        
             return cell
         } else if indexPath.section == 1 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "ViewJokboContentCell", for: indexPath) as! ViewJokboTableContentViewCell
@@ -192,8 +189,13 @@ class ViewJokboTableViewController: UITableViewController {
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "ViewJokboCommentCell", for: indexPath) as! ViewJokboTableCommentViewCell
             
-            cell.UserInfoName?.text = commentsArray[indexPath.row].userName
-            cell.CommentInfoDate?.text = commentsArray[indexPath.row].updateDate
+            if let index = commentsArray[indexPath.row].userName.range(of: "@")?.lowerBound {
+                cell.UserInfoName?.text = commentsArray[indexPath.row].userName.substring(to: index)
+            } else {
+                cell.UserInfoName?.text = commentsArray[indexPath.row].userName
+            }
+            
+            cell.CommentInfoDate?.text = viewDate(date: Int(commentsArray[indexPath.row].updateDate)!)
             cell.CommentInfoComment?.text = commentsArray[indexPath.row].commentContent
             
             return cell

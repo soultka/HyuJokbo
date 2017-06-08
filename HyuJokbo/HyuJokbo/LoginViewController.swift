@@ -122,6 +122,13 @@ class LoginViewController: UIViewController, UITextFieldDelegate, GIDSignInUIDel
             textField.textColor = UIColor.white
         }
     }
+    @IBAction func adminLoginButtonTapped(_ sender: Any) {
+        FIRAuth.auth()?.signIn(withEmail: "admin@admin.com", password: "123456", completion: { (user, error) in
+            if let u = user  {
+                self.performSegue(withIdentifier: "signInSegue", sender: self)
+            }
+        })
+    }
     
     @IBAction func signInButtonTapped(_ sender: Any) {
         if EmailTextField.text == "이메일을 입력해주세요." || (EmailTextField.text?.isEmpty)! {

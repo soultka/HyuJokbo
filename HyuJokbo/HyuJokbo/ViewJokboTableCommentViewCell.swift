@@ -16,6 +16,8 @@ class ViewJokboTableCommentViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
+        CommentInfoComment.lineBreakMode = .byWordWrapping
+        CommentInfoComment.numberOfLines = 3
         // Initialization code
     }
 
