@@ -140,9 +140,11 @@ class ViewJokboTableViewController: UITableViewController {
                                     DispatchQueue.main.async {
                                         let newImage = UIImageView()
                                         newImage.image = UIImage(data:data!)
+
 //                                        cell.JokboImage.image = UIImage(data: data!)
                                         if( newImage.image != nil)
                                         {
+                                            newImage.frame.size = CGSize(width: (newImage.image?.size.width)!, height: (newImage.image?.size.height)!)
                                         cell.jokboImages[i] = newImage
                                         cell.imageCount += 1
                                         cell.setUpScroll()

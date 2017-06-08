@@ -91,7 +91,9 @@ class JokboTableViewCell: UITableViewCell {
                             let url = URL(string: image_url)
                             URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, error) in
                                 DispatchQueue.main.async {
-                                    CustomPhotoAlbum.sharedInstance.save(image: UIImage(data: data!)!)
+                                    if let jokboImage = UIImage(data: data!){
+                                    CustomPhotoAlbum.sharedInstance.save(image: jokboImage)
+                                    }
                                 }
                             }).resume()
                         }else{
