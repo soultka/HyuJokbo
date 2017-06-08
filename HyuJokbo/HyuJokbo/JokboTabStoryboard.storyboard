@@ -338,11 +338,7 @@
                                 <rect key="frame" x="0.0" y="91" width="320" height="305"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vnv-B4-TO0" id="r4s-IE-yjL">
-<<<<<<< HEAD
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="336.5"/>
-=======
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="304"/>
->>>>>>> fc4e5d3ffa68b5858dd716178b9240e154d3c0d3
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="304.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cR4-a4-wec">
@@ -426,18 +422,6 @@
                                                 <action selector="sirenButtonTapped:" destination="16k-la-qsF" eventType="touchUpInside" id="6DZ-s0-Oh7"/>
                                             </connections>
                                         </button>
-<<<<<<< HEAD
-                                        <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0PL-IC-Zcz">
-                                            <rect key="frame" x="80" y="27" width="160" height="199"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        </scrollView>
-                                        <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="jx8-JS-VcE">
-                                            <rect key="frame" x="141" y="222" width="39" height="37"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <color key="pageIndicatorTintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <color key="currentPageIndicatorTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </pageControl>
-=======
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hyujokbo-img-logo" translatesAutoresizingMaskIntoConstraints="NO" id="MQR-ay-0uQ">
                                             <rect key="frame" x="100" y="27" width="120" height="149"/>
                                             <constraints>
@@ -445,7 +429,16 @@
                                                 <constraint firstAttribute="width" constant="120" id="Xcd-Jj-xOn"/>
                                             </constraints>
                                         </imageView>
->>>>>>> fc4e5d3ffa68b5858dd716178b9240e154d3c0d3
+                                        <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xy1-px-I1i">
+                                            <rect key="frame" x="30" y="37" width="240" height="128"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </scrollView>
+                                        <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="kDF-P6-HUM">
+                                            <rect key="frame" x="141" y="184" width="39" height="37"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="pageIndicatorTintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="currentPageIndicatorTintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </pageControl>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="g28-Uf-BVs" firstAttribute="centerX" secondItem="tIy-lJ-Mvo" secondAttribute="centerX" id="14S-kv-oL5"/>
@@ -472,19 +465,15 @@
                                 <connections>
                                     <outlet property="ContentLabel" destination="cR4-a4-wec" id="g5A-hh-Da1"/>
                                     <outlet property="JokboImage" destination="MQR-ay-0uQ" id="7VI-Bw-QcW"/>
-                                    <outlet property="PageControl" destination="jx8-JS-VcE" id="GJN-x4-iq7"/>
-                                    <outlet property="slideScroll" destination="0PL-IC-Zcz" id="GCk-4S-lZw"/>
+                                    <outlet property="PageControl" destination="kDF-P6-HUM" id="C31-QP-sF8"/>
+                                    <outlet property="slideScroll" destination="Xy1-px-I1i" id="PWK-4c-OxM"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ViewJokboCommentCell" rowHeight="64" id="O10-58-P55" customClass="ViewJokboTableCommentViewCell" customModule="HyuJokbo" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="396" width="320" height="64"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="O10-58-P55" id="xvg-ZM-pfX">
-<<<<<<< HEAD
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="64.5"/>
-=======
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="63"/>
->>>>>>> fc4e5d3ffa68b5858dd716178b9240e154d3c0d3
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="63.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-mydata(g)" translatesAutoresizingMaskIntoConstraints="NO" id="OGj-c1-b4M">
@@ -572,6 +561,13 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mLg-1A-SxV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-704" y="-1465"/>
+        </scene>
+        <!--Page View Controller-->
+        <scene sceneID="OK6-ma-TMs">
+            <objects>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="pageCurl" navigationOrientation="horizontal" spineLocation="min" id="Td0-79-FDJ" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="X4d-aJ-8yk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
         </scene>
     </scenes>
     <resources>

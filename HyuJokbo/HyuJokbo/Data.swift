@@ -15,11 +15,11 @@ var g_JokbosArray = [Jokbo]()
 var g_GoohaesData = [String:Goohae]()
 var g_GoohaesArray:[Goohae] = []
 
-<<<<<<< HEAD
+
 let g_MAX_JOKBO_NUM = 10
-=======
+
 var g_SelectedData:String = ""
->>>>>>> fc4e5d3ffa68b5858dd716178b9240e154d3c0d3
+
 
 class Jokbo{
     var key:String = ""
