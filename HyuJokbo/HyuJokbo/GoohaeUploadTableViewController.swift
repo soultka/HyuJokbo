@@ -35,6 +35,10 @@ class GoohaeUploadViewController: UIViewController, UITextViewDelegate {
         self.ProfessorTextView.tag = 1
         self.ContentTextView.tag = 2
 
+        self.TitleTextView.layer.sublayerTransform = CATransform3DMakeTranslation(1.0, 1.0, 0.0)
+        self.ProfessorTextView.layer.sublayerTransform = CATransform3DMakeTranslation(1.0, 1.0, 0.0)
+        self.ContentTextView.layer.sublayerTransform = CATransform3DMakeTranslation(1.0, 1.0, 0.0)
+
         self.TitleTextView?.text = "수업명"
         self.TitleTextView?.textColor = UIColor.lightGray
         self.ProfessorTextView?.text = "교수님"

@@ -43,27 +43,27 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="XjW-SY-HoI">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="40"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="30"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="BYQ-qZ-vFZ"/>
+                                    <constraint firstAttribute="height" constant="30" id="BYQ-qZ-vFZ"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" spellCheckingType="no"/>
                             </textView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="CLo-nL-9zH">
-                                <rect key="frame" x="0.0" y="40" width="320" height="40"/>
+                                <rect key="frame" x="0.0" y="30" width="320" height="30"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="f4q-Z0-Rzq"/>
+                                    <constraint firstAttribute="height" constant="30" id="f4q-Z0-Rzq"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" spellCheckingType="no"/>
                             </textView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Nk8-9b-r55">
-                                <rect key="frame" x="0.0" y="80" width="320" height="315"/>
+                                <rect key="frame" x="0.0" y="60" width="320" height="335"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" spellCheckingType="no"/>
                             </textView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yRV-5I-gnt">
@@ -80,46 +80,13 @@
                                             <action selector="photoUploadButton:" destination="gza-My-EsT" eventType="touchUpInside" id="lXv-iA-077"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wgV-Yz-jEd" customClass="DLRadioButton">
-                                        <rect key="frame" x="262" y="15" width="50" height="34"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="50" id="TD6-sH-sCg"/>
-                                            <constraint firstAttribute="height" constant="34" id="nOL-Ne-lND"/>
-                                        </constraints>
-                                        <state key="normal" title="익명">
-                                            <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="iconSize">
-                                                <real key="value" value="11"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="iconSquare" value="NO"/>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="indicatorColor">
-                                                <color key="value" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="indicatorSize">
-                                                <real key="value" value="6"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="iconStrokeWidth">
-                                                <real key="value" value="1"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="iconColor">
-                                                <color key="value" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="marginWidth">
-                                                <real key="value" value="6"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="UFu-70-A9h" firstAttribute="centerY" secondItem="yRV-5I-gnt" secondAttribute="centerY" id="Fg3-qg-3do"/>
-                                    <constraint firstItem="wgV-Yz-jEd" firstAttribute="centerY" secondItem="yRV-5I-gnt" secondAttribute="centerY" id="Owh-gg-6WK"/>
                                     <constraint firstItem="UFu-70-A9h" firstAttribute="leading" secondItem="yRV-5I-gnt" secondAttribute="leading" constant="12" id="QuM-Bf-sFX"/>
                                     <constraint firstAttribute="height" constant="65" id="m0P-OL-JqO"/>
-                                    <constraint firstAttribute="trailing" secondItem="wgV-Yz-jEd" secondAttribute="trailing" constant="8" id="ooB-Np-9aS"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -169,6 +136,6 @@
     </scenes>
     <resources>
         <image name="icon-cancel" width="25" height="25"/>
-        <image name="icon-photo-camera" width="25" height="25"/>
+        <image name="icon-photo-camera" width="52" height="52"/>
     </resources>
 </document>
