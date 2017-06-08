@@ -118,6 +118,7 @@ class ViewGoohaeTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
+        
         return 3
     }
 
@@ -126,7 +127,6 @@ class ViewGoohaeTableViewController: UITableViewController {
         if section == 0 || section == 1 {
             return 1
         } else {
-            print("댓글 수", commentsArray.count)
             return commentsArray.count
         }
     }
