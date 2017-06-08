@@ -292,6 +292,8 @@ class GoohaeTableViewController: UITableViewController,GoohaeDownload {
         } else if segue.identifier == "GoohaeSegue" {
             if let destination = segue.destination as? ViewGoohaeTableViewController, let selectedIndex = self.tableView.indexPathForSelectedRow?.row {
                     destination.goohae = g_GoohaesArray[selectedIndex]
+                    g_SelectedData = g_GoohaesArray[selectedIndex].key
+                    print("구해요", g_SelectedData)
             }
         }
     }

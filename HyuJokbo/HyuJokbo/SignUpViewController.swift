@@ -73,9 +73,9 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        if textField.textColor == UIColor.lightGray {
+        if textField.text?.isEmpty == false {
             textField.text = nil
-            textField.textColor = UIColor.black
+            textField.textColor = UIColor.white
             if textField.tag == 1 {
                 PasswordTextField.isSecureTextEntry = true
             }
@@ -89,6 +89,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
             } else if textField.tag == 1 {
                 textField.text = "비밀번호를 입력해주세요."
                 PasswordTextField.isSecureTextEntry = false
+                
             }
             textField.textColor = UIColor.white
         }

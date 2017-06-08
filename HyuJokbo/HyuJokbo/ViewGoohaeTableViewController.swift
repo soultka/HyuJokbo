@@ -13,24 +13,77 @@ import FirebaseAuth
 class ViewGoohaeTableViewController: UITableViewController {
 
     var ref: FIRDatabaseReference?
+    var databaseHandle:FIRDatabaseHandle?
     
     var isLikeButtonTapped: Bool = false
     var isBookMarkButtonTapped: Bool = false
     var isSirenButtonTapped: Bool = false
     var goohae = Goohae()
-
+    var commentsData: [String:Comment] = [:]
+    var commentsArray: [Comment] = []
+    
     var commentSubView:CommentUploadView!
     var commentSubViewHeight:CGFloat = 40
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         ref = FIRDatabase.database().reference()
         
-        tableView.allowsSelection = false
+        databaseHandle = ref?.child("comments").observe(.childAdded, with: { (snapshot) in
+            //Take the value from the snapshot and added it to the jokbosData array
+            let data = snapshot.value as? [String:String]
+            
+            if let commentData = data {
+                //Append the data to our jokbo array
+                var comment = Comment()
+                if g_SelectedData == commentData["uploadID"] {
+                    if let userName = commentData["userName"],
+                        let uploadID = commentData["uploadID"],
+                        let updateDate = commentData["updateDate"],
+                        let commentContent = commentData["commentContent"] {
+                        comment = Comment(userName: userName, updateDate: updateDate, commentContent: commentContent, uploadID: uploadID)
+                        self.commentsData[snapshot.key] = comment
+                        self.commentsArray = Array(self.commentsData.values)
+                        self.commentsArray.sort {
+                            $0.updateDate < $1.updateDate
+                        }
+                        self.tableView.reloadData()
+                    }
+                }
+            }
+        })
         
+        databaseHandle = ref?.child("comments").observe(.childChanged, with: { (snapshot) in
+            //Take the value from the snapshot and added it to the jokbosData array
+            let data = snapshot.value as? [String:String]
+            
+            if let commentData = data {
+                //Append the data to our jokbo array
+                var comment = Comment()
+                if g_SelectedData == commentData["uploadID"] {
+                    if let userName = commentData["userName"],
+                        let uploadID = commentData["uploadID"],
+                        let updateDate = commentData["updateDate"],
+                        let commentContent = commentData["commentContent"] {
+                        comment = Comment(userName: userName, updateDate: updateDate, commentContent: commentContent, uploadID: uploadID)
+                        self.commentsData[snapshot.key] = comment
+                        self.commentsArray = Array(self.commentsData.values)
+                        self.commentsArray.sort {
+                            $0.updateDate < $1.updateDate
+                        }
+                        self.tableView.reloadData()
+                    }
+                }
+            }
+        })
+
+        
+        tableView.allowsSelection = false
         tableView.estimatedRowHeight = 44.0
         tableView.rowHeight = UITableViewAutomaticDimension
-
+        tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 40, right: 0)
+        
 
         //- -   -   -   -   -   -   -   -   -   -   -   COMMENT VIEW ADD
         let subviewPoint = CGPoint(x:self.tableView.contentOffset.x,
@@ -73,7 +126,8 @@ class ViewGoohaeTableViewController: UITableViewController {
         if section == 0 || section == 1 {
             return 1
         } else {
-            return 10
+            print("댓글 수", commentsArray.count)
+            return commentsArray.count
         }
     }
 
@@ -96,7 +150,7 @@ class ViewGoohaeTableViewController: UITableViewController {
             cell.SubjectLabel?.text = goohae.className
             cell.ProfessorLabel?.text = goohae.professorName
             cell.UserInfoUploadTime?.text = viewDate(date: Date)
-            
+            cell.CommentNumLabel?.text = String(commentsArray.count)
             if isLikeButtonTapped == false {
                 cell.LikeNumLabel?.text = String(goohae.likeNum)
             } else {
@@ -109,8 +163,6 @@ class ViewGoohaeTableViewController: UITableViewController {
                 cell.BookmarkNumLabel?.text = String(goohae.bookmarkNum+1)
             }
             
-            cell.CommentNumLabel?.text = String(goohae.commentNum)
-        
             return cell
         } else if indexPath.section == 1 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "ViewGoohaeContentCell", for: indexPath) as! ViewJokboTableContentViewCell
@@ -121,10 +173,15 @@ class ViewGoohaeTableViewController: UITableViewController {
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "ViewGoohaeCommentCell", for: indexPath) as! ViewJokboTableCommentViewCell
             
-            cell.UserInfoName?.text = "박병욱"
-            cell.CommentInfoDate?.text = "2017.6.1 15:28"
-            cell.CommentInfoComment?.text = "제발 되라어ㅏ리ㅓㅣㅁ러이"
+            if let index = commentsArray[indexPath.row].userName.range(of: "@")?.lowerBound {
+                cell.UserInfoName?.text = commentsArray[indexPath.row].userName.substring(to: index)
+            } else {
+                cell.UserInfoName?.text = commentsArray[indexPath.row].userName
+            }
             
+            cell.CommentInfoDate?.text = viewDate(date: Int(commentsArray[indexPath.row].updateDate)!)
+            cell.CommentInfoComment?.text = commentsArray[indexPath.row].commentContent
+
             return cell
         }
     }

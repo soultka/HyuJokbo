@@ -12,18 +12,14 @@ import FirebaseAuth
 
 class MyDataViewController: UIViewController {
 
-    @IBOutlet weak var viewComment: UILabel!
-    @IBOutlet weak var viewLike: UILabel!
     @IBOutlet weak var myImage: UIImageView!
     @IBOutlet weak var myName: UILabel!
     let user = User()
     var userLike = 0
-    var userComment = 0
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        myImage.image = #imageLiteral(resourceName: "icon-mydata")
-        myImage.backgroundColor = UIColor.clear
+        myImage.image = #imageLiteral(resourceName: "icon-mydata(g)")
         if let userID = FIRAuth.auth()?.currentUser{
             user.email = userID.email!
         }
@@ -32,7 +28,9 @@ class MyDataViewController: UIViewController {
         }else{
             myName.text = user.email
         }
-    
+        
+        countLike()
+        print(userLike)
         // Do any additional setup after loading the view.
     }
 
@@ -41,60 +39,30 @@ class MyDataViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func JokboLike () -> (){
-        if g_JokbosArray.count > 0 {
-            for i in 1...g_JokbosArray.count {
-                let temp_jokbo = g_JokbosArray[i-1]
-                if(temp_jokbo.userName == user.email){
-                    userLike += temp_jokbo.likeNum
-                }
+    func countLike () -> (){
+        for i in 1...g_JokbosArray.count {
+            let temp_jokbo = g_JokbosArray[i-1]
+            if(temp_jokbo.userName == user.email){
+                userLike += temp_jokbo.likeNum
             }
         }
     }
     
     func goohaeLike () -> (){
-        if g_GoohaesArray.count > 0 {
-            for i in 1...g_GoohaesArray.count {
-                let temp_goohae = g_GoohaesArray[i-1]
-                if(temp_goohae.userName == user.email){
-                    userLike += temp_goohae.likeNum
-                }
+        for i in 1...g_GoohaesArray.count {
+            let temp_jokbo = g_GoohaesArray[i-1]
+            if(temp_jokbo.userName == user.email){
+                userLike += temp_jokbo.likeNum
             }
         }
-    }
-    func JokboComment () -> (){
-        if g_JokbosArray.count > 0 {
-            for i in 1...g_JokbosArray.count {
-                let temp_jokbo = g_JokbosArray[i-1]
-                if(temp_jokbo.userName == user.email){
-                    userComment += temp_jokbo.commentNum
-                }
-            }
-        }
-    }
-    
-    func goohaeComment () -> (){
-        if g_GoohaesArray.count > 0 {
-            for i in 1...g_GoohaesArray.count {
-                let temp_goohae = g_GoohaesArray[i-1]
-                if(temp_goohae.userName == user.email){
-                    userComment += temp_goohae.commentNum
-                }
-            }
-        }
-      
     }
     
     override func viewDidAppear(_ animated: Bool) {
         userLike = 0
-        JokboLike()
+        countLike()
         goohaeLike()
-        print(userComment)
+        print("userLike")
         print(userLike)
-        JokboComment()
-        goohaeComment()
-        viewLike.text = String(userLike)
-        //viewComment.text = String(userComment)
     }
     /*
     // MARK: - Navigation
