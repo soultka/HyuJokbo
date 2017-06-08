@@ -23,6 +23,9 @@ class ViewJokboTableViewController: UITableViewController {
     var jokboImages = [UIImageView](repeating: UIImageView(), count: 10)
 
 
+    var commentsData: [String:Comment] = [:]
+    var commentsArray: [Comment] = []
+   
     var commentSubView:CommentUploadView!
     var commentSubViewHeight:CGFloat = 40
 
@@ -32,16 +35,62 @@ class ViewJokboTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-
-
         ref = FIRDatabase.database().reference()
         
+        databaseHandle = ref?.child("comments").observe(.childAdded, with: { (snapshot) in
+            //Take the value from the snapshot and added it to the jokbosData array
+            let data = snapshot.value as? [String:String]
+            
+            if let commentData = data {
+                //Append the data to our jokbo array
+                var comment = Comment()
+                if g_SelectedData == commentData["uploadID"] {
+                    if let userName = commentData["userName"],
+                        let uploadID = commentData["uploadID"],
+                        let updateDate = commentData["updateDate"],
+                        let commentContent = commentData["commentContent"] {
+                        comment = Comment(userName: userName, updateDate: updateDate, commentContent: commentContent, uploadID: uploadID)
+                        self.commentsData[snapshot.key] = comment
+                        self.commentsArray = Array(self.commentsData.values)
+                        self.commentsArray.sort {
+                            $0.updateDate < $1.updateDate
+                        }
+                        self.tableView.reloadData()
+                    }
+                }
+            }
+        })
+
+        databaseHandle = ref?.child("comments").observe(.childChanged, with: { (snapshot) in
+            //Take the value from the snapshot and added it to the jokbosData array
+            let data = snapshot.value as? [String:String]
+            
+            if let commentData = data {
+                //Append the data to our jokbo array
+                var comment = Comment()
+                if g_SelectedData == commentData["uploadID"] {
+                    if let userName = commentData["userName"],
+                        let uploadID = commentData["uploadID"],
+                        let updateDate = commentData["updateDate"],
+                        let commentContent = commentData["commentContent"] {
+                        comment = Comment(userName: userName, updateDate: updateDate, commentContent: commentContent, uploadID: uploadID)
+                        self.commentsData[snapshot.key] = comment
+                        self.commentsArray = Array(self.commentsData.values)
+                        self.commentsArray.sort {
+                            $0.updateDate < $1.updateDate
+                        }
+                        self.tableView.reloadData()
+                    }
+                }
+            }
+        })
+
         tableView.allowsSelection = false
-        
         tableView.estimatedRowHeight = 44.0
         tableView.rowHeight = UITableViewAutomaticDimension
-
-
+        tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 40, right: 0)
+        
+        
         //- -   -   -   -   -   -   -   -   -   -   -   COMMENT VIEW ADD
         let subviewPoint = CGPoint(x:self.tableView.contentOffset.x,
                                    y:self.tableView.contentOffset.y + self.tableView.frame.height - self.commentSubViewHeight)
@@ -83,7 +132,7 @@ class ViewJokboTableViewController: UITableViewController {
         if section == 0 || section == 1 {
             return 1
         } else {
-            return 10
+            return commentsArray.count
         }
     }
 
@@ -106,6 +155,7 @@ class ViewJokboTableViewController: UITableViewController {
             cell.SubjectLabel?.text = jokbo.className
             cell.ProfessorLabel?.text = jokbo.professorName
             cell.UserInfoUploadTime?.text = viewDate(date: Date)
+            cell.CommentNumLabel?.text = String(commentsArray.count)
             
             if isLikeButtonTapped == false {
                 cell.LikeNumLabel?.text = String(jokbo.likeNum)
@@ -119,8 +169,6 @@ class ViewJokboTableViewController: UITableViewController {
                 cell.BookmarkNumLabel?.text = String(jokbo.bookmarkNum+1)
             }
             
-            cell.CommentNumLabel?.text = String(jokbo.commentNum)
-        
             return cell
         } else if indexPath.section == 1 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "ViewJokboContentCell", for: indexPath) as! ViewJokboTableContentViewCell
@@ -168,6 +216,7 @@ class ViewJokboTableViewController: UITableViewController {
 
                             break;
                             }
+
                         }
 
                     }
@@ -181,10 +230,14 @@ class ViewJokboTableViewController: UITableViewController {
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "ViewJokboCommentCell", for: indexPath) as! ViewJokboTableCommentViewCell
             
-            cell.UserInfoName?.text = "박병욱"
-            cell.CommentInfoDate?.text = "2017.6.1 15:28"
-            cell.CommentInfoComment?.text = "제발 되라어ㅏ리ㅓㅣㅁ러이"
+            if let index = commentsArray[indexPath.row].userName.range(of: "@")?.lowerBound {
+                cell.UserInfoName?.text = commentsArray[indexPath.row].userName.substring(to: index)
+            } else {
+                cell.UserInfoName?.text = commentsArray[indexPath.row].userName
+            }
             
+            cell.CommentInfoDate?.text = viewDate(date: Int(commentsArray[indexPath.row].updateDate)!)
+            cell.CommentInfoComment?.text = commentsArray[indexPath.row].commentContent
             
             return cell
         }
@@ -198,7 +251,6 @@ class ViewJokboTableViewController: UITableViewController {
             self.present(alertController, animated: true, completion: nil)
             return
         } else {
-            print("like button tapped")
             ref?.child("jokbos").child(jokbo.key).updateChildValues(["likeNum": "\(jokbo.likeNum+1)"])
             isLikeButtonTapped = true
             

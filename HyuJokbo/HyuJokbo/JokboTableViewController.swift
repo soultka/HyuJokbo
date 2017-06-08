@@ -9,14 +9,16 @@
 import UIKit
 import FirebaseDatabase
 
-class JokboTableViewController: UITableViewController,JokboDownload {
+class JokboTableViewController: UITableViewController, JokboDownload {
 
     var ref:FIRDatabaseReference?
     var databaseHandle:FIRDatabaseHandle?
     var databaseChangeHandle:FIRDatabaseHandle?
     var databaseRemoveHandle:FIRDatabaseHandle?
 
-   
+    var commentsData: [String:Comment] = [:]
+    var commentsArray: [Comment] = []
+    
     //서치 버튼이 표시되었을 경우 1, 표시 안되어 있을 경우 0
     static var searchPressedFlag = 0
 
@@ -32,8 +34,9 @@ class JokboTableViewController: UITableViewController,JokboDownload {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
+        
         //- -   -   -   -   -   -   -   -   -   -   -   SEARCH VIEW ADD
 
         //테이블 뷰의 왼쪽위 좌표를 CGPoint로 얻어옴
@@ -244,6 +247,7 @@ class JokboTableViewController: UITableViewController,JokboDownload {
             if let destination = segue.destination as? ViewJokboTableViewController, let selectedIndex = self.tableView.indexPathForSelectedRow?.row {
                 
                 destination.jokbo = g_JokbosArray[selectedIndex]
+                g_SelectedData = g_JokbosArray[selectedIndex].key
             }
         }
     }
@@ -292,11 +296,12 @@ class JokboTableViewController: UITableViewController,JokboDownload {
      }
      */
     
-    
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let subviewCGSize = CGSize(width: self.view.frame.width, height: self.view.frame.height)
         searchSubView.frame = CGRect(origin: scrollView.contentOffset, size: subviewCGSize)
     }
+    
+    
     func viewDate(date DateNum:Int ) -> String{
         var dateString = ""
         var dateN = DateNum
