@@ -217,6 +217,7 @@ class JokboUploadViewController: UIViewController, UITextViewDelegate, UIImagePi
 
 
     @IBAction func photoUploadButton(_ sender: Any) {
+        self.selectedImages.removeAll()
 
 
         let vc = BSImagePickerViewController()
