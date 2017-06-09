@@ -599,11 +599,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "HyuJokbo/GoohaeTableViewController.swift"
-            timestampString = "518692002.18982"
+            timestampString = "518704632.149816"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "67"
-            endingLineNumber = "67"
+            startingLineNumber = "68"
+            endingLineNumber = "68"
             landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
@@ -2079,12 +2079,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "HyuJokbo/JokboTableViewController.swift"
-            timestampString = "518703515.273122"
+            timestampString = "518704632.149816"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "277"
-            endingLineNumber = "277"
-            landmarkName = "searchBar(_:textDidChange:)"
+            startingLineNumber = "276"
+            endingLineNumber = "276"
+            landmarkName = "viewDate(date:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -2095,12 +2095,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "HyuJokbo/JokboTableViewController.swift"
-            timestampString = "518703515.273122"
+            timestampString = "518704632.149816"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "284"
-            endingLineNumber = "284"
-            landmarkName = "filterTableView(index:text:)"
+            startingLineNumber = "283"
+            endingLineNumber = "283"
+            landmarkName = "viewDate(date:)"
             landmarkType = "7">
             <Locations>
                <Location
@@ -2143,13 +2143,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "HyuJokbo/JokboTableViewController.swift"
-            timestampString = "518703515.273122"
+            timestampString = "518704632.149816"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "291"
-            endingLineNumber = "291"
-            landmarkName = "searchBarCancelButtonClicked(_:)"
-            landmarkType = "7">
+            startingLineNumber = "290"
+            endingLineNumber = "290"
+            landmarkName = "JokboTableViewController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

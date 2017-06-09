@@ -216,7 +216,7 @@ UIImagePickerControllerDelegate, UINavigationControllerDelegate{
     }
 
 
-
+    //MARK: photo upload
     @IBAction func photoUploadButton(_ sender: Any) {
         self.selectedImages.removeAll()
 
@@ -239,7 +239,7 @@ UIImagePickerControllerDelegate, UINavigationControllerDelegate{
         messageLabel.translatesAutoresizingMaskIntoConstraints = false
         messageLabel.centerXAnchor.constraint(equalTo: (messageLabel.superview?.centerXAnchor)!).isActive = true
         messageLabel.centerYAnchor.constraint(equalTo: (messageLabel.superview?.centerYAnchor)!, constant: -10).isActive = true
-        messageLabel.widthAnchor.constraint(equalToConstant: 200).isActive = true
+        messageLabel.widthAnchor.constraint(equalToConstant: 270).isActive = true
         messageLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
 
 
@@ -247,7 +247,7 @@ UIImagePickerControllerDelegate, UINavigationControllerDelegate{
         messageLabel.alpha = 0
         messageLabel.textColor =  UIColor(red: 76/255, green: 118/255, blue: 201/255, alpha: 1.0)
         messageLabel.text = "이미지를 꾹 누르면 미리보기가 됩니다"
-        messageLabel.font = UIFont(name:"HelveticaNeue-Bold", size: 13.0)
+        messageLabel.font = UIFont(name:"HelveticaNeue-Bold", size: 17.0)
 
 
 

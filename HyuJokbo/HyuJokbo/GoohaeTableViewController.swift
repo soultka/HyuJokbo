@@ -25,7 +25,7 @@ class GoohaeTableViewController: UITableViewController,GoohaeDownload, UISearchB
 
 
     @IBAction func handleModalClose(segue: UIStoryboardSegue){
-
+        self.goohaesArray = g_GoohaesArray
 
     }
 
@@ -36,6 +36,7 @@ class GoohaeTableViewController: UITableViewController,GoohaeDownload, UISearchB
 
         self.setupSearchBar()
         self.searchBar.isHidden = true
+         self.goohaesArray = g_GoohaesArray
 
         ref = FIRDatabase.database().reference()
         //Retrieve the posts and listen for changes
@@ -70,7 +71,7 @@ class GoohaeTableViewController: UITableViewController,GoohaeDownload, UISearchB
                     g_GoohaesArray.sort{
                         $0.updateDate > $1.updateDate
                     }
-                    self.goohaesArray = g_GoohaesArray
+                    if(self.searchBar.isHidden == true){self.goohaesArray = g_GoohaesArray}
                     self.tableView.reloadData()
                 }
             }
@@ -106,6 +107,7 @@ class GoohaeTableViewController: UITableViewController,GoohaeDownload, UISearchB
                     g_GoohaesArray.sort{
                         $0.updateDate > $1.updateDate
                     }
+                    if(self.searchBar.isHidden == true){ self.goohaesArray = g_GoohaesArray}
                     self.tableView.reloadData()
                 }
             }
@@ -137,7 +139,7 @@ class GoohaeTableViewController: UITableViewController,GoohaeDownload, UISearchB
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
 
-        let rowCount = g_GoohaesData.count
+        let rowCount = self.goohaesArray.count
         return rowCount
     }
 
@@ -155,7 +157,7 @@ class GoohaeTableViewController: UITableViewController,GoohaeDownload, UISearchB
         bottomLineView.backgroundColor = UIColor.gray
         cell.contentView.addSubview(bottomLineView)
 
-        let goohaeDataShow = g_GoohaesArray[indexPath.row]
+        let goohaeDataShow = self.goohaesArray[indexPath.row]
         //goohaes로 부터 goohae를 받아옴
         
         if let index = goohaeDataShow.userName.range(of: "@")?.lowerBound{
@@ -179,6 +181,7 @@ class GoohaeTableViewController: UITableViewController,GoohaeDownload, UISearchB
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+         self.goohaesArray = g_GoohaesArray
         self.tableView.reloadData()
     }
     override func viewDidDisappear(_ animated: Bool) {
@@ -205,14 +208,14 @@ class GoohaeTableViewController: UITableViewController,GoohaeDownload, UISearchB
                 
                 if let destination = segue.destination as? UINavigationController {
                     let targetController = destination.topViewController as? JokboUploadViewController
-                    targetController?.passedClassName = g_GoohaesArray[(indexPath?.row)!].className
-                    targetController?.passedProfessorName = g_GoohaesArray[(indexPath?.row)!].professorName
+                    targetController?.passedClassName = self.goohaesArray[(indexPath?.row)!].className
+                    targetController?.passedProfessorName = self.goohaesArray[(indexPath?.row)!].professorName
                 }
             }
         } else if segue.identifier == "GoohaeSegue" {
             if let destination = segue.destination as? ViewGoohaeTableViewController, let selectedIndex = self.tableView.indexPathForSelectedRow?.row {
-                    destination.goohae = g_GoohaesArray[selectedIndex]
-                    g_SelectedData = g_GoohaesArray[selectedIndex].key
+                    destination.goohae = self.goohaesArray[selectedIndex]
+                    g_SelectedData = self.goohaesArray[selectedIndex].key
                     print("구해요", g_SelectedData)
             }
         }
@@ -220,9 +223,10 @@ class GoohaeTableViewController: UITableViewController,GoohaeDownload, UISearchB
     
 
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let subviewCGSize = CGSize(width: UIScreen.main.bounds.width, height: 70)
+        let yPoint = self.navigationController?.navigationBar.frame.minY
+        let subviewCGSize = CGSize(width: UIScreen.main.bounds.width, height: 44)
+        searchBar.frame = CGRect(x: scrollView.contentOffset.x, y: yPoint!, width: subviewCGSize.width, height: subviewCGSize.height)
 
-              searchBar.frame = CGRect(origin: scrollView.contentOffset, size: subviewCGSize)
     }
  
     func viewDate(date DateNum:Int ) -> String{
@@ -257,18 +261,25 @@ class GoohaeTableViewController: UITableViewController,GoohaeDownload, UISearchB
         return dateString
     }
 
-    //MARK : Search Bar
+    //MARK: Search Bar
     // 버튼 클릭시 호출
     @IBAction func SearchBarButtonPressed(_ sender: Any) {
         self.searchBar.isHidden = self.searchBar.isHidden ? false : true
     }
 
     func setupSearchBar(){
-        searchBar = UISearchBar(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 70))
-        searchBar.showsScopeBar = true
-        searchBar.scopeButtonTitles = ["과목","교수님"]
+        let yPoint = self.navigationController?.navigationBar.frame.minY
+        searchBar = UISearchBar(frame: CGRect(x: 0, y: yPoint!, width: UIScreen.main.bounds.width, height: 44))
+        searchBar.showsCancelButton = true
+        searchBar.barTintColor = UIColor(red: 76/255, green: 118/255, blue: 201/255, alpha: 1.0)
+
+        let cancelButtonAttributes: [String: AnyObject] = [NSForegroundColorAttributeName: UIColor.white]
+        UIBarButtonItem.appearance(whenContainedInInstancesOf: [UISearchBar.self]).setTitleTextAttributes(cancelButtonAttributes, for: .normal)
+
+        searchBar.tintColor = UIColor.white
+        searchBar.placeholder = "과목명 또는 교수님명을 입력하세요"
         searchBar.delegate = self
-        self.view.addSubview(searchBar)
+        self.navigationController?.view.addSubview(searchBar)
     }
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if(searchText.isEmpty){
@@ -282,11 +293,13 @@ class GoohaeTableViewController: UITableViewController,GoohaeDownload, UISearchB
         switch index {
         case .subject:
             goohaesArray = g_GoohaesArray.filter{$0.className.contains(text)}
-        case .professor:
-            goohaesArray = g_GoohaesArray.filter{$0.professorName.contains(text)}
+            goohaesArray += g_GoohaesArray.filter{$0.professorName.contains(text)}
         default:
             print("filterTable default")
         }
     }
-
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.text = ""
+        self.searchBar.isHidden = true
+    }
 }

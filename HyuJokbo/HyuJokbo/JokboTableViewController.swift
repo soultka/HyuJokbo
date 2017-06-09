@@ -137,7 +137,6 @@ class JokboTableViewController: UITableViewController, JokboDownload, UISearchBa
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-//        jokbosArray = g_JokbosArray
         return 1
     }
     
