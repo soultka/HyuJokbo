@@ -10,7 +10,7 @@ import UIKit
 import FirebaseAuth
 
 
-class MyDataViewController: UIViewController{
+class MyDataViewController: UIViewController ,UITableViewDelegate,UITableViewDataSource{
     
     @IBOutlet weak var BookMarkedTableView: UITableView!
     @IBOutlet weak var viewComment: UILabel!
@@ -34,6 +34,10 @@ class MyDataViewController: UIViewController{
         }else{
             myName.text = user.email
         }
+        BookMarkedTableView.separatorStyle = UITableViewCellSeparatorStyle.none
+        
+        BookMarkedTableView.delegate = self
+        BookMarkedTableView.dataSource = self;
         
         // Do any additional setup after loading the view.
     }
@@ -108,6 +112,33 @@ class MyDataViewController: UIViewController{
         print("doingwell")
        
          print(self.BookedJokbo)
+    }
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print(BookedJokbo.count)
+        return BookedJokbo.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let myCell = UITableViewCell()
+        if tableView != self.BookMarkedTableView {
+            return myCell
+        }
+        print("im herer")
+        if let myBCell = tableView.dequeueReusableCell(withIdentifier: "MyDataJokboCell", for: indexPath) as? MyDataTableViewCell{
+            let jokbo = self.BookedJokbo[indexPath.row]
+            print("before return cell")
+            myBCell.NumofTableLabel?.text = String(indexPath.row+1)
+            myBCell.SubjectLabel?.text  = String(jokbo.className)
+            myBCell.ProfessorLabel?.text = String(jokbo.professorName)
+            myBCell.LikeNumLabel?.text = String(jokbo.likeNum)
+            myBCell.BookMarkNumLabel?.text = String(jokbo.bookmarkNum)
+            return myBCell
+        }
+        return myCell
     }
     /*
      // MARK: - Navigation
