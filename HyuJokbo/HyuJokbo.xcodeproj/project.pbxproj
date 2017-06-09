@@ -21,8 +21,6 @@
 		2FFDB4411EC5B21F003965A2 /* JokboUploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFDB4401EC5B21F003965A2 /* JokboUploadViewController.swift */; };
 		352B919E44EE73DCC7DE37E9 /* Pods_HyuJokbo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FC51CDA8A01E9363B43B7AD /* Pods_HyuJokbo.framework */; };
 		7700FE1D1ECDA68E00D133C5 /* HonorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7700FE141ECDA68E00D133C5 /* HonorViewController.swift */; };
-		7700FE251ECDAACC00D133C5 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7700FE231ECDAACC00D133C5 /* SearchView.swift */; };
-		7700FE261ECDAACC00D133C5 /* SearchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7700FE241ECDAACC00D133C5 /* SearchView.xib */; };
 		7700FE381ECDAD7800D133C5 /* GoohaeTabStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7700FE331ECDAD7800D133C5 /* GoohaeTabStoryboard.storyboard */; };
 		7700FE3A1ECDAD7800D133C5 /* JokboTabStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7700FE351ECDAD7800D133C5 /* JokboTabStoryboard.storyboard */; };
 		7700FE3C1ECDAD7800D133C5 /* MydataTabStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7700FE371ECDAD7800D133C5 /* MydataTabStoryboard.storyboard */; };
@@ -83,8 +81,6 @@
 		2FFDB4401EC5B21F003965A2 /* JokboUploadViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JokboUploadViewController.swift; sourceTree = "<group>"; wrapsLines = 0; };
 		47038DD4EBD2B32427E1F4A2 /* Pods-HyuJokbo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HyuJokbo.release.xcconfig"; path = "Pods/Target Support Files/Pods-HyuJokbo/Pods-HyuJokbo.release.xcconfig"; sourceTree = "<group>"; };
 		7700FE141ECDA68E00D133C5 /* HonorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HonorViewController.swift; sourceTree = "<group>"; };
-		7700FE231ECDAACC00D133C5 /* SearchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
-		7700FE241ECDAACC00D133C5 /* SearchView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchView.xib; sourceTree = "<group>"; };
 		7700FE331ECDAD7800D133C5 /* GoohaeTabStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = GoohaeTabStoryboard.storyboard; sourceTree = "<group>"; };
 		7700FE351ECDAD7800D133C5 /* JokboTabStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = JokboTabStoryboard.storyboard; sourceTree = "<group>"; };
 		7700FE371ECDAD7800D133C5 /* MydataTabStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MydataTabStoryboard.storyboard; sourceTree = "<group>"; };
@@ -208,8 +204,6 @@
 				2395FE5D1EE7CD2A006AE496 /* MyDataViewController.swift */,
 				77406AD11EE32D0F00A2F931 /* CommentUploadView.xib */,
 				77406AD31EE32D2100A2F931 /* CommentUploadView.swift */,
-				7700FE231ECDAACC00D133C5 /* SearchView.swift */,
-				7700FE241ECDAACC00D133C5 /* SearchView.xib */,
 				2FF113D51ED867EA0081B3C2 /* SignUpViewController.swift */,
 				2F4FA3601EDFE79900B56D3C /* ViewJokboTableCommentViewCell.swift */,
 				2F4FA35E1EDFE77700B56D3C /* ViewJokboTableContentViewCell.swift */,
@@ -323,7 +317,6 @@
 				7700FE401ECEC83200D133C5 /* HonorTabStoryboard.storyboard in Resources */,
 				7700FE3A1ECDAD7800D133C5 /* JokboTabStoryboard.storyboard in Resources */,
 				77406ACC1EE31C8600A2F931 /* Base.lproj in Resources */,
-				7700FE261ECDAACC00D133C5 /* SearchView.xib in Resources */,
 				774A93C11EC4BCEC00B96A56 /* DataCenter.plist in Resources */,
 				7700FE3C1ECDAD7800D133C5 /* MydataTabStoryboard.storyboard in Resources */,
 				2F811DF91EC88DEC00382F51 /* GoogleService-Info.plist in Resources */,
@@ -412,7 +405,6 @@
 				77A8E7F91ED716DF0093F735 /* HonorMemberButton.swift in Sources */,
 				772F0C601EE0F1CF00BE2576 /* HonorMemberImageView.swift in Sources */,
 				23EA299D1EBB226A009F40F8 /* AppDelegate.swift in Sources */,
-				7700FE251ECDAACC00D133C5 /* SearchView.swift in Sources */,
 				2395FE5E1EE7CD2A006AE496 /* MyDataViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

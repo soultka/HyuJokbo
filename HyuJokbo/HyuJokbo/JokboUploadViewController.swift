@@ -14,7 +14,8 @@ import BSImagePicker
 import FBSDKLoginKit
 import FirebaseAuth
 
-class JokboUploadViewController: UIViewController, UITextViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class JokboUploadViewController: UIViewController, UITextViewDelegate,
+UIImagePickerControllerDelegate, UINavigationControllerDelegate{
 
     @IBOutlet weak var TitleTextView: UITextView!
     @IBOutlet weak var ProfessorTextView: UITextView!
@@ -244,8 +245,10 @@ class JokboUploadViewController: UIViewController, UITextViewDelegate, UIImagePi
 
         messageLabel.adjustsFontSizeToFitWidth = true
         messageLabel.alpha = 0
-        messageLabel.textColor = UIColor.blue
+        messageLabel.textColor =  UIColor(red: 76/255, green: 118/255, blue: 201/255, alpha: 1.0)
         messageLabel.text = "이미지를 꾹 누르면 미리보기가 됩니다"
+        messageLabel.font = UIFont(name:"HelveticaNeue-Bold", size: 13.0)
+
 
 
         bs_presentImagePickerController(vc, animated: true,
@@ -395,7 +398,8 @@ class JokboUploadViewController: UIViewController, UITextViewDelegate, UIImagePi
         }
     }
     
-    
+
+
     
     
     /*

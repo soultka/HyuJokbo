@@ -8,9 +8,12 @@
 
 import UIKit
 
-class SearchView:UIView, UITextFieldDelegate{
+protocol CustomSearchBarDelegate {
+    func CustomSearch()
+}
+class SearchView:UIView{
 
-    @IBOutlet weak var SearchTextField: UITextField!
+    @IBOutlet weak var SearchTextField: UISearchBar!
    
     override init(frame: CGRect) {
         super.init(frame: frame)
