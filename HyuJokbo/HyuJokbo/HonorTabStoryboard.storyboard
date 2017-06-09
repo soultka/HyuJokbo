@@ -219,6 +219,7 @@
                                             <outlet property="ProfessorLabel" destination="8kc-pF-ogg" id="bvc-3q-YSk"/>
                                             <outlet property="RankNumLabel" destination="lJ5-Be-dlX" id="tr8-Yx-WgI"/>
                                             <outlet property="SubjectLabel" destination="zKl-No-diW" id="xNX-pb-kfj"/>
+                                            <segue destination="eMb-d4-FvX" kind="show" id="l32-Rs-n5J"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -426,6 +427,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8xE-oc-9Gu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="318.75" y="-132.04225352112675"/>
+        </scene>
+        <!--ViewJokboTableViewController-->
+        <scene sceneID="Opg-Zn-ULc">
+            <objects>
+                <viewControllerPlaceholder storyboardName="JokboTabStoryboard" referencedIdentifier="ViewJokboTableViewController" id="eMb-d4-FvX" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Jc3-kT-auT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="956" y="-29"/>
         </scene>
     </scenes>
     <resources>
