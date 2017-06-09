@@ -32,7 +32,7 @@ class JokboUploadViewController: UIViewController, UITextViewDelegate, UIImagePi
 
     var passedClassName: String = ""
     var passedProfessorName: String = ""
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -54,7 +54,7 @@ class JokboUploadViewController: UIViewController, UITextViewDelegate, UIImagePi
         } else {
             self.TitleTextView?.text = passedClassName
         }
-        
+
         if passedProfessorName.isEmpty == true {
             self.ProfessorTextView?.text = "교수님"
             self.ProfessorTextView?.textColor = UIColor.lightGray
@@ -62,11 +62,11 @@ class JokboUploadViewController: UIViewController, UITextViewDelegate, UIImagePi
             self.ProfessorTextView?.text = passedProfessorName
         }
 
-        
+
         self.TitleTextView.tag = 0
         self.ProfessorTextView.tag = 1
         self.ContentTextView.tag = 2
-        
+
         self.ContentTextView?.text = "여기를 눌러서 글을 작성할 수 있습니다."
         self.ContentTextView?.textColor = UIColor.lightGray
 
@@ -209,6 +209,7 @@ class JokboUploadViewController: UIViewController, UITextViewDelegate, UIImagePi
 
         }
 
+
         // Dismiss the popover
         presentingViewController?.dismiss(animated: true, completion: nil)
     }
@@ -247,10 +248,10 @@ class JokboUploadViewController: UIViewController, UITextViewDelegate, UIImagePi
         option.version = .original
         option.isSynchronous = true
         manager.requestImageData(for: asset, options: option, resultHandler: {data, _, _, _ in
-            
+
             if let data = data{
                 thumbnail = UIImage(data:data)!
-                
+
             }
         })
         return thumbnail
@@ -282,10 +283,19 @@ class JokboUploadViewController: UIViewController, UITextViewDelegate, UIImagePi
             selectedImages.removeAll()
             return errorIndex
         }
+        //Init uploadImages
+        self.uploadImageURLs = [String](repeating: "", count: selectedImages.count)
 
         i=0
+        var mutex = pthread_mutex_t()
+        pthread_mutex_init(&mutex, nil)
+
         for selected in selectedImages{
             imageName = key + "[\(i)].jpg"
+
+            pthread_mutex_trylock(&mutex)
+            var curI = i
+
             storageRef = FIRStorage.storage().reference().child(imageName)
 
             guard var uploadData = UIImageJPEGRepresentation(selected, 0.1) else{
@@ -295,30 +305,33 @@ class JokboUploadViewController: UIViewController, UITextViewDelegate, UIImagePi
                 return errorIndex
             }
 
-                //0.0~1.0 means quality of image
-                storageRef.put(uploadData, metadata: nil, completion: {(metadata,error)
-                    in
-                    if  error != nil{
-                        print(error)
-                        return
-                    }
+            //0.0~1.0 means quality of image
+            storageRef.put(uploadData, metadata: nil, completion: {(metadata,error)
+                in
+                if  error != nil{
+                    print(error)
+                    return
+                }
 
-                    if let downloadURL = metadata?.downloadURL(){
+                if let downloadURL = metadata?.downloadURL(){
 
-                        self.uploadImageURLs += ["\(downloadURL)"]
-                        print("URL!!")
-                        print(downloadURL)
+//                    self.uploadImageURLs += ["\(
+//                    self.uploadImageURLs.insert("\(downloadURL)", at: curI)
+                    self.uploadImageURLs[curI] = "\(downloadURL)"
+                    print("URL!!")
+                    print(downloadURL)
 
-                    }
-                    if(i >= self.selectedImages.count-2){
-                        self.uploadPhoto(curRef: curRef!)
-                    }
+                }
+                if(i >= self.selectedImages.count-2){
+                    self.uploadPhoto(curRef: curRef!)
+                }
+                pthread_mutex_unlock(&mutex)
 
-                })
+            })
 
             i += 1
         }
-        selectedImages.removeAll()
+        self.selectedImages.removeAll()
         return errorIndex
     }
     func uploadPhoto(curRef:FIRDatabaseReference){
