@@ -28,10 +28,13 @@ class ViewJokboTableContentViewCell: UITableViewCell, UIScrollViewDelegate {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.loadingAni()
+        if(JokboImage != nil){
+            self.loadingAni()
+
         self.scrollViewWidth = self.frame.width
         self.PageControl?.isHidden = true
         self.PageControl?.numberOfPages = 0
+        }
         // Initialization code
     }
 

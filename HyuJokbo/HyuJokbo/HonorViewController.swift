@@ -290,5 +290,20 @@ class HonorViewController: UIViewController, UIScrollViewDelegate, HonorMemberBu
         return myCell
 
     }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "JokboSegue" {
+            if let destination = segue.destination as? ViewJokboTableViewController, let selectedIndex = self.HonorJokboTableView.indexPathForSelectedRow?.row {
+
+                destination.jokbo = honorJokbos[selectedIndex]
+                g_SelectedData = honorJokbos[selectedIndex].key
+            }
+        }
+        if segue.identifier == "GoohaeSegue" {
+            if let destination = segue.destination as? ViewGoohaeTableViewController, let selectedIndex = self.HonorGoohaeTableView.indexPathForSelectedRow?.row {
+                destination.goohae = self.honorGoohaes[selectedIndex]
+                g_SelectedData = self.honorGoohaes[selectedIndex].key
+            }
+        }
+    }
 
 }
