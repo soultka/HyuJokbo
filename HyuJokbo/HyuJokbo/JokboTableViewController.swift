@@ -204,7 +204,7 @@ class JokboTableViewController: UITableViewController, JokboDownload {
     func download(subjectName: String, key: String) {
         //to do list
         //다운로드 만들것
-        let alertMessage = subjectName + " 의 족보를 다운받으시겠습니까?"
+        let alertMessage = "<" + subjectName + ">\n의 족보를 다운받으시겠습니까?"
         let downloadAlert = UIAlertController(title: "족보 다운로드", message: alertMessage, preferredStyle: .alert)
         
         let downloadAction = UIAlertAction(title: "다운로드", style: .default) { (action: UIAlertAction) in
