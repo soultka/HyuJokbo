@@ -190,7 +190,7 @@
         <!--View Jokbo Table View Controller-->
         <scene sceneID="FGT-r6-PE3">
             <objects>
-                <tableViewController hidesBottomBarWhenPushed="YES" id="16k-la-qsF" customClass="ViewJokboTableViewController" customModule="HyuJokbo" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="ViewJokboTableViewController" hidesBottomBarWhenPushed="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="16k-la-qsF" customClass="ViewJokboTableViewController" customModule="HyuJokbo" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="63" sectionHeaderHeight="28" sectionFooterHeight="28" id="7Rd-NG-TIs">
                         <rect key="frame" x="0.0" y="64" width="320" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
