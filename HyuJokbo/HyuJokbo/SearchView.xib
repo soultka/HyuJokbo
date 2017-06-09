@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16B2659" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SearchView" customModule="HyuJokbo" customModuleProvider="target">
             <connections>
-                <outlet property="SearchTextField" destination="sxy-WE-heu" id="xtb-im-iVO"/>
+                <outlet property="SearchTextField" destination="k4d-7S-sdJ" id="hYf-Va-RZl"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -23,18 +23,15 @@
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sxy-WE-heu">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="40"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="k4d-7S-sdJ">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="40" id="J3i-oX-gMF"/>
+                        <constraint firstAttribute="height" constant="44" id="omC-44-EnE"/>
                     </constraints>
-                    <nil key="textColor"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
-                </textField>
+                </searchBar>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Kz-TJ-dya">
-                    <rect key="frame" x="290" y="10" width="20" height="20"/>
+                    <rect key="frame" x="290" y="12" width="20" height="20"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="20" id="Jpr-Zg-et9"/>
                         <constraint firstAttribute="width" constant="20" id="g68-Q8-5HL"/>
@@ -46,13 +43,13 @@
                 </button>
             </subviews>
             <constraints>
+                <constraint firstItem="k4d-7S-sdJ" firstAttribute="width" secondItem="yQc-aP-XuA" secondAttribute="width" id="4Hs-EC-bcW"/>
                 <constraint firstItem="pIv-aN-PbC" firstAttribute="leading" secondItem="yQc-aP-XuA" secondAttribute="leading" id="7fU-mj-VA2"/>
                 <constraint firstItem="pIv-aN-PbC" firstAttribute="top" secondItem="yQc-aP-XuA" secondAttribute="top" id="81I-Ca-yQI"/>
-                <constraint firstItem="8Kz-TJ-dya" firstAttribute="centerY" secondItem="sxy-WE-heu" secondAttribute="centerY" id="Knh-AV-uDL"/>
+                <constraint firstItem="k4d-7S-sdJ" firstAttribute="leading" secondItem="yQc-aP-XuA" secondAttribute="leading" id="FaI-ly-Omg"/>
+                <constraint firstItem="8Kz-TJ-dya" firstAttribute="centerY" secondItem="k4d-7S-sdJ" secondAttribute="centerY" id="QqW-xD-84f"/>
                 <constraint firstItem="pIv-aN-PbC" firstAttribute="height" secondItem="yQc-aP-XuA" secondAttribute="height" id="WR4-ly-s7h"/>
-                <constraint firstItem="sxy-WE-heu" firstAttribute="centerX" secondItem="yQc-aP-XuA" secondAttribute="centerX" id="YAY-sd-ObI"/>
-                <constraint firstItem="sxy-WE-heu" firstAttribute="width" secondItem="yQc-aP-XuA" secondAttribute="width" id="fzt-dk-5UD"/>
-                <constraint firstItem="sxy-WE-heu" firstAttribute="top" secondItem="yQc-aP-XuA" secondAttribute="top" id="r7p-43-X7q"/>
+                <constraint firstItem="k4d-7S-sdJ" firstAttribute="top" secondItem="yQc-aP-XuA" secondAttribute="top" id="eaf-4j-zOl"/>
                 <constraint firstAttribute="trailing" secondItem="8Kz-TJ-dya" secondAttribute="trailing" constant="10" id="sW7-Pt-dHR"/>
                 <constraint firstItem="pIv-aN-PbC" firstAttribute="width" secondItem="yQc-aP-XuA" secondAttribute="width" id="wBI-G2-4fT"/>
             </constraints>

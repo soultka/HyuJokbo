@@ -21,7 +21,6 @@ class GoohaeTableViewController: UITableViewController,GoohaeDownload {
     static var searchPressedFlag = 0
 
     //검색창 서브뷰
-    var searchSubView:SearchView!
 
 
     @IBAction func handleModalClose(segue: UIStoryboardSegue){
@@ -32,20 +31,6 @@ class GoohaeTableViewController: UITableViewController,GoohaeDownload {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //- -   -   -   -   --  -   -   -   -   -   -   SEARCH VIEW ADD
-        //테이블 뷰의 왼쪽위 좌표를 CGPoint로 얻어옴
-        let topOfTableCGPoint = self.tableView.topAnchor.accessibilityActivationPoint
-        //서브뷰(검색창)의 CGSize를 얻어옴
-        let subviewCGSize = CGSize(width: self.view.frame.width, height: self.view.frame.height)
-        //얻어온 값을 기준으로 검색창 서브뷰 설정
-        searchSubView = SearchView(frame:CGRect(origin: topOfTableCGPoint, size: subviewCGSize))
-
-        //검색창 서브뷰 추가
-        self.view.addSubview(searchSubView)
-        //검색창 서브뷰 기본적으로 숨겨짐
-        self.searchSubView.isHidden = true
-
         //- -   -   -   -   --  -   -   --  -   -   -   -   -DATA READ
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -212,34 +197,6 @@ class GoohaeTableViewController: UITableViewController,GoohaeDownload {
 
     @IBAction func SearchBarButtonPressed(_ sender: Any) {
 
-        //검색창이 표시되었을 경우
-        if(GoohaeTableViewController.searchPressedFlag == 1)
-        {
-
-            self.tableView.reloadData()
-
-            self.searchSubView.isHidden = true
-
-            //editing모드 초기화
-            if self.searchSubView.SearchTextField.text != "검색어를 입력하세요"{
-                self.searchSubView.SearchTextField.text = nil
-                self.searchSubView.SearchTextField.endEditing(true)
-            }
-
-
-            GoohaeTableViewController.searchPressedFlag = 0
-
-        }else {
-            //검색창이 표시안되있을경우
-            self.tableView.reloadData()
-
-            self.searchSubView.isHidden = false
-            //검색버튼을 닫을 경우 editing모드 초기화
-            
-            GoohaeTableViewController.searchPressedFlag = 1
-            
-        }
-        
         
     }
 
@@ -308,7 +265,7 @@ class GoohaeTableViewController: UITableViewController,GoohaeDownload {
 
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let subviewCGSize = CGSize(width: self.view.frame.width, height: self.view.frame.height)
-        searchSubView.frame = CGRect(origin: scrollView.contentOffset, size: subviewCGSize)
+//        searchSubView.frame = CGRect(origin: scrollView.contentOffset, size: subviewCGSize)
     }
  
     func viewDate(date DateNum:Int ) -> String{

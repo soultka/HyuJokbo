@@ -9,22 +9,27 @@
 import UIKit
 import FirebaseDatabase
 
-class JokboTableViewController: UITableViewController, JokboDownload {
+enum searchSelectedScope:Int{
+    case subject = 0
+    case professor = 1
+}
+
+class JokboTableViewController: UITableViewController, JokboDownload, UISearchBarDelegate {
 
     var ref:FIRDatabaseReference?
     var databaseHandle:FIRDatabaseHandle?
     var databaseChangeHandle:FIRDatabaseHandle?
     var databaseRemoveHandle:FIRDatabaseHandle?
 
+    var jokbosArray:[Jokbo] = []
+
     var commentsData: [String:Comment] = [:]
     var commentsArray: [Comment] = []
+
+    var searchBar:UISearchBar!
     
     //서치 버튼이 표시되었을 경우 1, 표시 안되어 있을 경우 0
     static var searchPressedFlag = 0
-
-    //검색창 서브뷰
-    var searchSubView:SearchView!
-
 
     @IBAction func handleModalClose(segue: UIStoryboardSegue){
 
@@ -36,28 +41,10 @@ class JokboTableViewController: UITableViewController, JokboDownload {
         super.viewDidLoad()
         self.tableView.delegate = self
         self.tableView.dataSource = self
-        
-        //- -   -   -   -   -   -   -   -   -   -   -   SEARCH VIEW ADD
-
-        //테이블 뷰의 왼쪽위 좌표를 CGPoint로 얻어옴
-        let topOfTableCGPoint = self.tableView.topAnchor.accessibilityActivationPoint
-        //서브뷰(검색창)의 CGSize를 얻어옴
-        let subviewCGSize = CGSize(width: self.view.frame.width, height: self.view.frame.height)
-        //얻어온 값을 기준으로 검색창 서브뷰 설정
-        searchSubView = SearchView(frame:CGRect(origin: topOfTableCGPoint, size: subviewCGSize))
-
-        //검색창 서브뷰 추가
-        self.view.addSubview(searchSubView)
-        //검색창 서브뷰 기본적으로 숨겨짐
-
-        self.searchSubView.isHidden = true
 
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        self.setupSearchBar()
+        self.searchBar.isHidden = true
 
         //- -   -   -   -   -   -   -   -   -   -   DATA READING-
         ref = FIRDatabase.database().reference()
@@ -151,6 +138,7 @@ class JokboTableViewController: UITableViewController, JokboDownload {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
+        jokbosArray = g_JokbosArray
         return 1
     }
     
@@ -159,7 +147,7 @@ class JokboTableViewController: UITableViewController, JokboDownload {
         // #warning Incomplete implementation, return the number of rows
 
 
-        let rowCount = g_JokbosArray.count
+        let rowCount = jokbosArray.count
         return rowCount
     }
 
@@ -169,7 +157,7 @@ class JokboTableViewController: UITableViewController, JokboDownload {
 
         let cell = tableView.dequeueReusableCell(withIdentifier: "JokboCell", for: indexPath) as! JokboTableViewCell
 
-        let jokboDataShow = g_JokbosArray[indexPath.row]
+        let jokboDataShow = jokbosArray[indexPath.row]
         //jokbos로 부터 jokbo를 받아옴
         
         if let index = jokboDataShow.userName.range(of: "@")?.lowerBound{
@@ -207,98 +195,22 @@ class JokboTableViewController: UITableViewController, JokboDownload {
         print("Downloading...")
     }
 
-    //Download 버튼 클릭시 호출
-    @IBAction func SearchBarButtonPressed(_ sender: Any) {
-
-        //검색창이 표시되었을 경우
-        if(JokboTableViewController.searchPressedFlag == 1)
-        {
-
-            self.tableView.reloadData()
-
-            self.searchSubView.isHidden = true
-
-            //editing모드 초기화
-            if self.searchSubView.SearchTextField.text != "검색어를 입력하세요"{
-                self.searchSubView.SearchTextField.text = nil
-                self.searchSubView.SearchTextField.endEditing(true)
-            }
-
-            JokboTableViewController.searchPressedFlag = 0
-
-        }else {
-            //검색창이 표시안되있을경우
-
-            self.searchSubView.isHidden = false
-
-            //editing모드 초기화
 
 
-
-            JokboTableViewController.searchPressedFlag = 1
-
-        }
-
-
-    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "JokboSegue" {
             if let destination = segue.destination as? ViewJokboTableViewController, let selectedIndex = self.tableView.indexPathForSelectedRow?.row {
                 
-                destination.jokbo = g_JokbosArray[selectedIndex]
-                g_SelectedData = g_JokbosArray[selectedIndex].key
+                destination.jokbo = jokbosArray[selectedIndex]
+                g_SelectedData = jokbosArray[selectedIndex].key
             }
         }
     }
-    /*
-     // Override to support conditional editing of the table view.
-     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-     // Return false if you do not want the specified item to be editable.
-     return true
-     }
-     */
 
-    /*
-     // Override to support editing the table view.
-     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-     if editingStyle == .delete {
-     // Delete the row from the data source
-     tableView.deleteRows(at: [indexPath], with: .fade)
-     } else if editingStyle == .insert {
-     // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-     }
-     }
-     */
-
-    /*
-     // Override to support rearranging the table view.
-     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-     }
-     */
-
-    /*
-     // Override to support conditional rearranging of the table view.
-     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-     // Return false if you do not want the item to be re-orderable.
-     return true
-     }
-     */
-
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let subviewCGSize = CGSize(width: self.view.frame.width, height: self.view.frame.height)
-        searchSubView.frame = CGRect(origin: scrollView.contentOffset, size: subviewCGSize)
+//        searchSubView.frame = CGRect(origin: scrollView.contentOffset, size: subviewCGSize)
     }
     
     
@@ -332,6 +244,36 @@ class JokboTableViewController: UITableViewController, JokboDownload {
         }
         dateString += "\(minute)"
         return dateString
+    }
+
+    //MARK : Search Bar
+    // 버튼 클릭시 호출
+    @IBAction func SearchBarButtonPressed(_ sender: Any) {
+        self.searchBar.isHidden = self.searchBar.isHidden ? false : true
+    }
+
+    func setupSearchBar(){
+        searchBar = UISearchBar(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 70))
+        searchBar.showsScopeBar = true
+        searchBar.scopeButtonTitles = ["과목","교수님"]
+        searchBar.delegate = self
+        self.view.addSubview(searchBar)
+    }
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if(searchText.isEmpty){
+            jokbosArray = g_JokbosArray
+        }
+        filterTableView(index: searchSelectedScope(rawValue: searchBar.selectedScopeButtonIndex)!, text: searchText)
+    }
+    func filterTableView(index:searchSelectedScope, text:String){
+        switch index {
+        case .subject:
+            jokbosArray = jokbosArray.filter{ $0.className.lowercased().contains(text.lowercased())}
+        case .professor:
+            jokbosArray = jokbosArray.filter{$0.professorName.lowercased().contains(text.lowercased())}
+        default:
+            print("filterTable default")
+        }
     }
     
 }
