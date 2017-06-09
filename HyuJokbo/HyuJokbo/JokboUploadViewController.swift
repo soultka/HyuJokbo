@@ -219,9 +219,33 @@ class JokboUploadViewController: UIViewController, UITextViewDelegate, UIImagePi
     @IBAction func photoUploadButton(_ sender: Any) {
         self.selectedImages.removeAll()
 
+        let messageLabel = UILabel()
+
+        let animation: CATransition = CATransition()
+        animation.duration = 20.0
+        animation.type = kCATransitionFade
+        animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+
+
 
         let vc = BSImagePickerViewController()
         vc.maxNumberOfSelections = 30
+        vc.view.addSubview(messageLabel)
+        //for message
+
+
+
+        messageLabel.translatesAutoresizingMaskIntoConstraints = false
+        messageLabel.centerXAnchor.constraint(equalTo: (messageLabel.superview?.centerXAnchor)!).isActive = true
+        messageLabel.centerYAnchor.constraint(equalTo: (messageLabel.superview?.centerYAnchor)!, constant: -10).isActive = true
+        messageLabel.widthAnchor.constraint(equalToConstant: 200).isActive = true
+        messageLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
+
+
+        messageLabel.adjustsFontSizeToFitWidth = true
+        messageLabel.alpha = 0
+        messageLabel.textColor = UIColor.blue
+        messageLabel.text = "이미지를 꾹 누르면 미리보기가 됩니다"
 
 
         bs_presentImagePickerController(vc, animated: true,
@@ -232,12 +256,35 @@ class JokboUploadViewController: UIViewController, UITextViewDelegate, UIImagePi
             print("Deselected: \(asset)")
         }, cancel: { (assets: [PHAsset]) -> Void in
             print("Cancel: \(assets)")
+            messageLabel.removeFromSuperview()
         }, finish: { (assets: [PHAsset]) -> Void in
             for i in stride(from: 0, to: assets.count, by: 1){
                 self.selectedImages += [self.getAssetThumbnail(asset: assets[i])]
             }
             print("Finish: \(assets)")
+            messageLabel.removeFromSuperview()
         }, completion: nil)
+        let animationDuration = 1.0
+
+        // Fade in the view
+        UIView.animate(withDuration: animationDuration, animations: { () -> Void in
+            messageLabel.alpha = 0
+        }) { (Bool) -> Void in
+
+            // After the animation completes, fade out the view after a delay
+
+            UIView.animate(withDuration: animationDuration, delay: 0.0, options: [], animations: { () -> Void in
+                messageLabel.alpha = 1
+
+            }, completion: {
+                (Bool) -> Void in
+                UIView.animate(withDuration: animationDuration, delay: 0.0, options: [], animations: { () -> Void in
+                    messageLabel.alpha = 0
+                },
+                               completion: nil)
+            })
+        }
+
 
     }
 
