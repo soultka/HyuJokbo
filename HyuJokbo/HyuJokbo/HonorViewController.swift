@@ -228,7 +228,7 @@ class HonorViewController: UIViewController, UIScrollViewDelegate, HonorMemberBu
     }
 
 
-    /// -   -   -   -   -   -   --  -   -   -   -TABLE VIEW
+    //MARK: -   -   -   -   -   -   --  -   -   -   -TABLE VIEW
     func honorJokboLoad(){
         self.honorJokbos = g_JokbosArray.sorted{ $0.likeNum > $1.likeNum }
     }

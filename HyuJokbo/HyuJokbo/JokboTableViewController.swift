@@ -29,8 +29,7 @@ class JokboTableViewController: UITableViewController, JokboDownload, UISearchBa
     static var searchPressedFlag = 0
 
     @IBAction func handleModalClose(segue: UIStoryboardSegue){
-
-
+        self.jokbosArray = g_JokbosArray
     }
 
 
@@ -42,6 +41,7 @@ class JokboTableViewController: UITableViewController, JokboDownload, UISearchBa
 
         self.setupSearchBar()
         self.searchBar.isHidden = true
+        self.jokbosArray = g_JokbosArray
 
         //- -   -   -   -   -   -   -   -   -   -   DATA READING-
         ref = FIRDatabase.database().reference()
@@ -78,7 +78,7 @@ class JokboTableViewController: UITableViewController, JokboDownload, UISearchBa
                     g_JokbosArray.sort{
                         $0.updateDate > $1.updateDate
                     }
-                    self.jokbosArray = g_JokbosArray
+                    if(self.searchBar.isHidden == true) {self.jokbosArray = g_JokbosArray}
                     self.tableView.reloadData()
                 }
 
@@ -119,6 +119,7 @@ class JokboTableViewController: UITableViewController, JokboDownload, UISearchBa
                     g_JokbosArray.sort{
                         $0.updateDate > $1.updateDate
                     }
+                    if(self.searchBar.isHidden == true) {self.jokbosArray = g_JokbosArray}
                     self.tableView.reloadData()
 
                 }
@@ -180,6 +181,7 @@ class JokboTableViewController: UITableViewController, JokboDownload, UISearchBa
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        self.jokbosArray = g_JokbosArray
         self.tableView.reloadData()
     }
     override func viewDidDisappear(_ animated: Bool) {
@@ -248,7 +250,7 @@ class JokboTableViewController: UITableViewController, JokboDownload, UISearchBa
         return dateString
     }
 
-    //MARK : Search Bar
+    //MARK: Search Bar
     // 버튼 클릭시 호출
     @IBAction func SearchBarButtonPressed(_ sender: Any) {
         self.searchBar.isHidden = self.searchBar.isHidden ? false : true
