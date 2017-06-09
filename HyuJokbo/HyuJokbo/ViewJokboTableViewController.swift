@@ -110,6 +110,8 @@ class ViewJokboTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
 
+    //MARK: Loading Animation
+
     override func viewDidAppear(_ animated: Bool) {
         scrollViewDidScroll((self.tableView as? UIScrollView)!)
     }
@@ -225,6 +227,7 @@ class ViewJokboTableViewController: UITableViewController {
             })
             }
          //   cell.JokboImage?.image = UIimage[
+            if(cell.imageCount == 0){cell.loadingAni()}
             cell.ContentLabel?.text = jokbo.jokboText
             return cell
         } else {
@@ -241,6 +244,12 @@ class ViewJokboTableViewController: UITableViewController {
             
             return cell
         }
+    }
+    @IBAction func refreshBtn(_ sender: Any) {
+        let range = NSMakeRange(0, self.tableView.numberOfSections)
+        let sections = NSIndexSet(indexesIn: range)
+        self.tableView.reloadSections(sections as IndexSet, with: .automatic)
+        
     }
 
     @IBAction func likeButtonTapped(_ sender: Any) {
