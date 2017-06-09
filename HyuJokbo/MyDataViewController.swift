@@ -10,8 +10,9 @@ import UIKit
 import FirebaseAuth
 
 
-class MyDataViewController: UIViewController {
+class MyDataViewController: UIViewController{
     
+    @IBOutlet weak var BookMarkedTableView: UITableView!
     @IBOutlet weak var viewComment: UILabel!
     @IBOutlet weak var viewLike: UILabel!
     @IBOutlet weak var myImage: UIImageView!
@@ -19,9 +20,10 @@ class MyDataViewController: UIViewController {
     let user = User()
     var userLike = 0
     var userComment = 0
+    var BookedJokbo : [Jokbo] = []
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        print(BookedJokbo)
         myImage.image = #imageLiteral(resourceName: "icon-mydata")
         myImage.backgroundColor = UIColor.clear
         if let userID = FIRAuth.auth()?.currentUser{
@@ -42,6 +44,7 @@ class MyDataViewController: UIViewController {
     }
     
     func JokboLike () -> (){
+         userLike = 0
         if g_JokbosArray.count > 0 {
             for i in 1...g_JokbosArray.count {
                 let temp_jokbo = g_JokbosArray[i-1]
@@ -63,6 +66,7 @@ class MyDataViewController: UIViewController {
         }
     }
     func JokboComment () -> (){
+        userComment = 0;
         if g_JokbosArray.count > 0 {
             for i in 1...g_JokbosArray.count {
                 let temp_jokbo = g_JokbosArray[i-1]
@@ -86,15 +90,24 @@ class MyDataViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        userLike = 0
         JokboLike()
         goohaeLike()
-        print(userComment)
-        print(userLike)
         JokboComment()
         goohaeComment()
+        print(userComment)
+        print(userLike)
+        BookedJokboLoad()
+        self.BookMarkedTableView.reloadData()
         viewLike.text = String(userLike)
+        viewComment.text = String(userComment)
         //viewComment.text = String(userComment)
+    }
+    
+    func BookedJokboLoad(){
+        self.BookedJokbo = g_JokbosArray.filter{$0.userName == self.user.email}
+        print("doingwell")
+       
+         print(self.BookedJokbo)
     }
     /*
      // MARK: - Navigation

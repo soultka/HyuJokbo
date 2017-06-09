@@ -58,7 +58,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MyDataJokboCell" id="6VZ-Nf-CfC" customClass="MyDataJokboTableViewCell" customModule="HyuJokbo" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MyDataJokboCell" id="6VZ-Nf-CfC" customClass="MyDataTableViewCell" customModule="HyuJokbo" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="24"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6VZ-Nf-CfC" id="t4e-WY-ua8">
@@ -152,12 +152,14 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <connections>
+                                            <outlet property="BookMarkNumLabel" destination="MBH-sx-rIn" id="q6t-8x-41A"/>
                                             <outlet property="BookMarkNumlabel" destination="MBH-sx-rIn" id="yvF-ZY-F1c"/>
-                                            <outlet property="CommentNumLabel" destination="ulh-JN-rZL" id="Why-jW-2F6"/>
-                                            <outlet property="LikeNumLabel" destination="87d-xJ-ioO" id="Bcn-3s-TLZ"/>
+                                            <outlet property="CommentNumLabel" destination="ulh-JN-rZL" id="mpN-yT-hM0"/>
+                                            <outlet property="LikeNumLabel" destination="87d-xJ-ioO" id="YVh-Yc-47b"/>
                                             <outlet property="NumOfTable" destination="0HJ-U0-U9l" id="HLB-tL-N3p"/>
-                                            <outlet property="ProfessorLabel" destination="Nhg-g4-nWv" id="vw5-Es-sLc"/>
-                                            <outlet property="SubjectLabel" destination="waw-M3-lZe" id="KzA-7M-CBf"/>
+                                            <outlet property="NumofTableLabel" destination="0HJ-U0-U9l" id="kib-GI-tIf"/>
+                                            <outlet property="ProfessorLabel" destination="Nhg-g4-nWv" id="vye-ii-Its"/>
+                                            <outlet property="SubjectLabel" destination="waw-M3-lZe" id="ph0-xT-M3r"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -271,6 +273,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="내 정보" id="s5P-Sb-kcQ"/>
                     <connections>
+                        <outlet property="BookMarkedTableView" destination="GUH-mC-4yS" id="hHg-Jk-AJG"/>
                         <outlet property="myImage" destination="76j-zA-T7C" id="TYj-pQ-dr0"/>
                         <outlet property="myName" destination="rbA-rU-PWK" id="Jfc-Rp-06M"/>
                         <outlet property="viewComment" destination="blV-yV-gSZ" id="g6s-II-zBu"/>
