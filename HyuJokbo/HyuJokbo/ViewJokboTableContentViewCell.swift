@@ -48,8 +48,11 @@ class ViewJokboTableContentViewCell: UITableViewCell, UIScrollViewDelegate {
         let jokboImage = jokboImages[index]
         if(jokboImage.image == nil){ return UIView()}
 
-        view.frame = CGRect(x: CGFloat(0), y: CGFloat(0),
-                            width: scrollViewWidth, height: scrollViewHeight)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
+        view.topAnchor.constraint(equalTo: self.topAnchor, constant: 10).isActive = true
+        view.widthAnchor.constraint(equalToConstant: scrollViewWidth).isActive = true
+        view.heightAnchor.constraint(equalToConstant: scrollViewHeight).isActive = true
 
         let imageXMulti = Double(view.frame.width)/Double(jokboImage.frame.size.width)
         let imageYMulti = Double(view.frame.height)/Double(jokboImage.frame.size.height)

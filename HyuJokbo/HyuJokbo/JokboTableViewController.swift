@@ -259,10 +259,11 @@ class JokboTableViewController: UITableViewController, JokboDownload, UISearchBa
         searchBar = UISearchBar(frame: CGRect(x: 0, y: yPoint!, width: UIScreen.main.bounds.width, height: 44))
         searchBar.showsCancelButton = true
         searchBar.barTintColor = UIColor(red: 76/255, green: 118/255, blue: 201/255, alpha: 1.0)
-        searchBar.tintColor = UIColor.black
 
-//        searchBar.showsScopeBar = true
-//        searchBar.scopeButtonTitles = ["과목","교수님"]
+        let cancelButtonAttributes: [String: AnyObject] = [NSForegroundColorAttributeName: UIColor.white]
+        UIBarButtonItem.appearance(whenContainedInInstancesOf: [UISearchBar.self]).setTitleTextAttributes(cancelButtonAttributes, for: .normal)
+
+        searchBar.tintColor = UIColor.white
         searchBar.placeholder = "과목명 또는 교수님명을 입력하세요"
         searchBar.delegate = self
         self.navigationController?.view.addSubview(searchBar)
@@ -270,8 +271,6 @@ class JokboTableViewController: UITableViewController, JokboDownload, UISearchBa
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if(searchText.isEmpty){
             jokbosArray = g_JokbosArray
-
-
         }else{
         filterTableView(index: searchSelectedScope(rawValue: searchBar.selectedScopeButtonIndex)!, text: searchText)
         }
@@ -287,11 +286,7 @@ class JokboTableViewController: UITableViewController, JokboDownload, UISearchBa
         }
     }
        func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        // Stop doing the search stuff
-        // and clear the text in the search bar
         searchBar.text = ""
-        // Hide the cancel button
         self.searchBar.isHidden = true
-        // You could also change the position, frame etc of the searchBar
     }
 }
