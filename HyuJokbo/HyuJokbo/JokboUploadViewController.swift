@@ -245,7 +245,7 @@ UIImagePickerControllerDelegate, UINavigationControllerDelegate{
 
         messageLabel.adjustsFontSizeToFitWidth = true
         messageLabel.alpha = 0
-        messageLabel.textColor = UIColor.blue
+        messageLabel.textColor =  UIColor(red: 76/255, green: 118/255, blue: 201/255, alpha: 1.0)
         messageLabel.text = "이미지를 꾹 누르면 미리보기가 됩니다"
         messageLabel.font = UIFont(name:"HelveticaNeue-Bold", size: 13.0)
 
