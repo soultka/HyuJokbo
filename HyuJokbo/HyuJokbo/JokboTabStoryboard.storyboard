@@ -421,7 +421,7 @@
                                                 <action selector="sirenButtonTapped:" destination="16k-la-qsF" eventType="touchUpInside" id="6DZ-s0-Oh7"/>
                                             </connections>
                                         </button>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="249" verticalCompressionResistancePriority="749" image="icon-loading" translatesAutoresizingMaskIntoConstraints="NO" id="MQR-ay-0uQ">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="249" verticalCompressionResistancePriority="749" image="loading-icon-1" translatesAutoresizingMaskIntoConstraints="NO" id="MQR-ay-0uQ">
                                             <rect key="frame" x="130" y="58" width="60" height="60"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="60" id="OSf-VR-gWl"/>
@@ -441,15 +441,24 @@
                                             <rect key="frame" x="8" y="0.0" width="300" height="363"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </scrollView>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="75J-Ol-sUo">
+                                            <rect key="frame" x="130" y="58" width="60" height="60"/>
+                                            <state key="normal" title="refresh"/>
+                                            <connections>
+                                                <action selector="refreshBtn:" destination="16k-la-qsF" eventType="touchUpInside" id="s5B-53-YDR"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="g28-Uf-BVs" firstAttribute="centerX" secondItem="tIy-lJ-Mvo" secondAttribute="centerX" id="14S-kv-oL5"/>
                                         <constraint firstItem="kDF-P6-HUM" firstAttribute="centerX" secondItem="r4s-IE-yjL" secondAttribute="centerX" id="1Qf-dO-M7b"/>
                                         <constraint firstItem="MQR-ay-0uQ" firstAttribute="top" secondItem="r4s-IE-yjL" secondAttribute="topMargin" constant="50" id="1f9-Zr-NK3"/>
                                         <constraint firstItem="kjd-Ig-BJ1" firstAttribute="leading" secondItem="r4s-IE-yjL" secondAttribute="leadingMargin" constant="5" id="2tN-Yt-MHN"/>
+                                        <constraint firstItem="75J-Ol-sUo" firstAttribute="top" secondItem="MQR-ay-0uQ" secondAttribute="top" id="7Hk-kd-xJK"/>
                                         <constraint firstItem="cR4-a4-wec" firstAttribute="leading" secondItem="r4s-IE-yjL" secondAttribute="leadingMargin" constant="5" id="8r0-Nd-viw"/>
                                         <constraint firstItem="uOM-k4-WKm" firstAttribute="leading" secondItem="uq2-ie-tRr" secondAttribute="leading" id="EVv-qW-ULg"/>
                                         <constraint firstItem="cR4-a4-wec" firstAttribute="top" secondItem="kDF-P6-HUM" secondAttribute="bottom" constant="10" id="GV9-No-2xq"/>
+                                        <constraint firstItem="75J-Ol-sUo" firstAttribute="leading" secondItem="MQR-ay-0uQ" secondAttribute="leading" id="GiO-Qv-3Ee"/>
                                         <constraint firstItem="g28-Uf-BVs" firstAttribute="top" secondItem="cR4-a4-wec" secondAttribute="bottom" constant="17" id="IUi-2u-oOG"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="tIy-lJ-Mvo" secondAttribute="bottom" id="LKL-Xq-uwp"/>
                                         <constraint firstItem="uq2-ie-tRr" firstAttribute="centerY" secondItem="g28-Uf-BVs" secondAttribute="centerY" id="NFT-pB-B1K"/>
@@ -459,8 +468,10 @@
                                         <constraint firstItem="cR4-a4-wec" firstAttribute="top" secondItem="MQR-ay-0uQ" secondAttribute="bottom" constant="310" id="V7P-rn-21F"/>
                                         <constraint firstItem="kjd-Ig-BJ1" firstAttribute="centerY" secondItem="tIy-lJ-Mvo" secondAttribute="centerY" id="Z3L-vb-p5G"/>
                                         <constraint firstItem="cR4-a4-wec" firstAttribute="centerX" secondItem="r4s-IE-yjL" secondAttribute="centerX" id="eqT-Oe-aou"/>
+                                        <constraint firstItem="75J-Ol-sUo" firstAttribute="height" secondItem="MQR-ay-0uQ" secondAttribute="height" id="fAs-nh-iM7"/>
                                         <constraint firstItem="tIy-lJ-Mvo" firstAttribute="top" secondItem="g28-Uf-BVs" secondAttribute="bottom" constant="5" id="gPi-pP-0UQ"/>
                                         <constraint firstItem="Zg9-lE-doa" firstAttribute="centerY" secondItem="kjd-Ig-BJ1" secondAttribute="centerY" id="lU0-sY-dZu"/>
+                                        <constraint firstItem="75J-Ol-sUo" firstAttribute="width" secondItem="MQR-ay-0uQ" secondAttribute="width" id="mvC-Ea-qCS"/>
                                         <constraint firstItem="uOM-k4-WKm" firstAttribute="centerY" secondItem="tIy-lJ-Mvo" secondAttribute="centerY" id="nrA-nS-Kiw"/>
                                         <constraint firstItem="MQR-ay-0uQ" firstAttribute="centerX" secondItem="r4s-IE-yjL" secondAttribute="centerX" id="rD3-Qh-69Z"/>
                                     </constraints>
@@ -468,8 +479,9 @@
                                 <edgeInsets key="layoutMargins" top="8" left="0.0" bottom="8" right="8"/>
                                 <connections>
                                     <outlet property="ContentLabel" destination="cR4-a4-wec" id="g5A-hh-Da1"/>
-                                    <outlet property="JokboImage" destination="MQR-ay-0uQ" id="7VI-Bw-QcW"/>
+                                    <outlet property="JokboImage" destination="MQR-ay-0uQ" id="sPR-hB-UxC"/>
                                     <outlet property="PageControl" destination="kDF-P6-HUM" id="C31-QP-sF8"/>
+                                    <outlet property="RefreshBtn" destination="75J-Ol-sUo" id="k4l-AZ-AoK"/>
                                     <outlet property="slideScroll" destination="Xy1-px-I1i" id="PWK-4c-OxM"/>
                                 </connections>
                             </tableViewCell>
@@ -577,9 +589,9 @@
         <image name="icon-jokbo(b)" width="25" height="25"/>
         <image name="icon-jokbo(g)" width="25" height="25"/>
         <image name="icon-like" width="64" height="64"/>
-        <image name="icon-loading" width="64" height="64"/>
         <image name="icon-mydata(g)" width="25" height="25"/>
         <image name="icon-search" width="25" height="25"/>
         <image name="icon-siren" width="64" height="64"/>
+        <image name="loading-icon-1" width="461" height="461"/>
     </resources>
 </document>

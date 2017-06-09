@@ -11,6 +11,7 @@ import UIKit
 class ViewJokboTableContentViewCell: UITableViewCell, UIScrollViewDelegate {
 
     @IBOutlet weak var JokboImage: UIImageView!
+    @IBOutlet weak var RefreshBtn: UIButton!
     @IBOutlet weak var ContentLabel: UILabel!
     
     @IBOutlet weak var slideScroll: UIScrollView!
@@ -27,6 +28,7 @@ class ViewJokboTableContentViewCell: UITableViewCell, UIScrollViewDelegate {
 
     override func awakeFromNib() {
         super.awakeFromNib()
+        self.loadingAni()
         self.scrollViewWidth = self.frame.width
         self.PageControl?.isHidden = true
         self.PageControl?.numberOfPages = 0
@@ -38,6 +40,36 @@ class ViewJokboTableContentViewCell: UITableViewCell, UIScrollViewDelegate {
 
         // Configure the view for the selected state
     }
+    //MARK:JokboImage (animation, set)
+    /*
+    func setJokboImage(){
+        self.JokboImage.isUserInteractionEnabled = true
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped))
+        self.JokboImage.addGestureRecognizer(tapGestureRecognizer)
+    }
+    func imageTapped(sender: UITapGestureRecognizer) {
+        if (sender.state == .ended) {
+            if let tableview = self.superview as? UITableView{
+                tableview.reloadData()
+            }
+        }
+    }
+ */
+
+    func loadingAni(){
+        var loadingAni = [UIImage]()
+
+        for i in stride(from: 1, to: 19, by: 1){
+            loadingAni += [UIImage(named: "loading-icon-\(i)")!]
+        }
+
+        self.JokboImage.animationImages = loadingAni
+        self.JokboImage.animationDuration = 1.5
+        self.JokboImage.animationRepeatCount = 20
+        self.JokboImage.startAnimating()
+        
+    }
+    //MARK:SCROLL
     func numberOfScrollViewElements() -> Int {
         return self.imageCount
     }
@@ -81,6 +113,7 @@ class ViewJokboTableContentViewCell: UITableViewCell, UIScrollViewDelegate {
     }
 
     func setUpScroll(){
+        self.RefreshBtn.isHidden = true
         //Make UIScrollView and setting
         slideScroll.showsHorizontalScrollIndicator = false
          slideScroll.showsVerticalScrollIndicator = false
@@ -110,7 +143,9 @@ class ViewJokboTableContentViewCell: UITableViewCell, UIScrollViewDelegate {
     }
     func reloadScroll(){
 
-        if(self.imageCount <= 0){ return }
+        if(self.imageCount <= 0){
+            self.loadingAni()
+            return }
         //xOffset is x offset for each jokbo
         var xOffset:CGFloat = 0
         for index in 0..<self.numberOfScrollViewElements(){
