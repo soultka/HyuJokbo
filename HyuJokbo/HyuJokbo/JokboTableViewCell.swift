@@ -9,7 +9,7 @@
 import UIKit
 import FirebaseDatabase
 protocol JokboDownload{
-    func download()
+    func download(subjectName: String, key: String)
 }
 
 class JokboTableViewCell: UITableViewCell {
@@ -63,8 +63,7 @@ class JokboTableViewCell: UITableViewCell {
         let blueDownButton = UIImage(named: "icon-download(b)")
         let grayDownButton = UIImage(named: "icon-download")
 
-        downloadDelegate?.download()
-        DownloadJokbo()
+        downloadDelegate?.download(subjectName: (SubjectLabel?.text)!, key: self.key)
 
         //DownloadButtonImage.setImage(blueDownButton, for: UIControlState.normal)
 

@@ -28,8 +28,8 @@ class ViewJokboTableContentViewCell: UITableViewCell, UIScrollViewDelegate {
     override func awakeFromNib() {
         super.awakeFromNib()
         self.scrollViewWidth = self.frame.width
-        self.PageControl.isHidden = true
-        self.PageControl.numberOfPages = 0
+        self.PageControl?.isHidden = true
+        self.PageControl?.numberOfPages = 0
         // Initialization code
     }
 
@@ -97,13 +97,13 @@ class ViewJokboTableContentViewCell: UITableViewCell, UIScrollViewDelegate {
         
         
 
-        PageControl.numberOfPages = self.numberOfScrollViewElements()
+        PageControl?.numberOfPages = self.numberOfScrollViewElements()
         
-        PageControl.translatesAutoresizingMaskIntoConstraints = false
-        PageControl.centerXAnchor.constraint(equalTo: slideScroll.centerXAnchor).isActive = true
-        PageControl.topAnchor.constraint(equalTo: slideScroll.bottomAnchor, constant: 8).isActive = true
-        PageControl.widthAnchor.constraint(lessThanOrEqualToConstant: CGFloat(100)).isActive = true
-        PageControl.heightAnchor.constraint(equalToConstant: 10).isActive = true
+        PageControl?.translatesAutoresizingMaskIntoConstraints = false
+        PageControl?.centerXAnchor.constraint(equalTo: slideScroll.centerXAnchor).isActive = true
+        PageControl?.topAnchor.constraint(equalTo: slideScroll.bottomAnchor, constant: 8).isActive = true
+        PageControl?.widthAnchor.constraint(lessThanOrEqualToConstant: CGFloat(100)).isActive = true
+        PageControl?.heightAnchor.constraint(equalToConstant: 10).isActive = true
         
         self.bringSubview(toFront: PageControl)
 

@@ -201,10 +201,48 @@ class JokboTableViewController: UITableViewController, JokboDownload {
         ref?.removeObserver(withHandle: databaseHandle!)
         ref?.removeObserver(withHandle: databaseChangeHandle!)
     }
-    func download() {
+    func download(subjectName: String, key: String) {
         //to do list
         //다운로드 만들것
-        print("Downloading...")
+        let alertMessage = subjectName + " 의 족보를 다운받으시겠습니까?"
+        let downloadAlert = UIAlertController(title: "족보 다운로드", message: alertMessage, preferredStyle: .alert)
+        
+        let downloadAction = UIAlertAction(title: "다운로드", style: .default) { (action: UIAlertAction) in
+            
+            let myImageName = "down" + subjectName
+            
+            self.databaseHandle = self.ref?.child("jokbo_images").observe(.childAdded, with: { (snapshot) in
+                let data = snapshot.value as? [String:String]
+                if snapshot.key == key{
+                    if let image_Data = data{
+                        for i in stride(from: 0, to: g_MAX_JOKBO_NUM, by: 1){
+                            if let image_url = image_Data["j\(i)"]{
+                                print(image_url)
+                                let url = URL(string: image_url)
+                                URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, error) in
+                                    DispatchQueue.main.async {
+                                        if let jokboImage = UIImage(data: data!){
+                                            CustomPhotoAlbum.sharedInstance.save(image: jokboImage)
+                                        }
+                                    }
+                                }).resume()
+                            }else{
+                                break
+                            }
+                        }
+                    }
+                }
+            })
+        }
+        
+        let cancelAction = UIAlertAction(title: "취소", style: .default) { (action: UIAlertAction) in
+            downloadAlert.dismiss(animated: true, completion: nil)
+        }
+
+        downloadAlert.addAction(downloadAction)
+        downloadAlert.addAction(cancelAction)
+        
+        self.present(downloadAlert, animated: true, completion: nil)
     }
 
     //Download 버튼 클릭시 호출

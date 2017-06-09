@@ -364,15 +364,15 @@
                                     <outlet property="UserInfoUploadTime" destination="4D6-gv-Wz2" id="Dei-mx-FsA"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ViewGoohaeContentCell" rowHeight="309" id="tW8-7X-tj9" customClass="ViewJokboTableContentViewCell" customModule="HyuJokbo" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="91" width="320" height="309"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ViewGoohaeContentCell" rowHeight="341" id="tW8-7X-tj9" customClass="ViewJokboTableContentViewCell" customModule="HyuJokbo" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="91" width="320" height="341"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tW8-7X-tj9" id="T16-9H-V9J">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="308"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="340"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vBL-NH-654">
-                                            <rect key="frame" x="263" y="272" width="12" height="12"/>
+                                            <rect key="frame" x="263" y="313.5" width="12" height="12"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="12" id="WmJ-ht-VfX"/>
                                                 <constraint firstAttribute="width" constant="12" id="diV-u7-Hew"/>
@@ -380,7 +380,7 @@
                                             <state key="normal" image="icon-like"/>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HLK-L6-qve">
-                                            <rect key="frame" x="13" y="287" width="16" height="16"/>
+                                            <rect key="frame" x="13" y="328.5" width="16" height="16"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="16" id="K4f-3l-YVV"/>
                                                 <constraint firstAttribute="height" constant="16" id="NJ0-aH-oHo"/>
@@ -388,7 +388,7 @@
                                             <state key="normal" image="icon-siren"/>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nc5-or-WTg">
-                                            <rect key="frame" x="262" y="289" width="14" height="12"/>
+                                            <rect key="frame" x="262" y="330.5" width="14" height="12"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="12" id="7Kt-WE-oEK"/>
                                                 <constraint firstAttribute="width" constant="14" id="n25-4J-ued"/>
@@ -396,7 +396,7 @@
                                             <state key="normal" title="Button" image="icon-bookmark"/>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rAc-ki-5AJ">
-                                            <rect key="frame" x="276" y="272" width="31" height="12"/>
+                                            <rect key="frame" x="276" y="313.5" width="31" height="12"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="31" id="Ao2-by-bWn"/>
                                                 <constraint firstAttribute="height" constant="12" id="YBV-T2-hf5"/>
@@ -410,7 +410,7 @@
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fEi-3x-m0P">
-                                            <rect key="frame" x="276" y="289" width="31" height="12"/>
+                                            <rect key="frame" x="276" y="330.5" width="31" height="12"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="31" id="Bb3-Oc-xpa"/>
                                                 <constraint firstAttribute="height" constant="12" id="cai-y5-bKw"/>
@@ -424,10 +424,9 @@
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sB5-dS-p2A">
-                                            <rect key="frame" x="30" y="289" width="20" height="12"/>
+                                            <rect key="frame" x="30" y="324.5" width="20" height="24"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="20" id="KJm-Kl-SqI"/>
-                                                <constraint firstAttribute="height" constant="12" id="cYF-7f-Xiv"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                             <state key="normal" title="신고">
@@ -438,9 +437,9 @@
                                             </connections>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qIb-UW-Rq9">
-                                            <rect key="frame" x="13" y="18" width="294" height="224"/>
+                                            <rect key="frame" x="13" y="18.5" width="294" height="265"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="224" id="aTs-Kc-XyX"/>
+                                                <constraint firstAttribute="height" constant="265" id="aTs-Kc-XyX"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <nil key="textColor"/>
@@ -460,6 +459,7 @@
                                         <constraint firstItem="rAc-ki-5AJ" firstAttribute="leading" secondItem="vBL-NH-654" secondAttribute="trailing" constant="1" id="cde-gJ-9Kc"/>
                                         <constraint firstItem="sB5-dS-p2A" firstAttribute="centerY" secondItem="HLK-L6-qve" secondAttribute="centerY" id="ddv-CI-tlL"/>
                                         <constraint firstItem="nc5-or-WTg" firstAttribute="top" secondItem="vBL-NH-654" secondAttribute="bottom" constant="5" id="eca-bv-gFT"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="sB5-dS-p2A" secondAttribute="bottom" constant="-1" id="jl4-Ez-XUg"/>
                                         <constraint firstItem="rAc-ki-5AJ" firstAttribute="centerY" secondItem="vBL-NH-654" secondAttribute="centerY" id="l1d-0s-9cU"/>
                                         <constraint firstItem="qIb-UW-Rq9" firstAttribute="leading" secondItem="T16-9H-V9J" secondAttribute="leadingMargin" constant="5" id="nwR-n6-KkX"/>
                                         <constraint firstItem="vBL-NH-654" firstAttribute="top" secondItem="qIb-UW-Rq9" secondAttribute="bottom" constant="30" id="qG1-5f-A6U"/>
@@ -473,11 +473,11 @@
                                     <outlet property="ContentLabel" destination="qIb-UW-Rq9" id="dSA-cU-s01"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ViewGoohaeCommentCell" rowHeight="64" id="lds-Q0-lB1" customClass="ViewJokboTableCommentViewCell" customModule="HyuJokbo" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="400" width="320" height="64"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ViewGoohaeCommentCell" rowHeight="32" id="lds-Q0-lB1" customClass="ViewJokboTableCommentViewCell" customModule="HyuJokbo" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="432" width="320" height="32"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lds-Q0-lB1" id="ZSE-X5-ze2">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="63"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="31"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-mydata(g)" translatesAutoresizingMaskIntoConstraints="NO" id="nLo-Ng-7Ee">
@@ -502,8 +502,11 @@
                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="asdf" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UWB-wz-Ett">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="asdf" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UWB-wz-Ett">
                                             <rect key="frame" x="13" y="29" width="294" height="26"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="26" id="gD0-0j-2AS"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
