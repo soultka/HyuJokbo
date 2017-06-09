@@ -10,17 +10,18 @@ import UIKit
 import QuartzCore
 import FirebaseDatabase
 
-class GoohaeTableViewController: UITableViewController,GoohaeDownload {
+
+class GoohaeTableViewController: UITableViewController,GoohaeDownload, UISearchBarDelegate {
 
     var ref:FIRDatabaseReference?
     var databaseHandle:FIRDatabaseHandle?
     var databaseChangeHandle:FIRDatabaseHandle?
     var databaseRemoveHandle:FIRDatabaseHandle?
 
-    //서치 버튼이 표시되었을 경우 1, 표시 안되어 있을 경우 0
-    static var searchPressedFlag = 0
+    var goohaesArray:[Goohae] = []
 
     //검색창 서브뷰
+    var searchBar:UISearchBar!
 
 
     @IBAction func handleModalClose(segue: UIStoryboardSegue){
@@ -31,12 +32,10 @@ class GoohaeTableViewController: UITableViewController,GoohaeDownload {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        //- -   -   -   -   --  -   -   --  -   -   -   -   -DATA READ
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
 
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+
+        self.setupSearchBar()
+        self.searchBar.isHidden = true
 
         ref = FIRDatabase.database().reference()
         //Retrieve the posts and listen for changes
@@ -71,6 +70,7 @@ class GoohaeTableViewController: UITableViewController,GoohaeDownload {
                     g_GoohaesArray.sort{
                         $0.updateDate > $1.updateDate
                     }
+                    self.goohaesArray = g_GoohaesArray
                     self.tableView.reloadData()
                 }
             }
@@ -195,50 +195,6 @@ class GoohaeTableViewController: UITableViewController,GoohaeDownload {
         print("Downloading...")
     }
 
-    @IBAction func SearchBarButtonPressed(_ sender: Any) {
-
-        
-    }
-
-    /*
-     // Override to support conditional editing of the table view.
-     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-     // Return false if you do not want the specified item to be editable.
-     return true
-     }
-     */
-
-    /*
-     // Override to support editing the table view.
-     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-     if editingStyle == .delete {
-     // Delete the row from the data source
-     tableView.deleteRows(at: [indexPath], with: .fade)
-     } else if editingStyle == .insert {
-     // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-     }
-     }
-     */
-
-    /*
-     // Override to support rearranging the table view.
-     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-     }
-     */
-
-    /*
-     // Override to support conditional rearranging of the table view.
-     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-     // Return false if you do not want the item to be re-orderable.
-     return true
-     }
-     */
-
-    
-     // MARK: - Navigation
-
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
      // Get the new view controller using segue.destinationViewController.
      // Pass the selected object to the new view controller.
@@ -264,8 +220,9 @@ class GoohaeTableViewController: UITableViewController,GoohaeDownload {
     
 
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let subviewCGSize = CGSize(width: self.view.frame.width, height: self.view.frame.height)
-//        searchSubView.frame = CGRect(origin: scrollView.contentOffset, size: subviewCGSize)
+        let subviewCGSize = CGSize(width: UIScreen.main.bounds.width, height: 70)
+
+              searchBar.frame = CGRect(origin: scrollView.contentOffset, size: subviewCGSize)
     }
  
     func viewDate(date DateNum:Int ) -> String{
@@ -298,6 +255,38 @@ class GoohaeTableViewController: UITableViewController,GoohaeDownload {
         }
         dateString += "\(minute)"
         return dateString
+    }
+
+    //MARK : Search Bar
+    // 버튼 클릭시 호출
+    @IBAction func SearchBarButtonPressed(_ sender: Any) {
+        self.searchBar.isHidden = self.searchBar.isHidden ? false : true
+    }
+
+    func setupSearchBar(){
+        searchBar = UISearchBar(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 70))
+        searchBar.showsScopeBar = true
+        searchBar.scopeButtonTitles = ["과목","교수님"]
+        searchBar.delegate = self
+        self.view.addSubview(searchBar)
+    }
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if(searchText.isEmpty){
+            goohaesArray = g_GoohaesArray
+        }else{
+            filterTableView(index: searchSelectedScope(rawValue: searchBar.selectedScopeButtonIndex)!, text: searchText)
+        }
+        self.tableView.reloadData()
+    }
+    func filterTableView(index:searchSelectedScope, text:String){
+        switch index {
+        case .subject:
+            goohaesArray = g_GoohaesArray.filter{$0.className.contains(text)}
+        case .professor:
+            goohaesArray = g_GoohaesArray.filter{$0.professorName.contains(text)}
+        default:
+            print("filterTable default")
+        }
     }
 
 }

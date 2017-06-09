@@ -9,10 +9,7 @@
 import UIKit
 import FirebaseDatabase
 
-enum searchSelectedScope:Int{
-    case subject = 0
-    case professor = 1
-}
+
 
 class JokboTableViewController: UITableViewController, JokboDownload, UISearchBarDelegate {
 
@@ -81,6 +78,7 @@ class JokboTableViewController: UITableViewController, JokboDownload, UISearchBa
                     g_JokbosArray.sort{
                         $0.updateDate > $1.updateDate
                     }
+                    self.jokbosArray = g_JokbosArray
                     self.tableView.reloadData()
                 }
 
@@ -138,7 +136,7 @@ class JokboTableViewController: UITableViewController, JokboDownload, UISearchBa
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        jokbosArray = g_JokbosArray
+//        jokbosArray = g_JokbosArray
         return 1
     }
     
@@ -188,6 +186,8 @@ class JokboTableViewController: UITableViewController, JokboDownload, UISearchBa
         super.viewDidDisappear(animated)
         ref?.removeObserver(withHandle: databaseHandle!)
         ref?.removeObserver(withHandle: databaseChangeHandle!)
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
+
     }
     func download() {
         //to do list
@@ -209,8 +209,10 @@ class JokboTableViewController: UITableViewController, JokboDownload, UISearchBa
     }
 
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let subviewCGSize = CGSize(width: self.view.frame.width, height: self.view.frame.height)
-//        searchSubView.frame = CGRect(origin: scrollView.contentOffset, size: subviewCGSize)
+        let yPoint = self.navigationController?.navigationBar.frame.minY
+
+        let subviewCGSize = CGSize(width: UIScreen.main.bounds.width, height: 44)
+        searchBar.frame = CGRect(x: scrollView.contentOffset.x, y: yPoint!, width: subviewCGSize.width, height: subviewCGSize.height)
     }
     
     
@@ -253,24 +255,26 @@ class JokboTableViewController: UITableViewController, JokboDownload, UISearchBa
     }
 
     func setupSearchBar(){
-        searchBar = UISearchBar(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 70))
-        searchBar.showsScopeBar = true
-        searchBar.scopeButtonTitles = ["과목","교수님"]
+        let yPoint = self.navigationController?.navigationBar.frame.minY
+        searchBar = UISearchBar(frame: CGRect(x: 0, y: yPoint!, width: UIScreen.main.bounds.width, height: 44))
+//        searchBar.showsScopeBar = true
+//        searchBar.scopeButtonTitles = ["과목","교수님"]
         searchBar.delegate = self
-        self.view.addSubview(searchBar)
+        self.navigationController?.view.addSubview(searchBar)
     }
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if(searchText.isEmpty){
             jokbosArray = g_JokbosArray
-        }
+        }else{
         filterTableView(index: searchSelectedScope(rawValue: searchBar.selectedScopeButtonIndex)!, text: searchText)
+        }
+        self.tableView.reloadData()
     }
     func filterTableView(index:searchSelectedScope, text:String){
         switch index {
         case .subject:
-            jokbosArray = jokbosArray.filter{ $0.className.lowercased().contains(text.lowercased())}
-        case .professor:
-            jokbosArray = jokbosArray.filter{$0.professorName.lowercased().contains(text.lowercased())}
+            jokbosArray = g_JokbosArray.filter{$0.className.contains(text)}
+            jokbosArray += g_JokbosArray.filter{$0.professorName.contains(text)}
         default:
             print("filterTable default")
         }

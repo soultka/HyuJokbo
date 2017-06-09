@@ -20,6 +20,10 @@ let g_MAX_JOKBO_NUM = 30
 
 var g_SelectedData:String = ""
 
+enum searchSelectedScope:Int{
+    case subject = 0
+    case professor = 1
+}
 
 class Jokbo{
     var key:String = ""
