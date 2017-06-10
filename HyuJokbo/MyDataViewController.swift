@@ -14,6 +14,7 @@ class MyDataViewController: UIViewController ,UITableViewDelegate,UITableViewDat
     
    
     @IBOutlet weak var MyTableView: UITableView!
+    @IBOutlet weak var MyBookedTableView: UITableView!
     @IBOutlet weak var viewComment: UILabel!
     @IBOutlet weak var viewLike: UILabel!
     @IBOutlet weak var myImage: UIImageView!
@@ -47,7 +48,53 @@ class MyDataViewController: UIViewController ,UITableViewDelegate,UITableViewDat
         MyTableView.delegate = self
         MyTableView.dataSource = self;
         
+        MyBookedTableView.separatorStyle = UITableViewCellSeparatorStyle.none
+        
+        MyBookedTableView.delegate = self
+        MyBookedTableView.dataSource = self;
+        
         // Do any additional setup after loading the view.
+        ref = FIRDatabase.database().reference()
+
+        databaseHandle = ref?.child("bookmarked").observe(.childAdded, with: { (snapshot) in
+            let data = snapshot.value as? [String:String]
+            if let BookmarkedData = data{
+                if BookmarkedData["user"] == self.user.email{
+                    for i in 0...(g_JokbosArray.count - 1){
+                        guard let Boookedkey = BookmarkedData["key"]else{
+                            break
+                        }
+                        if g_JokbosArray[i].key == Boookedkey{
+                            print("key complete" )
+                            print(g_JokbosArray[i].professorName)
+                            self.BookedJokbo.append(g_JokbosArray[i])
+                            break
+                        }
+                    }
+                }
+            }
+            print(self.BookedJokbo.count)
+            self.MyBookedTableView.reloadData()
+        })
+        
+        databaseHandle = ref?.child("bookmarked").observe(.childChanged, with: { (snapshot) in
+            let data = snapshot.value as? [String:String]
+            if let BookmarkedData = data{
+                if BookmarkedData["user"] == self.user.email{
+                    print(BookmarkedData["key"])
+                    for i in 0...(g_JokbosArray.count - 1){
+                        if g_JokbosArray[i].key == BookmarkedData["key"]!{
+                            print("key complete" )
+                            print(g_JokbosArray[i].professorName)
+                            self.BookedJokbo.append(g_JokbosArray[i])
+                            break
+                        }
+                    }
+                }
+            }
+            print(self.BookedJokbo.count)
+            self.MyBookedTableView.reloadData()
+        })
     }
     
     override func didReceiveMemoryWarning() {
@@ -106,28 +153,7 @@ class MyDataViewController: UIViewController ,UITableViewDelegate,UITableViewDat
         goohaeLike()
         JokboComment()
         goohaeComment()
-        ref = FIRDatabase.database().reference()
-        databaseHandle = ref?.child("bookmarked").observe(.childAdded, with: { (snapshot) in
-            let data = snapshot.value as? [String:String]
-            if let BookmarkedData = data{
-                if BookmarkedData["user"] == self.user.email{
-                    print(BookmarkedData["key"])
-                    for i in 0...(g_JokbosArray.count - 1){
-                        if g_JokbosArray[i].key == BookmarkedData["key"]!{
-                            print("key complete" )
-                            print(g_JokbosArray[i].professorName)
-                            self.BookedJokbo.append(g_JokbosArray[i])
-                            break
-                        }
-                    }
-                }
-            }
-            print(self.BookedJokbo.count)
-        })
         MyJokboLoad()
-        BookedJokboLoad()
-        print("BookedJokboLoad() complete")
-        print(self.BookedJokbo.count)
         self.MyTableView.reloadData()
         viewLike.text = String(userLike)
         viewComment.text = String(userComment)
@@ -142,13 +168,28 @@ class MyDataViewController: UIViewController ,UITableViewDelegate,UITableViewDat
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return MyJokbo.count
+        if tableView == self.MyTableView{
+            return MyJokbo.count
+        }
+        else{
+            return BookedJokbo.count
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let myCell = UITableViewCell()
         if tableView != self.MyTableView {
-            return myCell
+            if let myBCell = tableView.dequeueReusableCell(withIdentifier: "MyDataBookCell", for: indexPath) as? MyDataBookTableViewCell{
+                let jokbo = self.BookedJokbo[indexPath.row]
+                myBCell.NumofCell?.text = String(indexPath.row+1)
+                myBCell.SubjectName?.text  = String(jokbo.className)
+                myBCell.ProfessorName?.text = String(jokbo.professorName)
+                myBCell.LikeNum?.text = String(jokbo.likeNum)
+                myBCell.CommentNum?.text = String(jokbo.commentNum)
+                myBCell.BookmarkNum?.text = String(jokbo.bookmarkNum)
+                return myBCell
+            }
+
         }
         if let myBCell = tableView.dequeueReusableCell(withIdentifier: "MyDataJokboCell", for: indexPath) as? MyDataTableViewCell{
             let jokbo = self.MyJokbo[indexPath.row]
@@ -160,12 +201,10 @@ class MyDataViewController: UIViewController ,UITableViewDelegate,UITableViewDat
             myBCell.BookMarkNumLabel?.text = String(jokbo.bookmarkNum)
             return myBCell
         }
+        
         return myCell
     }
-    func BookedJokboLoad(){
-        
-        
-    }
+    
     /*
      // MARK: - Navigation
      
