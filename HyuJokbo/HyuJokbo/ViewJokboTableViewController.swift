@@ -283,6 +283,13 @@ class ViewJokboTableViewController: UITableViewController {
         } else {
             ref?.child("jokbos").child(jokbo.key).updateChildValues(["bookmarkNum": "\(jokbo.bookmarkNum+1)"])
             isBookMarkButtonTapped = true
+            let curRef = ref?.child("bookmarked").childByAutoId()
+            var userName:String = ""
+            if let user = FIRAuth.auth()?.currentUser{
+                userName += user.email!
+            }
+            curRef?.child("user").setValue(userName)
+            curRef?.child("key").setValue(jokbo.key)
             
             let bookmarkButton = sender as? UIButton
             let jokboTableView = bookmarkButton?.superview?.superview?.superview?.superview as! UITableView
