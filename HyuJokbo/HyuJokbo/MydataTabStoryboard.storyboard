@@ -15,7 +15,7 @@
             <objects>
                 <navigationController id="SEw-kb-stW" userLabel="내 정보navi" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="내 정보" image="icon-mydata(g)" selectedImage="icon-mydata(b)" id="3Hx-kI-N0D"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="CUd-4B-wRa">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="CUd-4B-wRa">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
@@ -137,7 +137,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" pagingEnabled="YES" dataMode="prototypes" style="plain" rowHeight="24" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="GUH-mC-4yS">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" pagingEnabled="YES" dataMode="prototypes" style="plain" rowHeight="24" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="GUH-mC-4yS" userLabel="MyTableView">
                                 <rect key="frame" x="30" y="212" width="708" height="100"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -244,7 +244,7 @@
                                 </prototypes>
                                 <sections/>
                                 <connections>
-                                    <outlet property="dataSource" destination="H29-47-59z" id="eOd-qC-U0y"/>
+                                    <outlet property="dataSource" destination="H29-47-59z" id="k7Z-i2-dWh"/>
                                     <outlet property="delegate" destination="H29-47-59z" id="hHs-jM-6xm"/>
                                 </connections>
                             </tableView>
@@ -291,7 +291,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="내 정보" id="s5P-Sb-kcQ"/>
                     <connections>
-                        <outlet property="BookMarkedTableView" destination="GUH-mC-4yS" id="hHg-Jk-AJG"/>
+                        <outlet property="MyTableView" destination="GUH-mC-4yS" id="qf0-vE-vB8"/>
                         <outlet property="myImage" destination="76j-zA-T7C" id="TYj-pQ-dr0"/>
                         <outlet property="myName" destination="rbA-rU-PWK" id="Jfc-Rp-06M"/>
                         <outlet property="viewComment" destination="blV-yV-gSZ" id="g6s-II-zBu"/>
