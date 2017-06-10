@@ -11,7 +11,6 @@ import UIKit
 class ViewJokboTableContentViewCell: UITableViewCell, UIScrollViewDelegate {
 
     @IBOutlet weak var JokboImage: UIImageView!
-    @IBOutlet weak var RefreshBtn: UIButton!
     @IBOutlet weak var ContentLabel: UILabel!
     
     @IBOutlet weak var slideScroll: UIScrollView!
@@ -116,7 +115,6 @@ class ViewJokboTableContentViewCell: UITableViewCell, UIScrollViewDelegate {
     }
 
     func setUpScroll(){
-        self.RefreshBtn.isHidden = true
         //Make UIScrollView and setting
         slideScroll.showsHorizontalScrollIndicator = false
          slideScroll.showsVerticalScrollIndicator = false
