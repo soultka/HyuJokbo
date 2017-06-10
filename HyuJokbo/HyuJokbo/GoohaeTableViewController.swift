@@ -20,6 +20,7 @@ class GoohaeTableViewController: UITableViewController,GoohaeDownload, UISearchB
 
     var goohaesArray:[Goohae] = []
 
+    let placeholderColor = UIColor(red: 131/255, green: 154/255, blue: 213/255, alpha: 1.0)
     //검색창 서브뷰
     var searchBar:UISearchBar!
 
@@ -272,12 +273,26 @@ class GoohaeTableViewController: UITableViewController,GoohaeDownload, UISearchB
         searchBar = UISearchBar(frame: CGRect(x: 0, y: yPoint!, width: UIScreen.main.bounds.width, height: 44))
         searchBar.showsCancelButton = true
         searchBar.barTintColor = UIColor(red: 76/255, green: 118/255, blue: 201/255, alpha: 1.0)
-
-        let cancelButtonAttributes: [String: AnyObject] = [NSForegroundColorAttributeName: UIColor.white]
+        
+        let cancelButtonAttributes: [String: AnyObject] = [NSForegroundColorAttributeName: UIColor(red: 213/255, green: 223/255, blue: 243/255, alpha: 1.0)]
+        
+        let textFieldInsideSearchBar = searchBar.value(forKey: "searchField") as? UITextField
+        textFieldInsideSearchBar?.backgroundColor = UIColor(red: 64/255, green: 100/255, blue: 170/255, alpha: 1.0)
+        textFieldInsideSearchBar?.attributedPlaceholder = NSAttributedString(string: "과목명 또는 교수님명을 입력하세요", attributes: [NSForegroundColorAttributeName: placeholderColor])
+        textFieldInsideSearchBar?.textColor = UIColor.white
+        
+        
+        let glassIconView = textFieldInsideSearchBar?.leftView as! UIImageView
+        glassIconView.image = glassIconView.image?.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
+        glassIconView.tintColor = UIColor(red: 213/255, green: 223/255, blue: 243/255, alpha: 1.0)
+        
+        let clearButton = textFieldInsideSearchBar?.value(forKey: "clearButton") as! UIButton
+        clearButton.setImage(clearButton.imageView?.image?.withRenderingMode(UIImageRenderingMode.alwaysTemplate), for: .normal)
+        clearButton.tintColor = UIColor(red: 213/255, green: 223/255, blue: 243/255, alpha: 1.0)
+        
         UIBarButtonItem.appearance(whenContainedInInstancesOf: [UISearchBar.self]).setTitleTextAttributes(cancelButtonAttributes, for: .normal)
 
-        searchBar.tintColor = UIColor.white
-        searchBar.placeholder = "과목명 또는 교수님명을 입력하세요"
+        
         searchBar.delegate = self
         self.navigationController?.view.addSubview(searchBar)
     }
