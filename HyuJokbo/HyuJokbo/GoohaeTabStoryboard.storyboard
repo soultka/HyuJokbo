@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="pdK-CW-13G">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="pdK-CW-13G">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -239,7 +239,7 @@
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="소프트웨어 스튜디오" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g8R-6I-XiL">
                                             <rect key="frame" x="13" y="8" width="121" height="28"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" relation="lessThanOrEqual" constant="215" id="y9F-W2-owv"/>
+                                                <constraint firstAttribute="width" relation="lessThanOrEqual" constant="205" id="y9F-W2-owv"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                             <nil key="textColor"/>
@@ -251,7 +251,7 @@
                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="icon-mydata(g)" translatesAutoresizingMaskIntoConstraints="NO" id="6VW-P4-mH3">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="icon-mydata" translatesAutoresizingMaskIntoConstraints="NO" id="6VW-P4-mH3">
                                             <rect key="frame" x="236" y="16" width="20" height="20"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="20" id="3Fj-JU-iJX"/>
@@ -372,7 +372,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vBL-NH-654">
-                                            <rect key="frame" x="263" y="313.5" width="12" height="12"/>
+                                            <rect key="frame" x="263" y="303.5" width="12" height="12"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="12" id="WmJ-ht-VfX"/>
                                                 <constraint firstAttribute="width" constant="12" id="diV-u7-Hew"/>
@@ -380,7 +380,7 @@
                                             <state key="normal" image="icon-like"/>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HLK-L6-qve">
-                                            <rect key="frame" x="13" y="328.5" width="16" height="16"/>
+                                            <rect key="frame" x="13" y="318.5" width="16" height="16"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="16" id="K4f-3l-YVV"/>
                                                 <constraint firstAttribute="height" constant="16" id="NJ0-aH-oHo"/>
@@ -388,7 +388,7 @@
                                             <state key="normal" image="icon-siren"/>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nc5-or-WTg">
-                                            <rect key="frame" x="262" y="330.5" width="14" height="12"/>
+                                            <rect key="frame" x="262" y="320.5" width="14" height="12"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="12" id="7Kt-WE-oEK"/>
                                                 <constraint firstAttribute="width" constant="14" id="n25-4J-ued"/>
@@ -396,7 +396,7 @@
                                             <state key="normal" title="Button" image="icon-bookmark"/>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rAc-ki-5AJ">
-                                            <rect key="frame" x="276" y="313.5" width="31" height="12"/>
+                                            <rect key="frame" x="276" y="303.5" width="31" height="12"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="31" id="Ao2-by-bWn"/>
                                                 <constraint firstAttribute="height" constant="12" id="YBV-T2-hf5"/>
@@ -410,7 +410,7 @@
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fEi-3x-m0P">
-                                            <rect key="frame" x="276" y="330.5" width="31" height="12"/>
+                                            <rect key="frame" x="276" y="320.5" width="31" height="12"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="31" id="Bb3-Oc-xpa"/>
                                                 <constraint firstAttribute="height" constant="12" id="cai-y5-bKw"/>
@@ -424,7 +424,7 @@
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sB5-dS-p2A">
-                                            <rect key="frame" x="30" y="324.5" width="20" height="24"/>
+                                            <rect key="frame" x="30" y="319.5" width="20" height="14"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="20" id="KJm-Kl-SqI"/>
                                             </constraints>
@@ -437,10 +437,7 @@
                                             </connections>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qIb-UW-Rq9">
-                                            <rect key="frame" x="13" y="18.5" width="294" height="265"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="265" id="aTs-Kc-XyX"/>
-                                            </constraints>
+                                            <rect key="frame" x="13" y="18.5" width="294" height="14.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -462,7 +459,7 @@
                                         <constraint firstAttribute="bottomMargin" secondItem="sB5-dS-p2A" secondAttribute="bottom" constant="-1" id="jl4-Ez-XUg"/>
                                         <constraint firstItem="rAc-ki-5AJ" firstAttribute="centerY" secondItem="vBL-NH-654" secondAttribute="centerY" id="l1d-0s-9cU"/>
                                         <constraint firstItem="qIb-UW-Rq9" firstAttribute="leading" secondItem="T16-9H-V9J" secondAttribute="leadingMargin" constant="5" id="nwR-n6-KkX"/>
-                                        <constraint firstItem="vBL-NH-654" firstAttribute="top" secondItem="qIb-UW-Rq9" secondAttribute="bottom" constant="30" id="qG1-5f-A6U"/>
+                                        <constraint firstItem="vBL-NH-654" firstAttribute="top" relation="greaterThanOrEqual" secondItem="qIb-UW-Rq9" secondAttribute="bottom" constant="30" id="qG1-5f-A6U"/>
                                         <constraint firstItem="qIb-UW-Rq9" firstAttribute="top" secondItem="T16-9H-V9J" secondAttribute="topMargin" constant="10" id="rji-Q6-7oT"/>
                                         <constraint firstItem="HLK-L6-qve" firstAttribute="leading" secondItem="T16-9H-V9J" secondAttribute="leadingMargin" constant="5" id="vCR-9Z-9R7"/>
                                         <constraint firstItem="sB5-dS-p2A" firstAttribute="leading" secondItem="HLK-L6-qve" secondAttribute="trailing" constant="1" id="yHD-Vd-Ace"/>
@@ -480,7 +477,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="31.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="icon-mydata(g)" translatesAutoresizingMaskIntoConstraints="NO" id="nLo-Ng-7Ee">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="icon-mydata" translatesAutoresizingMaskIntoConstraints="NO" id="nLo-Ng-7Ee">
                                             <rect key="frame" x="13" y="8" width="20" height="20"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="20" id="KjN-uo-qiT"/>
@@ -553,7 +550,7 @@
         <image name="icon-goohae(b)" width="25" height="25"/>
         <image name="icon-goohae(g)" width="25" height="25"/>
         <image name="icon-like" width="64" height="64"/>
-        <image name="icon-mydata(g)" width="25" height="25"/>
+        <image name="icon-mydata" width="44" height="44"/>
         <image name="icon-search" width="25" height="25"/>
         <image name="icon-siren" width="64" height="64"/>
         <image name="icon-upload" width="32" height="32"/>

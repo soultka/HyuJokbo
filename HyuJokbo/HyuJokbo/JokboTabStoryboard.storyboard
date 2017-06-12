@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16B2659" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Lx5-mx-UOa">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Lx5-mx-UOa">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -33,7 +33,7 @@
                                 <rect key="frame" x="0.0" y="28" width="320" height="59"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ewn-x8-48O" id="bHI-Pi-J04">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="58"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="58.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="유민수 교수님" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aQJ-L6-GcX" userLabel="Professor">
@@ -201,13 +201,13 @@
                                 <rect key="frame" x="0.0" y="28" width="320" height="63"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8yv-Av-Bq0" id="uwA-Mq-o3X">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="62"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="62.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="소프트웨어 스튜디오" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KzR-6o-OFE">
                                             <rect key="frame" x="13" y="8" width="121" height="29"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" relation="lessThanOrEqual" constant="215" id="K2k-mo-mHm"/>
+                                                <constraint firstAttribute="width" relation="lessThanOrEqual" constant="205" id="K2k-mo-mHm"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                             <nil key="textColor"/>
@@ -219,7 +219,7 @@
                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="icon-mydata(g)" translatesAutoresizingMaskIntoConstraints="NO" id="ruW-5u-AW3">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="icon-mydata" translatesAutoresizingMaskIntoConstraints="NO" id="ruW-5u-AW3">
                                             <rect key="frame" x="236" y="16" width="20" height="20"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="20" id="OJ8-PZ-Gfm"/>
@@ -337,7 +337,7 @@
                                 <rect key="frame" x="0.0" y="91" width="320" height="500"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vnv-B4-TO0" id="r4s-IE-yjL">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="499"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="499.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cR4-a4-wec">
@@ -478,10 +478,10 @@
                                 <rect key="frame" x="0.0" y="591" width="320" height="64"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="O10-58-P55" id="xvg-ZM-pfX">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="63"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="63.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-mydata(g)" translatesAutoresizingMaskIntoConstraints="NO" id="OGj-c1-b4M">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-mydata" translatesAutoresizingMaskIntoConstraints="NO" id="OGj-c1-b4M">
                                             <rect key="frame" x="13" y="8" width="20" height="20"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="20" id="JsZ-pm-4Zv"/>
@@ -578,7 +578,7 @@
         <image name="icon-jokbo(b)" width="25" height="25"/>
         <image name="icon-jokbo(g)" width="25" height="25"/>
         <image name="icon-like" width="64" height="64"/>
-        <image name="icon-mydata(g)" width="25" height="25"/>
+        <image name="icon-mydata" width="44" height="44"/>
         <image name="icon-search" width="25" height="25"/>
         <image name="icon-siren" width="64" height="64"/>
         <image name="loading-icon-1" width="461" height="461"/>
