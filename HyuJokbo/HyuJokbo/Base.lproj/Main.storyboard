@@ -215,7 +215,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="개발자용 로그인">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleColor" red="0.33325284719467163" green="0.45822253823280334" blue="0.76477342844009399" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
                                 <connections>
                                     <action selector="adminLoginButtonTapped:" destination="7xg-a3-66b" eventType="touchUpInside" id="d8g-Ol-bK5"/>
@@ -450,6 +450,6 @@
         <image name="line" width="298" height="3"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="XJz-x2-r4B"/>
+        <segue reference="yPh-xa-dwW"/>
     </inferredMetricsTieBreakers>
 </document>

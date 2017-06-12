@@ -1,5 +1,9 @@
+@import '../libs/vars';
+@import '../libs/functions';
+@import '../libs/mixins';
+
 ///
-/// Hyperspace by HTML5 UP
+/// Fractal by HTML5 UP
 /// html5up.net | @ajlkn
 /// Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 ///
@@ -7,133 +11,80 @@
 /* Wrapper */
 
 	.wrapper {
-		position: relative;
+		@include padding(4.5em, 0);
+		background-color: _palette(bg);
+		border-bottom: solid (_size(border-width) * 2) lighten(_palette(border), 3);
 
 		> .inner {
-			@include padding(5em, 5em);
-			max-width: 100%;
-			width: _size(inner-width);
+			margin-left: auto;
+			margin-right: auto;
+			width: 50em;
 
-			@include breakpoint(xlarge) {
-				@include padding(4em, 4em);
+			&.alt {
+				> * {
+					border-top: solid (_size(border-width) * 2) lighten(_palette(border), 3);
+					margin-bottom: 0;
+					margin-top: 3em;
+					padding-top: 3em;
+
+					&:first-child {
+						border-top: 0;
+						margin-top: 0;
+						padding-top: 0;
+					}
+				}
 			}
-
-			@include breakpoint(large) {
-				width: 100%;
-			}
-
-			@include breakpoint(small) {
-				@include padding(3em, 2em);
-			}
-		}
-
-		&.alt {
-			background-color: _palette(bg-alt);
 		}
 
 		&.style1 {
-			background-color: _palette(accent1);
-		}
-
-		&.style1-alt {
-			background-color: _palette(accent1-alt);
+			@include color(accent1);
 		}
 
 		&.style2 {
-			background-color: _palette(accent2);
-		}
-
-		&.style2-alt {
-			background-color: _palette(accent2-alt);
+			@include color(accent2);
 		}
 
 		&.style3 {
-			background-color: _palette(accent3);
+			@include color(accent3);
 		}
 
-		&.style3-alt {
-			background-color: _palette(accent3-alt);
-		}
+		// Medium.
+			@include breakpoint(medium) {
+				@include padding(4em, 4em);
 
-		&.fullscreen {
-			@include vendor('display', 'flex');
-			@include vendor('flex-direction', 'column');
-			@include vendor('justify-content', 'center');
-			min-height: 100vh;
-
-			body.is-ie & {
-				height: 100vh;
-			}
-
-			@include breakpoint(large) {
-				min-height: calc(100vh - 2.5em);
-
-				body.is-ie & {
-					height: calc(100vh - 2.5em);
+				> .inner {
+					width: 100%;
 				}
 			}
 
+		// Small.
 			@include breakpoint(small) {
-				padding: 2em 0;
-				min-height: 0;
 
-				body.is-ie & {
-					height: auto;
-				}
-			}
-		}
+				// Landscape.
+					@include orientation(landscape) {
+						@include padding(3em, 3em);
+					}
 
-		&.fade-up {
-			> .inner {
-				@include vendor('transform', 'translateY(0)');
-				@include vendor('transition', (
-					'opacity #{_duration(activation)} ease',
-					'transform #{_duration(activation)} ease'
-				));
-				opacity: 1.0;
+				// Portrait.
+					@include orientation(portrait) {
+						@include padding(3em, 1.5em);
+					}
+
 			}
 
-			&.inactive,
-			body.is-loading & {
-				> .inner {
-					opacity: 0;
-					@include vendor('transform', 'translateY(1em)');
-				}
-			}
-		}
+		// XSmall.
+			@include breakpoint(xsmall) {
 
-		&.fade-down {
-			> .inner {
-				@include vendor('transform', 'translateY(0)');
-				@include vendor('transition', (
-					'opacity #{_duration(activation)} ease',
-					'transform #{_duration(activation)} ease'
-				));
-				opacity: 1.0;
+				// Landscape.
+					@include orientation(landscape) {
+						@include padding(2em, 1.5em);
+					}
+
+				// Portrait.
+					@include orientation(portrait) {
+						@include padding(2em, 1em);
+					}
+
 			}
 
-			&.inactive,
-			body.is-loading & {
-				> .inner {
-					opacity: 0;
-					@include vendor('transform', 'translateY(-1em)');
-				}
-			}
-		}
-
-		&.fade {
-			> .inner {
-				@include vendor('transition', (
-					'opacity #{_duration(activation)} ease'
-				));
-				opacity: 1.0;
-			}
-
-			&.inactive,
-			body.is-loading & {
-				> .inner {
-					opacity: 0;
-				}
-			}
-		}
 	}
