@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16B2659" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="7xg-a3-66b">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="7xg-a3-66b">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -65,7 +65,7 @@
         <scene sceneID="oNg-4q-etx">
             <objects>
                 <viewControllerPlaceholder storyboardName="MydataTabStoryboard" id="Hma-Bg-pRZ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="uug-Z0-iYU"/>
+                    <tabBarItem key="tabBarItem" title="Item" selectedImage="icon-mydata(b)" id="uug-Z0-iYU"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TMA-mh-Rfp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -446,6 +446,7 @@
         <image name="hyujokbo-img-logo" width="292" height="292"/>
         <image name="icon-lock" width="64" height="64"/>
         <image name="icon-mail" width="64" height="64"/>
+        <image name="icon-mydata(b)" width="16" height="16"/>
         <image name="line" width="298" height="3"/>
     </resources>
     <inferredMetricsTieBreakers>

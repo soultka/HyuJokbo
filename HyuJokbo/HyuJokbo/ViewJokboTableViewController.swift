@@ -229,6 +229,7 @@ class ViewJokboTableViewController: UITableViewController {
          //   cell.JokboImage?.image = UIimage[
             if(cell.imageCount == 0){cell.loadingAni()}
             cell.ContentLabel?.text = jokbo.jokboText
+            
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "ViewJokboCommentCell", for: indexPath) as! ViewJokboTableCommentViewCell

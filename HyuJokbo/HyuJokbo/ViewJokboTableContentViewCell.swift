@@ -34,6 +34,10 @@ class ViewJokboTableContentViewCell: UITableViewCell, UIScrollViewDelegate {
         self.PageControl?.isHidden = true
         self.PageControl?.numberOfPages = 0
         }
+        
+        self.ContentLabel?.numberOfLines = 0
+        self.ContentLabel?.sizeToFit()
+        
         // Initialization code
     }
 
@@ -117,7 +121,7 @@ class ViewJokboTableContentViewCell: UITableViewCell, UIScrollViewDelegate {
     func setUpScroll(){
         //Make UIScrollView and setting
         slideScroll.showsHorizontalScrollIndicator = false
-         slideScroll.showsVerticalScrollIndicator = false
+        slideScroll.showsVerticalScrollIndicator = false
         slideScroll.isDirectionalLockEnabled = true
         slideScroll.isMultipleTouchEnabled = false
         slideScroll.isPagingEnabled = true

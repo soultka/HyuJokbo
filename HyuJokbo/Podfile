@@ -6,12 +6,10 @@ platform :ios, '10.3'
 use_frameworks!
 
 target 'HyuJokbo' do
-	pod 'Alamofire', '~> 4.4'
-	
 	#Firebase
 	pod 'Firebase/Core'
 	pod 'Firebase/Database'
-    pod 'Firebase/Storage'
+  pod 'Firebase/Storage'
 	pod 'Firebase/Auth'
 	
 	#Facebook
@@ -25,8 +23,6 @@ target 'HyuJokbo' do
 	#Google
 	pod 'GoogleSignIn'
 
-	pod 'DLRadioButton', '~> 1.4'
-
-    #BSImagePicker
-    pod "BSImagePicker", "~> 2.4"
+  #BSImagePicker
+  pod "BSImagePicker", "~> 2.4"
 end

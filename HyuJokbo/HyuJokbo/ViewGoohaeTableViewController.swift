@@ -82,8 +82,6 @@ class ViewGoohaeTableViewController: UITableViewController {
         tableView.allowsSelection = false
         tableView.estimatedRowHeight = 44.0
         tableView.rowHeight = UITableViewAutomaticDimension
-        
-
         tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 40, right: 0)
         
 

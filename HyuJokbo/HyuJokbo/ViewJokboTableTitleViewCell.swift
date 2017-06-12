@@ -22,6 +22,10 @@ class ViewJokboTableTitleViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        SubjectLabel.adjustsFontSizeToFitWidth = true
+        SubjectLabel.minimumScaleFactor = 0.2
+        SubjectLabel.numberOfLines = 1
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
