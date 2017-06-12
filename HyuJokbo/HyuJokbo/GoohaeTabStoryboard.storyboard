@@ -39,7 +39,7 @@
                 <viewControllerPlaceholder storyboardName="GoohaeTabUploadStoryboard" id="11q-tI-MUp" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="znv-fy-Eo8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="902" y="-1253"/>
+            <point key="canvasLocation" x="1183" y="-1224"/>
         </scene>
         <!--구 해 요-->
         <scene sceneID="Nc1-Iq-TzC">
@@ -217,7 +217,7 @@
                 <viewControllerPlaceholder storyboardName="JokboTabUploadStoryboard" id="pZN-m9-uKK" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XM6-4m-ahL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1113" y="-1112"/>
+            <point key="canvasLocation" x="1175" y="-1098"/>
         </scene>
         <!--View Goohae Table View Controller-->
         <scene sceneID="zSb-4H-fqr">
@@ -540,7 +540,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X5Y-fm-xZu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1286.25" y="-663.38028169014081"/>
+            <point key="canvasLocation" x="1245" y="-680"/>
         </scene>
     </scenes>
     <resources>

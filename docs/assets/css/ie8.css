@@ -1,14 +1,8 @@
 /*
-	Hyperspace by HTML5 UP
+	Fractal by HTML5 UP
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
-
-/* Type */
-
-	body, input, select, textarea {
-		color: #ffffff;
-	}
 
 /* Button */
 
@@ -18,37 +12,81 @@
 	button,
 	.button {
 		position: relative;
+		-ms-behavior: url("assets/js/ie/PIE.htc");
+		border: solid 2px #e6e6e6 !important;
 	}
 
-		input[type="submit"]:after,
-		input[type="reset"]:after,
-		input[type="button"]:after,
-		button:after,
-		.button:after {
+		input[type="submit"]:hover,
+		input[type="reset"]:hover,
+		input[type="button"]:hover,
+		button:hover,
+		.button:hover {
+			border: solid 2px #e6e6e6 !important;
+		}
+
+		input[type="submit"].special,
+		input[type="reset"].special,
+		input[type="button"].special,
+		button.special,
+		.button.special {
+			border: none !important;
+		}
+
+			input[type="submit"].special:hover,
+			input[type="reset"].special:hover,
+			input[type="button"].special:hover,
+			button.special:hover,
+			.button.special:hover {
+				border: none !important;
+			}
+
+/* Image */
+
+	.image {
+		-ms-behavior: url("assets/js/ie/PIE.htc");
+	}
+
+		.image img {
+			position: relative;
+			-ms-behavior: url("assets/js/ie/PIE.htc");
+		}
+
+		.image.phone:before, .image.phone:after {
 			display: none;
 		}
 
-/* Features */
+		.image.phone .inner:before, .image.phone .inner:after {
+			display: none;
+		}
 
-	.features {
-		border: solid 1px;
+/* List */
+
+	ul.icons li {
+		padding: 0 0 0 1.5em;
 	}
 
-/* Form */
+		ul.icons li:first-child {
+			padding-left: 0 !important;
+		}
 
-	input[type="text"],
-	input[type="password"],
-	input[type="email"],
-	input[type="tel"],
-	select,
-	textarea {
-		background: transparent;
-		border: solid 1px;
+		ul.icons li .icon:before {
+			font-size: 24px;
+		}
+
+	ul.icons.major li {
+		padding: 0 0 0 2.5em;
 	}
 
-/* Split */
+		ul.icons.major li .icon:before {
+			font-size: 48px;
+		}
 
-	.split.style1 > :first-child {
-		padding-right: 2em;
-		width: 70%;
+/* Header */
+
+	#header {
+		min-height: 0;
 	}
+
+		#header .image {
+			margin: 0 0 2em 0;
+		}

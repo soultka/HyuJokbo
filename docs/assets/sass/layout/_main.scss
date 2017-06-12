@@ -8,22 +8,14 @@
 /// Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 ///
 
-/* Icon */
+/* Main */
 
-	.icon {
-		@include icon;
-		border-bottom: none;
-		position: relative;
+	#main {
+		@include padding(4em, 0);
 
-		> .label {
-			display: none;
-		}
+		// Small.
+			@include breakpoint(small) {
+				@include padding(3em, 0);
+			}
+
 	}
-
-	@mixin color-icon($p: null) {
-		.icon {
-			color: _palette($p, fg-light);
-		}
-	}
-
-	@include color-icon;
