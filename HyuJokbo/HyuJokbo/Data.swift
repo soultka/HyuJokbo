@@ -131,5 +131,8 @@ class User{
 }
 
 class HonorUser{
-    var members = [User](repeatElement(User(), count: 10))
+    var members = [User](repeatElement(User(), count: 5))
+    var maxLike = 0
+    var minLike = 0
+
 }

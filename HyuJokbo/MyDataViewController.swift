@@ -35,6 +35,9 @@ class MyDataViewController: UIViewController ,UITableViewDelegate,UITableViewDat
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        ref = FIRDatabase.database().reference()
+
         if(g_CurUser.image == ""){
             myImage.image = #imageLiteral(resourceName: "icon-mydata")
         }else {
@@ -62,7 +65,7 @@ class MyDataViewController: UIViewController ,UITableViewDelegate,UITableViewDat
         MyBookedTableView.dataSource = self;
         
         // Do any additional setup after loading the view.
-        ref = FIRDatabase.database().reference()
+
 
         databaseHandle = ref?.child("bookmarked").observe(.childAdded, with: { (snapshot) in
             let data = snapshot.value as? [String:String]
