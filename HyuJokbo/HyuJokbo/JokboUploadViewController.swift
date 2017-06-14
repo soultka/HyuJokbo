@@ -173,9 +173,10 @@ UIImagePickerControllerDelegate, UINavigationControllerDelegate{
 
 
         var curRef = self.ref?.child("jokbos").childByAutoId()
+        let jokboKey = curRef?.key
 
         if(selectedImages.isEmpty == false){
-            let errorIndex = addPhoto(key: (curRef?.key)!)
+            let errorIndex = addPhoto(key: jokboKey!)
             if errorIndex.isEmpty == false
             {
                 var alertMessage:String = ""
@@ -209,6 +210,12 @@ UIImagePickerControllerDelegate, UINavigationControllerDelegate{
             curRef?.child("userName").setValue("admin")
 
         }
+
+        //업도르한 족보들의 키를 넣어놓음
+        curRef = self.ref?.child("users").child(g_CurUser.uid).child("sndUploadJokbo")
+        curRef?.child(dateStr).setValue(jokboKey)   //족보의 업데이트 데이트 기준으로 키를 넣음
+
+
 
 
         // Dismiss the popover

@@ -15,15 +15,11 @@ var g_JokbosArray = [Jokbo]()
 var g_GoohaesData = [String:Goohae]()
 var g_GoohaesArray:[Goohae] = []
 
-
+var g_CurUser = User()
 let g_MAX_JOKBO_NUM = 30
 
 var g_SelectedData:String = ""
 
-enum searchSelectedScope:Int{
-    case subject = 0
-    case professor = 1
-}
 
 class Jokbo{
     var key:String = ""
@@ -36,6 +32,7 @@ class Jokbo{
     var updateDate:Int = 0
 
     var userName:String = ""
+    var uid:String = ""
     var likeNum:Int = 0
     var commentNum:Int = 0
     var bookmarkNum:Int = 0
@@ -71,6 +68,7 @@ class Goohae{
     var updateDate:Int = 0
 
     var userName:String = ""
+    var uid:String = ""
     var likeNum:Int = 0
     var commentNum:Int = 0
     var bookmarkNum:Int = 0
@@ -110,11 +108,24 @@ class Comment{
 }
 
 class User{
-    
-    var email:String = ""
-    var jokbos:[Jokbo] = []
-    var goohaes:[Goohae] = []
 
-    var likeNum:Int = 0
-    var commentNum:Int = 0
+    
+    var uid:String = ""
+    var image:String = ""
+    var email:String = ""
+
+    var sndLikeJokbo:[String] = [] //족보 ID들 담음
+    var sndUploadJokbo:[String] = [] //족보 ID들 담음
+    var sndBookmarkJokbo:[String] = [] // 족보 ID들 담음
+
+    var rcvLikeNum:Int = 0
+    var rcvCommentNum:Int = 0
+
+    init() {
+    }
+
+    convenience init(uid:String){
+        self.init()
+        self.uid = uid
+    }
 }

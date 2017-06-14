@@ -48,17 +48,28 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TuK-d6-LF2">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
                                 <subviews>
-                                    <imageView opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="76j-zA-T7C">
+                                    <imageView opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="76j-zA-T7C">
                                         <rect key="frame" x="130" y="50" width="60" height="60"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="60" id="U6a-yE-TkQ"/>
                                             <constraint firstAttribute="width" constant="60" id="hOe-az-wz3"/>
                                         </constraints>
                                     </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YdR-eR-c7j" userLabel="ImagePick">
+                                        <rect key="frame" x="130" y="50" width="60" height="60"/>
+                                        <state key="normal" image="플러스"/>
+                                        <connections>
+                                            <action selector="profileImagePick:" destination="H29-47-59z" eventType="touchUpInside" id="pDg-ah-1fM"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.70320373773574829" green="0.77822393178939819" blue="0.90708249807357788" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
+                                    <constraint firstItem="YdR-eR-c7j" firstAttribute="height" secondItem="76j-zA-T7C" secondAttribute="height" id="3kV-gs-3no"/>
                                     <constraint firstAttribute="height" constant="80" id="D6Q-KP-kYh"/>
+                                    <constraint firstItem="YdR-eR-c7j" firstAttribute="width" secondItem="76j-zA-T7C" secondAttribute="width" id="X6W-23-Prb"/>
+                                    <constraint firstItem="YdR-eR-c7j" firstAttribute="leading" secondItem="76j-zA-T7C" secondAttribute="leading" id="Zdj-Nh-MrV"/>
+                                    <constraint firstItem="YdR-eR-c7j" firstAttribute="top" secondItem="76j-zA-T7C" secondAttribute="top" id="zGC-ku-qrX"/>
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rbA-rU-PWK">
@@ -219,6 +230,7 @@
                                             <outlet property="NumofTableLabel" destination="0HJ-U0-U9l" id="1fb-vt-eLy"/>
                                             <outlet property="ProfessorLabel" destination="Nhg-g4-nWv" id="VTG-4b-ffP"/>
                                             <outlet property="SubjectLabel" destination="waw-M3-lZe" id="apu-kY-aM3"/>
+                                            <segue destination="9g2-xS-fSX" kind="show" identifier="MyJokboSegue" id="y4g-nV-2S2"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -342,6 +354,7 @@
                                             <outlet property="NumofCell" destination="dbn-Up-zac" id="HLq-K8-SXJ"/>
                                             <outlet property="ProfessorName" destination="jAy-YK-0Vc" id="Bb7-a5-xNa"/>
                                             <outlet property="SubjectName" destination="1g2-pg-HG3" id="wZK-MS-SPs"/>
+                                            <segue destination="9g2-xS-fSX" kind="show" identifier="BookedJokboSegue" id="nbS-ba-yXJ"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -425,6 +438,7 @@
                         <outlet property="MyBookedTableView" destination="f0q-5n-vza" id="Xpd-qh-Cwg"/>
                         <outlet property="MyTableView" destination="GUH-mC-4yS" id="qf0-vE-vB8"/>
                         <outlet property="myImage" destination="76j-zA-T7C" id="TYj-pQ-dr0"/>
+                        <outlet property="myImageButton" destination="YdR-eR-c7j" id="QjW-Qe-Ggh"/>
                         <outlet property="myName" destination="rbA-rU-PWK" id="Jfc-Rp-06M"/>
                         <outlet property="viewComment" destination="blV-yV-gSZ" id="g6s-II-zBu"/>
                         <outlet property="viewLike" destination="BCF-xJ-iDk" id="3gd-tI-41d"/>
@@ -434,6 +448,14 @@
             </objects>
             <point key="canvasLocation" x="80.625" y="634.85915492957747"/>
         </scene>
+        <!--ViewJokboTableViewController-->
+        <scene sceneID="v3D-rX-Tzs">
+            <objects>
+                <viewControllerPlaceholder storyboardName="JokboTabStoryboard" referencedIdentifier="ViewJokboTableViewController" id="9g2-xS-fSX" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WlD-MV-pQO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="980" y="637"/>
+        </scene>
     </scenes>
     <resources>
         <image name="(low)icon-mydata(b)" width="25" height="25"/>
@@ -442,5 +464,9 @@
         <image name="icon-chat" width="64" height="64"/>
         <image name="icon-file" width="64" height="64"/>
         <image name="icon-like" width="64" height="64"/>
+        <image name="플러스" width="60" height="60"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="nbS-ba-yXJ"/>
+    </inferredMetricsTieBreakers>
 </document>

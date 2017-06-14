@@ -254,7 +254,7 @@ class ViewJokboTableViewController: UITableViewController {
     }
 
     @IBAction func likeButtonTapped(_ sender: Any) {
-        if isLikeButtonTapped == true {
+        if g_CurUser.sndLikeJokbo.index(of: jokbo.key) != nil {
             let alertController = UIAlertController(title: "알림", message:
                 "이미 추천한 게시물입니다.", preferredStyle: UIAlertControllerStyle.alert)
             alertController.addAction(UIAlertAction(title: "확인", style: UIAlertActionStyle.default,handler: nil))
@@ -271,11 +271,18 @@ class ViewJokboTableViewController: UITableViewController {
             titleCell?.LikeNumLabel?.text = String(jokbo.likeNum+1)
             tableView.reloadRows(at: [indexPath], with: .automatic)
         }
+        //업도르한 족보들의 키를 넣어놓음
+        
+        var userRef = self.ref?.child("users").child(g_CurUser.uid).child("sndLikeJokbo")
+        userRef?.childByAutoId().setValue(jokbo.key)   //유저의 좋아요 정보에 족보 키를 넣음
+        g_CurUser.sndLikeJokbo += [jokbo.key]
+
+
 
     }
     
     @IBAction func bookmarkButtonTapped(_ sender: Any) {
-        if isBookMarkButtonTapped == true {
+        if g_CurUser.sndBookmarkJokbo.index(of: jokbo.key) != nil {
             let alertController = UIAlertController(title: "알림", message:
                 "이미 스크랩한 게시물입니다.", preferredStyle: UIAlertControllerStyle.alert)
             alertController.addAction(UIAlertAction(title: "확인", style: UIAlertActionStyle.default,handler: nil))
@@ -299,6 +306,11 @@ class ViewJokboTableViewController: UITableViewController {
             titleCell?.BookmarkNumLabel?.text = String(jokbo.bookmarkNum+1)
             tableView.reloadRows(at: [indexPath], with: .automatic)
         }
+        //업도르한 족보들의 키를 넣어놓음
+        var userRef = self.ref?.child("users").child(g_CurUser.uid).child("sndBookmarkJokbo")
+        userRef?.childByAutoId().setValue(jokbo.key)   //유저의 좋아요 정보에 족보 키를 넣음
+        g_CurUser.sndBookmarkJokbo += [jokbo.key]
+
     }
     
     @IBAction func sirenButtonTapped(_ sender: Any) {

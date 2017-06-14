@@ -9,8 +9,9 @@
 import UIKit
 import FirebaseAuth
 import FirebaseDatabase
+import FirebaseStorage
 
-class MyDataViewController: UIViewController ,UITableViewDelegate,UITableViewDataSource{
+class MyDataViewController: UIViewController ,UITableViewDelegate,UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
     
    
     @IBOutlet weak var MyTableView: UITableView!
@@ -18,6 +19,7 @@ class MyDataViewController: UIViewController ,UITableViewDelegate,UITableViewDat
     @IBOutlet weak var viewComment: UILabel!
     @IBOutlet weak var viewLike: UILabel!
     @IBOutlet weak var myImage: UIImageView!
+    @IBOutlet weak var myImageButton: UIButton!
     @IBOutlet weak var myName: UILabel!
     
     var ref: FIRDatabaseReference?
@@ -34,6 +36,7 @@ class MyDataViewController: UIViewController ,UITableViewDelegate,UITableViewDat
     override func viewDidLoad() {
         super.viewDidLoad()
         myImage.image = #imageLiteral(resourceName: "icon-mydata")
+        myImage.isUserInteractionEnabled = false
         myImage.backgroundColor = UIColor.clear
         if let userID = FIRAuth.auth()?.currentUser{
             user.email = userID.email!
@@ -205,6 +208,92 @@ class MyDataViewController: UIViewController ,UITableViewDelegate,UITableViewDat
         return myCell
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "MyJokboSegue" {
+            if let destination = segue.destination as? ViewJokboTableViewController, let selectedIndex = self.MyTableView.indexPathForSelectedRow?.row {
+                
+                destination.jokbo = MyJokbo[selectedIndex]
+                g_SelectedData = MyJokbo[selectedIndex].key
+            }
+        }
+        if segue.identifier == "BookedJokboSegue" {
+            if let destination = segue.destination as? ViewJokboTableViewController, let selectedIndex = self.MyBookedTableView.indexPathForSelectedRow?.row {
+                destination.jokbo = self.BookedJokbo[selectedIndex]
+                g_SelectedData = self.BookedJokbo[selectedIndex].key
+            }
+        }
+    }
+
+    //MAKR: profile image
+    @IBAction func profileImagePick(_ sender: Any) {
+
+        let p_picker = UIImagePickerController()
+        p_picker.delegate = self
+        p_picker.allowsEditing = false
+
+        myImageButton.translatesAutoresizingMaskIntoConstraints = false
+        myImageButton.centerXAnchor.constraint(equalTo: self.myImage.centerXAnchor).isActive = true
+        myImageButton.topAnchor.constraint(equalTo: self.myImage.topAnchor, constant: 0).isActive = true
+        myImageButton.widthAnchor.constraint(equalToConstant: self.myImage.frame.width).isActive = true
+        myImageButton.heightAnchor.constraint(equalToConstant: self.myImage.frame.height).isActive = true
+
+        present(p_picker, animated: true, completion: nil)
+
+    }
+    public func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]){
+        myImage.contentMode = .scaleAspectFit
+        if let image = info[UIImagePickerControllerEditedImage] as? UIImage {
+            addImageToStorage(image: image)
+        }
+        else if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            addImageToStorage(image: image)
+        } else{
+            print("Something went wrong")
+        }
+
+
+        self.dismiss(animated: true, completion: nil)
+    }
+
+    func addImageToStorage(image:UIImage){
+        var storageRef:FIRStorageReference
+        var imageName = ""
+        myImage.image = image
+
+        imageName = g_CurUser.uid
+
+
+        storageRef = FIRStorage.storage().reference().child(imageName)
+
+        guard var uploadData = UIImageJPEGRepresentation(image, 0.1) else{
+
+            return
+        }
+        //0.0~1.0 means quality of image
+
+        storageRef.put(uploadData, metadata: nil, completion: {(metadata,error)
+            in
+            if  error != nil{
+                print(error)
+                return
+            }
+
+            if let downloadURL = metadata?.downloadURL(){
+                g_CurUser.image = "\(downloadURL)"
+                print("URL!!")
+                print(downloadURL)
+
+            }
+        })
+        var userImageRef = ref?.child("users").child(g_CurUser.uid).child("image")
+        userImageRef?.setValue(g_CurUser.image)
+
+
+    }
+    func imagePickerControllerDidCancel(picker: UIImagePickerController) {
+
+        self.dismiss(animated: true, completion: nil)
+    }
     /*
      // MARK: - Navigation
      
