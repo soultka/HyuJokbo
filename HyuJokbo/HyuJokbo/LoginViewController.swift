@@ -249,7 +249,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate, GIDSignInUIDel
         self.addUser()
         self.loadUser()
         self.setupHonorUsers()
-        self.loadHonorUsers()
+
 
         self.performSegue(withIdentifier: "signInSegue", sender: self)
         ref?.removeAllObservers()

@@ -20,6 +20,7 @@ class HonorViewController: UIViewController, UIScrollViewDelegate, HonorMemberBu
     var buttonHeight:CGFloat!
     var memberImageWidth:CGFloat!
     var scrollIndex:Int = 1
+    var imageLoadCnt = 0
     let PADDING = CGFloat(10)
 
     var ref: FIRDatabaseReference?
@@ -44,12 +45,9 @@ class HonorViewController: UIViewController, UIScrollViewDelegate, HonorMemberBu
 
     override func viewDidLoad() {
         ref = FIRDatabase.database().reference()
+        self.loadHonorUsers()
 
         super.viewDidLoad()
-                self.loadHonorUsers()
-
-
-
 
 
         superViewWidth = self.view.frame.height
@@ -67,7 +65,6 @@ class HonorViewController: UIViewController, UIScrollViewDelegate, HonorMemberBu
         //For ScrollView---
         setUpScroll()
         reloadScroll()
-        self.loadAllImages()
 
 
         scrollViewDidScroll(InvisibleScroll)
@@ -95,8 +92,7 @@ class HonorViewController: UIViewController, UIScrollViewDelegate, HonorMemberBu
     }
     override func viewDidAppear(_ animated: Bool) {
         scrollViewDidScroll(InvisibleScroll)
-        //        self.loadHonorUsers()
-        self.loadAllImages()
+
         self.HonorJokboTableView.reloadData()
         self.HonorGoohaeTableView.reloadData()
         honorGoohaeLoad()
@@ -141,7 +137,9 @@ class HonorViewController: UIViewController, UIScrollViewDelegate, HonorMemberBu
 
                     }
                     g_HonorUsers.members.sort(by: {$0.rcvLikeNum > $1.rcvLikeNum })
-                    self.loadAllImages()
+
+                    self.reloadLabels()
+//                    self.loadAllImages()
 
                 })
             }
@@ -201,8 +199,7 @@ class HonorViewController: UIViewController, UIScrollViewDelegate, HonorMemberBu
 
         }
 
-        self.reloadScroll()
-        self.scrollViewDidScroll(self.slideScroll)
+
 
     }
 
@@ -245,6 +242,12 @@ class HonorViewController: UIViewController, UIScrollViewDelegate, HonorMemberBu
 
 
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
+
+        if(self.imageLoadCnt <= 2){
+
+            loadAllImages()
+            self.imageLoadCnt += 1
+        }
 
         if(scrollView == InvisibleScroll || scrollView == slideScroll)
         {
