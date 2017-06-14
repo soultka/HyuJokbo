@@ -277,6 +277,7 @@ class ViewJokboTableViewController: UITableViewController {
                     if(findInHonor == 0){
                         g_HonorUsers.members.sort(by: {$0.rcvLikeNum > $1.rcvLikeNum })
                         let minHonorUid = g_HonorUsers.members[4].uid
+
                         self.ref?.child("users").child(minHonorUid).child("rcvLikeNum").observeSingleEvent(of: .value, with: { (snapshot) in
                             let minLike = snapshot.value as! String
                             g_HonorUsers.minLike = Int(minLike)!

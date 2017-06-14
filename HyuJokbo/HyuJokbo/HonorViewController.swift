@@ -91,7 +91,9 @@ class HonorViewController: UIViewController, UIScrollViewDelegate, HonorMemberBu
 
     }
     override func viewDidAppear(_ animated: Bool) {
+        self.imageLoadCnt = 0
         scrollViewDidScroll(InvisibleScroll)
+        self.loadHonorUsers()
 
         self.HonorJokboTableView.reloadData()
         self.HonorGoohaeTableView.reloadData()
@@ -141,6 +143,7 @@ class HonorViewController: UIViewController, UIScrollViewDelegate, HonorMemberBu
                     g_HonorUsers.members.sort(by: {$0.rcvLikeNum > $1.rcvLikeNum })
 
                     self.reloadLabels()
+                    self.sortG_Honor()
 //                    self.loadAllImages()
 
                 })
@@ -206,8 +209,13 @@ class HonorViewController: UIViewController, UIScrollViewDelegate, HonorMemberBu
     }
     func sortG_Honor() {
         g_HonorUsers.members.sort(by: {$0.rcvLikeNum > $1.rcvLikeNum })
+
         g_HonorUsers.maxLike = g_HonorUsers.members[0].rcvLikeNum
         g_HonorUsers.minLike = g_HonorUsers.members[g_MAX_HONOR_USER_NUM-1].rcvLikeNum
+
+        for i in stride(from: 0, to: g_MAX_HONOR_USER_NUM-1, by: 1){
+            self.ref?.child("honor_users").child("\(i+1)").setValue(g_HonorUsers.members[i].uid)
+        }
     }
 
 

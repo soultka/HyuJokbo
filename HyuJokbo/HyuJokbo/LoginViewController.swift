@@ -249,6 +249,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate, GIDSignInUIDel
         self.addUser()
         self.loadUser()
         self.setupHonorUsers()
+        self.loadHonorUsers()
+        self.sortG_Honor()
 
 
         self.performSegue(withIdentifier: "signInSegue", sender: self)
@@ -320,6 +322,63 @@ class LoginViewController: UIViewController, UITextFieldDelegate, GIDSignInUIDel
 
                 g_HonorUsers.members[i].uid = snapshot.value as! String
             })
+        }
+    }
+
+    func loadHonorUsers(){
+
+        for user in g_HonorUsers.members{
+
+            if user.uid != ""{
+
+                ref?.child("users").child(user.uid).observeSingleEvent(of:.value, with: { (snapshot) in
+
+
+                    if var indexOfUser = g_HonorUsers.members.index(where: { (item) -> Bool in
+                        item.uid == user.uid
+                    }){
+                        if let email = snapshot.childSnapshot(forPath: "email").value as? String{
+                            g_HonorUsers.members[indexOfUser].email = email
+
+                        }
+                        if let image = snapshot.childSnapshot(forPath: "image").value as? String{
+                            g_HonorUsers.members[indexOfUser].image = image
+
+                        }
+
+                        if let rcvLikeNum = snapshot.childSnapshot(forPath: "rcvLikeNum").value as? String{
+                            g_HonorUsers.members[indexOfUser].rcvLikeNum = Int(rcvLikeNum)!
+
+
+
+                        }
+                        if let rcvCommentNum = snapshot.childSnapshot(forPath: "rcvCommentNum").value as? String{
+                            g_HonorUsers.members[indexOfUser].rcvCommentNum = Int(rcvCommentNum)!
+
+                        }
+
+                    }
+                    g_HonorUsers.members.sort(by: {$0.rcvLikeNum > $1.rcvLikeNum })
+                    
+                    self.sortG_Honor()
+                    //                    self.loadAllImages()
+                    
+                })
+            }
+            
+        }
+        
+        
+    }
+
+    func sortG_Honor() {
+        g_HonorUsers.members.sort(by: {$0.rcvLikeNum > $1.rcvLikeNum })
+
+        g_HonorUsers.maxLike = g_HonorUsers.members[0].rcvLikeNum
+        g_HonorUsers.minLike = g_HonorUsers.members[g_MAX_HONOR_USER_NUM-1].rcvLikeNum
+
+        for i in stride(from: 0, to: g_MAX_HONOR_USER_NUM-1, by: 1){
+            self.ref?.child("honor_users").child("\(i+1)").setValue(g_HonorUsers.members[i].uid)
         }
     }
     
