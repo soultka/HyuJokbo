@@ -116,9 +116,21 @@ class MyDataViewController: UIViewController ,UITableViewDelegate,UITableViewDat
     override func viewDidAppear(_ animated: Bool) {
         MyJokboLoad()
         self.MyTableView.reloadData()
-        viewLike.text = String(g_CurUser.rcvLikeNum)
-        viewComment.text = String(g_CurUser.rcvCommentNum)
         //viewComment.text = String(userComment)
+        ref?.child("users").child(g_CurUser.uid).observeSingleEvent(of:.value, with: { (snapshot) in
+            
+            if let rcvLikeNum = snapshot.childSnapshot(forPath: "rcvLikeNum").value as? String{
+                g_CurUser.rcvLikeNum = Int(rcvLikeNum)!
+                self.viewLike.text = String(g_CurUser.rcvLikeNum)
+            }
+            
+            if let rcvCommentNum = snapshot.childSnapshot(forPath: "rcvCommentNum").value as? String{
+                g_CurUser.rcvCommentNum = Int(rcvCommentNum)!
+                self.viewComment.text = String(g_CurUser.rcvCommentNum)
+                
+            }
+        })
+    
     }
     
     func MyJokboLoad(){

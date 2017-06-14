@@ -19,15 +19,19 @@ class HonorViewController: UIViewController, UIScrollViewDelegate, HonorMemberBu
     var buttonWidth:CGFloat!
     var buttonHeight:CGFloat!
     var memberImageWidth:CGFloat!
+    var scrollIndex:Int = 1
+    var imageLoadCnt = 0
     let PADDING = CGFloat(10)
 
-     var ref: FIRDatabaseReference?
+    var ref: FIRDatabaseReference?
 
 
 
     var imageViews:[HonorMemberImageView] = []
     @IBOutlet weak var slideScroll: UIScrollView!
     @IBOutlet weak var CenterMemberLabel: UILabel!
+    @IBOutlet weak var RcvLike: UILabel!
+    @IBOutlet weak var RcvComment: UILabel!
 
     @IBOutlet weak var InvisibleScroll: UIScrollView!
 
@@ -41,8 +45,11 @@ class HonorViewController: UIViewController, UIScrollViewDelegate, HonorMemberBu
 
     override func viewDidLoad() {
         ref = FIRDatabase.database().reference()
+        self.loadHonorUsers()
 
         super.viewDidLoad()
+
+
         superViewWidth = self.view.frame.height
         superViewHeight = self.view.frame.height
         scrollViewY = CGFloat(100)
@@ -52,15 +59,16 @@ class HonorViewController: UIViewController, UIScrollViewDelegate, HonorMemberBu
         buttonHeight = CGFloat(100)
         memberImageWidth = CGFloat(70)
 
-        self.CenterMemberLabel.text = "Member 1"
 
 
 
         //For ScrollView---
-
         setUpScroll()
         reloadScroll()
+
+
         scrollViewDidScroll(InvisibleScroll)
+
 
 
         //For TableView
@@ -69,18 +77,22 @@ class HonorViewController: UIViewController, UIScrollViewDelegate, HonorMemberBu
         // Do any additional setup after loading the view.
         self.honorJokboLoad()
         self.honorGoohaeLoad()
-        
+
         HonorJokboTableView.delegate = self
         HonorJokboTableView.dataSource = self
-//        HonorJokboTableView.register(HonorJokboTableViewCell.self, forCellReuseIdentifier: "HonorJokboCell")
+        //        HonorJokboTableView.register(HonorJokboTableViewCell.self, forCellReuseIdentifier: "HonorJokboCell")
 
         HonorGoohaeTableView.delegate = self
         HonorGoohaeTableView.dataSource = self
-//        HonorGoohaeTableView.register(HonorGoohaeTableViewCell.self, forCellReuseIdentifier: "HonorGoohaeCell")
+        //        HonorGoohaeTableView.register(HonorGoohaeTableViewCell.self, forCellReuseIdentifier: "HonorGoohaeCell")
+
+
+
 
     }
     override func viewDidAppear(_ animated: Bool) {
         scrollViewDidScroll(InvisibleScroll)
+
         self.HonorJokboTableView.reloadData()
         self.HonorGoohaeTableView.reloadData()
         honorGoohaeLoad()
@@ -91,17 +103,110 @@ class HonorViewController: UIViewController, UIScrollViewDelegate, HonorMemberBu
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    //MARK:-    -   -   -   -   -   -   -   -   -   -   HONOR USER SET
-    func setupHonorUsers(){
-//        ref?.child("honor_users").observe(of:.value, with: { (snapshot) in
-//            
-//        })
+
+    //MARK: Load HonorUsers
+    func loadHonorUsers(){
+
+        for user in g_HonorUsers.members{
+
+            if user.uid != ""{
+
+                ref?.child("users").child(user.uid).observeSingleEvent(of:.value, with: { (snapshot) in
+
+
+                    if var indexOfUser = g_HonorUsers.members.index(where: { (item) -> Bool in
+                        item.uid == user.uid
+                    }){
+                        if let email = snapshot.childSnapshot(forPath: "email").value as? String{
+                            g_HonorUsers.members[indexOfUser].email = email
+
+                        }
+                        if let image = snapshot.childSnapshot(forPath: "image").value as? String{
+                            g_HonorUsers.members[indexOfUser].image = image
+
+                        }
+
+                        if let rcvLikeNum = snapshot.childSnapshot(forPath: "rcvLikeNum").value as? String{
+                            g_HonorUsers.members[indexOfUser].rcvLikeNum = Int(rcvLikeNum)!
+
+                        }
+                        if let rcvCommentNum = snapshot.childSnapshot(forPath: "rcvCommentNum").value as? String{
+                            g_HonorUsers.members[indexOfUser].rcvCommentNum = Int(rcvCommentNum)!
+
+                        }
+
+                    }
+                    g_HonorUsers.members.sort(by: {$0.rcvLikeNum > $1.rcvLikeNum })
+
+                    self.reloadLabels()
+//                    self.loadAllImages()
+
+                })
+            }
+
+        }
+
+
+    }
+    func loadAllImages(){
+        var mutex = pthread_mutex_t()
+        pthread_mutex_init(&mutex, nil)
+        for user in g_HonorUsers.members{
+
+
+
+            pthread_mutex_trylock(&mutex)
+            if var indexOfUser = g_HonorUsers.members.index(where: { (item) -> Bool in
+                item.uid == user.uid
+            }){
+                if(indexOfUser <= g_MAX_HONOR_USER_NUM){
+                    if user.uid != ""{
+                        //image load
+                        if var url = URL(string: g_HonorUsers.members[indexOfUser].image){
+                            var request = URLRequest(url:url)
+
+                            URLSession.shared.dataTask(with: request, completionHandler: { (data, response, error) in
+                                DispatchQueue.main.async {
+                                    let newImage = UIImage(data:data!)
+                                    self.imageViews[indexOfUser].image = newImage
+
+                                }
+                                if(error != nil){
+                                    print(error)
+                                }
+                                if(user.image.isEmpty){
+                                    self.imageViews[indexOfUser].image = nil
+                                    self.imageViews[indexOfUser].image = UIImage(named: "icon-h_mydata(b)")
+
+
+                                }
+
+                            }).resume()
+
+
+
+                        }
+                    }
+                    if(user.image.isEmpty){
+
+                        self.imageViews[indexOfUser].image = UIImage(named: "icon-h_mydata(b)")
+
+
+                    }
+                }
+            }
+            pthread_mutex_unlock(&mutex)
+
+        }
+
+
+
     }
 
 
     //MARK: -   -   -   -   -   -   -   -   -   -Scroll!!!!!!VIEW
     func numberOfScrollViewElements() -> Int {
-        return 5
+        return g_MAX_HONOR_USER_NUM
     }
 
 
@@ -138,14 +243,24 @@ class HonorViewController: UIViewController, UIScrollViewDelegate, HonorMemberBu
 
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
 
+        if(self.imageLoadCnt <= 2){
+
+            loadAllImages()
+            self.imageLoadCnt += 1
+        }
+
         if(scrollView == InvisibleScroll || scrollView == slideScroll)
         {
             slideScroll.contentOffset = InvisibleScroll.contentOffset
 
-            let index = Int((Double(slideScroll.contentOffset.x)/Double(buttonWidth)).rounded()) + 1
-            print("moved \(Int(slideScroll.contentOffset.x)/Int(buttonWidth))")
-            self.CenterMemberLabel.text = "Member\(index)"
+            self.scrollIndex = (Int((Double(slideScroll.contentOffset.x)/Double(buttonWidth)).rounded()) + 1)
+            let index = self.scrollIndex
 
+            //            print("moved \(Int(slideScroll.contentOffset.x)/Int(buttonWidth))")
+
+            self.reloadLabels()
+
+            //Dynamic image size
             for index in stride(from: 0, to: self.numberOfScrollViewElements(), by: 1)
             {
                 let slideInt = Int(slideScroll.contentOffset.x)
@@ -160,10 +275,20 @@ class HonorViewController: UIViewController, UIScrollViewDelegate, HonorMemberBu
                                                  y: (Int(buttonHeight) - imageViews[index].height)/2,
                                                  width: imageViews[index].width,
                                                  height: imageViews[index].height)
-                
+
             }
         }
-        
+
+    }
+    func reloadLabels(){
+        if(self.scrollIndex > 0  && self.scrollIndex <= g_MAX_HONOR_USER_NUM){
+            self.CenterMemberLabel.text = g_HonorUsers.members[self.scrollIndex-1].email
+            self.RcvLike.text = String(g_HonorUsers.members[self.scrollIndex-1].rcvLikeNum)
+            self.RcvComment.text = String(g_HonorUsers.members[self.scrollIndex-1].rcvCommentNum)
+
+
+        }
+
     }
 
 
@@ -201,8 +326,16 @@ class HonorViewController: UIViewController, UIScrollViewDelegate, HonorMemberBu
 
     func reloadScroll(){
 
-        //xOffset is x offset for each button
+
+        for sub in slideScroll.subviews{
+            sub.removeFromSuperview()
+        }
+        self.imageViews.removeAll()
         var xOffset:CGFloat = 0
+
+        xOffset += buttonWidth
+        //xOffset is x offset for each button
+
         for index in 0..<self.numberOfScrollViewElements(){
             let view = self.elementAtScrollViewIndex(index: index)
 
@@ -217,6 +350,8 @@ class HonorViewController: UIViewController, UIScrollViewDelegate, HonorMemberBu
         }
         slideScroll.contentSize = CGSize(width: xOffset + buttonWidth, height:scrollViewHeight)
         InvisibleScroll.contentSize = CGSize(width: xOffset - buttonWidth, height:scrollViewHeight)
+        //        self.reloadLabels()
+
 
     }
 
@@ -225,19 +360,19 @@ class HonorViewController: UIViewController, UIScrollViewDelegate, HonorMemberBu
         slideScroll.isScrollEnabled = false
         slideScroll.isPagingEnabled = false
         scrollViewDidScroll(InvisibleScroll)
-        
+
     }
     func HonorButtonGesture() {
         print(Int(InvisibleScroll.contentOffset.x)/Int(buttonWidth))
         slideScroll.isScrollEnabled = true
         slideScroll.isPagingEnabled = true
-        
+
     }
     @IBAction func JokboMoreButton(_ sender: Any) {
         print("jokbo more")
         self.tabBarController?.selectedIndex = 0
     }
-    
+
     @IBAction func GoohaeMoreButton(_ sender: Any) {
         print("goohae more")
         self.tabBarController?.selectedIndex = 1
@@ -250,7 +385,7 @@ class HonorViewController: UIViewController, UIScrollViewDelegate, HonorMemberBu
     }
     func honorGoohaeLoad(){
         if(!g_GoohaesArray.isEmpty){
-        self.honorGoohaes = g_GoohaesArray.sorted{ $0.likeNum > $1.likeNum }
+            self.honorGoohaes = g_GoohaesArray.sorted{ $0.likeNum > $1.likeNum }
         }
     }
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -275,14 +410,14 @@ class HonorViewController: UIViewController, UIScrollViewDelegate, HonorMemberBu
         if tableView == self.HonorJokboTableView {
             if let myJCell = tableView.dequeueReusableCell(withIdentifier: "HonorJokboCell", for: indexPath) as? HonorJokboTableViewCell{
                 let jokbo = self.honorJokbos[indexPath.row]
-                
+
                 myJCell.RankNumLabel?.text = String(indexPath.row+1)
                 myJCell.SubjectLabel?.text = String(jokbo.className)
                 myJCell.ProfessorLabel?.text = String(jokbo.professorName)
                 myJCell.LikeNumLabel?.text = String(jokbo.likeNum)
                 myJCell.CommentNumLabel?.text = String(jokbo.commentNum)
                 myJCell.BookmarkNumLabel?.text = String(jokbo.bookmarkNum)
-                
+
                 return myJCell
             }
         }
@@ -290,26 +425,26 @@ class HonorViewController: UIViewController, UIScrollViewDelegate, HonorMemberBu
         if tableView == self.HonorGoohaeTableView {
             if let myGCell = tableView.dequeueReusableCell(withIdentifier: "HonorGoohaeCell", for: indexPath) as? HonorGoohaeTableViewCell{
                 let goohae = self.honorGoohaes[indexPath.row]
-
+                
                 myGCell.RankNumLabel?.text = String(indexPath.row+1)
                 myGCell.SubjectLabel?.text = String(goohae.className)
                 myGCell.ProfessorLabel?.text = String(goohae.professorName)
                 myGCell.LikeNumLabel?.text = String(goohae.likeNum)
                 myGCell.CommentNumLabel?.text = String(goohae.commentNum)
                 myGCell.BookmarkNumLabel?.text = String(goohae.bookmarkNum)
-
+                
                 return myGCell
             }
             
         }
-
+        
         return myCell
-
+        
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "JokboSegue" {
             if let destination = segue.destination as? ViewJokboTableViewController, let selectedIndex = self.HonorJokboTableView.indexPathForSelectedRow?.row {
-
+                
                 destination.jokbo = honorJokbos[selectedIndex]
                 g_SelectedData = honorJokbos[selectedIndex].key
             }
@@ -321,5 +456,5 @@ class HonorViewController: UIViewController, UIScrollViewDelegate, HonorMemberBu
             }
         }
     }
-
+    
 }
