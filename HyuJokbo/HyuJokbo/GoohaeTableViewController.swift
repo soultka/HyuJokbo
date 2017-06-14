@@ -23,6 +23,7 @@ class GoohaeTableViewController: UITableViewController,GoohaeDownload, UISearchB
     let placeholderColor = UIColor(red: 131/255, green: 154/255, blue: 213/255, alpha: 1.0)
     //검색창 서브뷰
     var searchBar:UISearchBar!
+    var searchBarOpenedBeforeSegue:Bool = false
 
 
     @IBAction func handleModalClose(segue: UIStoryboardSegue){
@@ -181,12 +182,17 @@ class GoohaeTableViewController: UITableViewController,GoohaeDownload, UISearchB
 
 
     override func viewDidAppear(_ animated: Bool) {
+        if(self.searchBarOpenedBeforeSegue == true)
+        {
+            self.searchBar.isHidden = false
+            searchBarOpenedBeforeSegue = false
+        }
         super.viewDidAppear(animated)
-         self.goohaesArray = g_GoohaesArray
+        
+//         self.goohaesArray = g_GoohaesArray
         self.tableView.reloadData()
     }
     override func viewDidDisappear(_ animated: Bool) {
-        print("disappearaaa")
         super.viewDidDisappear(animated)
         ref?.removeObserver(withHandle: databaseHandle!)
         ref?.removeObserver(withHandle: databaseChangeHandle!)
@@ -199,9 +205,11 @@ class GoohaeTableViewController: UITableViewController,GoohaeDownload, UISearchB
         print("Downloading...")
     }
 
+    //MARK: Prepare for seque
      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
      // Get the new view controller using segue.destinationViewController.
      // Pass the selected object to the new view controller.
+
         if segue.identifier == "JokboAutoUploadSegue" {
             if let uploadButton = sender as? UIButton {
                 let cell = uploadButton.superview?.superview as! UITableViewCell
@@ -212,6 +220,7 @@ class GoohaeTableViewController: UITableViewController,GoohaeDownload, UISearchB
                     targetController?.passedClassName = self.goohaesArray[(indexPath?.row)!].className
                     targetController?.passedProfessorName = self.goohaesArray[(indexPath?.row)!].professorName
                 }
+
             }
         } else if segue.identifier == "GoohaeSegue" {
             if let destination = segue.destination as? ViewGoohaeTableViewController, let selectedIndex = self.tableView.indexPathForSelectedRow?.row {
@@ -219,6 +228,14 @@ class GoohaeTableViewController: UITableViewController,GoohaeDownload, UISearchB
                     g_SelectedData = self.goohaesArray[selectedIndex].key
                     print("구해요", g_SelectedData)
             }
+
+        }
+        if(self.searchBar.isHidden == false)
+        {
+            searchBarOpenedBeforeSegue = true
+            self.searchBar.isHidden = true
+        }else{
+            searchBarOpenedBeforeSegue = false
         }
     }
     
@@ -315,6 +332,8 @@ class GoohaeTableViewController: UITableViewController,GoohaeDownload, UISearchB
     }
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBar.text = ""
+        goohaesArray = g_GoohaesArray
+        self.tableView.reloadData()
         self.searchBar.isHidden = true
     }
 }

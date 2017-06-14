@@ -24,6 +24,7 @@ class JokboTableViewController: UITableViewController, JokboDownload, UISearchBa
     var commentsArray: [Comment] = []
 
     var searchBar:UISearchBar!
+    var searchBarOpenedBeforeSegue:Bool = false
     
     let placeholderColor = UIColor(red: 131/255, green: 154/255, blue: 213/255, alpha: 1.0)
 
@@ -181,14 +182,20 @@ class JokboTableViewController: UITableViewController, JokboDownload, UISearchBa
 
 
     override func viewDidAppear(_ animated: Bool) {
+        if(self.searchBarOpenedBeforeSegue == true)
+        {
+            self.searchBar.isHidden = false
+            searchBarOpenedBeforeSegue = false
+        }
         super.viewDidAppear(animated)
-        self.jokbosArray = g_JokbosArray
+//        self.jokbosArray = g_JokbosArray
         self.tableView.reloadData()
     }
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         ref?.removeObserver(withHandle: databaseHandle!)
         ref?.removeObserver(withHandle: databaseChangeHandle!)
+
         self.navigationController?.setNavigationBarHidden(false, animated: false)
 
     }
@@ -238,14 +245,22 @@ class JokboTableViewController: UITableViewController, JokboDownload, UISearchBa
 
 
 
+    //MARK: prepare for segue
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "JokboSegue" {
             if let destination = segue.destination as? ViewJokboTableViewController, let selectedIndex = self.tableView.indexPathForSelectedRow?.row {
-                
+
                 destination.jokbo = jokbosArray[selectedIndex]
                 g_SelectedData = jokbosArray[selectedIndex].key
             }
+        }
+        if(self.searchBar.isHidden == false)
+        {
+            searchBarOpenedBeforeSegue = true
+            self.searchBar.isHidden = true
+        }else{
+            searchBarOpenedBeforeSegue = false
         }
     }
 
@@ -340,8 +355,11 @@ class JokboTableViewController: UITableViewController, JokboDownload, UISearchBa
             print("filterTable default")
         }
     }
-       func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBar.text = ""
+        jokbosArray = g_JokbosArray
+        self.tableView.reloadData()
         self.searchBar.isHidden = true
     }
 }
