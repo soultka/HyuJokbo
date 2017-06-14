@@ -54,6 +54,7 @@ class GoohaeTableViewController: UITableViewController,GoohaeDownload, UISearchB
                 let goohaeText = goohaeData["goohaeText"],
                 let professorName = goohaeData["professorName"],
                 let updateDate = goohaeData["updateDate"] ,
+                let uid = goohaeData["uid"],
                 let likeNum = goohaeData["likeNum"],
                 let userName = goohaeData["userName"],
                 let commentNum = goohaeData["commentNum"],
@@ -64,6 +65,7 @@ class GoohaeTableViewController: UITableViewController,GoohaeDownload, UISearchB
                                     professorName: professorName,
                                     updateDate: Int(updateDate)!,
                                     userName: userName,
+                                    uid: uid,
                                     likeNum: Int(likeNum)!,
                                     commentNum: Int(commentNum)!,
                                     bookmarkNum: Int(bookmarkNum)!)
@@ -90,6 +92,7 @@ class GoohaeTableViewController: UITableViewController,GoohaeDownload, UISearchB
                     let goohaeText = goohaeData["goohaeText"],
                     let professorName = goohaeData["professorName"],
                     let updateDate = goohaeData["updateDate"] ,
+                    let uid = goohaeData["uid"],
                     let likeNum = goohaeData["likeNum"],
                     let userName = goohaeData["userName"],
                     let commentNum = goohaeData["commentNum"],
@@ -100,6 +103,7 @@ class GoohaeTableViewController: UITableViewController,GoohaeDownload, UISearchB
                                     professorName: professorName,
                                     updateDate: Int(updateDate)!,
                                     userName: userName,
+                                    uid: uid,
                                     likeNum: Int(likeNum)!,
                                     commentNum: Int(commentNum)!,
                                     bookmarkNum: Int(bookmarkNum)!)

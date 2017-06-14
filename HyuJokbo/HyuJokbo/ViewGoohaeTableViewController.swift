@@ -196,7 +196,13 @@ class ViewGoohaeTableViewController: UITableViewController {
         } else {
             ref?.child("goohaes").child(goohae.key).updateChildValues(["likeNum": "\(goohae.likeNum+1)"])
             isLikeButtonTapped = true
-            
+            ref?.child("users").child(goohae.uid).observeSingleEvent(of: .value, with: { (snapshot) in
+                if let rcvLikeNum = snapshot.childSnapshot(forPath: "rcvLikeNum").value as? String{
+                    self.ref?.child("users").child(self.goohae.uid).updateChildValues(["rcvLikeNum" : "\(Int(rcvLikeNum)! + 1)"])
+                    
+                    print("check")
+                }
+            })
             let likeButton = sender as? UIButton
             let goohaeTableView = likeButton?.superview?.superview?.superview?.superview as! UITableView
             let indexPath = IndexPath(row: 0, section: 0)

@@ -268,46 +268,42 @@ class LoginViewController: UIViewController, UITextFieldDelegate, GIDSignInUIDel
 
     func loadUser(){
         let curRef = ref?.child("users").child(g_CurUser.uid)
-        var isFirst = true;
-        databaseHandle = ref?.child("users").child(g_CurUser.uid).observe(.childAdded, with: { (snapshot) in
+        var isLikeFirst = true
+        var isCommentFirst = true
+        ref?.child("users").child(g_CurUser.uid).observeSingleEvent(of:.value, with: { (snapshot) in
+            
+        
             var snapKey = snapshot.key as String
 
-            if snapKey == "email"{
-                g_CurUser.email = snapshot.value as! String
-                snapKey = ""
+            if let email = snapshot.childSnapshot(forPath: "email") as? String{
+                g_CurUser.email = email
             }
-            if snapKey == "sndLikeJokbo"{
-                g_CurUser.sndLikeJokbo = Array((snapshot.value as! [String:String]).values)
-
+            if let sndUpload = snapshot.childSnapshot(forPath: "sndUploadJokbo").value as? [String:String]{
+                g_CurUser.sndUploadJokbo = Array((sndUpload.values))
             }
-            if snapKey == "sndUploadJokbo"{
-                g_CurUser.sndUploadJokbo = Array((snapshot.value as! [String:String]).values)
-
+            if let sndBookmarkload = snapshot.childSnapshot(forPath: "sndBookmarkJokbo").value as? [String:String]{
+                g_CurUser.sndBookmarkJokbo = Array((sndBookmarkload.values))
             }
-            if snapKey == "sndBookmarkJokbo"{
+            if let rcvLikeNum = snapshot.childSnapshot(forPath: "rcvLikeNum").value as? String{
+                g_CurUser.rcvLikeNum = Int(rcvLikeNum)!
+            }else {
+                curRef?.child("rcvLikeNum").setValue("0")
+            }
+            
+            if let rcvCommentNum = snapshot.childSnapshot(forPath: "rcvCommentNum").value as? String{
+                g_CurUser.rcvCommentNum = Int(rcvCommentNum)!
                 
-                g_CurUser.sndBookmarkJokbo = Array((snapshot.value as! [String:String]).values)
+            }else{
+                curRef?.child("rcvCommentNum").setValue("0")
             }
-            if snapKey == "rcvLikeNum"{
-                isFirst = false;
-                print(snapshot.value)
-                let num = snapshot.value as! String
-                g_CurUser.rcvLikeNum = Int(num)!
-            }
-            if snapKey == "rcvCommentNum"{
-                isFirst = false;
-                let num = snapshot.value as! String
-                g_CurUser.rcvCommentNum = Int(num)!
-            }
-            print(isFirst)
+            
+           
+           
 
         })
-        if isFirst {
-            print("im first")
-            curRef?.child("rcvLikeNum").setValue("0")
-            curRef?.child("rcvCommentNum").setValue("0")
-        }
-
+        
+        
+        
     }
         /*
      // MARK: - Navigation

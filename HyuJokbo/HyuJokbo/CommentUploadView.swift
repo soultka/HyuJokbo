@@ -120,13 +120,29 @@ class CommentUploadView:UIView, UITextViewDelegate {
                 self.ref?.child("jokbos").child(g_SelectedData).updateChildValues(["commentNum": "\((g_JokbosData[g_SelectedData]?.commentNum)!+1)"])
             }
         })
-        
+        if let jokbo = g_JokbosData[g_SelectedData]{
+        ref?.child("users").child(jokbo.uid).observeSingleEvent(of: .value, with: { (snapshot) in
+            if let rcvCommentNum = snapshot.childSnapshot(forPath: "rcvCommentNum").value as? String{
+                self.ref?.child("users").child(jokbo.uid).updateChildValues(["rcvCommentNum" : "\(Int(rcvCommentNum)! + 1)"])
+                
+                print("check")
+            }
+        })
+        }
         ref?.child("goohaes").observeSingleEvent(of: FIRDataEventType.value, with: { (snapshot) in
             if snapshot.hasChild(g_SelectedData) {
                 self.ref?.child("goohaes").child(g_SelectedData).updateChildValues(["commentNum": "\((g_GoohaesData[g_SelectedData]?.commentNum)!+1)"])
             }
         })
-
+        if let goohae = g_GoohaesData[g_SelectedData]{
+            ref?.child("users").child(goohae.uid).observeSingleEvent(of: .value, with: { (snapshot) in
+                if let rcvCommentNum = snapshot.childSnapshot(forPath: "rcvCommentNum").value as? String{
+                    self.ref?.child("users").child(goohae.uid).updateChildValues(["rcvCommentNum" : "\(Int(rcvCommentNum)! + 1)"])
+                    
+                    print("check")
+                }
+            })
+        }
         CommentTextView.text = nil
     }
     

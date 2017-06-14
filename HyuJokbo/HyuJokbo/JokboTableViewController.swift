@@ -40,7 +40,7 @@ class JokboTableViewController: UITableViewController, JokboDownload, UISearchBa
         super.viewDidLoad()
         self.tableView.delegate = self
         self.tableView.dataSource = self
-
+        print("rcvLikeNum")
         print(g_CurUser.rcvLikeNum)
         self.setupSearchBar()
         self.searchBar.isHidden = true
@@ -63,6 +63,7 @@ class JokboTableViewController: UITableViewController, JokboDownload, UISearchBa
                 let professorName = jokboData["professorName"],
                 let updateDate = jokboData["updateDate"] ,
                 let likeNum = jokboData["likeNum"],
+                let uid = jokboData["uid"],
                 let userName = jokboData["userName"],
                 let commentNum = jokboData["commentNum"],
                 let bookmarkNum = jokboData["bookmarkNum"]{
@@ -72,6 +73,7 @@ class JokboTableViewController: UITableViewController, JokboDownload, UISearchBa
                                   professorName: professorName,
                                   updateDate: Int(updateDate)!,
                                   userName: userName,
+                                  uid: uid,
                                   likeNum: Int(likeNum)!,
                                   commentNum: Int(commentNum)!,
                                   bookmarkNum: Int(bookmarkNum)!)
@@ -104,6 +106,7 @@ class JokboTableViewController: UITableViewController, JokboDownload, UISearchBa
                     let commentNum = jokboData["commentNum"],
                     let likeNum = jokboData["likeNum"],
                     let professorName = jokboData["professorName"],
+                    let uid = jokboData["uid"],
                     let updateDate = jokboData["updateDate"] ,
                     let userName = jokboData["userName"],
                     let bookmarkNum = jokboData["bookmarkNum"]{
@@ -113,6 +116,7 @@ class JokboTableViewController: UITableViewController, JokboDownload, UISearchBa
                                   professorName: professorName,
                                   updateDate: Int(updateDate)!,
                                   userName: userName,
+                                  uid: uid,
                                   likeNum: Int(likeNum)!,
                                   commentNum: Int(commentNum)!,
                                   bookmarkNum: Int(bookmarkNum)!)

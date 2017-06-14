@@ -40,7 +40,7 @@ class Jokbo{
     init() {
     }
 
-    convenience init(key:String, className:String, jokboText:String, professorName:String, updateDate:Int, userName:String ,likeNum:Int, commentNum:Int, bookmarkNum:Int) {
+    convenience init(key:String, className:String, jokboText:String, professorName:String, updateDate:Int, userName:String ,uid:String ,likeNum:Int, commentNum:Int, bookmarkNum:Int) {
         self.init()
         self.key = key
         self.className = className
@@ -48,6 +48,7 @@ class Jokbo{
         self.professorName = professorName
         self.updateDate = updateDate
         self.userName = userName
+        self.uid = uid
         self.likeNum = likeNum
         self.commentNum = commentNum
         self.bookmarkNum = bookmarkNum
@@ -76,7 +77,7 @@ class Goohae{
     init() {
     }
 
-    convenience init(key:String, className:String, goohaeText:String, professorName:String, updateDate:Int, userName:String,likeNum:Int, commentNum:Int, bookmarkNum:Int) {
+    convenience init(key:String, className:String, goohaeText:String, professorName:String, updateDate:Int, userName:String,uid:String,likeNum:Int, commentNum:Int, bookmarkNum:Int) {
         self.init()
         self.key = key
         self.className = className
@@ -84,6 +85,7 @@ class Goohae{
         self.professorName = professorName
         self.updateDate = updateDate
         self.userName = userName
+        self.uid = uid
         self.likeNum = likeNum
         self.commentNum = commentNum
         self.bookmarkNum = bookmarkNum
