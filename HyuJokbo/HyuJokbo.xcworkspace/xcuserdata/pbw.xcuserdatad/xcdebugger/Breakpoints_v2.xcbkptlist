@@ -2383,11 +2383,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "HyuJokbo/LoginViewController.swift"
-            timestampString = "519140973.138894"
+            timestampString = "519142003.814054"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "300"
-            endingLineNumber = "300"
+            startingLineNumber = "306"
+            endingLineNumber = "306"
             landmarkName = "loadUser()"
             landmarkType = "7">
             <Locations>
@@ -2607,7 +2607,7 @@
                   moduleName = "HyuJokbo"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/pbw/Documents/gitdesk/master/HyuJokbo/HyuJokbo/HyuJokbo/ViewJokboTableViewController.swift"
-                  timestampString = "519123965.462532"
+                  timestampString = "519141670.563352"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "39"
@@ -2622,7 +2622,7 @@
                   moduleName = "HyuJokbo"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/pbw/Documents/gitdesk/master/HyuJokbo/HyuJokbo/HyuJokbo/ViewJokboTableViewController.swift"
-                  timestampString = "519123965.465679"
+                  timestampString = "519141670.565063"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "41"
@@ -2671,11 +2671,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "HyuJokbo/LoginViewController.swift"
-            timestampString = "519140973.138894"
+            timestampString = "519142003.814054"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "293"
-            endingLineNumber = "293"
+            startingLineNumber = "299"
+            endingLineNumber = "299"
             landmarkName = "loadUser()"
             landmarkType = "7">
          </BreakpointContent>
@@ -2687,11 +2687,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "HyuJokbo/LoginViewController.swift"
-            timestampString = "519140973.138894"
+            timestampString = "519142003.814054"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "304"
-            endingLineNumber = "304"
+            startingLineNumber = "310"
+            endingLineNumber = "310"
             landmarkName = "loadUser()"
             landmarkType = "7">
          </BreakpointContent>
@@ -2726,6 +2726,54 @@
             endingLineNumber = "35"
             landmarkName = "HonorViewController"
             landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HyuJokbo/LoginViewController.swift"
+            timestampString = "519142003.814054"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "290"
+            endingLineNumber = "290"
+            landmarkName = "loadUser()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HyuJokbo/LoginViewController.swift"
+            timestampString = "519142003.814054"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "291"
+            endingLineNumber = "291"
+            landmarkName = "loadUser()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HyuJokbo/LoginViewController.swift"
+            timestampString = "519142003.814054"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "293"
+            endingLineNumber = "293"
+            landmarkName = "loadUser()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

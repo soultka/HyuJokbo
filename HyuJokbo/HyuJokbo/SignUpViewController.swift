@@ -113,7 +113,8 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         if let email = EmailTextField.text, let password = PasswordTextField.text {
             FIRAuth.auth()?.createUser(withEmail: email, password: password, completion: { (user, error) in
                 if let u = user {
-                    self.performSegue(withIdentifier: "signUpSegue", sender: self)
+
+                    self.signIn()
                     
                 } else {
                     if let errCode = FIRAuthErrorCode(rawValue: error!._code) {
@@ -144,6 +145,74 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
             })
         }
 
+    }
+
+    func signIn(){
+        self.addUser()
+        self.loadUser()
+        self.performSegue(withIdentifier: "signInSegue", sender: self)
+        ref?.removeAllObservers()
+    }
+
+    func addUser(){
+
+        if let userID = FIRAuth.auth()?.currentUser{
+            g_CurUser.uid = userID.uid
+            g_CurUser.email = userID.email!
+        }
+
+        print("only in sinn")
+        let curRef = self.ref?.child("users").child(g_CurUser.uid)
+        curRef?.child("email").setValue(g_CurUser.email)
+        //print(curRef?.child("rcvLikeNum"))
+
+    }
+
+    func loadUser(){
+
+        let curRef = ref?.child("users").child(g_CurUser.uid)
+        var isLikeFirst = true
+        var isCommentFirst = true
+        ref?.child("users").child(g_CurUser.uid).observeSingleEvent(of:.value, with: { (snapshot) in
+
+
+            var snapKey = snapshot.key as String
+
+            if let email = snapshot.childSnapshot(forPath: "email").value as? String{
+                g_CurUser.email = email
+            }
+            if let image = snapshot.childSnapshot(forPath: "image").value as? String{
+                g_CurUser.image = image
+            }
+            if let sndLike = snapshot.childSnapshot(forPath: "sndLikeJokbo").value as? [String:String]{
+                g_CurUser.sndLikeJokbo = Array((sndLike.values))
+            }
+            if let sndUpload = snapshot.childSnapshot(forPath: "sndUploadJokbo").value as? [String:String]{
+                g_CurUser.sndUploadJokbo = Array((sndUpload.values))
+            }
+            if let sndBookmarkload = snapshot.childSnapshot(forPath: "sndBookmarkJokbo").value as? [String:String]{
+                g_CurUser.sndBookmarkJokbo = Array((sndBookmarkload.values))
+            }
+            if let rcvLikeNum = snapshot.childSnapshot(forPath: "rcvLikeNum").value as? String{
+                g_CurUser.rcvLikeNum = Int(rcvLikeNum)!
+            }else {
+                curRef?.child("rcvLikeNum").setValue("0")
+            }
+
+            if let rcvCommentNum = snapshot.childSnapshot(forPath: "rcvCommentNum").value as? String{
+                g_CurUser.rcvCommentNum = Int(rcvCommentNum)!
+
+            }else{
+                curRef?.child("rcvCommentNum").setValue("0")
+            }
+
+
+            
+            
+        })
+        
+        
+        
     }
     
    

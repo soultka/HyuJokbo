@@ -277,8 +277,14 @@ class LoginViewController: UIViewController, UITextFieldDelegate, GIDSignInUIDel
         
             var snapKey = snapshot.key as String
 
-            if let email = snapshot.childSnapshot(forPath: "email") as? String{
+            if let email = snapshot.childSnapshot(forPath: "email").value as? String{
                 g_CurUser.email = email
+            }
+            if let image = snapshot.childSnapshot(forPath: "image").value as? String{
+                g_CurUser.image = image
+            }
+            if let sndLike = snapshot.childSnapshot(forPath: "sndLikeJokbo").value as? [String:String]{
+                g_CurUser.sndLikeJokbo = Array((sndLike.values))
             }
             if let sndUpload = snapshot.childSnapshot(forPath: "sndUploadJokbo").value as? [String:String]{
                 g_CurUser.sndUploadJokbo = Array((sndUpload.values))
