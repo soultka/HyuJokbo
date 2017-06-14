@@ -266,7 +266,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate, GIDSignInUIDel
 
     func loadUser(){
 
-        
         databaseHandle = ref?.child("users").child(g_CurUser.uid).observe(.childAdded, with: { (snapshot) in
             var snapKey = snapshot.key as String
 
@@ -293,6 +292,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate, GIDSignInUIDel
 //                 g_CurUser.rcvCommentNum = snapshot.value as! Int
 
             }
+            if snapKey == "image"{
+                g_CurUser.image = snapshot.value as! String
+            }
+
 
         })
 

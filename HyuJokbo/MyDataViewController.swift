@@ -35,7 +35,12 @@ class MyDataViewController: UIViewController ,UITableViewDelegate,UITableViewDat
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if(g_CurUser.image == ""){
         myImage.image = #imageLiteral(resourceName: "icon-mydata")
+        }else {
+            self.imageLoad()
+        }
+
         myImage.isUserInteractionEnabled = false
         myImage.backgroundColor = UIColor.clear
         if let userID = FIRAuth.auth()?.currentUser{
@@ -225,6 +230,24 @@ class MyDataViewController: UIViewController ,UITableViewDelegate,UITableViewDat
     }
 
     //MAKR: profile image
+    func imageLoad(){
+
+        if var url = URL(string: g_CurUser.image){
+            var request = URLRequest(url:url)
+
+            URLSession.shared.dataTask(with: request, completionHandler: { (data, response, error) in
+                DispatchQueue.main.async {
+                    let newImage = UIImage(data:data!)
+                        self.myImage.image = newImage
+
+                }
+                if(error != nil){
+                    print(error)
+                }
+            }).resume()
+
+        }
+    }
     @IBAction func profileImagePick(_ sender: Any) {
 
         let p_picker = UIImagePickerController()

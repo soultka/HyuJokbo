@@ -114,6 +114,7 @@ class ViewJokboTableViewController: UITableViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         scrollViewDidScroll((self.tableView as? UIScrollView)!)
+        ref?.removeAllObservers()
     }
 
     override func didReceiveMemoryWarning() {
