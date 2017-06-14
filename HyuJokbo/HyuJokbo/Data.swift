@@ -20,10 +20,6 @@ let g_MAX_JOKBO_NUM = 30
 
 var g_SelectedData:String = ""
 
-enum searchSelectedScope:Int{
-    case subject = 0
-    case professor = 1
-}
 
 class Jokbo{
     var key:String = ""
@@ -111,10 +107,21 @@ class Comment{
 
 class User{
     
+    var uid:String = ""
     var email:String = ""
-    var jokbos:[Jokbo] = []
-    var goohaes:[Goohae] = []
 
-    var likeNum:Int = 0
-    var commentNum:Int = 0
+    var sndLikeJokbo:[String] = [] //족보 ID들 담음
+    var sndUploadJokbo:[String] = [] //족보 ID들 담음
+    var sndBookmartJokbo:[String] = [] // 족보 ID들 담음
+
+    var rcvLikeNum:Int = 0
+    var rcvCommentNum:Int = 0
+
+    init() {
+    }
+
+    convenience init(uid:String){
+        self.init()
+        self.uid = uid
+    }
 }

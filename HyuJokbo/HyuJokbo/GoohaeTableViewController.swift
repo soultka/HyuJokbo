@@ -317,18 +317,14 @@ class GoohaeTableViewController: UITableViewController,GoohaeDownload, UISearchB
         if(searchText.isEmpty){
             goohaesArray = g_GoohaesArray
         }else{
-            filterTableView(index: searchSelectedScope(rawValue: searchBar.selectedScopeButtonIndex)!, text: searchText)
+            filterTableView(index: 0, text: searchText)
         }
         self.tableView.reloadData()
     }
-    func filterTableView(index:searchSelectedScope, text:String){
-        switch index {
-        case .subject:
-            goohaesArray = g_GoohaesArray.filter{$0.className.contains(text)}
-            goohaesArray += g_GoohaesArray.filter{$0.professorName.contains(text)}
-        default:
-            print("filterTable default")
-        }
+
+    func filterTableView(index:Int, text:String){
+        goohaesArray = g_GoohaesArray.filter{$0.className.contains(text)}
+        goohaesArray += g_GoohaesArray.filter{$0.professorName.contains(text)}
     }
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBar.text = ""

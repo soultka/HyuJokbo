@@ -342,18 +342,15 @@ class JokboTableViewController: UITableViewController, JokboDownload, UISearchBa
         if(searchText.isEmpty){
             jokbosArray = g_JokbosArray
         }else{
-        filterTableView(index: searchSelectedScope(rawValue: searchBar.selectedScopeButtonIndex)!, text: searchText)
+        filterTableView(index: 0, text: searchText)
         }
         self.tableView.reloadData()
     }
-    func filterTableView(index:searchSelectedScope, text:String){
-        switch index {
-        case .subject:
+    func filterTableView(index:Int, text:String){
+
             jokbosArray = g_JokbosArray.filter{$0.className.contains(text)}
             jokbosArray += g_JokbosArray.filter{$0.professorName.contains(text)}
-        default:
-            print("filterTable default")
-        }
+
     }
 
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
