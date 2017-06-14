@@ -270,8 +270,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate, GIDSignInUIDel
     func loadUser(){
 
         let curRef = ref?.child("users").child(g_CurUser.uid)
-        var isLikeFirst = true
-        var isCommentFirst = true
         ref?.child("users").child(g_CurUser.uid).observeSingleEvent(of:.value, with: { (snapshot) in
             
         
