@@ -129,3 +129,7 @@ class User{
         self.uid = uid
     }
 }
+
+class HonorUser{
+    var members = [User](repeatElement(User(), count: 10))
+}

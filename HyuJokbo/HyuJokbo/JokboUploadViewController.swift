@@ -144,7 +144,6 @@ UIImagePickerControllerDelegate, UINavigationControllerDelegate{
 
     @IBAction func addJokbo(_ sender: Any) {
         // TODO: post the jokbo to firebase
-        // TODO: post the jokbo to firebase
         if (self.TitleTextView?.text == "수업명") || (self.TitleTextView?.text.isEmpty)! {
             let alertController = UIAlertController(title: "알림", message:
                 "수업명을 입력해주세요", preferredStyle: UIAlertControllerStyle.alert)
@@ -239,10 +238,9 @@ UIImagePickerControllerDelegate, UINavigationControllerDelegate{
         let vc = BSImagePickerViewController()
         vc.maxNumberOfSelections = 30
         vc.view.addSubview(messageLabel)
-        //for message
 
 
-
+        //For message~~~~~~~~~
         messageLabel.translatesAutoresizingMaskIntoConstraints = false
         messageLabel.centerXAnchor.constraint(equalTo: (messageLabel.superview?.centerXAnchor)!).isActive = true
         messageLabel.centerYAnchor.constraint(equalTo: (messageLabel.superview?.centerYAnchor)!, constant: -10).isActive = true
@@ -274,9 +272,11 @@ UIImagePickerControllerDelegate, UINavigationControllerDelegate{
             print("Finish: \(assets)")
             messageLabel.removeFromSuperview()
         }, completion: nil)
+
+        
         let animationDuration = 1.0
 
-        // Fade in the view
+        // For Animation~~~
         UIView.animate(withDuration: animationDuration, animations: { () -> Void in
             messageLabel.alpha = 0
         }) { (Bool) -> Void in

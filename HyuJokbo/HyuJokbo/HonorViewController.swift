@@ -20,6 +20,8 @@ class HonorViewController: UIViewController, UIScrollViewDelegate, HonorMemberBu
     var memberImageWidth:CGFloat!
     let PADDING = CGFloat(10)
 
+    var honorUsers = HonorUser()
+
     var imageViews:[HonorMemberImageView] = []
     @IBOutlet weak var slideScroll: UIScrollView!
     @IBOutlet weak var CenterMemberLabel: UILabel!

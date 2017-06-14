@@ -36,7 +36,7 @@ class MyDataViewController: UIViewController ,UITableViewDelegate,UITableViewDat
     override func viewDidLoad() {
         super.viewDidLoad()
         if(g_CurUser.image == ""){
-        myImage.image = #imageLiteral(resourceName: "icon-mydata")
+            myImage.image = #imageLiteral(resourceName: "icon-mydata")
         }else {
             self.imageLoad()
         }
@@ -254,6 +254,31 @@ class MyDataViewController: UIViewController ,UITableViewDelegate,UITableViewDat
         p_picker.delegate = self
         p_picker.allowsEditing = false
 
+        let messageLabel = UILabel()
+
+        let animation: CATransition = CATransition()
+        animation.duration = 20.0
+        animation.type = kCATransitionFade
+        animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+
+        p_picker.view.addSubview(messageLabel)
+
+        //For message~~~~~~~~~
+        messageLabel.translatesAutoresizingMaskIntoConstraints = false
+        messageLabel.centerXAnchor.constraint(equalTo: (messageLabel.superview?.centerXAnchor)!).isActive = true
+        messageLabel.topAnchor.constraint(equalTo: (messageLabel.superview?.bottomAnchor)!, constant: -30).isActive = true
+        messageLabel.widthAnchor.constraint(equalToConstant: 270).isActive = true
+        messageLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
+
+
+        messageLabel.adjustsFontSizeToFitWidth = true
+        messageLabel.alpha = 0
+        messageLabel.textColor =  UIColor(red: 76/255, green: 118/255, blue: 201/255, alpha: 1.0)
+        messageLabel.text = "60x60사이즈의 이미지가 최적입니다"
+        messageLabel.font = UIFont(name:"HelveticaNeue-Bold", size: 17.0)
+
+
+
         myImageButton.translatesAutoresizingMaskIntoConstraints = false
         myImageButton.centerXAnchor.constraint(equalTo: self.myImage.centerXAnchor).isActive = true
         myImageButton.topAnchor.constraint(equalTo: self.myImage.topAnchor, constant: 0).isActive = true
@@ -261,6 +286,27 @@ class MyDataViewController: UIViewController ,UITableViewDelegate,UITableViewDat
         myImageButton.heightAnchor.constraint(equalToConstant: self.myImage.frame.height).isActive = true
 
         present(p_picker, animated: true, completion: nil)
+
+        let animationDuration = 1.0
+
+        // For Animation~~~
+        UIView.animate(withDuration: animationDuration, animations: { () -> Void in
+            messageLabel.alpha = 0
+        }) { (Bool) -> Void in
+
+            // After the animation completes, fade out the view after a delay
+
+            UIView.animate(withDuration: animationDuration, delay: 0.0, options: [], animations: { () -> Void in
+                messageLabel.alpha = 1
+
+            }, completion: {
+                (Bool) -> Void in
+                UIView.animate(withDuration: animationDuration, delay: 0.0, options: [], animations: { () -> Void in
+                    messageLabel.alpha = 0
+                },
+                               completion: nil)
+            })
+        }
 
     }
     public func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]){
@@ -288,7 +334,7 @@ class MyDataViewController: UIViewController ,UITableViewDelegate,UITableViewDat
 
         storageRef = FIRStorage.storage().reference().child(imageName)
 
-        guard var uploadData = UIImageJPEGRepresentation(image, 0.1) else{
+        guard var uploadData = UIImageJPEGRepresentation(image, 0.5) else{
 
             return
         }
@@ -305,11 +351,12 @@ class MyDataViewController: UIViewController ,UITableViewDelegate,UITableViewDat
                 g_CurUser.image = "\(downloadURL)"
                 print("URL!!")
                 print(downloadURL)
+                let userImageRef = self.ref?.child("users").child(g_CurUser.uid).child("image")
+                userImageRef?.setValue("\(downloadURL)")
 
             }
         })
-        var userImageRef = ref?.child("users").child(g_CurUser.uid).child("image")
-        userImageRef?.setValue(g_CurUser.image)
+
 
 
     }
