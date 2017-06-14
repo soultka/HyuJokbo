@@ -203,6 +203,7 @@ UIImagePickerControllerDelegate, UINavigationControllerDelegate{
         curRef?.child("likeNum").setValue("0")
         curRef?.child("commentNum").setValue("0")
         curRef?.child("bookmarkNum").setValue("0")
+        curRef?.child("uid").setValue(g_CurUser.uid)
 
         if let user = FIRAuth.auth()?.currentUser {
             curRef?.child("userName").setValue(user.email)

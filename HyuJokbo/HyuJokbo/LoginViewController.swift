@@ -259,14 +259,16 @@ class LoginViewController: UIViewController, UITextFieldDelegate, GIDSignInUIDel
             g_CurUser.uid = userID.uid
             g_CurUser.email = userID.email!
         }
+        print("only in sinn")
         let curRef = self.ref?.child("users").child(g_CurUser.uid)
         curRef?.child("email").setValue(g_CurUser.email)
+        //print(curRef?.child("rcvLikeNum"))
 
     }
 
     func loadUser(){
-
-        
+        let curRef = ref?.child("users").child(g_CurUser.uid)
+        var isFirst = true;
         databaseHandle = ref?.child("users").child(g_CurUser.uid).observe(.childAdded, with: { (snapshot) in
             var snapKey = snapshot.key as String
 
@@ -283,18 +285,28 @@ class LoginViewController: UIViewController, UITextFieldDelegate, GIDSignInUIDel
 
             }
             if snapKey == "sndBookmarkJokbo"{
+                
                 g_CurUser.sndBookmarkJokbo = Array((snapshot.value as! [String:String]).values)
             }
             if snapKey == "rcvLikeNum"{
-                g_CurUser.rcvLikeNum = snapshot.value as! Int
-
+                isFirst = false;
+                print(snapshot.value)
+                let num = snapshot.value as! String
+                g_CurUser.rcvLikeNum = Int(num)!
             }
             if snapKey == "rcvCommentNum"{
-                 g_CurUser.rcvCommentNum = snapshot.value as! Int
-
+                isFirst = false;
+                let num = snapshot.value as! String
+                g_CurUser.rcvCommentNum = Int(num)!
             }
+            print(isFirst)
 
         })
+        if isFirst {
+            print("im first")
+            curRef?.child("rcvLikeNum").setValue("0")
+            curRef?.child("rcvCommentNum").setValue("0")
+        }
 
     }
         /*

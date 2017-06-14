@@ -41,7 +41,7 @@ class JokboTableViewController: UITableViewController, JokboDownload, UISearchBa
         self.tableView.delegate = self
         self.tableView.dataSource = self
 
-
+        print(g_CurUser.rcvLikeNum)
         self.setupSearchBar()
         self.searchBar.isHidden = true
         self.jokbosArray = g_JokbosArray
