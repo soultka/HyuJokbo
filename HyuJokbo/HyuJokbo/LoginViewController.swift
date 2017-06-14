@@ -259,14 +259,20 @@ class LoginViewController: UIViewController, UITextFieldDelegate, GIDSignInUIDel
             g_CurUser.uid = userID.uid
             g_CurUser.email = userID.email!
         }
+<<<<<<< HEAD
         print("only in sinn")
         let curRef = self.ref?.child("users").child(g_CurUser.uid)
         curRef?.child("email").setValue(g_CurUser.email)
         //print(curRef?.child("rcvLikeNum"))
+=======
+        let curRef = self.ref?.child("users").child(g_CurUser.uid)
+        curRef?.child("email").setValue(g_CurUser.email)
+>>>>>>> mydata-image
 
     }
 
     func loadUser(){
+<<<<<<< HEAD
         let curRef = ref?.child("users").child(g_CurUser.uid)
         var isLikeFirst = true
         var isCommentFirst = true
@@ -304,6 +310,47 @@ class LoginViewController: UIViewController, UITextFieldDelegate, GIDSignInUIDel
         
         
         
+=======
+
+        for i in stride(from: 0, to: 10, by: 1)
+        {
+//            ref?.child(<#T##pathString: String##String#>).observeSingleEvent(of: FIRDataEventType, with: <#T##(FIRDataSnapshot) -> Void#>)
+
+            databaseHandle = ref?.child("users").child(g_CurUser.uid).observe(.childAdded, with:{ (snapshot) in
+                var snapKey = snapshot.key as String
+
+                if snapKey == "email"{
+                    g_CurUser.email = snapshot.value as! String
+                }
+                if snapKey == "sndLikeJokbo"{
+                    g_CurUser.sndLikeJokbo = Array((snapshot.value as! [String:String]).values)
+
+                }
+                if snapKey == "sndUploadJokbo"{
+                    g_CurUser.sndUploadJokbo = Array((snapshot.value as! [String:String]).values)
+
+                }
+                if snapKey == "sndBookmarkJokbo"{
+                    g_CurUser.sndBookmarkJokbo = Array((snapshot.value as! [String:String]).values)
+                }
+                if snapKey == "rcvLikeNum"{
+                    //                g_CurUser.rcvLikeNum = snapshot.value as! Int
+
+                }
+                if snapKey == "rcvCommentNum"{
+                    //                 g_CurUser.rcvCommentNum = snapshot.value as! Int
+
+                }
+                if snapKey == "image"{
+                    g_CurUser.image = snapshot.value as! String
+                    
+                }
+                
+                
+            })
+        }
+
+>>>>>>> mydata-image
     }
         /*
      // MARK: - Navigation

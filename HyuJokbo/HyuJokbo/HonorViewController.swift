@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseDatabase
 
 class HonorViewController: UIViewController, UIScrollViewDelegate, HonorMemberButtonDelegate, UITableViewDataSource, UITableViewDelegate{
 
@@ -20,6 +21,10 @@ class HonorViewController: UIViewController, UIScrollViewDelegate, HonorMemberBu
     var memberImageWidth:CGFloat!
     let PADDING = CGFloat(10)
 
+     var ref: FIRDatabaseReference?
+
+
+
     var imageViews:[HonorMemberImageView] = []
     @IBOutlet weak var slideScroll: UIScrollView!
     @IBOutlet weak var CenterMemberLabel: UILabel!
@@ -30,10 +35,13 @@ class HonorViewController: UIViewController, UIScrollViewDelegate, HonorMemberBu
     @IBOutlet weak var HonorGoohaeTableView: UITableView!
 
     //- -   -   -   -   -   Honor Jokbos
+    var honorUsers = HonorUser()
     var honorJokbos:[Jokbo] = []
     var honorGoohaes:[Goohae] = []
 
     override func viewDidLoad() {
+        ref = FIRDatabase.database().reference()
+
         super.viewDidLoad()
         superViewWidth = self.view.frame.height
         superViewHeight = self.view.frame.height
@@ -83,9 +91,17 @@ class HonorViewController: UIViewController, UIScrollViewDelegate, HonorMemberBu
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    //MARK:-    -   -   -   -   -   -   -   -   -   -   HONOR USER SET
+    func setupHonorUsers(){
+        ref?.child("honor_users").observe(of:.value, with: { (snapshot) in
+            
+        })
+    }
 
+
+    //MARK: -   -   -   -   -   -   -   -   -   -Scroll!!!!!!VIEW
     func numberOfScrollViewElements() -> Int {
-        return 10
+        return 5
     }
 
 

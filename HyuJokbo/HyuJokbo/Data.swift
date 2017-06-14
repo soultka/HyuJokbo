@@ -131,3 +131,10 @@ class User{
         self.uid = uid
     }
 }
+
+class HonorUser{
+    var members = [User](repeatElement(User(), count: 5))
+    var maxLike = 0
+    var minLike = 0
+
+}

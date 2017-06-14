@@ -114,6 +114,7 @@ class ViewJokboTableViewController: UITableViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         scrollViewDidScroll((self.tableView as? UIScrollView)!)
+        ref?.removeAllObservers()
     }
 
     override func didReceiveMemoryWarning() {
@@ -283,7 +284,13 @@ class ViewJokboTableViewController: UITableViewController {
         }
         //업도르한 족보들의 키를 넣어놓음
         
+<<<<<<< HEAD
        
+=======
+        var userRef = self.ref?.child("users").child(g_CurUser.uid).child("sndLikeJokbo")
+        userRef?.childByAutoId().setValue(jokbo.key)   //유저의 좋아요 정보에 족보 키를 넣음
+        g_CurUser.sndLikeJokbo += [jokbo.key]
+>>>>>>> mydata-image
 
 
 
@@ -318,6 +325,12 @@ class ViewJokboTableViewController: UITableViewController {
             g_CurUser.sndBookmarkJokbo += [jokbo.key]
         }
         //업도르한 족보들의 키를 넣어놓음
+<<<<<<< HEAD
+=======
+        var userRef = self.ref?.child("users").child(g_CurUser.uid).child("sndBookmarkJokbo")
+        userRef?.childByAutoId().setValue(jokbo.key)   //유저의 좋아요 정보에 족보 키를 넣음
+        g_CurUser.sndBookmarkJokbo += [jokbo.key]
+>>>>>>> mydata-image
 
     }
     
