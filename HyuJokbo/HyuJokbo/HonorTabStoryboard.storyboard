@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="E0u-4w-CPu">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="E0u-4w-CPu">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -422,6 +422,8 @@
                         <outlet property="HonorGoohaeTableView" destination="mDq-aO-Gsp" id="LZ3-Ph-vBl"/>
                         <outlet property="HonorJokboTableView" destination="P9E-VJ-at9" id="jt2-Pq-Ap7"/>
                         <outlet property="InvisibleScroll" destination="rEC-Wz-9zn" id="6Oq-rH-sC1"/>
+                        <outlet property="RcvComment" destination="sU2-W6-tRg" id="5hM-iz-BHq"/>
+                        <outlet property="RcvLike" destination="YwE-tc-LdL" id="sFK-nA-yus"/>
                         <outlet property="slideScroll" destination="Kji-9U-Iw2" id="PpR-jN-mVE"/>
                     </connections>
                 </viewController>

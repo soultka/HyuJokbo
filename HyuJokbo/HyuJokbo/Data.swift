@@ -16,6 +16,9 @@ var g_GoohaesData = [String:Goohae]()
 var g_GoohaesArray:[Goohae] = []
 
 var g_CurUser = User()
+
+var g_HonorUsers = HonorUser()
+let g_MAX_HONOR_USER_NUM = 5
 let g_MAX_JOKBO_NUM = 30
 
 var g_SelectedData:String = ""
@@ -133,8 +136,15 @@ class User{
 }
 
 class HonorUser{
-    var members = [User](repeatElement(User(), count: 5))
+    var members = [User]()
     var maxLike = 0
     var minLike = 0
+    init() {
+        for i in stride(from: 0, to: 5, by: 1){
+            let user = User()
+             members += [user]
+        }
+
+    }
 
 }
