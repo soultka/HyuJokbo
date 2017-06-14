@@ -129,6 +129,8 @@ class HonorViewController: UIViewController, UIScrollViewDelegate, HonorMemberBu
                         if let rcvLikeNum = snapshot.childSnapshot(forPath: "rcvLikeNum").value as? String{
                             g_HonorUsers.members[indexOfUser].rcvLikeNum = Int(rcvLikeNum)!
 
+
+
                         }
                         if let rcvCommentNum = snapshot.childSnapshot(forPath: "rcvCommentNum").value as? String{
                             g_HonorUsers.members[indexOfUser].rcvCommentNum = Int(rcvCommentNum)!
@@ -149,11 +151,10 @@ class HonorViewController: UIViewController, UIScrollViewDelegate, HonorMemberBu
 
     }
     func loadAllImages(){
+
         var mutex = pthread_mutex_t()
         pthread_mutex_init(&mutex, nil)
         for user in g_HonorUsers.members{
-
-
 
             pthread_mutex_trylock(&mutex)
             if var indexOfUser = g_HonorUsers.members.index(where: { (item) -> Bool in
@@ -198,9 +199,15 @@ class HonorViewController: UIViewController, UIScrollViewDelegate, HonorMemberBu
             pthread_mutex_unlock(&mutex)
 
         }
+        self.sortG_Honor()
 
 
 
+    }
+    func sortG_Honor() {
+        g_HonorUsers.members.sort(by: {$0.rcvLikeNum > $1.rcvLikeNum })
+        g_HonorUsers.maxLike = g_HonorUsers.members[0].rcvLikeNum
+        g_HonorUsers.minLike = g_HonorUsers.members[g_MAX_HONOR_USER_NUM-1].rcvLikeNum
     }
 
 

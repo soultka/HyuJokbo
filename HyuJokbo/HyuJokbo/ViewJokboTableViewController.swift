@@ -267,6 +267,29 @@ class ViewJokboTableViewController: UITableViewController {
             ref?.child("users").child(jokbo.uid).observeSingleEvent(of: .value, with: { (snapshot) in
                 if let rcvLikeNum = snapshot.childSnapshot(forPath: "rcvLikeNum").value as? String{
                     self.ref?.child("users").child(self.jokbo.uid).updateChildValues(["rcvLikeNum" : "\(Int(rcvLikeNum)! + 1)"])
+
+                    var findInHonor = 0
+                    for i in stride(from: 0, to: g_MAX_HONOR_USER_NUM-1, by: 1){
+                        if(g_HonorUsers.members[i].uid == self.jokbo.uid){
+                            findInHonor = 1
+                        }
+                    }
+                    if(findInHonor == 0){
+                        g_HonorUsers.members.sort(by: {$0.rcvLikeNum > $1.rcvLikeNum })
+                        let minHonorUid = g_HonorUsers.members[4].uid
+                        self.ref?.child("users").child(minHonorUid).child("rcvLikeNum").observeSingleEvent(of: .value, with: { (snapshot) in
+                            let minLike = snapshot.value as! String
+                            g_HonorUsers.minLike = Int(minLike)!
+                            if(Int(rcvLikeNum)! + 1 > g_HonorUsers.minLike){
+                                self.ref?.child("honor_users").child("5").setValue(self.jokbo.uid)
+                            }
+                            g_HonorUsers.members.sort(by: {$0.rcvLikeNum > $1.rcvLikeNum })
+
+                        })
+                    }
+
+
+
                     print("check")
                 }
             })
