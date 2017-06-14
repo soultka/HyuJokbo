@@ -377,9 +377,13 @@ class LoginViewController: UIViewController, UITextFieldDelegate, GIDSignInUIDel
         g_HonorUsers.maxLike = g_HonorUsers.members[0].rcvLikeNum
         g_HonorUsers.minLike = g_HonorUsers.members[g_MAX_HONOR_USER_NUM-1].rcvLikeNum
 
+        /*
         for i in stride(from: 0, to: g_MAX_HONOR_USER_NUM-1, by: 1){
-            self.ref?.child("honor_users").child("\(i+1)").setValue(g_HonorUsers.members[i].uid)
+            if(g_HonorUsers.members[i].uid != ""){
+                self.ref?.child("honor_users").child("\(i+1)").setValue(g_HonorUsers.members[i].uid)
+            }
         }
+ */
     }
     
 

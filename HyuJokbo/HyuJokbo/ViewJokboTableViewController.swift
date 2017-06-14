@@ -278,6 +278,13 @@ class ViewJokboTableViewController: UITableViewController {
                         g_HonorUsers.members.sort(by: {$0.rcvLikeNum > $1.rcvLikeNum })
                         let minHonorUid = g_HonorUsers.members[4].uid
 
+                        //For reset DB
+                        for i in stride(from: 0, to: g_MAX_HONOR_USER_NUM-1, by: 1){
+                            if(g_HonorUsers.members[i].uid != ""){
+                                self.ref?.child("honor_users").child("\(i+1)").setValue(g_HonorUsers.members[i].uid)
+                            }
+                        }
+
                         self.ref?.child("users").child(minHonorUid).child("rcvLikeNum").observeSingleEvent(of: .value, with: { (snapshot) in
                             let minLike = snapshot.value as! String
                             g_HonorUsers.minLike = Int(minLike)!
@@ -285,6 +292,14 @@ class ViewJokboTableViewController: UITableViewController {
                                 self.ref?.child("honor_users").child("5").setValue(self.jokbo.uid)
                             }
                             g_HonorUsers.members.sort(by: {$0.rcvLikeNum > $1.rcvLikeNum })
+
+                            //For reset DB
+                            for i in stride(from: 0, to: g_MAX_HONOR_USER_NUM-1, by: 1){
+                                if(g_HonorUsers.members[i].uid != ""){
+                                    self.ref?.child("honor_users").child("\(i+1)").setValue(g_HonorUsers.members[i].uid)
+                                }
+                            }
+
 
                         })
                     }

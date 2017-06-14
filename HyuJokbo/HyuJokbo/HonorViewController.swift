@@ -93,6 +93,7 @@ class HonorViewController: UIViewController, UIScrollViewDelegate, HonorMemberBu
     override func viewDidAppear(_ animated: Bool) {
         self.imageLoadCnt = 0
         scrollViewDidScroll(InvisibleScroll)
+        self.setupHonorUsers()
         self.loadHonorUsers()
 
         self.HonorJokboTableView.reloadData()
@@ -106,7 +107,17 @@ class HonorViewController: UIViewController, UIScrollViewDelegate, HonorMemberBu
         // Dispose of any resources that can be recreated.
     }
 
-    //MARK: Load HonorUsers
+    //MARK: -   -   -   -   -   -   Load HonorUsers
+    func setupHonorUsers(){
+
+        for i in stride(from: 0, to: g_MAX_HONOR_USER_NUM, by: 1){
+
+            ref?.child("honor_users").child("\(i+1)").observeSingleEvent(of:.value, with: { (snapshot) in
+
+                g_HonorUsers.members[i].uid = snapshot.value as! String
+            })
+        }
+    }
     func loadHonorUsers(){
 
         for user in g_HonorUsers.members{
@@ -143,7 +154,7 @@ class HonorViewController: UIViewController, UIScrollViewDelegate, HonorMemberBu
                     g_HonorUsers.members.sort(by: {$0.rcvLikeNum > $1.rcvLikeNum })
 
                     self.reloadLabels()
-                    self.sortG_Honor()
+//                    self.sortG_Honor()
 //                    self.loadAllImages()
 
                 })
