@@ -102,61 +102,11 @@ class MyDataViewController: UIViewController ,UITableViewDelegate,UITableViewDat
         // Dispose of any resources that can be recreated.
     }
     
-    func JokboLike () -> (){
-         userLike = 0
-        if g_JokbosArray.count > 0 {
-            for i in 1...g_JokbosArray.count {
-                let temp_jokbo = g_JokbosArray[i-1]
-                if(temp_jokbo.userName == user.email){
-                    userLike += temp_jokbo.likeNum
-                }
-            }
-        }
-    }
-    
-    func goohaeLike () -> (){
-        if g_GoohaesArray.count > 0 {
-            for i in 1...g_GoohaesArray.count {
-                let temp_goohae = g_GoohaesArray[i-1]
-                if(temp_goohae.userName == user.email){
-                    userLike += temp_goohae.likeNum
-                }
-            }
-        }
-    }
-    func JokboComment () -> (){
-        userComment = 0;
-        if g_JokbosArray.count > 0 {
-            for i in 1...g_JokbosArray.count {
-                let temp_jokbo = g_JokbosArray[i-1]
-                if(temp_jokbo.userName == user.email){
-                    userComment += temp_jokbo.commentNum
-                }
-            }
-        }
-    }
-    
-    func goohaeComment () -> (){
-        if g_GoohaesArray.count > 0 {
-            for i in 1...g_GoohaesArray.count {
-                let temp_goohae = g_GoohaesArray[i-1]
-                if(temp_goohae.userName == user.email){
-                    userComment += temp_goohae.commentNum
-                }
-            }
-        }
-        
-    }
-    
     override func viewDidAppear(_ animated: Bool) {
-        JokboLike()
-        goohaeLike()
-        JokboComment()
-        goohaeComment()
         MyJokboLoad()
         self.MyTableView.reloadData()
-        viewLike.text = String(userLike)
-        viewComment.text = String(userComment)
+        viewLike.text = String(g_CurUser.rcvLikeNum)
+        viewComment.text = String(g_CurUser.rcvCommentNum)
         //viewComment.text = String(userComment)
     }
     
