@@ -1,8 +1,32 @@
 /*
-	Fractal by HTML5 UP
+	Spectral by HTML5 UP
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
+
+/* Icon */
+
+	.icon.major {
+		border: none;
+	}
+
+		.icon.major:before {
+			font-size: 3em;
+		}
+
+/* Form */
+
+	label {
+		color: #2E3842;
+	}
+
+	input[type="text"],
+	input[type="password"],
+	input[type="email"],
+	select,
+	textarea {
+		border: solid 1px #dfdfdf;
+	}
 
 /* Button */
 
@@ -11,82 +35,61 @@
 	input[type="button"],
 	button,
 	.button {
-		position: relative;
-		-ms-behavior: url("assets/js/ie/PIE.htc");
-		border: solid 2px #e6e6e6 !important;
+		border: solid 2px #dfdfdf;
 	}
-
-		input[type="submit"]:hover,
-		input[type="reset"]:hover,
-		input[type="button"]:hover,
-		button:hover,
-		.button:hover {
-			border: solid 2px #e6e6e6 !important;
-		}
 
 		input[type="submit"].special,
 		input[type="reset"].special,
 		input[type="button"].special,
 		button.special,
 		.button.special {
-			border: none !important;
+			border: 0 !important;
 		}
 
-			input[type="submit"].special:hover,
-			input[type="reset"].special:hover,
-			input[type="button"].special:hover,
-			button.special:hover,
-			.button.special:hover {
-				border: none !important;
-			}
+/* Page Wrapper + Menu */
 
-/* Image */
-
-	.image {
-		-ms-behavior: url("assets/js/ie/PIE.htc");
+	#menu {
+		display: none;
 	}
 
-		.image img {
-			position: relative;
-			-ms-behavior: url("assets/js/ie/PIE.htc");
-		}
-
-		.image.phone:before, .image.phone:after {
-			display: none;
-		}
-
-		.image.phone .inner:before, .image.phone .inner:after {
-			display: none;
-		}
-
-/* List */
-
-	ul.icons li {
-		padding: 0 0 0 1.5em;
+	body.is-menu-visible #menu {
+		display: block;
 	}
-
-		ul.icons li:first-child {
-			padding-left: 0 !important;
-		}
-
-		ul.icons li .icon:before {
-			font-size: 24px;
-		}
-
-	ul.icons.major li {
-		padding: 0 0 0 2.5em;
-	}
-
-		ul.icons.major li .icon:before {
-			font-size: 48px;
-		}
 
 /* Header */
 
-	#header {
-		min-height: 0;
+	#header nav > ul > li > a.menuToggle:after {
+		display: none;
 	}
 
-		#header .image {
-			margin: 0 0 2em 0;
+/* Banner + Wrapper (style4) */
+
+	#banner,
+	.wrapper.style4 {
+		-ms-behavior: url("assets/js/ie/backgroundsize.min.htc");
+	}
+
+		#banner:before,
+		.wrapper.style4:before {
+			display: none;
+		}
+
+/* Banner */
+
+	#banner .more {
+		height: 4em;
+	}
+
+		#banner .more:after {
+			display: none;
+		}
+
+/* Main */
+
+	#main > header {
+		-ms-behavior: url("assets/js/ie/backgroundsize.min.htc");
+	}
+
+		#main > header:before {
+			display: none;
 		}
