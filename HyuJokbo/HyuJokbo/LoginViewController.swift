@@ -10,6 +10,7 @@ import Firebase
 import FBSDKLoginKit
 import GoogleSignIn
 import FirebaseAuth
+import FirebaseDatabase
 
 class LoginViewController: UIViewController, UITextFieldDelegate, GIDSignInUIDelegate {
     
@@ -21,6 +22,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate, GIDSignInUIDel
     @IBOutlet weak var PasswordTextField: UITextField!
     @IBOutlet weak var SignInButton: UIButton!
     @IBOutlet weak var SignUpButton: UIButton!
+
+    var ref: FIRDatabaseReference?
+    var databaseHandle:FIRDatabaseHandle?
     
     
     
@@ -38,7 +42,14 @@ class LoginViewController: UIViewController, UITextFieldDelegate, GIDSignInUIDel
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
+        //For DB
+        ref = FIRDatabase.database().reference()
+
+
+
+
+
         // Do any additional setup after loading the view.
         //EmailTextField Button
         EmailTextField.text = "이메일을 입력해주세요."
@@ -125,7 +136,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate, GIDSignInUIDel
     @IBAction func adminLoginButtonTapped(_ sender: Any) {
         FIRAuth.auth()?.signIn(withEmail: "admin@admin.com", password: "123456", completion: { (user, error) in
             if let u = user  {
-                self.performSegue(withIdentifier: "signInSegue", sender: self)
+                self.signIn()
             }
         })
     }
@@ -148,7 +159,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate, GIDSignInUIDel
         if let email = EmailTextField.text, let password = PasswordTextField.text {
             FIRAuth.auth()?.signIn(withEmail: email, password: password, completion: { (user, error) in
                 if let u = user  {
-                    self.performSegue(withIdentifier: "signInSegue", sender: self)
+                    self.signIn()
                 } else {
                     if let errCode = FIRAuthErrorCode(rawValue: error!._code) {
                         
@@ -198,7 +209,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate, GIDSignInUIDel
                 
                 FIRAuth.auth()?.signIn(with: credentials, completion: { (user, error) in
                     if let u = user  {
-                        self.performSegue(withIdentifier: "signInSegue", sender: self)
+                        self.signIn()
                     } else {
                         if let errCode = FIRAuthErrorCode(rawValue: error!._code) {
                             
@@ -233,6 +244,55 @@ class LoginViewController: UIViewController, UITextFieldDelegate, GIDSignInUIDel
     
     @IBAction func GoogleLoginButtonTapped(_ sender: Any) {
         GIDSignIn.sharedInstance().signIn()
+    }
+
+    func signIn(){
+        self.addUser()
+        self.loadUser()
+        self.performSegue(withIdentifier: "signInSegue", sender: self)
+    }
+
+    func addUser(){
+
+        if let userID = FIRAuth.auth()?.currentUser{
+            g_CurUser.uid = userID.uid
+            g_CurUser.email = userID.email!
+        }
+        let curRef = self.ref?.child("users").child(g_CurUser.uid)
+        curRef?.child("email").setValue(g_CurUser.email)
+
+    }
+
+    func loadUser(){
+        databaseHandle = ref?.child("users").child(g_CurUser.uid).observe(.childAdded, with: { (snapshot) in
+            var snapKey = snapshot.key as String
+
+            if snapKey == "email"{
+                g_CurUser.email = snapshot.value as! String
+                snapKey = ""
+            }
+            if snapKey == "sndLikeJokbo"{
+                g_CurUser.sndLikeJokbo = Array((snapshot.value as! [String:String]).values)
+
+            }
+            if snapKey == "sndUploadJokbo"{
+                g_CurUser.sndUploadJokbo = Array((snapshot.value as! [String:String]).values)
+
+            }
+            if snapKey == "sndBookmarkJokbo"{
+                g_CurUser.sndBookmarkJokbo = Array((snapshot.value as! [String:String]).values)
+            }
+            if snapKey == "rcvLikeNum"{
+                g_CurUser.rcvLikeNum = snapshot.value as! Int
+
+            }
+            if snapKey == "rcvCommentNum"{
+                 g_CurUser.rcvCommentNum = snapshot.value as! Int
+
+            }
+
+        })
+
     }
         /*
      // MARK: - Navigation

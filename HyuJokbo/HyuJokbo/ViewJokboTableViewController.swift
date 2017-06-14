@@ -271,6 +271,11 @@ class ViewJokboTableViewController: UITableViewController {
             titleCell?.LikeNumLabel?.text = String(jokbo.likeNum+1)
             tableView.reloadRows(at: [indexPath], with: .automatic)
         }
+        //업도르한 족보들의 키를 넣어놓음
+        var userRef = self.ref?.child("users").child(g_CurUser.uid).child("sndLikeJokbo")
+        userRef?.child(dateStr).setValue(jokboKey)   //족보의 업데이트 데이트 기준으로 키를 넣음
+
+
 
     }
     

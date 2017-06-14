@@ -15,7 +15,7 @@ var g_JokbosArray = [Jokbo]()
 var g_GoohaesData = [String:Goohae]()
 var g_GoohaesArray:[Goohae] = []
 
-
+var g_CurUser = User()
 let g_MAX_JOKBO_NUM = 30
 
 var g_SelectedData:String = ""
@@ -112,7 +112,7 @@ class User{
 
     var sndLikeJokbo:[String] = [] //족보 ID들 담음
     var sndUploadJokbo:[String] = [] //족보 ID들 담음
-    var sndBookmartJokbo:[String] = [] // 족보 ID들 담음
+    var sndBookmarkJokbo:[String] = [] // 족보 ID들 담음
 
     var rcvLikeNum:Int = 0
     var rcvCommentNum:Int = 0
