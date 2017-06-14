@@ -150,7 +150,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     func signIn(){
         self.addUser()
         self.loadUser()
-        self.performSegue(withIdentifier: "signInSegue", sender: self)
+        self.performSegue(withIdentifier: "signUpSegue", sender: self)
         ref?.removeAllObservers()
     }
 
