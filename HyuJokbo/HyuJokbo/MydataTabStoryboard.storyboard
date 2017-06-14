@@ -219,6 +219,7 @@
                                             <outlet property="NumofTableLabel" destination="0HJ-U0-U9l" id="1fb-vt-eLy"/>
                                             <outlet property="ProfessorLabel" destination="Nhg-g4-nWv" id="VTG-4b-ffP"/>
                                             <outlet property="SubjectLabel" destination="waw-M3-lZe" id="apu-kY-aM3"/>
+                                            <segue destination="9g2-xS-fSX" kind="show" identifier="MyJokboSegue" id="y4g-nV-2S2"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -342,6 +343,7 @@
                                             <outlet property="NumofCell" destination="dbn-Up-zac" id="HLq-K8-SXJ"/>
                                             <outlet property="ProfessorName" destination="jAy-YK-0Vc" id="Bb7-a5-xNa"/>
                                             <outlet property="SubjectName" destination="1g2-pg-HG3" id="wZK-MS-SPs"/>
+                                            <segue destination="9g2-xS-fSX" kind="show" identifier="BookedJokboSegue" id="nbS-ba-yXJ"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -434,6 +436,14 @@
             </objects>
             <point key="canvasLocation" x="80.625" y="634.85915492957747"/>
         </scene>
+        <!--ViewJokboTableViewController-->
+        <scene sceneID="v3D-rX-Tzs">
+            <objects>
+                <viewControllerPlaceholder storyboardName="JokboTabStoryboard" referencedIdentifier="ViewJokboTableViewController" id="9g2-xS-fSX" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WlD-MV-pQO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="980" y="637"/>
+        </scene>
     </scenes>
     <resources>
         <image name="(low)icon-mydata(b)" width="25" height="25"/>
@@ -443,4 +453,7 @@
         <image name="icon-file" width="64" height="64"/>
         <image name="icon-like" width="64" height="64"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="nbS-ba-yXJ"/>
+    </inferredMetricsTieBreakers>
 </document>

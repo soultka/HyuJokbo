@@ -205,6 +205,22 @@ class MyDataViewController: UIViewController ,UITableViewDelegate,UITableViewDat
         return myCell
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "MyJokboSegue" {
+            if let destination = segue.destination as? ViewJokboTableViewController, let selectedIndex = self.MyTableView.indexPathForSelectedRow?.row {
+                
+                destination.jokbo = MyJokbo[selectedIndex]
+                g_SelectedData = MyJokbo[selectedIndex].key
+            }
+        }
+        if segue.identifier == "BookedJokboSegue" {
+            if let destination = segue.destination as? ViewJokboTableViewController, let selectedIndex = self.MyBookedTableView.indexPathForSelectedRow?.row {
+                destination.jokbo = self.BookedJokbo[selectedIndex]
+                g_SelectedData = self.BookedJokbo[selectedIndex].key
+            }
+        }
+    }
+
     /*
      // MARK: - Navigation
      

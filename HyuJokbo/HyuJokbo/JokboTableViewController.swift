@@ -40,8 +40,8 @@ class JokboTableViewController: UITableViewController, JokboDownload, UISearchBa
         super.viewDidLoad()
         self.tableView.delegate = self
         self.tableView.dataSource = self
-
-
+        print("rcvLikeNum")
+        print(g_CurUser.rcvLikeNum)
         self.setupSearchBar()
         self.searchBar.isHidden = true
         self.jokbosArray = g_JokbosArray
@@ -63,6 +63,7 @@ class JokboTableViewController: UITableViewController, JokboDownload, UISearchBa
                 let professorName = jokboData["professorName"],
                 let updateDate = jokboData["updateDate"] ,
                 let likeNum = jokboData["likeNum"],
+                let uid = jokboData["uid"],
                 let userName = jokboData["userName"],
                 let commentNum = jokboData["commentNum"],
                 let bookmarkNum = jokboData["bookmarkNum"]{
@@ -72,6 +73,7 @@ class JokboTableViewController: UITableViewController, JokboDownload, UISearchBa
                                   professorName: professorName,
                                   updateDate: Int(updateDate)!,
                                   userName: userName,
+                                  uid: uid,
                                   likeNum: Int(likeNum)!,
                                   commentNum: Int(commentNum)!,
                                   bookmarkNum: Int(bookmarkNum)!)
@@ -104,6 +106,7 @@ class JokboTableViewController: UITableViewController, JokboDownload, UISearchBa
                     let commentNum = jokboData["commentNum"],
                     let likeNum = jokboData["likeNum"],
                     let professorName = jokboData["professorName"],
+                    let uid = jokboData["uid"],
                     let updateDate = jokboData["updateDate"] ,
                     let userName = jokboData["userName"],
                     let bookmarkNum = jokboData["bookmarkNum"]{
@@ -113,6 +116,7 @@ class JokboTableViewController: UITableViewController, JokboDownload, UISearchBa
                                   professorName: professorName,
                                   updateDate: Int(updateDate)!,
                                   userName: userName,
+                                  uid: uid,
                                   likeNum: Int(likeNum)!,
                                   commentNum: Int(commentNum)!,
                                   bookmarkNum: Int(bookmarkNum)!)
@@ -342,18 +346,15 @@ class JokboTableViewController: UITableViewController, JokboDownload, UISearchBa
         if(searchText.isEmpty){
             jokbosArray = g_JokbosArray
         }else{
-        filterTableView(index: searchSelectedScope(rawValue: searchBar.selectedScopeButtonIndex)!, text: searchText)
+        filterTableView(index: 0, text: searchText)
         }
         self.tableView.reloadData()
     }
-    func filterTableView(index:searchSelectedScope, text:String){
-        switch index {
-        case .subject:
+    func filterTableView(index:Int, text:String){
+
             jokbosArray = g_JokbosArray.filter{$0.className.contains(text)}
             jokbosArray += g_JokbosArray.filter{$0.professorName.contains(text)}
-        default:
-            print("filterTable default")
-        }
+
     }
 
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
