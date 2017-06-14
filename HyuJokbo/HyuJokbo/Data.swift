@@ -32,6 +32,7 @@ class Jokbo{
     var updateDate:Int = 0
 
     var userName:String = ""
+    var uid:String = ""
     var likeNum:Int = 0
     var commentNum:Int = 0
     var bookmarkNum:Int = 0
@@ -67,6 +68,7 @@ class Goohae{
     var updateDate:Int = 0
 
     var userName:String = ""
+    var uid:String = ""
     var likeNum:Int = 0
     var commentNum:Int = 0
     var bookmarkNum:Int = 0
@@ -106,8 +108,10 @@ class Comment{
 }
 
 class User{
+
     
     var uid:String = ""
+    var image:String = ""
     var email:String = ""
 
     var sndLikeJokbo:[String] = [] //족보 ID들 담음
