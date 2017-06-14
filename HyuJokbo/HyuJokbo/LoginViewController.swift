@@ -26,8 +26,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate, GIDSignInUIDel
     var ref: FIRDatabaseReference?
     var databaseHandle:FIRDatabaseHandle?
     
-    
-    
+
     var attrs = [
         NSFontAttributeName : UIFont.systemFont(ofSize: 7.0),
         NSForegroundColorAttributeName : UIColor.white,
@@ -249,6 +248,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate, GIDSignInUIDel
     func signIn(){
         self.addUser()
         self.loadUser()
+        self.setupHonorUsers()
+
+
         self.performSegue(withIdentifier: "signInSegue", sender: self)
         ref?.removeAllObservers()
     }
@@ -303,14 +305,25 @@ class LoginViewController: UIViewController, UITextFieldDelegate, GIDSignInUIDel
                 curRef?.child("rcvCommentNum").setValue("0")
             }
             
-           
-           
-
         })
-        
-        
+
         
     }
+
+    //MARK:-    -   -   -   -   -   -   -   -   -   -   HONOR USER SET
+
+    func setupHonorUsers(){
+
+        for i in stride(from: 0, to: g_MAX_HONOR_USER_NUM, by: 1){
+
+            ref?.child("honor_users").child("\(i+1)").observeSingleEvent(of:.value, with: { (snapshot) in
+
+                g_HonorUsers.members[i].uid = snapshot.value as! String
+            })
+        }
+    }
+    
+
         /*
      // MARK: - Navigation
      // In a storyboard-based application, you will often want to do a little preparation before navigation

@@ -150,6 +150,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     func signIn(){
         self.addUser()
         self.loadUser()
+        self.setupHonorUsers()
         self.performSegue(withIdentifier: "signUpSegue", sender: self)
         ref?.removeAllObservers()
     }
@@ -169,6 +170,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     }
 
     func loadUser(){
+
 
         let curRef = ref?.child("users").child(g_CurUser.uid)
         var isLikeFirst = true
@@ -213,6 +215,19 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         
         
         
+    }
+
+    //MARK:-    -   -   -   -   -   -   -   -   -   -   HONOR USER SET
+    func setupHonorUsers(){
+
+        ref?.child("honor_users").observeSingleEvent(of:.value, with: { (snapshot) in
+            for i in stride(from: 0, to: g_MAX_HONOR_USER_NUM, by: 1){
+                g_HonorUsers.members[i].uid = snapshot.childSnapshot(forPath: "\(i+1)").value! as! String
+            }
+
+
+            
+        })
     }
     
    
