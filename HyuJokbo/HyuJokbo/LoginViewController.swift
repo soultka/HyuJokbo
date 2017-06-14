@@ -250,6 +250,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate, GIDSignInUIDel
         self.addUser()
         self.loadUser()
         self.performSegue(withIdentifier: "signInSegue", sender: self)
+        ref?.removeAllObservers()
     }
 
     func addUser(){
@@ -264,6 +265,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate, GIDSignInUIDel
     }
 
     func loadUser(){
+
+        
         databaseHandle = ref?.child("users").child(g_CurUser.uid).observe(.childAdded, with: { (snapshot) in
             var snapKey = snapshot.key as String
 
