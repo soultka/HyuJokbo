@@ -232,9 +232,7 @@ class MyDataViewController: UIViewController ,UITableViewDelegate,UITableViewDat
         }
     }
 
-<<<<<<< HEAD
-=======
-    //MAKR: profile image
+    //MARK: profile image
     func imageLoad(){
 
         if var url = URL(string: g_CurUser.image){
@@ -369,7 +367,6 @@ class MyDataViewController: UIViewController ,UITableViewDelegate,UITableViewDat
 
         self.dismiss(animated: true, completion: nil)
     }
->>>>>>> mydata-image
     /*
      // MARK: - Navigation
      

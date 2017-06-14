@@ -93,9 +93,9 @@ class HonorViewController: UIViewController, UIScrollViewDelegate, HonorMemberBu
     }
     //MARK:-    -   -   -   -   -   -   -   -   -   -   HONOR USER SET
     func setupHonorUsers(){
-        ref?.child("honor_users").observe(of:.value, with: { (snapshot) in
-            
-        })
+//        ref?.child("honor_users").observe(of:.value, with: { (snapshot) in
+//            
+//        })
     }
 
 
