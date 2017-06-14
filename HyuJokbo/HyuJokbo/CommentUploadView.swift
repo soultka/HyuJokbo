@@ -124,7 +124,7 @@ class CommentUploadView:UIView, UITextViewDelegate {
         ref?.child("users").child(jokbo.uid).observeSingleEvent(of: .value, with: { (snapshot) in
             if let rcvCommentNum = snapshot.childSnapshot(forPath: "rcvCommentNum").value as? String{
                 self.ref?.child("users").child(jokbo.uid).updateChildValues(["rcvCommentNum" : "\(Int(rcvCommentNum)! + 1)"])
-                
+                g_CurUser.rcvCommentNum += 1
                 print("check")
             }
         })
@@ -138,7 +138,7 @@ class CommentUploadView:UIView, UITextViewDelegate {
             ref?.child("users").child(goohae.uid).observeSingleEvent(of: .value, with: { (snapshot) in
                 if let rcvCommentNum = snapshot.childSnapshot(forPath: "rcvCommentNum").value as? String{
                     self.ref?.child("users").child(goohae.uid).updateChildValues(["rcvCommentNum" : "\(Int(rcvCommentNum)! + 1)"])
-                    
+                    g_CurUser.rcvCommentNum += 1
                     print("check")
                 }
             })

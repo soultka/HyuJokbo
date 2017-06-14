@@ -267,7 +267,7 @@ class ViewJokboTableViewController: UITableViewController {
             ref?.child("users").child(jokbo.uid).observeSingleEvent(of: .value, with: { (snapshot) in
                 if let rcvLikeNum = snapshot.childSnapshot(forPath: "rcvLikeNum").value as? String{
                     self.ref?.child("users").child(self.jokbo.uid).updateChildValues(["rcvLikeNum" : "\(Int(rcvLikeNum)! + 1)"])
-                    
+                    g_CurUser.rcvLikeNum += 1
                     print("check")
                 }
             })
