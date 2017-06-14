@@ -2493,6 +2493,8 @@
 		display: -webkit-flex;
 		display: -ms-flex;
 		display: flex;
+        padding-left: 80px;
+        padding-right: 80px;
 	}
 
 		.spotlight .image {
