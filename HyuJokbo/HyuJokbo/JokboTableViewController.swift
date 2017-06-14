@@ -187,8 +187,8 @@ class JokboTableViewController: UITableViewController, JokboDownload, UISearchBa
             self.searchBar.isHidden = false
             searchBarOpenedBeforeSegue = false
         }
-//        super.viewDidAppear(animated)
-        self.jokbosArray = g_JokbosArray
+        super.viewDidAppear(animated)
+//        self.jokbosArray = g_JokbosArray
         self.tableView.reloadData()
     }
     override func viewDidDisappear(_ animated: Bool) {
