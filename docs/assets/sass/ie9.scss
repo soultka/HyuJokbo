@@ -4,7 +4,7 @@
 @import 'libs/skel';
 
 /*
-	Fractal by HTML5 UP
+	Spectral by HTML5 UP
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
@@ -12,16 +12,32 @@
 /* Spotlight */
 
 	.spotlight {
+		display: block;
+
 		.image {
-			width: 25%;
 			display: inline-block;
-			vertical-align: middle;
+			vertical-align: top;
 		}
 
 		.content {
-			width: 65%;
+			@include padding(4em, 4em);
 			display: inline-block;
-			vertical-align: middle;
+		}
+
+		&:after {
+			clear: both;
+			content: '';
+			display: block;
+		}
+	}
+
+/* Features */
+
+	.features {
+		display: block;
+
+		li {
+			float: left;
 		}
 
 		&:after {
@@ -29,31 +45,90 @@
 			display: block;
 			clear: both;
 		}
+	}
 
-		&:nth-child(2n) {
-			.image {
-				margin: 0 (_size(element-margin) * 1.5) 0 0;
+/* Banner + Wrapper (style4) */
+
+	#banner,
+	.wrapper.style4 {
+		background-image: url("../../images/banner.jpg");
+		background-position: center center;
+		background-repeat: no-repeat;
+		background-size: cover;
+		position: relative;
+
+		&:before {
+			background: #000000;
+			content: '';
+			height: 100%;
+			left: 0;
+			opacity: 0.5;
+			position: absolute;
+			top: 0;
+			width: 100%;
+		}
+
+		.inner {
+			position: relative;
+			z-index: 1;
+		}
+	}
+
+/* Banner */
+
+	#banner {
+		@include padding(14em, 0);
+		height: auto;
+
+		&:after {
+			display: none;
+		}
+	}
+
+/* CTA */
+
+	#cta {
+		.inner {
+			header {
+				float: left;
 			}
 
-			.content {
-				text-align: left;
+			.actions {
+				float: left;
+			}
+
+			&:after {
+				clear: both;
+				content: '';
+				display: block;
 			}
 		}
 	}
 
-/* Header */
+/* Main */
 
-	#header {
-		height: auto;
-		text-align: center;
+	#main {
+		> header {
+			background-image: url("../../images/banner.jpg");
+			background-position: center center;
+			background-repeat: no-repeat;
+			background-size: cover;
+			position: relative;
 
-		.content {
-			display: inline-block;
-			vertical-align: middle;
-		}
+			&:before {
+				background: #000000;
+				content: '';
+				height: 100%;
+				left: 0;
+				opacity: 0.5;
+				position: absolute;
+				top: 0;
+				width: 100%;
+			}
 
-		.image {
-			display: inline-block;
-			vertical-align: middle;
+			> * {
+				position: relative;
+				z-index: 1;
+			}
 		}
 	}
