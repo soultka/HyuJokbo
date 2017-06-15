@@ -307,6 +307,7 @@ class GoohaeTableViewController: UITableViewController,GoohaeDownload, UISearchB
         glassIconView.image = glassIconView.image?.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
         glassIconView.tintColor = UIColor(red: 213/255, green: 223/255, blue: 243/255, alpha: 1.0)
         
+        
         let clearButton = textFieldInsideSearchBar?.value(forKey: "clearButton") as! UIButton
         clearButton.setImage(clearButton.imageView?.image?.withRenderingMode(UIImageRenderingMode.alwaysTemplate), for: .normal)
         clearButton.tintColor = UIColor(red: 213/255, green: 223/255, blue: 243/255, alpha: 1.0)
