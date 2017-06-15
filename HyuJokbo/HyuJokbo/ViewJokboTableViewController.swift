@@ -279,8 +279,14 @@ class ViewJokboTableViewController: UITableViewController {
                         let minHonorUid = g_HonorUsers.members[4].uid
 
                         //For reset DB
+                        var isPossibleToSort = 1
                         for i in stride(from: 0, to: g_MAX_HONOR_USER_NUM-1, by: 1){
-                            if(g_HonorUsers.members[i].uid != ""){
+                            if g_HonorUsers.members[i].uid == "" {
+                                isPossibleToSort = 0
+                            }
+                        }
+                        if isPossibleToSort == 1{
+                            for i in stride(from: 0, to: g_MAX_HONOR_USER_NUM-1, by: 1){
                                 self.ref?.child("honor_users").child("\(i+1)").setValue(g_HonorUsers.members[i].uid)
                             }
                         }
@@ -294,8 +300,14 @@ class ViewJokboTableViewController: UITableViewController {
                             g_HonorUsers.members.sort(by: {$0.rcvLikeNum > $1.rcvLikeNum })
 
                             //For reset DB
+                            var isPossibleToSort = 1
                             for i in stride(from: 0, to: g_MAX_HONOR_USER_NUM-1, by: 1){
-                                if(g_HonorUsers.members[i].uid != ""){
+                                if g_HonorUsers.members[i].uid == "" {
+                                    isPossibleToSort = 0
+                                }
+                            }
+                            if isPossibleToSort == 1{
+                                for i in stride(from: 0, to: g_MAX_HONOR_USER_NUM-1, by: 1){
                                     self.ref?.child("honor_users").child("\(i+1)").setValue(g_HonorUsers.members[i].uid)
                                 }
                             }
